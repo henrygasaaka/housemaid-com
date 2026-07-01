@@ -4,6 +4,3 @@ import { createClient as createBrowserClient } from "@/lib/supabase/client";
 export function createClient() {
   return createBrowserClient();
 }
-
-/** @deprecated Prefer `createClient()` in client components. */
-export const supabase = createBrowserClient();
