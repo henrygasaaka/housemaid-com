@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   ChevronLeft,
   Heart,
@@ -27,6 +27,28 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
   const isLogin = mode === "login";
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(authError ?? null);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.location.hash) return;
+
+    const hashParams = new URLSearchParams(window.location.hash.slice(1));
+    const hashError = hashParams.get("error_description") ?? hashParams.get("error");
+
+    if (hashError && !authError) {
+      const description = hashError.toLowerCase();
+      if (
+        description.includes("unable to exchange external code") ||
+        hashParams.get("error") === "server_error"
+      ) {
+        setError(
+          "Google sign-in failed: Supabase could not verify your Google credentials. Check Google Cloud Console and Supabase Google provider settings."
+        );
+      }
+    }
+
+    const cleanUrl = window.location.pathname + window.location.search;
+    window.history.replaceState(null, "", cleanUrl);
+  }, [authError]);
 
   async function handleGoogleAuth() {
     setGoogleLoading(true);

@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable} antialiased`}>
-      <body>
+      <body suppressHydrationWarning>
         <PhoneFrame>{children}</PhoneFrame>
       </body>
     </html>
