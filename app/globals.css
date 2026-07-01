@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+:root {
+  --purple: #6c2bd9;
+  --purple-light: #ede9fe;
+  --blue: #2563eb;
+  --blue-light: #dbeafe;
+  --navy: #1f2937;
+  --ink: #1f2937;
+  --ink-soft: #6b7280;
+  --ink-faint: #9ca3af;
+  --border: #e5e7eb;
+  --green: #16a34a;
+  --green-light: #e8f8ee;
+  --app-bg: #f7f7f9;
+  --phone-ring: #eceaf6;
+}
+
+@theme inline {
+  --color-purple: var(--purple);
+  --color-purple-light: var(--purple-light);
+  --color-blue: var(--blue);
+  --color-blue-light: var(--blue-light);
+  --color-navy: var(--navy);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-border: var(--border);
+  --color-green: var(--green);
+  --color-green-light: var(--green-light);
+  --color-app-bg: var(--app-bg);
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-head: var(--font-poppins), sans-serif;
+}
+
+html,
+body {
+  min-height: 100%;
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--app-bg);
+  color: var(--ink);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.phone-canvas {
+  box-sizing: border-box;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  background: var(--app-bg);
+  padding: 16px 0;
+}
+
+.phone-shell {
+  box-sizing: border-box;
+  display: flex;
+  width: min(100%, 390px);
+  max-width: 390px;
+  min-height: 700px;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 0 0 1px var(--phone-ring);
+}
+
+.phone-shell > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.font-head {
+  font-family: var(--font-poppins), sans-serif;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
