@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import {
   Calendar,
   Camera,
@@ -28,7 +29,10 @@ import { FooterNav } from "@/components/ui/footer-nav";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import {
   CANDIDATE_STEPS,
+  EMPLOYMENT_LABELS,
+  EMPLOYMENT_TYPE,
   VISA_LABELS,
+  VISA_STATUS,
   type CandidateProfile,
 } from "@/lib/candidate-profile";
 
@@ -37,6 +41,12 @@ type StepProps = {
   setData: (data: CandidateProfile) => void;
   onBack: () => void;
   onContinue: () => void;
+  saving?: boolean;
+  saveError?: string | null;
+  uploadingPhoto?: boolean;
+  uploadingVideo?: boolean;
+  onPhotoSelect?: (file: File) => void;
+  onVideoSelect?: (file: File) => void;
 };
 
 export function BasicInfoStep({
@@ -44,7 +54,13 @@ export function BasicInfoStep({
   setData,
   onBack,
   onContinue,
+  saving,
+  saveError,
+  uploadingPhoto,
+  onPhotoSelect,
 }: StepProps) {
+  const photoInputRef = useRef<HTMLInputElement>(null);
+
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
@@ -55,14 +71,33 @@ export function BasicInfoStep({
       />
       <div className="flex-1 px-[18px] pt-2">
         <div className="mb-[18px] text-center">
+          <input
+            ref={photoInputRef}
+            type="file"
+            accept="image/jpeg,image/png,image/webp"
+            className="hidden"
+            onChange={(e) => {
+              const file = e.target.files?.[0];
+              if (file) onPhotoSelect?.(file);
+              e.target.value = "";
+            }}
+          />
           <button
             type="button"
-            onClick={() => setData({ ...data, photoUploaded: true })}
-            className={`mx-auto mb-2 flex h-[92px] w-[92px] cursor-pointer items-center justify-center rounded-full border-none ${
+            onClick={() => photoInputRef.current?.click()}
+            disabled={uploadingPhoto}
+            className={`mx-auto mb-2 flex h-[92px] w-[92px] cursor-pointer items-center justify-center overflow-hidden rounded-full border-none disabled:opacity-70 ${
               data.photoUploaded ? "bg-green-light" : "bg-purple-light"
             }`}
           >
-            {data.photoUploaded ? (
+            {data.photoUrl ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={data.photoUrl}
+                alt="Profile"
+                className="h-full w-full object-cover"
+              />
+            ) : data.photoUploaded ? (
               <Check size={28} className="text-green" strokeWidth={3} />
             ) : (
               <Camera size={26} className="text-purple" aria-hidden />
@@ -73,7 +108,11 @@ export function BasicInfoStep({
               data.photoUploaded ? "text-green" : "text-purple"
             }`}
           >
-            {data.photoUploaded ? "Photo added" : "Upload photo"}
+            {uploadingPhoto
+              ? "Uploading photo…"
+              : data.photoUploaded
+                ? "Photo added"
+                : "Upload photo"}
           </p>
           <p className="m-0 mt-[3px] text-[11.5px] text-ink-soft">
             {data.photoUploaded
@@ -153,7 +192,12 @@ export function BasicInfoStep({
           ))}
         </div>
       </div>
-      <FooterNav onContinue={onContinue} accent="purple" />
+      <FooterNav
+        onContinue={onContinue}
+        accent="purple"
+        loading={saving}
+        error={saveError}
+      />
     </div>
   );
 }
@@ -163,31 +207,33 @@ export function LocationVisaStep({
   setData,
   onBack,
   onContinue,
+  saving,
+  saveError,
 }: StepProps) {
   const visaOptions = [
     {
-      key: "own",
+      key: VISA_STATUS.OWN,
       title: "Own visa",
       subtitle: "You are sponsoring your own visa",
       badge: "Recommended",
     },
     {
-      key: "visit",
+      key: VISA_STATUS.VISIT,
       title: "Visit visa",
       subtitle: "You are in UAE on a visit visa",
     },
     {
-      key: "cancelled",
+      key: VISA_STATUS.CANCELLED,
       title: "Cancelled visa",
       subtitle: "You have a cancelled visa",
     },
     {
-      key: "sponsored",
+      key: VISA_STATUS.SPONSORED,
       title: "Sponsored visa",
       subtitle: "Your visa is sponsored by your employer",
     },
     {
-      key: "sponsorship",
+      key: VISA_STATUS.LOOKING_FOR_SPONSORSHIP,
       title: "Looking for sponsorship",
       subtitle: "You need visa sponsorship",
     },
@@ -266,7 +312,12 @@ export function LocationVisaStep({
           onChange={(v) => setData({ ...data, availability: v })}
         />
       </div>
-      <FooterNav onContinue={onContinue} onBack={onBack} />
+      <FooterNav
+        onContinue={onContinue}
+        onBack={onBack}
+        loading={saving}
+        error={saveError}
+      />
     </div>
   );
 }
@@ -276,6 +327,8 @@ export function ExperienceStep({
   setData,
   onBack,
   onContinue,
+  saving,
+  saveError,
 }: StepProps) {
   const expOptions = [
     "Less than 1 year",
@@ -380,12 +433,30 @@ export function ExperienceStep({
           {data.about.length}/300
         </p>
       </div>
-      <FooterNav onContinue={onContinue} onBack={onBack} />
+      <FooterNav
+        onContinue={onContinue}
+        onBack={onBack}
+        loading={saving}
+        error={saveError}
+      />
     </div>
   );
 }
 
-export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
+export function MediaStep({
+  data,
+  setData,
+  onBack,
+  onContinue,
+  saving,
+  saveError,
+  uploadingPhoto,
+  uploadingVideo,
+  onPhotoSelect,
+  onVideoSelect,
+}: StepProps) {
+  const photoInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 
   function toggleDay(d: string) {
@@ -405,16 +476,35 @@ export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
       />
       <div className="flex-1 px-[18px] pt-2">
         <FieldLabel required>Profile photo</FieldLabel>
+        <input
+          ref={photoInputRef}
+          type="file"
+          accept="image/jpeg,image/png,image/webp"
+          className="hidden"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) onPhotoSelect?.(file);
+            e.target.value = "";
+          }}
+        />
         <button
           type="button"
-          onClick={() => setData({ ...data, photoUploaded: true })}
-          className={`mb-4 w-full cursor-pointer rounded-[14px] border-[1.5px] border-dashed px-3.5 py-[26px] text-center ${
+          onClick={() => photoInputRef.current?.click()}
+          disabled={uploadingPhoto}
+          className={`mb-4 w-full cursor-pointer rounded-[14px] border-[1.5px] border-dashed px-3.5 py-[26px] text-center disabled:opacity-70 ${
             data.photoUploaded
               ? "border-green bg-green-light"
               : "border-purple bg-purple-light"
           }`}
         >
-          {data.photoUploaded ? (
+          {data.photoUrl ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={data.photoUrl}
+              alt="Profile"
+              className="mx-auto mb-2 h-20 w-20 rounded-full object-cover"
+            />
+          ) : data.photoUploaded ? (
             <Check size={22} className="mx-auto text-green" strokeWidth={3} />
           ) : (
             <Camera size={22} className="mx-auto text-purple" aria-hidden />
@@ -424,7 +514,11 @@ export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
               data.photoUploaded ? "text-green" : "text-purple"
             }`}
           >
-            {data.photoUploaded ? "Photo added" : "Upload photo"}
+            {uploadingPhoto
+              ? "Uploading photo…"
+              : data.photoUploaded
+                ? "Photo added"
+                : "Upload photo"}
           </p>
           <p className="m-0 text-[11px] text-ink-soft">
             {data.photoUploaded ? "Tap to change" : "JPG, PNG (max 5MB)"}
@@ -432,10 +526,22 @@ export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
         </button>
 
         <FieldLabel>Introduction video (highly recommended)</FieldLabel>
+        <input
+          ref={videoInputRef}
+          type="file"
+          accept="video/mp4"
+          className="hidden"
+          onChange={(e) => {
+            const file = e.target.files?.[0];
+            if (file) onVideoSelect?.(file);
+            e.target.value = "";
+          }}
+        />
         <button
           type="button"
-          onClick={() => setData({ ...data, videoUploaded: true })}
-          className={`mb-4 flex w-full cursor-pointer items-center gap-3 rounded-[14px] border-[1.5px] border-dashed px-4 py-4 text-left ${
+          onClick={() => videoInputRef.current?.click()}
+          disabled={uploadingVideo}
+          className={`mb-4 flex w-full cursor-pointer items-center gap-3 rounded-[14px] border-[1.5px] border-dashed px-4 py-4 text-left disabled:opacity-70 ${
             data.videoUploaded
               ? "border-green bg-green-light"
               : "border-purple bg-purple-light"
@@ -458,11 +564,15 @@ export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
                 data.videoUploaded ? "text-green" : "text-purple"
               }`}
             >
-              {data.videoUploaded ? "Video added" : "Upload video"}
+              {uploadingVideo
+                ? "Uploading video…"
+                : data.videoUploaded
+                  ? "Video added"
+                  : "Upload video"}
             </p>
             <p className="m-0 mt-0.5 text-[11px] text-ink-soft">
               {data.videoUploaded
-                ? "Tap to replace"
+                ? data.videoFileName || "Tap to replace"
                 : "MP4 only, max 30 seconds, max 30MB"}
             </p>
           </div>
@@ -491,8 +601,8 @@ export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
         <div className="mb-4 flex gap-2.5">
           {(
             [
-              ["livein", "Live-in", "I can live at employer's home"],
-              ["liveout", "Live-out", "I will go home after work"],
+              [EMPLOYMENT_TYPE.LIVE_IN, "Live-in", "I can live at employer's home"],
+              [EMPLOYMENT_TYPE.LIVE_OUT, "Live-out", "I will go home after work"],
             ] as const
           ).map(([key, title, subtitle]) => (
             <button
@@ -531,7 +641,12 @@ export function MediaStep({ data, setData, onBack, onContinue }: StepProps) {
           ))}
         </div>
       </div>
-      <FooterNav onContinue={onContinue} onBack={onBack} />
+      <FooterNav
+        onContinue={onContinue}
+        onBack={onBack}
+        loading={saving}
+        error={saveError}
+      />
     </div>
   );
 }
@@ -541,6 +656,8 @@ type ReviewStepProps = {
   onBack: () => void;
   onPublish: () => void;
   onEditSection: (step: number) => void;
+  saving?: boolean;
+  saveError?: string | null;
 };
 
 function ReviewSection({
@@ -593,6 +710,8 @@ export function ReviewStep({
   onBack,
   onPublish,
   onEditSection,
+  saving,
+  saveError,
 }: ReviewStepProps) {
   return (
     <div className="flex min-h-full flex-1 flex-col">
@@ -610,8 +729,17 @@ export function ReviewStep({
           onEditSection={onEditSection}
         >
           <div className="flex gap-3">
-            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-[10px] bg-purple-light">
-              <User size={22} className="text-purple" aria-hidden />
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[10px] bg-purple-light">
+              {data.photoUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={data.photoUrl}
+                  alt=""
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                <User size={22} className="text-purple" aria-hidden />
+              )}
             </div>
             <div>
               <ReviewRow
@@ -672,7 +800,7 @@ export function ReviewStep({
           <ReviewRow
             label="Employment type"
             value={
-              data.employmentType === "livein" ? "Live-in" : "Live-out"
+              EMPLOYMENT_LABELS[data.employmentType] || "—"
             }
           />
           <ReviewRow
@@ -724,10 +852,15 @@ export function ReviewStep({
       </div>
 
       <div className="px-[18px] pb-[22px]">
+        {saveError && (
+          <p className="mb-2 rounded-xl bg-red-50 px-3.5 py-2.5 text-center text-[12.5px] leading-relaxed text-[#B91C1C]">
+            {saveError}
+          </p>
+        )}
         <div className="mb-2">
-          <PrimaryButton onClick={onPublish}>
-            Publish my profile
-            <Send size={15} aria-hidden />
+          <PrimaryButton onClick={onPublish} disabled={saving}>
+            {saving ? "Publishing…" : "Publish my profile"}
+            {!saving && <Send size={15} aria-hidden />}
           </PrimaryButton>
         </div>
         <PrimaryButton outline>

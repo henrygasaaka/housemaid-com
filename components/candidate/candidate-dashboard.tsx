@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Bell,
   Bookmark,
@@ -11,28 +13,12 @@ import {
 } from "lucide-react";
 import { CandidateBottomNav } from "@/components/candidate/candidate-bottom-nav";
 import { useCandidateNav } from "@/components/candidate/use-candidate-nav";
-
-const PROFILE_COMPLETION = 85;
-const STATS = [
-  { icon: Eye, value: "12", label: "Views this week" },
-  { icon: Bookmark, value: "4", label: "Saved by employers" },
-  { icon: Calendar, value: "1", label: "Interview requests" },
-] as const;
-
-const ACTIVITY = [
-  {
-    text: "An employer in Dubai viewed your profile",
-    time: "2 hours ago",
-  },
-  {
-    text: "Your profile was saved by an employer in Abu Dhabi",
-    time: "Yesterday",
-  },
-  {
-    text: "New interview request from a family in Sharjah",
-    time: "2 days ago",
-  },
-] as const;
+import {
+  fetchCandidateDashboard,
+  getCompletionHint,
+  type CandidateDashboardData,
+} from "@/lib/candidate-dashboard";
+import { createClient } from "@/lib/supabase";
 
 function ProfileProgressRing({ percent }: { percent: number }) {
   const size = 56;
@@ -71,10 +57,125 @@ function ProfileProgressRing({ percent }: { percent: number }) {
   );
 }
 
+function DashboardSkeleton() {
+  return (
+    <div className="flex min-h-full flex-1 flex-col bg-app-bg animate-pulse">
+      <header className="flex items-center justify-between px-[18px] pt-4">
+        <div className="h-7 w-36 rounded-lg bg-border" />
+        <div className="flex gap-3">
+          <div className="h-5 w-5 rounded bg-border" />
+          <div className="h-5 w-5 rounded bg-border" />
+        </div>
+      </header>
+      <div className="flex-1 px-[18px] pt-4">
+        <div className="mb-3.5 h-[88px] rounded-[14px] bg-border" />
+        <div className="mb-4 grid grid-cols-3 gap-2">
+          {[0, 1, 2].map((i) => (
+            <div key={i} className="h-[88px] rounded-[13px] bg-border" />
+          ))}
+        </div>
+        <div className="h-28 rounded-[14px] bg-border" />
+      </div>
+    </div>
+  );
+}
+
+function formatStatValue(value: number) {
+  return String(value);
+}
+
 export function CandidateDashboard() {
+  const router = useRouter();
   const onNavigate = useCandidateNav();
-  const firstName = "Maria";
-  const showCompleteCta = PROFILE_COMPLETION < 100;
+  const [dashboard, setDashboard] = useState<CandidateDashboardData | null>(
+    null
+  );
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        router.replace("/candidate/auth");
+        return;
+      }
+
+      try {
+        const data = await fetchCandidateDashboard(supabase, user.id);
+        if (cancelled) return;
+
+        if (!data) {
+          router.replace("/candidate/onboard");
+          return;
+        }
+
+        setDashboard(data);
+        setLoadError(null);
+      } catch (error) {
+        if (cancelled) return;
+        console.error("[dashboard] Failed to load candidate data:", error);
+        setLoadError(
+          error instanceof Error
+            ? error.message
+            : "Could not load your profile. Please try again."
+        );
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [router]);
+
+  if (loading) {
+    return <DashboardSkeleton />;
+  }
+
+  if (loadError || !dashboard) {
+    return (
+      <div className="flex min-h-full flex-1 flex-col items-center justify-center bg-app-bg px-6 text-center">
+        <p className="m-0 text-[14px] font-semibold text-navy">
+          {loadError ?? "Profile not found"}
+        </p>
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
+
+  const { firstName, completion, stats } = dashboard;
+  const completionPercent = completion.percent;
+  const showCompleteCta = completionPercent < 100;
+  const completionHint = getCompletionHint(completion.missing);
+
+  const statItems = [
+    { icon: Eye, value: formatStatValue(stats.viewsThisWeek), label: "Views this week" },
+    {
+      icon: Bookmark,
+      value: formatStatValue(stats.savesCount),
+      label: "Saved by employers",
+    },
+    {
+      icon: Calendar,
+      value: formatStatValue(stats.interviewRequests),
+      label: "Interview requests",
+    },
+  ] as const;
 
   return (
     <div className="flex min-h-full flex-1 flex-col bg-app-bg">
@@ -85,11 +186,10 @@ export function CandidateDashboard() {
         <div className="flex items-center gap-3">
           <button
             type="button"
-            className="relative cursor-pointer border-none bg-transparent p-0"
+            className="cursor-pointer border-none bg-transparent p-0"
             aria-label="Notifications"
           >
             <Bell size={20} className="text-ink" aria-hidden />
-            <span className="absolute -right-0.5 -top-0.5 h-2 w-2 rounded-full bg-[#E0245E]" />
           </button>
           <button
             type="button"
@@ -103,19 +203,19 @@ export function CandidateDashboard() {
 
       <div className="flex-1 overflow-y-auto px-[18px] pb-4 pt-4">
         <div className="mb-3.5 flex items-center gap-3.5 rounded-[14px] border border-border bg-white p-3.5">
-          <ProfileProgressRing percent={PROFILE_COMPLETION} />
+          <ProfileProgressRing percent={completionPercent} />
           <div className="min-w-0 flex-1">
             <p className="m-0 text-[14px] font-bold text-navy">
-              Your profile is {PROFILE_COMPLETION}% complete
+              Your profile is {completionPercent}% complete
             </p>
             <p className="m-0 mt-1 text-[12px] leading-snug text-ink-soft">
-              Add a video intro and references to reach 100%.
+              {completionHint}
             </p>
           </div>
         </div>
 
         <div className="mb-4 grid grid-cols-3 gap-2">
-          {STATS.map(({ icon: Icon, value, label }) => (
+          {statItems.map(({ icon: Icon, value, label }) => (
             <div
               key={label}
               className="rounded-[13px] border border-border bg-white px-2 py-3 text-center"
@@ -153,18 +253,14 @@ export function CandidateDashboard() {
         <h2 className="font-head m-0 mb-2.5 text-[15px] font-bold text-navy">
           Recent activity
         </h2>
-        <div className="space-y-2">
-          {ACTIVITY.map((item) => (
-            <div
-              key={item.text}
-              className="rounded-[13px] border border-border bg-white px-3.5 py-3"
-            >
-              <p className="m-0 text-[12.5px] font-semibold leading-snug text-ink">
-                {item.text}
-              </p>
-              <p className="m-0 mt-1 text-[11px] text-ink-faint">{item.time}</p>
-            </div>
-          ))}
+        <div className="rounded-[13px] border border-border bg-white px-3.5 py-6 text-center">
+          <p className="m-0 text-[12.5px] font-semibold text-ink">
+            No activity yet
+          </p>
+          <p className="m-0 mt-1 text-[11px] leading-snug text-ink-faint">
+            Profile views, saves, and interview requests will appear here once
+            employers start engaging with your profile.
+          </p>
         </div>
       </div>
 

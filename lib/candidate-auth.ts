@@ -1,4 +1,5 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
+import { CANDIDATE_STATUS } from "@/lib/candidate-profile";
 
 export const CANDIDATE_AUTH_CALLBACK_PATH = "/candidate/auth/callback";
 
@@ -35,8 +36,8 @@ export async function getCandidatePostAuthPath(
 ): Promise<"/candidate/dashboard" | "/candidate/onboard"> {
   const { data, error } = await supabase
     .from("candidates")
-    .select("id")
-    .eq("user_id", userId)
+    .select("id, status")
+    .eq("id", userId)
     .maybeSingle();
 
   if (error) {
@@ -44,5 +45,9 @@ export async function getCandidatePostAuthPath(
     return "/candidate/onboard";
   }
 
-  return data ? "/candidate/dashboard" : "/candidate/onboard";
+  if (data?.status === CANDIDATE_STATUS.ACTIVE) {
+    return "/candidate/dashboard";
+  }
+
+  return "/candidate/onboard";
 }
