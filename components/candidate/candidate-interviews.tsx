@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   Calendar,
@@ -9,12 +10,13 @@ import {
   MapPin,
 } from "lucide-react";
 import {
-  CANDIDATE_INTERVIEWS,
   getInterviewStatusMeta,
   type CandidateInterview,
 } from "@/lib/candidate-interviews";
+import { fetchCandidateInterviews } from "@/lib/interviews-db";
 import { CandidateBottomNav } from "@/components/candidate/candidate-bottom-nav";
 import { useCandidateNav } from "@/components/candidate/use-candidate-nav";
+import { createClient } from "@/lib/supabase";
 
 function InterviewStatusBadge({
   status,
@@ -41,6 +43,7 @@ function InterviewCard({
   onMessage?: () => void;
 }) {
   const isUpcoming = interview.section === "upcoming";
+  const showLocation = interview.location && interview.location !== "—";
 
   return (
     <div className="rounded-[14px] border border-border bg-white p-3.5">
@@ -49,9 +52,11 @@ function InterviewCard({
           <p className="m-0 text-[14px] font-bold text-ink">
             {interview.employer}
           </p>
-          <p className="m-0 mt-0.5 text-[12px] font-semibold text-purple">
-            {interview.role}
-          </p>
+          {interview.role !== "—" && (
+            <p className="m-0 mt-0.5 text-[12px] font-semibold text-purple">
+              {interview.role}
+            </p>
+          )}
         </div>
         <InterviewStatusBadge status={interview.status} />
       </div>
@@ -65,10 +70,12 @@ function InterviewCard({
           <Clock size={13} className="shrink-0 text-ink-faint" aria-hidden />
           {interview.time}
         </p>
-        <p className="m-0 flex items-center gap-2 text-[12px] text-ink-soft">
-          <MapPin size={13} className="shrink-0 text-ink-faint" aria-hidden />
-          {interview.location}
-        </p>
+        {showLocation && (
+          <p className="m-0 flex items-center gap-2 text-[12px] text-ink-soft">
+            <MapPin size={13} className="shrink-0 text-ink-faint" aria-hidden />
+            {interview.location}
+          </p>
+        )}
       </div>
 
       <div className="mt-3.5 flex gap-2">
@@ -105,15 +112,60 @@ function EmptyState() {
   );
 }
 
-type CandidateInterviewsProps = {
-  interviews?: CandidateInterview[];
-};
+function InterviewsSkeleton() {
+  return (
+    <div className="space-y-2.5 animate-pulse">
+      {[0, 1].map((i) => (
+        <div key={i} className="h-44 rounded-[14px] border border-border bg-white" />
+      ))}
+    </div>
+  );
+}
 
-export function CandidateInterviews({
-  interviews = CANDIDATE_INTERVIEWS,
-}: CandidateInterviewsProps) {
+export function CandidateInterviews() {
   const router = useRouter();
   const onNavigate = useCandidateNav();
+  const [interviews, setInterviews] = useState<CandidateInterview[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        router.replace("/candidate/auth");
+        return;
+      }
+
+      try {
+        const data = await fetchCandidateInterviews(supabase, user.id);
+        if (cancelled) return;
+        setInterviews(data);
+        setLoadError(null);
+      } catch (error) {
+        if (cancelled) return;
+        console.error("[interviews] Failed to load:", error);
+        setLoadError(
+          error instanceof Error
+            ? error.message
+            : "Could not load interviews. Please try again."
+        );
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, [router]);
 
   const upcoming = interviews.filter((i) => i.section === "upcoming");
   const past = interviews.filter((i) => i.section === "past");
@@ -135,7 +187,20 @@ export function CandidateInterviews({
       </header>
 
       <div className="flex-1 overflow-y-auto px-[18px] py-4">
-        {!hasInterviews ? (
+        {loading ? (
+          <InterviewsSkeleton />
+        ) : loadError ? (
+          <div className="flex flex-col items-center px-6 py-12 text-center">
+            <p className="m-0 text-[14px] font-semibold text-navy">{loadError}</p>
+            <button
+              type="button"
+              onClick={() => window.location.reload()}
+              className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
+            >
+              Try again
+            </button>
+          </div>
+        ) : !hasInterviews ? (
           <EmptyState />
         ) : (
           <>
