@@ -1,24 +1,115 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import type { Conversation } from "@/lib/candidate-conversations";
 import {
-  CANDIDATE_CONVERSATIONS,
-  type Conversation,
-} from "@/lib/candidate-conversations";
+  fetchCandidateConversations,
+  markConversationRead,
+} from "@/lib/messaging-db";
 import { CandidateMessagesInbox } from "@/components/candidate/candidate-messages-inbox";
 import { CandidateMessageThread } from "@/components/candidate/candidate-message-thread";
+import { createClient } from "@/lib/supabase";
+
+function InboxSkeleton() {
+  return (
+    <div className="flex flex-1 flex-col animate-pulse px-[18px] pt-4">
+      {[0, 1, 2].map((i) => (
+        <div key={i} className="mb-3 flex gap-3 border-b border-[#F1EFF9] pb-3">
+          <div className="h-12 w-12 rounded-full bg-border" />
+          <div className="flex-1">
+            <div className="mb-2 h-4 w-32 rounded bg-border" />
+            <div className="h-3 w-48 rounded bg-border" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function CandidateMessages() {
-  const [conversations, setConversations] = useState(CANDIDATE_CONVERSATIONS);
+  const router = useRouter();
+  const [conversations, setConversations] = useState<Conversation[]>([]);
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
+  const [userId, setUserId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
+
+  const loadConversations = useCallback(async () => {
+    const supabase = createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      router.replace("/candidate/auth");
+      return null;
+    }
+
+    setUserId(user.id);
+    const data = await fetchCandidateConversations(supabase, user.id);
+    setConversations(data);
+    return user.id;
+  }, [router]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function bootstrap() {
+      try {
+        await loadConversations();
+        if (!cancelled) setLoadError(null);
+      } catch (error) {
+        if (cancelled) return;
+        console.error("[messages] Failed to load conversations:", error);
+        setLoadError(
+          error instanceof Error
+            ? error.message
+            : "Could not load messages. Please try again."
+        );
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    bootstrap();
+    return () => {
+      cancelled = true;
+    };
+  }, [loadConversations]);
 
   const activeConversation = activeThreadId
     ? conversations.find((c) => c.id === activeThreadId)
     : undefined;
 
-  function handleOpenThread(id: string) {
+  async function handleOpenThread(id: string) {
+    const conversation = conversations.find((c) => c.id === id);
+    if (!conversation || !userId) {
+      setActiveThreadId(id);
+      return;
+    }
+
+    const supabase = createClient();
+    await markConversationRead(
+      supabase,
+      conversation.id,
+      userId,
+      conversation.candidateId,
+      conversation.employerId
+    );
+
     setConversations((prev) =>
-      prev.map((c) => (c.id === id ? { ...c, unreadCount: 0 } : c))
+      prev.map((c) =>
+        c.id === id
+          ? {
+              ...c,
+              unreadCount: 0,
+              messages: c.messages.map((m) =>
+                m.from === "employer" ? { ...m, status: "read" as const } : m
+              ),
+            }
+          : c
+      )
     );
     setActiveThreadId(id);
   }
@@ -29,10 +120,39 @@ export function CandidateMessages() {
     );
   }
 
-  if (activeConversation) {
+  if (loading) {
+    return (
+      <div className="flex min-h-full flex-1 flex-col bg-app-bg">
+        <header className="flex items-center gap-2 border-b border-border bg-white px-4 py-3.5">
+          <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
+            Messages
+          </h1>
+        </header>
+        <InboxSkeleton />
+      </div>
+    );
+  }
+
+  if (loadError) {
+    return (
+      <div className="flex min-h-full flex-1 flex-col items-center justify-center bg-app-bg px-6 text-center">
+        <p className="m-0 text-[14px] font-semibold text-navy">{loadError}</p>
+        <button
+          type="button"
+          onClick={() => window.location.reload()}
+          className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
+        >
+          Try again
+        </button>
+      </div>
+    );
+  }
+
+  if (activeConversation && userId) {
     return (
       <CandidateMessageThread
         conversation={activeConversation}
+        userId={userId}
         onBack={() => setActiveThreadId(null)}
         onUpdateConversation={handleUpdateConversation}
       />
@@ -42,7 +162,7 @@ export function CandidateMessages() {
   return (
     <CandidateMessagesInbox
       conversations={conversations}
-      onOpenThread={handleOpenThread}
+      onOpenThread={(id) => void handleOpenThread(id)}
     />
   );
 }

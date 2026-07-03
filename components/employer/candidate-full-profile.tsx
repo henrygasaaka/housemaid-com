@@ -24,6 +24,8 @@ import { MessageComposerSheet } from "@/components/employer/message-composer-she
 import { PaywallScreen } from "@/components/employer/paywall-screen";
 import { FreshnessDot } from "@/components/employer/freshness-dot";
 import { maskCandidateName, type DiscoverCandidate } from "@/lib/discover-candidates";
+import { sendEmployerMessageToCandidate } from "@/lib/messaging-db";
+import { createClient } from "@/lib/supabase";
 import {
   canSendFreeMessage,
   FREE_MESSAGE_LIMIT,
@@ -100,6 +102,8 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
   const [gateOpen, setGateOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [composerOpen, setComposerOpen] = useState(false);
+  const [sendingMessage, setSendingMessage] = useState(false);
+  const [messageError, setMessageError] = useState<string | null>(null);
   const [paywallOpen, setPaywallOpen] = useState(false);
   const [paywallVariant, setPaywallVariant] = useState<PaywallVariant>("messaging");
   const [pendingAction, setPendingAction] = useState<PendingAction>(null);
@@ -149,12 +153,45 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
     setPaywallOpen(true);
   }
 
-  function handleSendMessage(_message: string) {
-    persistEmployer({
-      ...employer,
-      freeMessagesSent: employer.freeMessagesSent + 1,
-    });
-    setComposerOpen(false);
+  async function handleSendMessage(message: string) {
+    setMessageError(null);
+    setSendingMessage(true);
+
+    try {
+      const supabase = createClient();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
+
+      if (!user) {
+        setMessageError("Please log in to send messages.");
+        return;
+      }
+
+      await sendEmployerMessageToCandidate(
+        supabase,
+        user.id,
+        c.id,
+        message,
+        {
+          fullName: employer.fullName || undefined,
+          familyName: employer.fullName || undefined,
+        }
+      );
+
+      persistEmployer({
+        ...employer,
+        freeMessagesSent: employer.freeMessagesSent + 1,
+      });
+      setComposerOpen(false);
+    } catch (error) {
+      console.error("[employer] Failed to send message:", error);
+      setMessageError(
+        error instanceof Error ? error.message : "Failed to send message."
+      );
+    } finally {
+      setSendingMessage(false);
+    }
   }
 
   function requireAccount(action: PendingAction) {
@@ -529,9 +566,17 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
       <MessageComposerSheet
         open={composerOpen}
         candidateName={firstName}
-        onSend={handleSendMessage}
-        onDismiss={() => setComposerOpen(false)}
+        onSend={(message) => void handleSendMessage(message)}
+        onDismiss={() => {
+          setComposerOpen(false);
+          setMessageError(null);
+        }}
       />
+      {messageError && (
+        <p className="fixed bottom-24 left-1/2 z-50 max-w-[90%] -translate-x-1/2 rounded-xl bg-red-50 px-4 py-2.5 text-center text-[12px] text-[#B91C1C] shadow">
+          {messageError}
+        </p>
+      )}
 
       {paywallOpen && (
         <PaywallScreen

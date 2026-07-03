@@ -3,11 +3,17 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronLeft, Send } from "lucide-react";
 import type {
-  ChatMessage,
   Conversation,
   OutboundStatus,
 } from "@/lib/candidate-conversations";
+import {
+  formatRelativeTime,
+  mapMessageRow,
+  sendCandidateMessage,
+  type MessageRow,
+} from "@/lib/messaging-db";
 import { ConversationStatusBadge } from "@/components/candidate/conversation-status-badge";
+import { createClient } from "@/lib/supabase";
 
 function MessageTicks({ status }: { status: OutboundStatus }) {
   return (
@@ -19,30 +25,27 @@ function MessageTicks({ status }: { status: OutboundStatus }) {
 
 type CandidateMessageThreadProps = {
   conversation: Conversation;
+  userId: string;
   onBack: () => void;
   onUpdateConversation: (conversation: Conversation) => void;
 };
 
-function formatTime() {
-  return new Date().toLocaleTimeString("en-US", {
-    hour: "numeric",
-    minute: "2-digit",
-    hour12: true,
-  });
-}
-
 export function CandidateMessageThread({
   conversation,
+  userId,
   onBack,
   onUpdateConversation,
 }: CandidateMessageThreadProps) {
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState(conversation.messages);
+  const [sending, setSending] = useState(false);
+  const [sendError, setSendError] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMessages(conversation.messages);
     setDraft("");
+    setSendError(null);
   }, [conversation.id, conversation.messages]);
 
   useEffect(() => {
@@ -52,37 +55,45 @@ export function CandidateMessageThread({
     });
   }, [messages]);
 
-  function handleSend() {
+  async function handleSend() {
     const text = draft.trim();
-    if (!text) return;
+    if (!text || sending) return;
 
-    const newMessage: ChatMessage = {
-      id: `local-${Date.now()}`,
-      from: "candidate",
-      text,
-      time: formatTime(),
-      status: "sent",
-    };
+    setSending(true);
+    setSendError(null);
 
-    const nextMessages = [...messages, newMessage];
+    try {
+      const supabase = createClient();
+      const row = await sendCandidateMessage(
+        supabase,
+        userId,
+        conversation.id,
+        text
+      );
+      appendMessage(row);
+      setDraft("");
+    } catch (error) {
+      console.error("[messages] Failed to send:", error);
+      setSendError(
+        error instanceof Error ? error.message : "Failed to send message."
+      );
+    } finally {
+      setSending(false);
+    }
+  }
+
+  function appendMessage(row: MessageRow) {
+    const mapped = mapMessageRow(row, conversation.candidateId, userId);
+    const nextMessages = [...messages, mapped];
     setMessages(nextMessages);
-    setDraft("");
 
     onUpdateConversation({
       ...conversation,
       messages: nextMessages,
-      lastPreview: text,
-      lastTime: "Just now",
+      lastPreview: mapped.text,
+      lastTime: formatRelativeTime(row.created_at),
       unreadCount: 0,
     });
-
-    window.setTimeout(() => {
-      setMessages((prev) =>
-        prev.map((m) =>
-          m.id === newMessage.id ? { ...m, status: "read" as const } : m
-        )
-      );
-    }, 1200);
   }
 
   return (
@@ -116,6 +127,11 @@ export function CandidateMessageThread({
         ref={scrollRef}
         className="flex flex-1 flex-col gap-2.5 overflow-y-auto px-4 py-4"
       >
+        {messages.length === 0 && (
+          <p className="m-0 text-center text-[12.5px] text-ink-faint">
+            No messages in this conversation yet.
+          </p>
+        )}
         {messages.map((message) => {
           const isMine = message.from === "candidate";
 
@@ -150,20 +166,27 @@ export function CandidateMessageThread({
         })}
       </div>
 
+      {sendError && (
+        <p className="mx-3.5 mb-1 rounded-xl bg-red-50 px-3 py-2 text-center text-[12px] text-[#B91C1C]">
+          {sendError}
+        </p>
+      )}
+
       <div className="flex items-center gap-2 border-t border-border bg-white px-3.5 pb-[18px] pt-2.5">
         <input
           value={draft}
           onChange={(e) => setDraft(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter") handleSend();
+            if (e.key === "Enter") void handleSend();
           }}
           placeholder="Type a message..."
-          className="flex-1 rounded-[20px] border border-border px-4 py-[11px] text-[13.5px] text-ink outline-none placeholder:text-ink-faint focus:border-purple"
+          disabled={sending}
+          className="flex-1 rounded-[20px] border border-border px-4 py-[11px] text-[13.5px] text-ink outline-none placeholder:text-ink-faint focus:border-purple disabled:opacity-60"
         />
         <button
           type="button"
-          onClick={handleSend}
-          disabled={!draft.trim()}
+          onClick={() => void handleSend()}
+          disabled={!draft.trim() || sending}
           className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-purple disabled:cursor-default disabled:opacity-50"
           aria-label="Send message"
         >
