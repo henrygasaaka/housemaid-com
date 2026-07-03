@@ -35,6 +35,7 @@ import {
   VISA_STATUS,
   type CandidateProfile,
 } from "@/lib/candidate-profile";
+import { calculateProfileCompletion } from "@/lib/candidate-dashboard";
 
 type StepProps = {
   data: CandidateProfile;
@@ -713,6 +714,8 @@ export function ReviewStep({
   saving,
   saveError,
 }: ReviewStepProps) {
+  const completionPercent = calculateProfileCompletion(data).percent;
+
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
@@ -832,12 +835,12 @@ export function ReviewStep({
                 fill="none"
                 stroke="#16A34A"
                 strokeWidth="4"
-                strokeDasharray="85 100"
+                strokeDasharray={`${completionPercent} 100`}
                 strokeLinecap="round"
               />
             </svg>
             <span className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-green">
-              85%
+              {completionPercent}%
             </span>
           </div>
           <div>
