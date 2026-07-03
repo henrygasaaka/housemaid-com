@@ -1,16 +1,17 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, Heart } from "lucide-react";
 import { DiscoverCandidateCard } from "@/components/employer/discover-candidate-card";
 import { EmployerBottomNav } from "@/components/employer/employer-bottom-nav";
 import { useEmployerNav } from "@/components/employer/use-employer-nav";
-import { DISCOVER_CANDIDATES } from "@/lib/discover-candidates";
-import { DEMO_SAVED_CANDIDATE_IDS } from "@/lib/employer-saved";
+import type { DiscoverCandidate } from "@/lib/discover-candidates";
+import { fetchDiscoverCandidates } from "@/lib/discover-candidates-db";
+import { createClient } from "@/lib/supabase";
 
 type SavedCandidatesScreenProps = {
-  initialSavedIds?: number[];
+  initialSavedIds?: string[];
 };
 
 function EmptyState() {
@@ -30,19 +31,39 @@ function EmptyState() {
 }
 
 export function SavedCandidatesScreen({
-  initialSavedIds = [...DEMO_SAVED_CANDIDATE_IDS],
+  initialSavedIds = [],
 }: SavedCandidatesScreenProps) {
   const onNavigate = useEmployerNav();
-  const [savedIds, setSavedIds] = useState<Set<number>>(
+  const [savedIds, setSavedIds] = useState<Set<string>>(
     () => new Set(initialSavedIds)
   );
+  const [candidates, setCandidates] = useState<DiscoverCandidate[]>([]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        const supabase = createClient();
+        const data = await fetchDiscoverCandidates(supabase);
+        if (!cancelled) setCandidates(data);
+      } catch (error) {
+        console.error("[saved] Failed to load candidates:", error);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   const savedCandidates = useMemo(
-    () => DISCOVER_CANDIDATES.filter((c) => savedIds.has(c.id)),
-    [savedIds]
+    () => candidates.filter((c) => savedIds.has(c.id)),
+    [candidates, savedIds]
   );
 
-  function toggleSave(e: React.MouseEvent, id: number) {
+  function toggleSave(e: React.MouseEvent, id: string) {
     e.preventDefault();
     e.stopPropagation();
     setSavedIds((prev) => {

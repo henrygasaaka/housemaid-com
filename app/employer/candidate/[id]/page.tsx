@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { CandidateFullProfile } from "@/components/employer/candidate-full-profile";
-import { getCandidateById } from "@/lib/discover-candidates";
+import { fetchDiscoverCandidateById } from "@/lib/discover-candidates-db";
+import { createClient } from "@/lib/supabase/server";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -8,10 +9,10 @@ type PageProps = {
 
 export default async function CandidateProfilePage({ params }: PageProps) {
   const { id } = await params;
-  const candidateId = Number(id);
-  const candidate = getCandidateById(candidateId);
+  const supabase = await createClient();
+  const candidate = await fetchDiscoverCandidateById(supabase, id);
 
-  if (!candidate || Number.isNaN(candidateId)) {
+  if (!candidate) {
     notFound();
   }
 

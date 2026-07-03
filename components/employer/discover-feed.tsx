@@ -1,22 +1,89 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ChevronLeft, Lock, Shield, User } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { DiscoverCandidateCard } from "@/components/employer/discover-candidate-card";
 import {
-  DISCOVER_CANDIDATES,
-} from "@/lib/discover-candidates";
+  DISCOVER_FILTERS,
+  fetchDiscoverCandidates,
+  filterDiscoverCandidates,
+} from "@/lib/discover-candidates-db";
+import type { DiscoverCandidate } from "@/lib/discover-candidates";
+import { createClient } from "@/lib/supabase";
 
-const FILTERS = ["All", "Full-Time", "Part-Time", "Live-In", "Live-Out"];
+function DiscoverSkeleton() {
+  return (
+    <div className="grid flex-1 grid-cols-2 gap-2.5 px-[18px] pt-3.5">
+      {[0, 1, 2, 3].map((i) => (
+        <div
+          key={i}
+          className="h-[280px] animate-pulse rounded-2xl border border-border bg-white"
+        />
+      ))}
+    </div>
+  );
+}
+
+function DiscoverEmptyState() {
+  return (
+    <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
+      <p className="m-0 text-[15px] font-bold text-navy">
+        No candidates available yet
+      </p>
+      <p className="m-0 mt-2 max-w-[280px] text-[12.5px] leading-relaxed text-ink-soft">
+        Published candidate profiles will appear here once housemaids complete
+        onboarding and go live.
+      </p>
+    </div>
+  );
+}
 
 export function EmployerDiscoverFeed() {
-  const [savedIds, setSavedIds] = useState<Set<number>>(new Set());
+  const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
   const [activeFilter, setActiveFilter] = useState(0);
+  const [candidates, setCandidates] = useState<DiscoverCandidate[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadError, setLoadError] = useState<string | null>(null);
   const guestMode = true;
 
-  function toggleSave(e: React.MouseEvent, id: number) {
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        const supabase = createClient();
+        const data = await fetchDiscoverCandidates(supabase);
+        if (cancelled) return;
+        setCandidates(data);
+        setLoadError(null);
+      } catch (error) {
+        if (cancelled) return;
+        console.error("[discover] Failed to load candidates:", error);
+        setLoadError(
+          error instanceof Error
+            ? error.message
+            : "Could not load candidates. Please try again."
+        );
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const visibleCandidates = useMemo(
+    () =>
+      filterDiscoverCandidates(candidates, DISCOVER_FILTERS[activeFilter]!),
+    [candidates, activeFilter]
+  );
+
+  function toggleSave(e: React.MouseEvent, id: string) {
     e.preventDefault();
     e.stopPropagation();
     setSavedIds((prev) => {
@@ -64,34 +131,61 @@ export function EmployerDiscoverFeed() {
 
       <div className="min-w-0 overflow-hidden pt-2.5">
         <div className="no-scrollbar flex gap-1.5 overflow-x-auto px-[18px]">
-        {FILTERS.map((f, i) => (
-          <button
-            key={f}
-            type="button"
-            onClick={() => setActiveFilter(i)}
-            className={`shrink-0 cursor-pointer rounded-[20px] px-3 py-1.5 text-[11.5px] font-semibold whitespace-nowrap ${
-              i === activeFilter
-                ? "border-none bg-blue text-white"
-                : "border border-border bg-white text-ink"
-            }`}
-          >
-            {f}
-          </button>
-        ))}
+          {DISCOVER_FILTERS.map((f, i) => (
+            <button
+              key={f}
+              type="button"
+              onClick={() => setActiveFilter(i)}
+              className={`shrink-0 cursor-pointer rounded-[20px] px-3 py-1.5 text-[11.5px] font-semibold whitespace-nowrap ${
+                i === activeFilter
+                  ? "border-none bg-blue text-white"
+                  : "border border-border bg-white text-ink"
+              }`}
+            >
+              {f}
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className="grid flex-1 grid-cols-2 gap-2.5 px-[18px] pt-3.5">
-        {DISCOVER_CANDIDATES.map((c) => (
-          <DiscoverCandidateCard
-            key={c.id}
-            candidate={c}
-            isSaved={savedIds.has(c.id)}
-            onSave={(e) => toggleSave(e, c.id)}
-            onMessage={handleMessage}
-          />
-        ))}
-      </div>
+      {loading ? (
+        <DiscoverSkeleton />
+      ) : loadError ? (
+        <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
+          <p className="m-0 text-[14px] font-semibold text-navy">{loadError}</p>
+          <button
+            type="button"
+            onClick={() => window.location.reload()}
+            className="mt-4 cursor-pointer rounded-[11px] border-none bg-blue px-4 py-2.5 text-[13px] font-bold text-white"
+          >
+            Try again
+          </button>
+        </div>
+      ) : candidates.length === 0 ? (
+        <DiscoverEmptyState />
+      ) : visibleCandidates.length === 0 ? (
+        <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
+          <p className="m-0 text-[15px] font-bold text-navy">
+            No matches for this filter
+          </p>
+          <p className="m-0 mt-2 max-w-[260px] text-[12.5px] leading-relaxed text-ink-soft">
+            Try another filter or check back as more candidates publish their
+            profiles.
+          </p>
+        </div>
+      ) : (
+        <div className="grid flex-1 grid-cols-2 gap-2.5 px-[18px] pt-3.5">
+          {visibleCandidates.map((c) => (
+            <DiscoverCandidateCard
+              key={c.id}
+              candidate={c}
+              isSaved={savedIds.has(c.id)}
+              onSave={(e) => toggleSave(e, c.id)}
+              onMessage={handleMessage}
+            />
+          ))}
+        </div>
+      )}
 
       <div className="px-[18px] py-3.5">
         <div className="flex items-start gap-2.5 rounded-xl bg-blue-light p-3.5">

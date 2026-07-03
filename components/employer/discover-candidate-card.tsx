@@ -71,7 +71,7 @@ export function DiscoverCandidateCard({
 
       <div className="p-2.5">
         <p className="m-0 text-[12.5px] font-bold text-ink">
-          {maskCandidateName(c.name)}, {c.age} {c.nationality}
+          {maskCandidateName(c.name)} {c.nationality}
         </p>
         <p className="mb-1.5 mt-0.5 flex items-center gap-[3px] text-[10.5px] text-ink-soft">
           <MapPin size={9} aria-hidden />
@@ -90,10 +90,14 @@ export function DiscoverCandidateCard({
         </div>
 
         <div className="mb-2 flex items-center justify-between">
-          <p className="m-0 flex items-center gap-[3px] text-[10px] text-ink-faint">
-            <Clock size={9} aria-hidden />
-            Replies in {c.responseTime}
-          </p>
+          {c.responseTime ? (
+            <p className="m-0 flex items-center gap-[3px] text-[10px] text-ink-faint">
+              <Clock size={9} aria-hidden />
+              Replies in {c.responseTime}
+            </p>
+          ) : (
+            <span />
+          )}
           <FreshnessDot lastActive={c.lastActive} />
         </div>
 

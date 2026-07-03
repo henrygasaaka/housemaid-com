@@ -302,8 +302,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
 
       <div className="flex-1 overflow-x-hidden overflow-y-auto px-[18px] py-4">
         <p className="font-head m-0 text-[19px] font-bold text-navy">
-          {isUnlocked ? c.name : maskCandidateName(c.name)}, {c.age}{" "}
-          {c.nationality}
+          {isUnlocked ? c.name : maskCandidateName(c.name)} {c.nationality}
         </p>
         <p className="mb-2.5 mt-[3px] flex items-center gap-1 text-[12.5px] text-ink-soft">
           <MapPin size={12} aria-hidden />
@@ -311,14 +310,24 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
         </p>
 
         <div className="mb-3.5 flex min-w-0 flex-wrap gap-1.5">
-          <InfoPill label={c.visa} icon={<Shield size={11} aria-hidden />} />
-          <InfoPill label={c.exp} icon={<Star size={11} aria-hidden />} />
-          <InfoPill label={c.type} icon={<Clock size={11} aria-hidden />} />
-          <InfoPill
-            label={c.live}
-            icon={<HomeIcon size={11} aria-hidden />}
-          />
-          <InfoPill label={c.rate} icon={<span aria-hidden>💰</span>} />
+          {c.visa && c.visa !== "—" && (
+            <InfoPill label={c.visa} icon={<Shield size={11} aria-hidden />} />
+          )}
+          {c.exp && (
+            <InfoPill label={c.exp} icon={<Star size={11} aria-hidden />} />
+          )}
+          {c.type && (
+            <InfoPill label={c.type} icon={<Clock size={11} aria-hidden />} />
+          )}
+          {c.live && (
+            <InfoPill
+              label={c.live}
+              icon={<HomeIcon size={11} aria-hidden />}
+            />
+          )}
+          {c.rate && c.rate !== "—" && (
+            <InfoPill label={c.rate} icon={<span aria-hidden>💰</span>} />
+          )}
         </div>
 
         <div className="mb-4 flex min-w-0 flex-wrap gap-2">
