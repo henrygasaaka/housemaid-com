@@ -5,17 +5,19 @@ import { GoogleIcon } from "@/components/candidate/google-icon";
 type OAuthButtonProps = {
   provider: "google" | "apple";
   primary?: boolean;
+  disabled?: boolean;
   onClick: () => void;
 };
 
-export function OAuthButton({ provider, primary, onClick }: OAuthButtonProps) {
+export function OAuthButton({ provider, primary, disabled, onClick }: OAuthButtonProps) {
   const isGoogle = provider === "google";
 
   return (
     <button
       type="button"
       onClick={onClick}
-      className={`mb-2.5 flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-[13px] py-[13px] text-[14.5px] font-bold ${
+      disabled={disabled}
+      className={`mb-2.5 flex w-full cursor-pointer items-center justify-center gap-2.5 rounded-[13px] py-[13px] text-[14.5px] font-bold disabled:cursor-default disabled:opacity-70 ${
         primary
           ? "border-none bg-blue text-white"
           : "border border-border bg-white text-ink"

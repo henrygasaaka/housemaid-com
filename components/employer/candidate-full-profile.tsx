@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Briefcase,
   Check,
@@ -23,16 +24,22 @@ import { EmployerLoginSheet } from "@/components/employer/employer-login-sheet";
 import { MessageComposerSheet } from "@/components/employer/message-composer-sheet";
 import { PaywallScreen } from "@/components/employer/paywall-screen";
 import { FreshnessDot } from "@/components/employer/freshness-dot";
+import { useEmployerAuth } from "@/components/employer/use-employer-auth";
 import { maskCandidateName, type DiscoverCandidate } from "@/lib/discover-candidates";
+import {
+  clearStashedEmployerPendingAction,
+  employerDisplayNameFromUser,
+  readStashedEmployerPendingAction,
+} from "@/lib/employer-auth";
 import { sendEmployerMessageToCandidate } from "@/lib/messaging-db";
 import { createClient } from "@/lib/supabase";
 import {
   canSendFreeMessage,
   FREE_MESSAGE_LIMIT,
-  INITIAL_EMPLOYER_SESSION,
-  loadEmployerSession,
-  saveEmployerSession,
-  type EmployerSession,
+  INITIAL_EMPLOYER_PAYWALL,
+  loadEmployerPaywallState,
+  saveEmployerPaywallState,
+  type EmployerPaywallState,
 } from "@/lib/employer-session";
 
 type CandidateFullProfileProps = {
@@ -96,9 +103,13 @@ function ProfileActionButton({
 }
 
 export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps) {
+  const pathname = usePathname();
+  const { loading: authLoading, isGuest } = useEmployerAuth();
   const [isSaved, setIsSaved] = useState(false);
   const [playingVideo, setPlayingVideo] = useState(false);
-  const [employer, setEmployer] = useState<EmployerSession>(INITIAL_EMPLOYER_SESSION);
+  const [paywall, setPaywall] = useState<EmployerPaywallState>(
+    INITIAL_EMPLOYER_PAYWALL
+  );
   const [gateOpen, setGateOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
   const [composerOpen, setComposerOpen] = useState(false);
@@ -108,36 +119,43 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
   const [paywallVariant, setPaywallVariant] = useState<PaywallVariant>("messaging");
   const [pendingAction, setPendingAction] = useState<PendingAction>(null);
 
-  const isUnlocked = employer.hasUnlockedProfile;
-
-  // No real auth yet — treat every user as a guest until auth is wired up.
-  const isGuest = true;
+  const isUnlocked = paywall.hasUnlockedProfile;
 
   useEffect(() => {
-    setEmployer(loadEmployerSession());
+    setPaywall(loadEmployerPaywallState());
   }, []);
 
-  function persistEmployer(next: EmployerSession) {
-    setEmployer(next);
-    saveEmployerSession(next);
+  useEffect(() => {
+    if (authLoading || isGuest) return;
+
+    const stashed = readStashedEmployerPendingAction();
+    if (!stashed || stashed.returnPath !== pathname) return;
+
+    clearStashedEmployerPendingAction();
+    completePendingAction(loadEmployerPaywallState(), stashed.action);
+  }, [authLoading, isGuest, pathname]);
+
+  function persistPaywall(next: EmployerPaywallState) {
+    setPaywall(next);
+    saveEmployerPaywallState(next);
   }
 
-  function completePendingAction(session: EmployerSession, action: PendingAction) {
+  function completePendingAction(state: EmployerPaywallState, action: PendingAction) {
     if (action === "save") {
       setIsSaved(true);
       return;
     }
     if (action === "message") {
-      openMessageFlow(session);
+      openMessageFlow(state);
       return;
     }
     if (action === "unlock") {
-      openUnlockFlow(session);
+      openUnlockFlow(state);
     }
   }
 
-  function openMessageFlow(session: EmployerSession) {
-    if (!canSendFreeMessage(session)) {
+  function openMessageFlow(state: EmployerPaywallState) {
+    if (!canSendFreeMessage(state)) {
       setPendingAction("message");
       setPaywallVariant("messaging");
       setPaywallOpen(true);
@@ -146,8 +164,8 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
     setComposerOpen(true);
   }
 
-  function openUnlockFlow(session: EmployerSession) {
-    if (session.hasUnlockedProfile) return;
+  function openUnlockFlow(state: EmployerPaywallState) {
+    if (state.hasUnlockedProfile) return;
     setPendingAction("unlock");
     setPaywallVariant("profile");
     setPaywallOpen(true);
@@ -160,28 +178,30 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
     try {
       const supabase = createClient();
       const {
-        data: { user },
+        data: { user: authUser },
       } = await supabase.auth.getUser();
 
-      if (!user) {
+      if (!authUser) {
         setMessageError("Please log in to send messages.");
         return;
       }
 
+      const displayName = employerDisplayNameFromUser(authUser);
+
       await sendEmployerMessageToCandidate(
         supabase,
-        user.id,
+        authUser.id,
         c.id,
         message,
         {
-          fullName: employer.fullName || undefined,
-          familyName: employer.fullName || undefined,
+          fullName: displayName,
+          familyName: displayName,
         }
       );
 
-      persistEmployer({
-        ...employer,
-        freeMessagesSent: employer.freeMessagesSent + 1,
+      persistPaywall({
+        ...paywall,
+        freeMessagesSent: paywall.freeMessagesSent + 1,
       });
       setComposerOpen(false);
     } catch (error) {
@@ -195,6 +215,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
   }
 
   function requireAccount(action: PendingAction) {
+    if (authLoading) return true;
     if (!isGuest) return false;
     setPendingAction(action);
     setGateOpen(true);
@@ -208,31 +229,22 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
 
   function handleMessage() {
     if (requireAccount("message")) return;
-    openMessageFlow(employer);
+    openMessageFlow(paywall);
   }
 
   function handleViewProfile() {
     if (isUnlocked) return;
     if (requireAccount("unlock")) return;
-    openUnlockFlow(employer);
+    openUnlockFlow(paywall);
   }
 
-  function handleLoggedIn() {
-    const next: EmployerSession = {
-      ...employer,
-      hasAccount: true,
-      fullName: employer.fullName || "Sarah Thompson",
-      email: employer.email || "sarah.thompson@gmail.com",
-    };
-    persistEmployer(next);
-    setLoginOpen(false);
-    const action = pendingAction;
-    setPendingAction(null);
-    completePendingAction(next, action);
+  function openLoginSheet() {
+    setGateOpen(false);
+    setLoginOpen(true);
   }
 
   function handleUnlock() {
-    const next: EmployerSession = { ...employer };
+    const next: EmployerPaywallState = { ...paywall };
 
     if (pendingAction === "unlock" || paywallVariant === "profile") {
       next.hasUnlockedProfile = true;
@@ -240,7 +252,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
       next.hasUnlockedPremium = true;
     }
 
-    persistEmployer(next);
+    persistPaywall(next);
     setPaywallOpen(false);
     const action = pendingAction;
     setPendingAction(null);
@@ -544,6 +556,8 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
         open={gateOpen}
         candidateName={firstName}
         actionLabel={actionLabel}
+        onCreateAccount={openLoginSheet}
+        onLogin={openLoginSheet}
         onDismiss={() => {
           setGateOpen(false);
           setPendingAction(null);
@@ -552,7 +566,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
 
       <EmployerLoginSheet
         open={loginOpen}
-        onLogin={handleLoggedIn}
+        pendingAction={pendingAction}
         onBack={() => {
           setLoginOpen(false);
           setGateOpen(true);
@@ -581,7 +595,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
       {paywallOpen && (
         <PaywallScreen
           variant={paywallVariant}
-          used={Math.min(employer.freeMessagesSent, FREE_MESSAGE_LIMIT)}
+          used={Math.min(paywall.freeMessagesSent, FREE_MESSAGE_LIMIT)}
           limit={FREE_MESSAGE_LIMIT}
           onUnlock={handleUnlock}
           onBack={() => {

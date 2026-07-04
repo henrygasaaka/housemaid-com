@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   ChevronRight,
@@ -9,15 +10,21 @@ import {
   HelpCircle,
   LogOut,
   Mail,
-  MapPin,
   Shield,
   User,
 } from "lucide-react";
 import { EmployerBottomNav } from "@/components/employer/employer-bottom-nav";
 import { useEmployerNav } from "@/components/employer/use-employer-nav";
-import { FREE_MESSAGE_LIMIT } from "@/lib/employer-session";
-
-const FREE_MESSAGES_USED = 2;
+import { useEmployerAuth } from "@/components/employer/use-employer-auth";
+import {
+  employerDisplayNameFromUser,
+  employerEmailFromUser,
+} from "@/lib/employer-auth";
+import {
+  FREE_MESSAGE_LIMIT,
+  loadEmployerPaywallState,
+} from "@/lib/employer-session";
+import { createClient } from "@/lib/supabase";
 
 function SettingsLinkRow({
   icon,
@@ -42,10 +49,71 @@ function SettingsLinkRow({
   );
 }
 
+function ProfileSkeleton() {
+  return (
+    <div className="animate-pulse space-y-4 px-[18px] pt-4">
+      <div className="h-24 rounded-[14px] border border-border bg-white" />
+      <div className="h-20 rounded-[14px] border border-border bg-white" />
+    </div>
+  );
+}
+
 export function EmployerProfileScreen() {
   const router = useRouter();
   const onNavigate = useEmployerNav();
-  const progressPercent = (FREE_MESSAGES_USED / FREE_MESSAGE_LIMIT) * 100;
+  const { user, loading: authLoading, isGuest } = useEmployerAuth();
+  const [displayName, setDisplayName] = useState("Employer");
+  const [email, setEmail] = useState("");
+  const [freeMessagesUsed, setFreeMessagesUsed] = useState(0);
+  const [signingOut, setSigningOut] = useState(false);
+
+  useEffect(() => {
+    const paywall = loadEmployerPaywallState();
+    setFreeMessagesUsed(paywall.freeMessagesSent);
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+
+    setEmail(employerEmailFromUser(user));
+
+    async function loadEmployerProfile() {
+      const supabase = createClient();
+      const { data } = await supabase
+        .from("employers")
+        .select("full_name, family_name")
+        .eq("id", user!.id)
+        .maybeSingle();
+
+      const nameFromRow =
+        data?.full_name?.trim() || data?.family_name?.trim() || "";
+      setDisplayName(nameFromRow || employerDisplayNameFromUser(user!));
+    }
+
+    void loadEmployerProfile();
+  }, [user]);
+
+  const progressPercent = (freeMessagesUsed / FREE_MESSAGE_LIMIT) * 100;
+
+  async function handleLogout() {
+    setSigningOut(true);
+    const supabase = createClient();
+    await supabase.auth.signOut();
+    router.replace("/employer/auth");
+  }
+
+  if (authLoading) {
+    return (
+      <div className="flex min-h-full flex-1 flex-col bg-app-bg">
+        <header className="border-b border-border bg-white px-[18px] py-3.5">
+          <h1 className="font-head m-0 text-[17px] font-semibold text-navy">
+            My Account
+          </h1>
+        </header>
+        <ProfileSkeleton />
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-h-full flex-1 flex-col bg-app-bg">
@@ -62,24 +130,41 @@ export function EmployerProfileScreen() {
               <User size={24} className="text-blue" aria-hidden />
             </div>
             <div className="min-w-0">
-              <p className="m-0 text-[15.5px] font-extrabold text-navy">
-                Ahmed Al Rashid
-              </p>
-              <p className="m-0 mt-1 flex items-center gap-1 text-[12px] text-ink-soft">
-                <Mail size={12} className="shrink-0 text-ink-faint" aria-hidden />
-                ahmed.alrashid@gmail.com
-              </p>
-              <p className="m-0 mt-0.5 flex items-center gap-1 text-[12px] text-ink-soft">
-                <MapPin size={12} className="shrink-0 text-ink-faint" aria-hidden />
-                Dubai
-              </p>
+              {isGuest ? (
+                <>
+                  <p className="m-0 text-[15.5px] font-extrabold text-navy">
+                    Guest
+                  </p>
+                  <p className="m-0 mt-1 text-[12px] text-ink-soft">
+                    Log in to save your progress and message candidates.
+                  </p>
+                  <Link
+                    href="/employer/auth"
+                    className="mt-2 inline-block text-[12.5px] font-bold text-blue no-underline"
+                  >
+                    Log in with Google
+                  </Link>
+                </>
+              ) : (
+                <>
+                  <p className="m-0 text-[15.5px] font-extrabold text-navy">
+                    {displayName}
+                  </p>
+                  {email && (
+                    <p className="m-0 mt-1 flex items-center gap-1 text-[12px] text-ink-soft">
+                      <Mail size={12} className="shrink-0 text-ink-faint" aria-hidden />
+                      {email}
+                    </p>
+                  )}
+                </>
+              )}
             </div>
           </div>
         </div>
 
         <div className="mb-4 rounded-[14px] border border-border bg-white p-4">
           <p className="m-0 text-[13px] font-bold text-ink">
-            {FREE_MESSAGES_USED} of {FREE_MESSAGE_LIMIT} free messages used
+            {freeMessagesUsed} of {FREE_MESSAGE_LIMIT} free messages used
           </p>
           <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-border">
             <div
@@ -117,16 +202,21 @@ export function EmployerProfileScreen() {
             href="/employer/support"
           />
 
-          <button
-            type="button"
-            onClick={() => router.push("/employer/discover")}
-            className="flex w-full cursor-pointer items-center gap-3 border-none bg-transparent py-3.5"
-          >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FEE2E2] text-[#E0245E]">
-              <LogOut size={15} aria-hidden />
-            </span>
-            <span className="text-[13px] font-bold text-[#E0245E]">Log Out</span>
-          </button>
+          {!isGuest && (
+            <button
+              type="button"
+              onClick={() => void handleLogout()}
+              disabled={signingOut}
+              className="flex w-full cursor-pointer items-center gap-3 border-none bg-transparent py-3.5 disabled:opacity-70"
+            >
+              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FEE2E2] text-[#E0245E]">
+                <LogOut size={15} aria-hidden />
+              </span>
+              <span className="text-[13px] font-bold text-[#E0245E]">
+                {signingOut ? "Logging out…" : "Log Out"}
+              </span>
+            </button>
+          )}
         </div>
       </div>
 

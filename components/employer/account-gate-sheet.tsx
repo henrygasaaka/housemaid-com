@@ -7,6 +7,8 @@ type AccountGateSheetProps = {
   open: boolean;
   candidateName?: string;
   actionLabel?: string;
+  onCreateAccount: () => void;
+  onLogin: () => void;
   onDismiss: () => void;
 };
 
@@ -14,6 +16,8 @@ export function AccountGateSheet({
   open,
   candidateName = "this candidate",
   actionLabel = "messaging",
+  onCreateAccount,
+  onLogin,
   onDismiss,
 }: AccountGateSheetProps) {
   return (
@@ -25,13 +29,13 @@ export function AccountGateSheet({
         You&apos;re one step away from {actionLabel} {candidateName}.
       </p>
 
-      <PrimaryButton accent="blue" onClick={onDismiss}>
+      <PrimaryButton accent="blue" onClick={onCreateAccount}>
         Create Account
       </PrimaryButton>
 
       <button
         type="button"
-        onClick={onDismiss}
+        onClick={onLogin}
         className="mt-2.5 flex w-full cursor-pointer items-center justify-center rounded-[13px] border border-border bg-white py-[13px] text-[14.5px] font-bold text-ink"
       >
         Log In

@@ -1,44 +1,59 @@
-export type EmployerSession = {
-  hasAccount: boolean;
-  fullName: string;
-  email: string;
+export type EmployerPaywallState = {
   freeMessagesSent: number;
   hasUnlockedPremium: boolean;
   hasUnlockedProfile: boolean;
 };
 
+/** @deprecated Use EmployerPaywallState — kept for gradual migration. */
+export type EmployerSession = EmployerPaywallState;
+
 export const FREE_MESSAGE_LIMIT = 3;
 
-export const INITIAL_EMPLOYER_SESSION: EmployerSession = {
-  hasAccount: false,
-  fullName: "",
-  email: "",
+export const INITIAL_EMPLOYER_PAYWALL: EmployerPaywallState = {
   freeMessagesSent: 0,
   hasUnlockedPremium: false,
   hasUnlockedProfile: false,
 };
 
-const STORAGE_KEY = "housemaid-employer-session";
+/** @deprecated Use INITIAL_EMPLOYER_PAYWALL */
+export const INITIAL_EMPLOYER_SESSION = INITIAL_EMPLOYER_PAYWALL;
 
-export function loadEmployerSession(): EmployerSession {
-  if (typeof window === "undefined") return INITIAL_EMPLOYER_SESSION;
+const STORAGE_KEY = "housemaid-employer-paywall";
+
+export function loadEmployerPaywallState(): EmployerPaywallState {
+  if (typeof window === "undefined") return INITIAL_EMPLOYER_PAYWALL;
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
-    if (!raw) return INITIAL_EMPLOYER_SESSION;
-    return { ...INITIAL_EMPLOYER_SESSION, ...JSON.parse(raw) };
+    if (!raw) return INITIAL_EMPLOYER_PAYWALL;
+    const parsed = JSON.parse(raw) as Partial<EmployerPaywallState>;
+    return {
+      ...INITIAL_EMPLOYER_PAYWALL,
+      freeMessagesSent: parsed.freeMessagesSent ?? 0,
+      hasUnlockedPremium: parsed.hasUnlockedPremium ?? false,
+      hasUnlockedProfile: parsed.hasUnlockedProfile ?? false,
+    };
   } catch {
-    return INITIAL_EMPLOYER_SESSION;
+    return INITIAL_EMPLOYER_PAYWALL;
   }
 }
 
-export function saveEmployerSession(session: EmployerSession) {
-  if (typeof window === "undefined") return;
-  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+/** @deprecated Use loadEmployerPaywallState */
+export function loadEmployerSession(): EmployerPaywallState {
+  return loadEmployerPaywallState();
 }
 
-export function canSendFreeMessage(session: EmployerSession): boolean {
+export function saveEmployerPaywallState(state: EmployerPaywallState) {
+  if (typeof window === "undefined") return;
+  sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+/** @deprecated Use saveEmployerPaywallState */
+export function saveEmployerSession(state: EmployerPaywallState) {
+  saveEmployerPaywallState(state);
+}
+
+export function canSendFreeMessage(state: EmployerPaywallState): boolean {
   return (
-    session.hasUnlockedPremium ||
-    session.freeMessagesSent < FREE_MESSAGE_LIMIT
+    state.hasUnlockedPremium || state.freeMessagesSent < FREE_MESSAGE_LIMIT
   );
 }
