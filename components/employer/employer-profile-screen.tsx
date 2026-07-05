@@ -68,9 +68,10 @@ export function EmployerProfileScreen() {
   const [signingOut, setSigningOut] = useState(false);
 
   useEffect(() => {
+    if (authLoading) return;
     const paywall = loadEmployerPaywallState();
     setFreeMessagesUsed(paywall.freeMessagesSent);
-  }, []);
+  }, [authLoading]);
 
   useEffect(() => {
     if (!user) return;

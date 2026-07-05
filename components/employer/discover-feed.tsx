@@ -11,6 +11,7 @@ import {
   filterDiscoverCandidates,
 } from "@/lib/discover-candidates-db";
 import type { DiscoverCandidate } from "@/lib/discover-candidates";
+import { useEmployerAuth } from "@/components/employer/use-employer-auth";
 import { createClient } from "@/lib/supabase";
 
 function DiscoverSkeleton() {
@@ -46,7 +47,7 @@ export function EmployerDiscoverFeed() {
   const [candidates, setCandidates] = useState<DiscoverCandidate[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
-  const guestMode = true;
+  const { isGuest: guestMode } = useEmployerAuth();
 
   useEffect(() => {
     let cancelled = false;

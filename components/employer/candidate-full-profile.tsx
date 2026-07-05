@@ -122,8 +122,9 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
   const isUnlocked = paywall.hasUnlockedProfile;
 
   useEffect(() => {
+    if (authLoading) return;
     setPaywall(loadEmployerPaywallState());
-  }, []);
+  }, [authLoading]);
 
   useEffect(() => {
     if (authLoading || isGuest) return;

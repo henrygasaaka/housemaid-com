@@ -47,6 +47,21 @@ export function saveEmployerPaywallState(state: EmployerPaywallState) {
   sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state));
 }
 
+/** Overwrite quota fields from DB; preserve profile-unlock flag in sessionStorage. */
+export function hydrateEmployerPaywallFromDb(
+  freeMessagesUsed: number,
+  hasUnlockedPremium: boolean
+): EmployerPaywallState {
+  const existing = loadEmployerPaywallState();
+  const state: EmployerPaywallState = {
+    freeMessagesSent: freeMessagesUsed,
+    hasUnlockedPremium,
+    hasUnlockedProfile: existing.hasUnlockedProfile,
+  };
+  saveEmployerPaywallState(state);
+  return state;
+}
+
 /** @deprecated Use saveEmployerPaywallState */
 export function saveEmployerSession(state: EmployerPaywallState) {
   saveEmployerPaywallState(state);
