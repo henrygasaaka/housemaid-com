@@ -34,34 +34,23 @@ export function useEmployerAuth() {
     let cancelled = false;
     const supabase = createClient();
 
-    async function applyUser(authUser: User | null) {
-      if (authUser) {
-        await hydratePaywallForUser(authUser);
-      }
+    async function load() {
+      const {
+        data: { user: authUser },
+      } = await supabase.auth.getUser();
+
       if (cancelled) return;
       setUser(authUser);
       setLoading(false);
     }
 
-    async function load() {
-      const {
-        data: { user: authUser },
-      } = await supabase.auth.getUser();
-      await applyUser(authUser);
-    }
-
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (event, session) => {
+    } = supabase.auth.onAuthStateChange((event, session) => {
       if (cancelled) return;
 
       if (event === "SIGNED_IN" || event === "TOKEN_REFRESHED") {
-        const nextUser = session?.user ?? null;
-        if (nextUser) {
-          await hydratePaywallForUser(nextUser);
-        }
-        if (cancelled) return;
-        setUser(nextUser);
+        setUser(session?.user ?? null);
         setLoading(false);
         return;
       }
@@ -79,6 +68,24 @@ export function useEmployerAuth() {
       subscription.unsubscribe();
     };
   }, []);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const authUser = user;
+    let cancelled = false;
+
+    async function hydrate() {
+      await hydratePaywallForUser(authUser);
+      if (cancelled) return;
+    }
+
+    void hydrate();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   return {
     user,
