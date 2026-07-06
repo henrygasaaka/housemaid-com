@@ -17,7 +17,7 @@ export const EMPLOYER_HELP_FAQ: FaqItem[] = [
     id: "refund",
     question: "Can I get a refund?",
     answer:
-      "Unlock payments are one-time and non-refundable unless required by UAE law. If you believe you were charged in error, email support@housemaid.com within 7 days with your account email and payment reference.",
+      "Unlock payments are one-time and non-refundable unless required by UAE law. If you believe you were charged in error, email support@housemaid-ae.com within 7 days with your account email and payment reference.",
   },
   {
     id: "find",

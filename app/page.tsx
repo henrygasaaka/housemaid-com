@@ -127,7 +127,7 @@ function LandingScreen() {
               backgroundImage: "linear-gradient(135deg, #9B6BFF, #6B3FE0)",
             }}
           >
-            .com
+            -AE
           </span>
           <svg
             width="20"

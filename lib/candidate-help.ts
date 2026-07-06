@@ -17,7 +17,7 @@ export const CANDIDATE_HELP_FAQ: FaqItem[] = [
     id: "documents",
     question: "Who can see my documents?",
     answer:
-      "Your ID, visa, and reference documents are never shown publicly. Only Housemaid.com's verification team reviews them. Employers see a Verified badge once approved — they do not download your raw documents unless you choose to share them in chat.",
+      "Your ID, visa, and reference documents are never shown publicly. Only Housemaid-AE's verification team reviews them. Employers see a Verified badge once approved — they do not download your raw documents unless you choose to share them in chat.",
   },
   {
     id: "pause",
@@ -29,6 +29,6 @@ export const CANDIDATE_HELP_FAQ: FaqItem[] = [
     id: "delete",
     question: "How do I delete my account?",
     answer:
-      "Email support@housemaid.com from your registered address and request account deletion. We remove your profile, documents, and messages within 30 days, except where UAE law requires us to retain records.",
+      "Email support@housemaid-ae.com from your registered address and request account deletion. We remove your profile, documents, and messages within 30 days, except where UAE law requires us to retain records.",
   },
 ];

@@ -12,7 +12,9 @@ export type FaqItem = {
   answer: string;
 };
 
-export const SUPPORT_EMAIL = "support@housemaid.com";
+export const APP_NAME = "Housemaid-AE";
+
+export const SUPPORT_EMAIL = "support@housemaid-ae.com";
 
 export const SUPPORT_WHATSAPP_URL =
-  "https://wa.me/971800468362?text=Hi%20Housemaid.com%20support";
+  "https://wa.me/971800468362?text=Hi%20Housemaid-AE%20support";

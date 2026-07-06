@@ -1,7 +1,7 @@
 import type { LegalSection } from "@/lib/legal-types";
 
 export const EMPLOYER_TERMS_INTRO =
-  "These Terms apply to employers using Housemaid.com to find domestic workers in the UAE. By creating an account, you agree to the rules below.";
+  "These Terms apply to employers using Housemaid-AE to find domestic workers in the UAE. By creating an account, you agree to the rules below.";
 
 export const EMPLOYER_TERMS_SECTIONS: LegalSection[] = [
   {
@@ -18,7 +18,7 @@ export const EMPLOYER_TERMS_SECTIONS: LegalSection[] = [
   },
   {
     heading: "4. No refunds",
-    body: "Unlock payments are non-refundable unless required by UAE law. If you believe you were charged in error, contact support@housemaid.com within 7 days.",
+    body: "Unlock payments are non-refundable unless required by UAE law. If you believe you were charged in error, contact support@housemaid-ae.com within 7 days.",
   },
   {
     heading: "5. Your responsibilities",
@@ -37,13 +37,13 @@ export const EMPLOYER_TERMS_SECTIONS: LegalSection[] = [
   },
   {
     heading: "7. No employment guarantee",
-    body: "Housemaid.com facilitates introductions only. We do not employ candidates, guarantee suitability, or mediate employment disputes.",
+    body: "Housemaid-AE facilitates introductions only. We do not employ candidates, guarantee suitability, or mediate employment disputes.",
   },
   {
     heading: "8. Governing law",
     body: "These Terms are governed by the laws of the United Arab Emirates.",
   },
-  { heading: "9. Contact", body: "Questions about these Terms: support@housemaid.com" },
+  { heading: "9. Contact", body: "Questions about these Terms: support@housemaid-ae.com" },
 ];
 
 export const EMPLOYER_PRIVACY_INTRO =
@@ -77,7 +77,7 @@ export const EMPLOYER_PRIVACY_SECTIONS: LegalSection[] = [
   },
   {
     heading: "Account deletion",
-    body: "To delete your employer account, email support@housemaid.com from your registered address. Deletion is processed within 30 days.",
+    body: "To delete your employer account, email support@housemaid-ae.com from your registered address. Deletion is processed within 30 days.",
   },
-  { heading: "Contact", body: "Housemaid.com, Dubai, UAE. Email: support@housemaid.com" },
+  { heading: "Contact", body: "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com" },
 ];

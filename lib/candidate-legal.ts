@@ -1,12 +1,12 @@
 import type { LegalSection } from "@/lib/legal-types";
 
 export const CANDIDATE_TERMS_INTRO =
-  "These Terms apply to candidates using Housemaid.com to find domestic work in the UAE. By creating a profile, you agree to the rules below.";
+  "These Terms apply to candidates using Housemaid-AE to find domestic work in the UAE. By creating a profile, you agree to the rules below.";
 
 export const CANDIDATE_TERMS_SECTIONS: LegalSection[] = [
   {
     heading: "1. Your profile",
-    body: "You own the content you submit — including your photo, intro video, documents, work history, and bio. By publishing your profile, you grant Housemaid.com a licence to display this information to employers on the platform for the purpose of matching you with job opportunities.",
+    body: "You own the content you submit — including your photo, intro video, documents, work history, and bio. By publishing your profile, you grant Housemaid-AE a licence to display this information to employers on the platform for the purpose of matching you with job opportunities.",
   },
   {
     heading: "2. Information you share",
@@ -25,7 +25,7 @@ export const CANDIDATE_TERMS_SECTIONS: LegalSection[] = [
   },
   {
     heading: "4. Matching with employers",
-    body: "Employers can browse, save, and message you through the platform. You are free to accept or decline any opportunity. Housemaid.com does not guarantee employment, interviews, or specific salary offers.",
+    body: "Employers can browse, save, and message you through the platform. You are free to accept or decline any opportunity. Housemaid-AE does not guarantee employment, interviews, or specific salary offers.",
   },
   {
     heading: "5. Accuracy and conduct",
@@ -37,9 +37,9 @@ export const CANDIDATE_TERMS_SECTIONS: LegalSection[] = [
   },
   {
     heading: "7. Account deletion",
-    body: "To permanently delete your account and data, contact support@housemaid.com. We process deletion requests within 30 days, subject to legal retention requirements in the UAE.",
+    body: "To permanently delete your account and data, contact support@housemaid-ae.com. We process deletion requests within 30 days, subject to legal retention requirements in the UAE.",
   },
-  { heading: "8. Contact", body: "Questions about these Terms: support@housemaid.com" },
+  { heading: "8. Contact", body: "Questions about these Terms: support@housemaid-ae.com" },
 ];
 
 export const CANDIDATE_PRIVACY_INTRO =
@@ -72,11 +72,11 @@ export const CANDIDATE_PRIVACY_SECTIONS: LegalSection[] = [
   },
   {
     heading: "How to delete your data",
-    body: "You can update or remove most information from your profile at any time. To delete your account entirely, email support@housemaid.com from your registered address.",
+    body: "You can update or remove most information from your profile at any time. To delete your account entirely, email support@housemaid-ae.com from your registered address.",
   },
   {
     heading: "Your rights",
-    body: "You may request access to, correction of, or deletion of your personal data. Contact support@housemaid.com and we will respond within 30 days.",
+    body: "You may request access to, correction of, or deletion of your personal data. Contact support@housemaid-ae.com and we will respond within 30 days.",
   },
-  { heading: "Contact", body: "Housemaid.com, Dubai, UAE. Email: support@housemaid.com" },
+  { heading: "Contact", body: "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com" },
 ];

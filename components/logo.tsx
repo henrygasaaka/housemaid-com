@@ -21,7 +21,7 @@ export function Logo({ accent = "purple", size = 15 }: LogoProps) {
             backgroundImage: `linear-gradient(135deg, ${gradFrom}, ${gradTo})`,
           }}
         >
-          .com
+          -AE
         </span>
       </span>
       <svg

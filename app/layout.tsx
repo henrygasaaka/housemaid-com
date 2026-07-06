@@ -14,10 +14,19 @@ const poppins = Poppins({
   weight: ["500", "600", "700", "800"],
 });
 
+const APP_TITLE = "Housemaid-AE — Trusted housemaids & employers in UAE";
+
 export const metadata: Metadata = {
-  title: "Housemaid.com — Trusted housemaids & employers in UAE",
+  title: APP_TITLE,
   description:
     "Connecting trusted housemaids and employers across UAE. Find the right job or hire the perfect match.",
+  openGraph: {
+    title: APP_TITLE,
+  },
+  appleWebApp: {
+    title: "Housemaid-AE",
+  },
+  applicationName: "Housemaid-AE",
 };
 
 export default function RootLayout({

@@ -8,7 +8,7 @@ const needles = [
   "Privacy Policy",
   "onOpenTerms",
   "onOpenPrivacy",
-  "Housemaid.com",
+  "Housemaid-AE",
   "Last updated",
   "1. Introduction",
   "Personal Data",
