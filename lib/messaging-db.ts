@@ -25,6 +25,14 @@ export type MessageRow = {
   sender_id: string;
 };
 
+export function isMessageQuotaExceededError(error: unknown): boolean {
+  if (!error || typeof error !== "object") return false;
+  const record = error as { message?: unknown; code?: unknown };
+  const message = typeof record.message === "string" ? record.message : "";
+  if (message.includes("MESSAGE_QUOTA_EXCEEDED")) return true;
+  return record.code === "P0001" && message.includes("MESSAGE_QUOTA_EXCEEDED");
+}
+
 export type EmployerRow = {
   id: string;
   created_at?: string;

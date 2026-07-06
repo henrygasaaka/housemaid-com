@@ -206,12 +206,15 @@ export function EmployerDiscoverFeed() {
         </div>
 
         {guestMode && (
-          <div className="flex cursor-pointer flex-wrap items-center justify-center gap-[7px] pt-3 text-center">
+          <Link
+            href="/employer/auth?next=/employer/discover"
+            className="flex cursor-pointer flex-wrap items-center justify-center gap-[7px] pt-3 text-center no-underline"
+          >
             <Lock size={13} className="text-ink-soft" aria-hidden />
             <span className="text-[11.5px] font-semibold text-ink-soft">
               Browsing as guest — create a free account to message candidates.
             </span>
-          </div>
+          </Link>
         )}
       </div>
     </div>

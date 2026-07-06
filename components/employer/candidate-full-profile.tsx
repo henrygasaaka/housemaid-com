@@ -31,7 +31,10 @@ import {
   employerDisplayNameFromUser,
   readStashedEmployerPendingAction,
 } from "@/lib/employer-auth";
-import { sendEmployerMessageToCandidate } from "@/lib/messaging-db";
+import {
+  isMessageQuotaExceededError,
+  sendEmployerMessageToCandidate,
+} from "@/lib/messaging-db";
 import { createClient } from "@/lib/supabase";
 import {
   canSendFreeMessage,
@@ -207,6 +210,21 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
       setComposerOpen(false);
     } catch (error) {
       console.error("[employer] Failed to send message:", error);
+      if (isMessageQuotaExceededError(error)) {
+        setMessageError(null);
+        setComposerOpen(false);
+        persistPaywall({
+          ...paywall,
+          freeMessagesSent: Math.max(
+            paywall.freeMessagesSent,
+            FREE_MESSAGE_LIMIT
+          ),
+        });
+        setPendingAction("message");
+        setPaywallVariant("messaging");
+        setPaywallOpen(true);
+        return;
+      }
       setMessageError(
         error instanceof Error ? error.message : "Failed to send message."
       );
