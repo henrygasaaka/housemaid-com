@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ChevronLeft, Lock, Shield, User } from "lucide-react";
+import { ChevronLeft, Shield, User } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { DiscoverCandidateCard } from "@/components/employer/discover-candidate-card";
 import {
@@ -206,15 +206,39 @@ export function EmployerDiscoverFeed() {
         </div>
 
         {guestMode && (
-          <Link
-            href="/employer/auth?next=/employer/discover"
-            className="flex cursor-pointer flex-wrap items-center justify-center gap-[7px] pt-3 text-center no-underline"
-          >
-            <Lock size={13} className="text-ink-soft" aria-hidden />
-            <span className="text-[11.5px] font-semibold text-ink-soft">
-              Browsing as guest — create a free account to message candidates.
-            </span>
-          </Link>
+          <div className="mt-3 flex items-center gap-3 rounded-xl border border-border bg-white p-3.5">
+            <div className="flex min-w-0 flex-1 items-start gap-2.5">
+              <User
+                size={16}
+                className="mt-px shrink-0 text-purple"
+                aria-hidden
+              />
+              <div className="min-w-0">
+                <p className="m-0 text-[12.5px] font-bold text-navy">
+                  Browsing as guest
+                </p>
+                <p className="m-0 mt-0.5 text-[11.5px] leading-snug text-ink-soft">
+                  <span className="font-semibold text-purple">log-in</span> or{" "}
+                  <span className="font-semibold text-purple">create</span> a
+                  free account to message candidates.
+                </p>
+              </div>
+            </div>
+            <div className="flex shrink-0 items-center gap-2">
+              <Link
+                href="/employer/auth?next=/employer/discover"
+                className="flex cursor-pointer items-center justify-center rounded-[11px] border-[1.5px] border-purple bg-white px-3 py-2 text-[11.5px] font-bold text-purple no-underline"
+              >
+                Log-in
+              </Link>
+              <Link
+                href="/employer/auth?next=/employer/discover"
+                className="flex cursor-pointer items-center justify-center rounded-[11px] border-none bg-purple px-3 py-2 text-[11.5px] font-bold text-white no-underline"
+              >
+                Create
+              </Link>
+            </div>
+          </div>
         )}
       </div>
     </div>
