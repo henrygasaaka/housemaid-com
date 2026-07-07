@@ -1,5 +1,7 @@
 import type { AppTranslateFn } from "@/lib/i18n-types";
+import { getCountryName, normalizeNationalityCode } from "@/lib/countries";
 
+/** @deprecated Use COUNTRY_CODES from lib/countries — kept for reference. */
 export const NATIONALITY_VALUES = [
   "Philippines",
   "Kenya",
@@ -182,8 +184,8 @@ function labelFromPairs(
   return idx >= 0 ? t(`${namespace}.${keys[idx]}`) : value;
 }
 
-export function getNationalityLabel(t: AppTranslateFn, value: string): string {
-  return labelFromPairs(t, "options.nationalities", value, NATIONALITY_VALUES, NATIONALITY_KEYS);
+export function getNationalityLabel(_t: AppTranslateFn, value: string): string {
+  return getCountryName(normalizeNationalityCode(value));
 }
 
 export function getEmirateLabel(t: AppTranslateFn, value: string): string {

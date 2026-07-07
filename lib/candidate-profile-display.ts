@@ -5,12 +5,13 @@ import {
   EMPLOYMENT_LABELS,
   VISA_LABELS,
 } from "@/lib/candidate-profile";
+import { getCountryName, normalizeNationalityCode } from "@/lib/countries";
 import type { EmploymentHistoryEntry } from "@/lib/discover-candidates";
 
 export type CandidateProfileDisplay = {
   name: string;
   nationality: string;
-  nationalityFlag: string;
+  nationalityCode: string;
   location: string;
   photoUrl: string | null;
   lastActive: string;
@@ -23,6 +24,7 @@ export type CandidateProfileDisplay = {
   availability: string;
 };
 
+/** @deprecated Emoji flags replaced by react-world-flags via nationalityCode. */
 export const NATIONALITY_FLAGS: Record<string, string> = {
   Philippines: "🇵🇭",
   Kenya: "🇰🇪",
@@ -84,14 +86,15 @@ export function mapToCandidateProfileDisplay(
     [profile.firstName?.trim(), profile.lastName?.trim()]
       .filter(Boolean)
       .join(" ") || "—";
-  const nationality = profile.nationality || "";
+  const nationalityCode = normalizeNationalityCode(profile.nationality || "");
+  const nationalityName = getCountryName(nationalityCode);
   const location =
     [profile.emirate, profile.district].filter(Boolean).join(", ") || "—";
 
   return {
     name,
-    nationality,
-    nationalityFlag: NATIONALITY_FLAGS[nationality] || "🌍",
+    nationality: nationalityName || nationalityCode,
+    nationalityCode,
     location,
     photoUrl: profile.photoUrl ?? null,
     lastActive: lastActiveFromDate(row.last_active_at),

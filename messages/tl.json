@@ -384,7 +384,9 @@
       "emailAddress": "Email address",
       "phoneNumber": "Numero ng telepono",
       "nationality": "Nasyonalidad",
-      "gender": "Kasarian"
+      "gender": "Kasarian",
+      "selectNationality": "Pumili ng nasyonalidad",
+      "searchCountries": "Maghanap ng bansa..."
     },
     "locationVisa": {
       "title": "Saan ka nakatira?",

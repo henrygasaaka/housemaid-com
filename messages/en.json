@@ -384,6 +384,8 @@
       "emailAddress": "Email address",
       "phoneNumber": "Phone number",
       "nationality": "Nationality",
+      "selectNationality": "Select nationality",
+      "searchCountries": "Search countries...",
       "gender": "Gender"
     },
     "locationVisa": {

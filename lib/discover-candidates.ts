@@ -14,6 +14,7 @@ export type DiscoverCandidate = {
   id: string;
   name: string;
   nationality: string;
+  nationalityCode: string;
   location: string;
   visa: string;
   exp: string;

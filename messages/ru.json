@@ -384,7 +384,9 @@
       "emailAddress": "Адрес email",
       "phoneNumber": "Номер телефона",
       "nationality": "Гражданство",
-      "gender": "Пол"
+      "gender": "Пол",
+      "selectNationality": "Выберите гражданство",
+      "searchCountries": "Поиск страны..."
     },
     "locationVisa": {
       "title": "Где вы находитесь?",

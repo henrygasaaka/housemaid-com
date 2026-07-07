@@ -1,7 +1,8 @@
 import type { SupabaseClient } from "@supabase/supabase-js";
 import { mapRowToProfile, type CandidateRow } from "@/lib/candidate-db";
 import { CANDIDATE_STATUS, VISA_LABELS } from "@/lib/candidate-profile";
-import { lastActiveFromDate, NATIONALITY_FLAGS } from "@/lib/candidate-profile-display";
+import { getCountryName, normalizeNationalityCode } from "@/lib/countries";
+import { lastActiveFromDate } from "@/lib/candidate-profile-display";
 import type { DiscoverCandidate } from "@/lib/discover-candidates";
 import type { AppTranslateFn } from "@/lib/i18n-types";
 const PHOTO_TONES = ["#C9B8E8", "#A7D8C9", "#F3C7A5", "#B8D4E8", "#E8C9B8"];
@@ -82,14 +83,16 @@ export function mapRowToDiscoverCandidate(row: CandidateRow): DiscoverCandidate 
     [profile.firstName?.trim(), profile.lastName?.trim()]
       .filter(Boolean)
       .join(" ") || "Candidate";
-  const nationality = profile.nationality || "";
+  const nationalityCode = normalizeNationalityCode(profile.nationality || "");
+  const nationalityName = getCountryName(nationalityCode);
   const { type, live } = mapEmploymentLabels(row.employment_type);
   const visaKey = row.visa_status ?? "";
 
   return {
     id: row.id,
     name,
-    nationality: NATIONALITY_FLAGS[nationality] || "🌍",
+    nationalityCode,
+    nationality: nationalityName || nationalityCode,
     location:
       [profile.emirate, profile.district].filter(Boolean).join(", ") || "—",
     visa: VISA_LABELS[visaKey] || visaKey || "—",

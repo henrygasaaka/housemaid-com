@@ -384,7 +384,9 @@
       "emailAddress": "邮箱地址",
       "phoneNumber": "手机号码",
       "nationality": "国籍",
-      "gender": "性别"
+      "gender": "性别",
+      "selectNationality": "选择国籍",
+      "searchCountries": "搜索国家..."
     },
     "locationVisa": {
       "title": "您在哪里？",

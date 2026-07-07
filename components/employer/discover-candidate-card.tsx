@@ -11,6 +11,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 import { FreshnessDot } from "@/components/employer/freshness-dot";
+import { CountryFlag } from "@/components/ui/country-flag";
 import {
   maskCandidateName,
   type DiscoverCandidate,
@@ -76,8 +77,16 @@ export function DiscoverCandidateCard({
       </div>
 
       <div className="p-2.5">
-        <p className="m-0 text-[12.5px] font-bold text-ink">
-          {maskCandidateName(c.name)} {c.nationality}
+        <p className="m-0 flex items-center gap-1.5 text-[12.5px] font-bold text-ink">
+          <span>{maskCandidateName(c.name)}</span>
+          {c.nationalityCode && (
+            <span className="inline-flex items-center gap-1 font-semibold text-ink-soft">
+              <CountryFlag code={c.nationalityCode} height={16} />
+              {c.nationality && (
+                <span className="text-[10.5px]">{c.nationality}</span>
+              )}
+            </span>
+          )}
         </p>
         <p className="mb-1.5 mt-0.5 flex items-center gap-[3px] text-[10.5px] text-ink-soft">
           <MapPin size={9} aria-hidden />

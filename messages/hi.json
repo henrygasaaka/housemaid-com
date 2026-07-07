@@ -1,878 +1,879 @@
 {
-  "meta": {
-    "title": "Housemaid-AE — UAE में विश्वसनीय हाउसमेड और नियोक्ता",
-    "description": "UAE भर में विश्वसनीय हाउसमेड और नियोक्ताओं को जोड़ना। सही नौकरी खोजें या सही उम्मीदवार को काम पर रखें।",
-    "openGraphTitle": "Housemaid-AE — UAE में विश्वसनीय हाउसमेड और नियोक्ता",
-    "appleWebAppTitle": "Housemaid-AE",
-    "applicationName": "Housemaid-AE"
-  },
-  "common": {
-    "appName": "Housemaid-AE",
-    "brand": "Housemaid",
-    "brandSuffix": "-AE",
-    "uae": "UAE",
-    "languageCode": "HI",
-    "emDash": "—",
-    "tryAgain": "पुनः प्रयास करें",
-    "continue": "जारी रखें",
-    "back": "वापस",
-    "edit": "संपादित करें",
-    "save": "सहेजें",
-    "saved": "सहेजा गया",
-    "message": "संदेश",
-    "verified": "सत्यापित",
-    "guest": "अतिथि",
-    "employer": "नियोक्ता",
-    "candidate": "उम्मीदवार",
-    "about": "परिचय",
-    "skills": "कौशल",
-    "languages": "भाषाएँ",
-    "settings": "सेटिंग्स",
-    "notifications": "सूचनाएँ",
-    "logOut": "लॉग आउट",
-    "logIn": "लॉग इन",
-    "createAccount": "खाता बनाएँ",
-    "create": "बनाएँ",
-    "email": "ईमेल",
-    "whatsapp": "WhatsApp",
-    "termsOfService": "सेवा की शर्तें",
-    "privacyPolicy": "गोपनीयता नीति",
-    "helpSupport": "सहायता और समर्थन",
-    "lastUpdated": "अंतिम अद्यतन: {date}",
-    "redirecting": "पुनर्निर्देशित किया जा रहा है…",
-    "saving": "सहेजा जा रहा है…",
-    "sending": "भेजा जा रहा है…",
-    "publishing": "प्रकाशित किया जा रहा है…",
-    "loggingOut": "लॉग आउट हो रहा है…",
-    "uploadingPhoto": "फ़ोटो अपलोड हो रही है…",
-    "uploadingVideo": "वीडियो अपलोड हो रहा है…",
-    "photoAdded": "फ़ोटो जोड़ी गई",
-    "videoAdded": "वीडियो जोड़ा गया",
-    "uploadPhoto": "फ़ोटो अपलोड करें",
-    "uploadVideo": "वीडियो अपलोड करें",
-    "tapToChange": "बदलने के लिए टैप करें",
-    "tapToReplace": "बदलने के लिए टैप करें",
-    "profileNotFound": "प्रोफ़ाइल नहीं मिली",
-    "couldNotLoadProfile": "आपकी प्रोफ़ाइल लोड नहीं हो सकी। कृपया पुनः प्रयास करें।",
-    "couldNotLoadProfileShort": "आपकी प्रोफ़ाइल लोड नहीं हो सकी।",
-    "privacySafe": "हम आपकी जानकारी सुरक्षित और संरक्षित रखते हैं",
-    "privacyNeverShare": "हम आपका डेटा कभी किसी के साथ साझा नहीं करते",
-    "footerNavSafe": "आपकी जानकारी हमारे पास सुरक्षित है। हम आपका डेटा कभी साझा नहीं करेंगे।",
-    "requiredMark": "*",
-    "aed": "AED",
-    "oneTimePayment": "एक बार का भुगतान",
-    "noSubscription": "कोई सदस्यता नहीं। कोई छिपी फ़ीस नहीं।",
-    "identity": "पहचान",
-    "visa": "वीज़ा",
-    "references": "संदर्भ",
-    "previousRole": "पिछली भूमिका",
-    "previousEmployer": "पिछला नियोक्ता",
-    "recommended": "अनुशंसित",
-    "min": "न्यूनतम",
-    "max": "अधिकतम",
-    "name": "नाम",
-    "verify": "सत्यापित करें",
-    "previewProfile": "प्रोफ़ाइल पूर्वावलोकन",
-    "publishMyProfile": "मेरी प्रोफ़ाइल प्रकाशित करें",
-    "profileCompletion": "प्रोफ़ाइल पूर्णता",
-    "profileCompletionHint": "पूर्ण प्रोफ़ाइल को अधिक दृश्य और बेहतर नौकरी के अवसर मिलते हैं।",
-    "interested": "रुचि है",
-    "expressInterest": "रुचि व्यक्त करें",
-    "viewDetails": "विवरण देखें",
-    "upcoming": "आगामी",
-    "past": "पिछला",
-    "noActivityYet": "अभी तक कोई गतिविधि नहीं",
-    "noMessagesYet": "अभी तक कोई संदेश नहीं",
-    "noMessagesInConversation": "इस बातचीत में अभी तक कोई संदेश नहीं है।",
-    "typeMessage": "संदेश लिखें...",
-    "sendMessage": "संदेश भेजें",
-    "quickMessage": "त्वरित संदेश",
-    "simpleGreeting": "साधारण अभिवादन",
-    "writeYourOwn": "अपना संदेश लिखें।",
-    "backToSuggestions": "सुझावों पर वापस जाएँ",
-    "unlockAccess": "पहुँच अनलॉक करें",
-    "aed100": "AED 100",
-    "profileUnlocked": "प्रोफ़ाइल अनलॉक हो गई",
-    "viewProfile": "प्रोफ़ाइल देखें",
-    "viewFullProfile": "पूर्ण रोज़गार इतिहास और संदर्भ देखें",
-    "verifiedReference": "{count} सत्यापित संदर्भ",
-    "verifiedReferences": "{count} सत्यापित संदर्भ",
-    "verifiedReferenceCount": "{count} सत्यापित संदर्भ",
-    "verifiedReferencesCount": "{count} सत्यापित संदर्भ",
-    "typicallyRepliesIn": "आमतौर पर {responseTime} में जवाब देते हैं",
-    "repliesIn": "{responseTime} में जवाब देते हैं",
-    "playingIntroVideo": "{firstName} का परिचय वीडियो चल रहा है...",
-    "salaryPerMonth": "AED {min} - {max}/माह",
-    "salaryExpectation": "AED {min} – {max}",
-    "salaryRangeReview": "AED {min} – {max}",
-    "locationReview": "{district}, {emirate}",
-    "nameReview": "{firstName} {lastName}",
-    "aboutCharCount": "{count}/300",
-    "freeMessagesUsed": "{limit} में से {used} मुफ़्त संदेश उपयोग किए गए",
-    "profileCompletePercent": "आपकी प्रोफ़ाइल {percent}% पूर्ण है",
-    "hiFirstName": "नमस्ते {firstName} 👋",
-    "sendMessageTo": "{candidateName} को संदेश भेजें।",
-    "writeMessageTo": "{candidateName} को संदेश लिखें...",
-    "quickMessageTemplate": "नमस्ते {candidateName}, मुझे आपकी प्रोफ़ाइल में रुचि है — विशेष रूप से बाल देखभाल के अनुभव में। क्या चर्चा करने के लिए उपलब्ध हैं?",
-    "simpleGreetingTemplate": "नमस्ते {candidateName}, मैंने आपकी प्रोफ़ाइल देखी और मुझे रुचि है। क्या अभी बात करने का सही समय है?",
-    "gateOneStepAway": "आप {candidateName} को {actionLabel} से एक कदम दूर हैं।",
-    "gateCreateAccount": "अपना मुफ़्त नियोक्ता खाता बनाएँ",
-    "gateTermsAgree": "जारी रखकर, आप हमारी {terms} और {privacy} से सहमत होते हैं।",
-    "thisCandidate": "इस उम्मीदवार",
-    "actionSaving": "सहेजना",
-    "actionMessaging": "संदेश भेजना",
-    "actionViewing": "देखना",
-    "guestMode": "अतिथि मोड",
-    "browsingAsGuest": "अतिथि के रूप में ब्राउज़ कर रहे हैं",
-    "guestBrowseHint": "उम्मीदवारों को संदेश भेजने के लिए {logIn} करें या मुफ़्त खाता {create} करें।",
-    "logInLower": "लॉग इन",
-    "createLower": "बनाएँ",
-    "verifiedProfilesBanner": "100% सत्यापित प्रोफ़ाइल",
-    "verifiedProfilesDesc": "आपकी सुरक्षा के लिए सभी उम्मीदवारों की पृष्ठभूमि जाँच की जाती है।",
-    "expSuffix": "{years} अनुभव",
-    "availableNow": "अभी उपलब्ध",
-    "referencesNotAvailable": "संदर्भ अभी उपलब्ध नहीं हैं।",
-    "employmentHistoryNotAvailable": "रोज़गार इतिहास अभी उपलब्ध नहीं है।",
-    "noSkillsAdded": "अभी तक कोई कौशल नहीं जोड़ा गया।",
-    "completeProfileForStats": "अनुभव और प्राथमिकताएँ दिखाने के लिए अपनी प्रोफ़ाइल पूर्ण करें।",
-    "countryCode": "+971"
-  },
   "aria": {
-    "goBack": "वापस जाएँ",
     "backToInbox": "इनबॉक्स पर वापस जाएँ",
-    "notifications": "सूचनाएँ",
-    "settings": "सेटिंग्स",
-    "sendMessage": "संदेश भेजें",
-    "saveCandidate": "उम्मीदवार सहेजें",
-    "unsaveCandidate": "उम्मीदवार असहेजित करें",
-    "playIntroVideo": "परिचय वीडियो चलाएँ",
-    "pauseVideo": "वीडियो रोकें",
-    "profilePhoto": "प्रोफ़ाइल",
+    "goBack": "वापस जाओ",
+    "notifications": "सूचनाएं",
     "otpDigit": "अंक {index}",
+    "pauseVideo": "वीडियो रोकें",
+    "playIntroVideo": "परिचय वीडियो चलाएं",
+    "profilePhoto": "प्रोफ़ाइल",
     "profilePhotoAlt": "प्रोफ़ाइल",
-    "selectLanguage": "भाषा चुनें"
-  },
-  "landing": {
-    "welcomeTo": "स्वागत है",
-    "tagline": "{uae} भर में विश्वसनीय हाउसमेड और नियोक्ताओं को जोड़ना",
-    "uaeWide": "पूरे UAE में",
-    "cities": {
-      "dubai": "Dubai",
-      "abuDhabi": "Abu Dhabi",
-      "sharjah": "Sharjah",
-      "ajman": "Ajman",
-      "rak": "RAK",
-      "more": "+3"
-    },
-    "roleHeading": "आज आप यहाँ क्यों आए हैं?",
-    "roleSubheading": "जारी रखने के लिए कृपया एक विकल्प चुनें",
-    "candidateTag": "मैं एक",
-    "candidateRole": "उम्मीदवार",
-    "candidateDesc": "नौकरी की तलाश में",
-    "candidateBullets": {
-      "createProfile": "अपनी प्रोफ़ाइल बनाएँ",
-      "getDiscovered": "नियोक्ताओं द्वारा खोजे जाएँ",
-      "findJob": "सही नौकरी खोजें"
-    },
-    "employerTag": "मैं एक",
-    "employerRole": "नियोक्ता",
-    "employerDesc": "हाउसमेड काम पर रख रहा हूँ",
-    "employerBullets": {
-      "browse": "सत्यापित उम्मीदवार ब्राउज़ करें",
-      "chat": "सीधे चैट करें",
-      "findMatch": "सही उम्मीदवार खोजें"
-    },
-    "trustedBy": "UAE भर के परिवारों द्वारा विश्वसनीय",
-    "verifiedProfiles": "सत्यापित प्रोफ़ाइल",
-    "trustFeatures": {
-      "verifiedProfiles": "सत्यापित प्रोफ़ाइल",
-      "safeSecure": "सुरक्षित और संरक्षित",
-      "directChat": "सीधी चैट"
-    }
-  },
-  "nav": {
-    "candidate": {
-      "home": "होम",
-      "messages": "संदेश",
-      "interviews": "साक्षात्कार",
-      "jobs": "नौकरियाँ",
-      "profile": "प्रोफ़ाइल"
-    },
-    "employer": {
-      "discover": "खोजें",
-      "saved": "सहेजे गए",
-      "messages": "संदेश",
-      "interviews": "साक्षात्कार",
-      "profile": "प्रोफ़ाइल"
-    }
+    "saveCandidate": "उम्मीदवार को बचाएं",
+    "sendMessage": "मेसेज भेजें",
+    "settings": "सेटिंग्स",
+    "unsaveCandidate": "सहेजा न गया उम्मीदवार"
   },
   "auth": {
-    "welcomeBack": "वापसी पर स्वागत है!",
-    "createYourAccount": "अपना खाता बनाएँ",
-    "loginToAccount": "अपने खाते में लॉग इन करें",
-    "findJobMinutes": "मिनटों में सही नौकरी खोजें",
-    "continueWithGoogle": "Google के साथ जारी रखें",
-    "continueWithEmail": "ईमेल के साथ जारी रखें",
-    "continueWithPhone": "फ़ोन नंबर के साथ जारी रखें",
+    "alreadyHaveAccount": "क्या आपके पास पहले से एक खाता मौजूद है?",
+    "backToLogin": "लॉगिन पर वापस जाएं",
     "continueWithApple": "Apple के साथ जारी रखें",
-    "dontHaveAccount": "खाता नहीं है?",
-    "alreadyHaveAccount": "पहले से खाता है?",
-    "googleSignInFailed": "Google साइन-इन विफल",
-    "googleSignInFailedDetail": "Google साइन-इन विफल: Supabase आपके Google क्रेडेंशियल सत्यापित नहीं कर सका। Google Cloud Console और Supabase Google प्रदाता सेटिंग्स जाँचें।",
-    "logInWithGoogle": "Google से लॉग इन करें",
-    "signUpWithGoogle": "Google से साइन अप करें",
-    "redirectingToGoogle": "आपको Google पर पुनर्निर्देशित किया जा रहा है…",
-    "backToLogin": "लॉगिन पर वापस जाएँ",
-    "phoneWelcomeBack": "वापसी पर स्वागत है",
-    "phoneWhatsYourNumber": "आपका फ़ोन नंबर क्या है?",
+    "continueWithEmail": "ईमेल जारी रखें",
+    "continueWithGoogle": "Google के साथ जारी रखें",
+    "continueWithPhone": "फ़ोन नंबर के साथ जारी रखें",
+    "createYourAccount": "अपना खाता बनाएं",
+    "dontHaveAccount": "कोई खाता नहीं है?",
+    "emailAddressPlaceholder": "मेल पता",
+    "emailCheckTitle": "अपने ईमेल की जाँच करें",
+    "emailConfirmHint": "साइन इन करने के लिए अपने ईमेल में दिए गए लिंक पर टैप करें। पुष्टि होने के बाद आप इस पेज को बंद कर सकते हैं और वापस लौट सकते हैं।",
+    "emailLoginSubtitle": "आपने जिस इमेल से साइन अप किया वो दर्ज करें",
+    "emailLoginTitle": "ईमेल से लॉग इन करें",
+    "emailSentMagicLink": "हमने {email} पर एक जादुई लिंक भेजा",
+    "emailSignInComingSoon": "ईमेल साइन-इन जल्द ही आ रहा है",
+    "employerLoginSubtitle": "उम्मीदवारों को ब्राउज़ करने और संदेश भेजने के लिए लॉग इन करें",
+    "employerSignupSubtitle": "अपने घर के लिए उपयुक्त जीवनसाथी ढूंढें",
+    "findJobMinutes": "मिनटों में सही नौकरी ढूंढें",
+    "googleSignInFailed": "Google साइन-इन विफल रहा",
+    "googleSignInFailedDetail": "Google साइन-इन विफल: Supabase आपके Google क्रेडेंशियल्स को सत्यापित नहीं कर सका। Google क्लाउड कंसोल और Supabase Google प्रदाता सेटिंग्स जांचें।",
+    "logIn": "लॉग इन करें",
+    "logInWithGoogle": "Google के साथ लॉग इन करें",
+    "logInWithGoogleProfile": "Google के साथ लॉग इन करें",
+    "loginSheetEmailHint": "ईमेल का उपयोग करने के लिए साइन-इन पृष्ठ पर जारी रखें।",
+    "loginSheetWelcome": "पुनः स्वागत है - वहीं से शुरू करें जहां आपने छोड़ा था।",
+    "loginToAccount": "अपने अकाउंट में लॉग इन करें",
+    "loginToYourAccount": "अपने अकाउंट में लॉग इन करें",
+    "otpDidntReceive": "कोड प्राप्त नहीं हुआ?",
+    "otpPhoneExample": "+971 50 123 4567",
+    "otpResendIn": "{time} में पुनः भेजें",
+    "otpSubtitle": "हमने 6 अंकों का कोड भेजा है",
+    "otpTitle": "सत्यापन कोड दर्ज करें",
     "phoneLoginSubtitle": "लॉग इन करने के लिए अपना फ़ोन नंबर दर्ज करें",
     "phoneSignupSubtitle": "हम इसका उपयोग आपके खाते को सत्यापित करने के लिए करेंगे",
-    "logIn": "लॉग इन",
-    "otpTitle": "सत्यापन कोड दर्ज करें",
-    "otpSubtitle": "हमने 6-अंकीय कोड भेजा है",
-    "otpPhoneExample": "+971 50 123 4567",
-    "otpDidntReceive": "कोड नहीं मिला?",
-    "otpResendIn": "{time} में पुनः भेजें",
-    "emailLoginTitle": "ईमेल से लॉग इन करें",
-    "emailCheckTitle": "अपना ईमेल जाँचें",
-    "emailLoginSubtitle": "वह ईमेल दर्ज करें जिससे आपने साइन अप किया था",
-    "emailSentMagicLink": "हमने {email} पर मैजिक लिंक भेजा है",
-    "emailAddressPlaceholder": "ईमेल पता",
-    "emailConfirmHint": "साइन इन करने के लिए अपने ईमेल में लिंक पर टैप करें। पुष्टि के बाद आप इस पृष्ठ को बंद करके वापस आ सकते हैं।",
-    "sendMagicLink": "मैजिक लिंक भेजें",
-    "useDifferentEmail": "दूसरा ईमेल उपयोग करें",
-    "employerLoginSubtitle": "उम्मीदवारों को ब्राउज़ और संदेश भेजने के लिए लॉग इन करें",
-    "employerSignupSubtitle": "अपने घर के लिए सही उम्मीदवार खोजें",
-    "emailSignInComingSoon": "ईमेल साइन-इन जल्द आ रहा है",
-    "loginToYourAccount": "अपने खाते में लॉग इन करें",
-    "loginSheetWelcome": "वापसी पर स्वागत है — जहाँ छोड़ा था वहीं से शुरू करें।",
-    "loginSheetEmailHint": "ईमेल उपयोग करने के लिए साइन-इन पृष्ठ पर जारी रखें।",
-    "logInWithGoogleProfile": "Google से लॉग इन करें"
+    "phoneWelcomeBack": "वापसी पर स्वागत है",
+    "phoneWhatsYourNumber": "आपका फोन नंबर क्या है?",
+    "redirectingToGoogle": "आपको Google पर पुनर्निर्देशित किया जा रहा है...",
+    "sendMagicLink": "जादुई लिंक भेजें",
+    "signUpWithGoogle": "Google के साथ साइन अप करें",
+    "useDifferentEmail": "किसी भिन्न ईमेल का उपयोग करें",
+    "welcomeBack": "वापसी पर स्वागत है!"
   },
   "candidate": {
-    "dashboard": {
-      "viewsThisWeek": "इस सप्ताह के दृश्य",
-      "savedByEmployers": "नियोक्ताओं द्वारा सहेजा गया",
-      "interviewRequests": "साक्षात्कार अनुरोध",
-      "completeYourProfile": "अपनी प्रोफ़ाइल पूर्ण करें",
-      "completeProfileCta": "पूर्ण प्रोफ़ाइल वाले उम्मीदवारों से नियोक्ता अधिक संपर्क करते हैं।",
-      "recentActivity": "हाल की गतिविधि",
-      "noActivityDesc": "नियोक्ताओं द्वारा आपकी प्रोफ़ाइल से जुड़ने पर प्रोफ़ाइल दृश्य, सहेजे गए और साक्षात्कार अनुरोध यहाँ दिखाई देंगे।"
-    },
-    "profile": {
-      "title": "मेरी प्रोफ़ाइल",
-      "edit": "संपादित करें",
-      "about": "परिचय",
-      "skills": "कौशल",
-      "languages": "भाषाएँ",
-      "employmentHistory": "रोज़गार इतिहास",
-      "salaryExpectation": "वेतन अपेक्षा",
-      "availability": "उपलब्धता",
-      "editProfile": "प्रोफ़ाइल संपादित करें",
-      "myDocuments": "मेरे दस्तावेज़"
-    },
-    "messages": {
-      "title": "संदेश",
-      "emptyDesc": "जब कोई नियोक्ता आपसे संपर्क करेगा, तो आपकी बातचीत यहाँ दिखाई देगी।",
-      "couldNotLoad": "संदेश लोड नहीं हो सके। कृपया पुनः प्रयास करें।",
-      "failedToSend": "संदेश भेजने में विफल।"
-    },
-    "interviews": {
-      "title": "साक्षात्कार",
-      "empty": "अभी तक कोई साक्षात्कार नहीं। ध्यान आकर्षित करने के लिए अपनी प्रोफ़ाइल सक्रिय रखें।",
-      "couldNotLoad": "साक्षात्कार लोड नहीं हो सके। कृपया पुनः प्रयास करें।",
-      "toBeConfirmed": "पुष्टि होनी बाकी",
-      "status": {
-        "proposed": "प्रस्तावित",
-        "confirmed": "पुष्ट",
-        "interviewed": "साक्षात्कार हुआ"
-      }
-    },
-    "jobs": {
-      "title": "नौकरियाँ",
-      "subtitle": "आपके पास खुली पदों",
-      "posted": "{posted} को पोस्ट किया गया",
-      "empty": "अभी तक कोई खुली पद नहीं। जल्द वापस जाँचें — नई नौकरियाँ नियमित रूप से जोड़ी जाती हैं।",
-      "filterEmpty": "इस फ़िल्टर से कोई नौकरी मेल नहीं खाती। दूसरी श्रेणी आज़माएँ।",
-      "couldNotLoad": "नौकरियाँ लोड नहीं हो सकीं। कृपया पुनः प्रयास करें।"
-    },
     "conversationStatus": {
-      "messaging": "संदेश",
+      "declined": "आगे नहीं बढ़ रहा",
+      "hired": "काम पर रखा",
       "interviewProposed": "साक्षात्कार प्रस्तावित",
-      "interviewScheduled": "साक्षात्कार निर्धारित",
-      "interviewed": "साक्षात्कार हुआ",
-      "hired": "काम पर रखा गया",
-      "declined": "आगे नहीं बढ़ रहे"
+      "interviewScheduled": "साक्षात्कार निर्धारित है",
+      "interviewed": "साक्षात्कार",
+      "messaging": "संदेश"
+    },
+    "dashboard": {
+      "completeProfileCta": "नियोक्ताओं द्वारा संपूर्ण प्रोफ़ाइल वाले उम्मीदवारों से संपर्क करने की अधिक संभावना होती है।",
+      "completeYourProfile": "अपनी प्रोफ़ाइल पूरी करें",
+      "interviewRequests": "साक्षात्कार अनुरोध",
+      "noActivityDesc": "एक बार जब नियोक्ता आपकी प्रोफ़ाइल से जुड़ना शुरू कर देंगे तो प्रोफ़ाइल दृश्य, सेव और साक्षात्कार अनुरोध यहां दिखाई देंगे।",
+      "recentActivity": "हाल की गतिविधि",
+      "savedByEmployers": "नियोक्ताओं द्वारा बचाया गया",
+      "viewsThisWeek": "इस सप्ताह दृश्य"
     },
     "freshness": {
-      "activeToday": "आज सक्रिय",
       "activeThisWeek": "इस सप्ताह सक्रिय",
+      "activeToday": "आज सक्रिय",
       "activeTwoWeeksAgo": "2+ सप्ताह पहले सक्रिय",
-      "inactiveThirtyDays": "30+ दिनों से निष्क्रिय"
-    }
-  },
-  "employer": {
-    "discover": {
-      "title": "खोजें",
-      "subtitle": "सत्यापित उम्मीदवारों को गुमनाम रूप से ब्राउज़ करें।",
-      "empty": "अभी तक कोई उम्मीदवार उपलब्ध नहीं",
-      "emptyDesc": "हाउसमेड ऑनबोर्डिंग पूरी करके लाइव होने पर प्रकाशित उम्मीदवार प्रोफ़ाइल यहाँ दिखाई देंगी।",
-      "filterEmpty": "इस फ़िल्टर के लिए कोई मेल नहीं",
-      "filterEmptyDesc": "दूसरा फ़िल्टर आज़माएँ या अधिक उम्मीदवारों के प्रोफ़ाइल प्रकाशित होने पर वापस जाँचें।",
-      "couldNotLoad": "उम्मीदवार लोड नहीं हो सके। कृपया पुनः प्रयास करें।"
+      "inactiveThirtyDays": "निष्क्रिय 30+ दिन"
+    },
+    "interviews": {
+      "couldNotLoad": "साक्षात्कार लोड नहीं किये जा सके. कृपया पुन: प्रयास करें।",
+      "empty": "अभी तक कोई साक्षात्कार नहीं. ध्यान आकर्षित करने के लिए अपनी प्रोफ़ाइल सक्रिय रखें।",
+      "status": {
+        "confirmed": "की पुष्टि",
+        "interviewed": "साक्षात्कार",
+        "proposed": "प्रस्तावित"
+      },
+      "title": "साक्षात्कार",
+      "toBeConfirmed": "पुष्टि की"
+    },
+    "jobs": {
+      "couldNotLoad": "नौकरियाँ लोड नहीं की जा सकीं. कृपया पुन: प्रयास करें।",
+      "empty": "अभी तक कोई रिक्त पद नहीं. जल्द ही दोबारा जाँचें - नई नौकरियाँ नियमित रूप से जोड़ी जाती हैं।",
+      "filterEmpty": "कोई भी नौकरी इस फ़िल्टर से मेल नहीं खाती. किसी अन्य श्रेणी का प्रयास करें.",
+      "posted": "पोस्ट किया गया {posted}",
+      "subtitle": "आपके निकट रिक्त पद",
+      "title": "नौकरियाँ"
+    },
+    "messages": {
+      "couldNotLoad": "संदेश लोड नहीं हो सका. कृपया पुन: प्रयास करें।",
+      "emptyDesc": "जब कोई नियोक्ता आपसे संपर्क करता है, तो आपकी बातचीत यहां दिखाई देगी।",
+      "failedToSend": "संदेश भेजने में विफल.",
+      "title": "संदेशों"
     },
     "profile": {
-      "title": "मेरा खाता",
-      "guestHint": "प्रगति सहेजने और उम्मीदवारों को संदेश भेजने के लिए लॉग इन करें।",
+      "about": "के बारे में",
+      "availability": "उपलब्धता",
+      "edit": "संपादन करना",
       "editProfile": "प्रोफ़ाइल संपादित करें",
-      "savedCandidates": "सहेजे गए उम्मीदवार"
+      "employmentHistory": "रोजगार इतिहास",
+      "languages": "बोली",
+      "myDocuments": "मेरे दस्तावेज़",
+      "salaryExpectation": "वेतन उम्मीद",
+      "skills": "कौशल",
+      "title": "मेरी प्रोफाइल"
+    }
+  },
+  "common": {
+    "about": "के बारे में",
+    "aboutCharCount": "{count}/300",
+    "actionMessaging": "मैसेजिंग",
+    "actionSaving": "बचत",
+    "actionViewing": "को देखने",
+    "aed": "AED",
+    "aed100": "AED 100",
+    "appName": "Housemaid-AE",
+    "availableNow": "अब उपलब्ध है",
+    "back": "पीछे",
+    "backToSuggestions": "सुझावों पर वापस जाएँ",
+    "brand": "Housemaid",
+    "brandSuffix": "-AE",
+    "browsingAsGuest": "अतिथि के रूप में ब्राउज़ करना",
+    "candidate": "उम्मीदवार",
+    "completeProfileForStats": "अनुभव और प्राथमिकताएँ दिखाने के लिए अपनी प्रोफ़ाइल पूरी करें।",
+    "continue": "जारी रखना",
+    "couldNotLoadProfile": "आपकी प्रोफ़ाइल लोड नहीं हो सकी. कृपया पुन: प्रयास करें।",
+    "couldNotLoadProfileShort": "आपकी प्रोफ़ाइल लोड नहीं हो सकी.",
+    "countryCode": "+971",
+    "create": "बनाएं",
+    "createAccount": "खाता बनाएं",
+    "createLower": "बनाएं",
+    "edit": "संपादन करना",
+    "emDash": "—",
+    "email": "ईमेल",
+    "employer": "नियोक्ता",
+    "employmentHistoryNotAvailable": "रोजगार इतिहास अभी तक उपलब्ध नहीं है.",
+    "expSuffix": "{years} ऍक्स्प.",
+    "expressInterest": "एक्सप्रेस ब्याज",
+    "footerNavSafe": "आपकी जानकारी हमारे पास सुरक्षित है। हम आपका डेटा कभी साझा नहीं करेंगे.",
+    "freeMessagesUsed": "{limit} में से {used} निःशुल्क संदेशों का उपयोग किया गया",
+    "gateCreateAccount": "अपना निःशुल्क नियोक्ता खाता बनाएं",
+    "gateOneStepAway": "आप {actionLabel} {candidateName} से एक कदम दूर हैं।",
+    "gateTermsAgree": "जारी रखकर, आप हमारे {terms} और {privacy} से सहमत हैं।",
+    "guest": "अतिथि",
+    "guestBrowseHint": "उम्मीदवारों को संदेश भेजने के लिए {logIn} या {create} एक निःशुल्क खाता।",
+    "guestMode": "अतिथि विधा",
+    "helpSupport": "सहायता एवं सहायता",
+    "hiFirstName": "नमस्ते {firstName} 👋",
+    "identity": "पहचान",
+    "interested": "इच्छुक",
+    "languageCode": "HI",
+    "languages": "बोली",
+    "lastUpdated": "अंतिम अद्यतन: {date}",
+    "locationReview": "{district}, {emirate}",
+    "logIn": "लॉग इन करें",
+    "logInLower": "लॉग इन करें",
+    "logOut": "लॉग आउट",
+    "loggingOut": "लॉग आउट हो रहा है...",
+    "max": "अधिकतम",
+    "message": "संदेश",
+    "min": "मिन",
+    "name": "नाम",
+    "nameReview": "{firstName} {lastName}",
+    "noActivityYet": "अभी तक कोई गतिविधि नहीं",
+    "noMessagesInConversation": "इस वार्तालाप में अभी तक कोई संदेश नहीं है.",
+    "noMessagesYet": "अभी तक कोई संदेश नहीं",
+    "noSkillsAdded": "अभी तक कोई कौशल नहीं जोड़ा गया.",
+    "noSubscription": "कोई सदस्यता नहीं. कोई छिपी हुई फीस नहीं.",
+    "notifications": "सूचनाएं",
+    "oneTimePayment": "एक - बारगी भुगतान",
+    "past": "अतीत",
+    "photoAdded": "फोटो जोड़ा गया",
+    "playingIntroVideo": "{firstName} का परिचय वीडियो चलाया जा रहा है...",
+    "previewProfile": "प्रोफ़ाइल का पूर्वावलोकन करें",
+    "previousEmployer": "पिछले नियोक्ता",
+    "previousRole": "पिछली भूमिका",
+    "privacyNeverShare": "हम आपका डेटा कभी भी किसी के साथ साझा नहीं करते हैं",
+    "privacyPolicy": "Privacy Policy",
+    "privacySafe": "We keep your information safe and secure",
+    "profileCompletePercent": "Your profile is {percent}% complete",
+    "profileCompletion": "Profile completion",
+    "profileCompletionHint": "A complete profile gets more views and better job opportunities.",
+    "profileNotFound": "Profile not found",
+    "profileUnlocked": "Profile unlocked",
+    "publishMyProfile": "Publish my profile",
+    "publishing": "Publishing…",
+    "quickMessage": "Quick message",
+    "quickMessageTemplate": "Hi {candidateName}, I'm interested in your profile — especially your experience with childcare. Are you available to discuss?",
+    "recommended": "Recommended",
+    "redirecting": "Redirecting…",
+    "references": "References",
+    "referencesNotAvailable": "References are not available yet.",
+    "repliesIn": "Replies in {responseTime}",
+    "requiredMark": "*",
+    "salaryExpectation": "AED {min} – {max}",
+    "salaryPerMonth": "AED {min} - {max}/mo",
+    "salaryRangeReview": "AED {min} – {max}",
+    "save": "Save",
+    "saved": "Saved",
+    "saving": "Saving…",
+    "sendMessage": "Send message",
+    "sendMessageTo": "Send a message to {candidateName}.",
+    "sending": "Sending…",
+    "settings": "Settings",
+    "simpleGreeting": "Simple greeting",
+    "simpleGreetingTemplate": "Hi {candidateName}, I saw your profile and I'm interested. Is now a good time to chat?",
+    "skills": "Skills",
+    "tapToChange": "Tap to change",
+    "tapToReplace": "Tap to replace",
+    "termsOfService": "Terms of Service",
+    "thisCandidate": "this candidate",
+    "tryAgain": "Try again",
+    "typeMessage": "Type a message...",
+    "typicallyRepliesIn": "Typically replies in {responseTime}",
+    "uae": "UAE",
+    "unlockAccess": "Unlock access",
+    "upcoming": "Upcoming",
+    "uploadPhoto": "Upload photo",
+    "uploadVideo": "Upload video",
+    "uploadingPhoto": "Uploading photo…",
+    "uploadingVideo": "Uploading video…",
+    "verified": "Verified",
+    "verifiedProfilesBanner": "100% verified profiles",
+    "verifiedProfilesDesc": "All candidates are background checked for your safety.",
+    "verifiedReference": "{count} verified reference",
+    "verifiedReferenceCount": "{count} verified reference",
+    "verifiedReferences": "{count} verified references",
+    "verifiedReferencesCount": "{count} verified references",
+    "verify": "Verify",
+    "videoAdded": "Video added",
+    "viewDetails": "View details",
+    "viewFullProfile": "View full employment history & references",
+    "viewProfile": "View profile",
+    "visa": "Visa",
+    "whatsapp": "WhatsApp",
+    "writeMessageTo": "Write a message to {candidateName}...",
+    "writeYourOwn": "Write your own message."
+  },
+  "completionFields": {
+    "aboutYou": "about you",
+    "availability": "availability",
+    "defaultFirstName": "there",
+    "district": "district",
+    "emirate": "emirate",
+    "employmentType": "employment type",
+    "experience": "experience",
+    "firstName": "first name",
+    "gender": "gender",
+    "hints": {
+      "complete": "Your profile is fully complete.",
+      "double": "Add your {field1} and {field2} to improve your profile.",
+      "single": "Add your {field} to improve your profile.",
+      "videoIntro": "Add a video intro to stand out to employers."
     },
-    "saved": {
-      "title": "सहेजे गए उम्मीदवार",
-      "empty": "अभी तक कोई सहेजा गया उम्मीदवार नहीं",
-      "emptyDesc": "किसी भी उम्मीदवार प्रोफ़ाइल पर हृदय आइकन टैप करके उन्हें यहाँ सहेजें"
+    "languages": "languages",
+    "lastName": "last name",
+    "nationality": "nationality",
+    "phoneNumber": "phone number",
+    "profilePhoto": "profile photo",
+    "salaryRange": "salary range",
+    "skills": "skills",
+    "videoIntro": "video intro",
+    "visaStatus": "visa status"
+  },
+  "employer": {
+    "candidateProfile": {
+      "employmentHistory": "Employment history",
+      "failedToSend": "Failed to send message.",
+      "pleaseLogInToMessage": "Please log in to send messages."
+    },
+    "discover": {
+      "couldNotLoad": "Could not load candidates. Please try again.",
+      "empty": "No candidates available yet",
+      "emptyDesc": "Published candidate profiles will appear here once housemaids complete onboarding and go live.",
+      "filterEmpty": "No matches for this filter",
+      "filterEmptyDesc": "Try another filter or check back as more candidates publish their profiles.",
+      "subtitle": "Browse verified candidates anonymously.",
+      "title": "Discover"
     },
     "notifications": {
-      "title": "सूचनाएँ",
-      "reply": "Maria Santos ने आपके संदेश का जवाब दिया",
-      "saved": "आपने Grace Wanjiru को सहेजा",
-      "viewed": "आपने Nilanthi Perera की प्रोफ़ाइल देखी",
-      "verified": "आपका खाता सत्यापित है",
-      "oneHourAgo": "1 घंटे पहले",
-      "threeHoursAgo": "3 घंटे पहले",
-      "yesterday": "कल",
-      "twoDaysAgo": "2 दिन पहले"
+      "oneHourAgo": "1 hour ago",
+      "reply": "Maria Santos replied to your message",
+      "saved": "You saved Grace Wanjiru",
+      "threeHoursAgo": "3 hours ago",
+      "title": "Notifications",
+      "twoDaysAgo": "2 days ago",
+      "verified": "Your account is verified",
+      "viewed": "You viewed Nilanthi Perera's profile",
+      "yesterday": "Yesterday"
     },
     "paywall": {
-      "freeMessagesUsed": "{limit} में से {used} मुफ़्त संदेश उपयोग किए गए",
-      "unlockMessagingTitle": "असीमित संदेश अनलॉक करें",
-      "unlockProfileTitle": "पूर्ण प्रोफ़ाइल पहुँच अनलॉक करें",
-      "unlockMessagingDesc": "साथ ही व्यक्तिगत फ़िल्टर जो जानते हैं कि आप क्या ढूँढ रहे हैं।",
-      "unlockProfileDesc": "पूर्ण रोज़गार इतिहास, संदर्भ और संपर्क विवरण देखें।",
+      "freeAllowanceHint": "Your free allowance of {limit} messages is a one-time, lifetime grant and won't return.",
+      "freeMessagesUsed": "{used} of {limit} free messages used",
       "messagingFeatures": {
-        "unlimited": "बिना सीमा के किसी भी उम्मीदवार को संदेश भेजें",
-        "smartFilters": "आपकी प्राथमिकताएँ सीखने वाले स्मार्ट फ़िल्टर",
-        "oneTime": "एक बार का भुगतान — कोई सदस्यता नहीं"
+        "oneTime": "One-time payment — no subscription",
+        "smartFilters": "Smart filters that learn your preferences",
+        "unlimited": "Message any candidate without limits"
       },
       "profileFeatures": {
-        "history": "पूर्ण रोज़गार इतिहास और संदर्भ",
-        "unmasked": "अनमास्क्ड नाम और स्थान विवरण",
-        "oneTime": "एक बार का भुगतान — कोई सदस्यता नहीं"
+        "history": "Full employment history & references",
+        "oneTime": "One-time payment — no subscription",
+        "unmasked": "Unmasked name and location details"
       },
-      "freeAllowanceHint": "आपके {limit} संदेशों की मुफ़्त सीमा एक बार की, आजीवन अनुदान है और वापस नहीं आएगी।"
+      "unlockMessagingDesc": "Plus personalized filters that learn what you're looking for.",
+      "unlockMessagingTitle": "Unlock Unlimited Messaging",
+      "unlockProfileDesc": "See full employment history, references, and contact details.",
+      "unlockProfileTitle": "Unlock Full Profile Access"
     },
-    "candidateProfile": {
-      "employmentHistory": "रोज़गार इतिहास",
-      "pleaseLogInToMessage": "संदेश भेजने के लिए कृपया लॉग इन करें।",
-      "failedToSend": "संदेश भेजने में विफल।"
+    "profile": {
+      "editProfile": "Edit Profile",
+      "guestHint": "Log in to save your progress and message candidates.",
+      "savedCandidates": "Saved Candidates",
+      "title": "My Account"
+    },
+    "saved": {
+      "empty": "No saved candidates yet",
+      "emptyDesc": "Tap the heart icon on any candidate profile to save them here",
+      "title": "Saved Candidates"
     }
   },
-  "onboard": {
-    "steps": {
-      "basicInfo": "मूल जानकारी",
-      "locationVisa": "स्थान और वीज़ा",
-      "experienceSkills": "अनुभव और कौशल",
-      "media": "मीडिया",
-      "review": "समीक्षा"
-    },
-    "basicInfo": {
-      "title": "अपनी प्रोफ़ाइल बनाएँ",
-      "subtitle": "चलिए शुरू करते हैं! हमें अपने बारे में थोड़ा बताएँ।",
-      "photoHint": "अपनी स्पष्ट फ़ोटो जोड़ें",
-      "firstName": "पहला नाम",
-      "lastName": "उपनाम",
-      "emailAddress": "ईमेल पता",
-      "phoneNumber": "फ़ोन नंबर",
-      "nationality": "राष्ट्रीयता",
-      "gender": "लिंग"
-    },
-    "locationVisa": {
-      "title": "आप कहाँ स्थित हैं?",
-      "subtitle": "यह नियोक्ताओं को अपने क्षेत्र में आपको खोजने में मदद करता है।",
-      "currentLocation": "वर्तमान स्थान",
-      "visaStatus": "UAE में वीज़ा स्थिति",
-      "whenCanStart": "आप कब काम शुरू कर सकते हैं?",
-      "visaOptions": {
-        "ownVisa": {
-          "title": "स्वयं का वीज़ा",
-          "subtitle": "आप अपना वीज़ा स्वयं प्रायोजित कर रहे हैं"
-        },
-        "visitVisa": {
-          "title": "विज़िट वीज़ा",
-          "subtitle": "आप UAE में विज़िट वीज़ा पर हैं"
-        },
-        "cancelledVisa": {
-          "title": "रद्द वीज़ा",
-          "subtitle": "आपका वीज़ा रद्द हो चुका है"
-        },
-        "sponsoredVisa": {
-          "title": "प्रायोजित वीज़ा",
-          "subtitle": "आपका वीज़ा आपके नियोक्ता द्वारा प्रायोजित है"
-        },
-        "lookingForSponsorship": {
-          "title": "प्रायोजन की तलाश",
-          "subtitle": "आपको वीज़ा प्रायोजन की आवश्यकता है"
-        }
+  "errors": {
+    "chooseImage": "Please choose a JPG or PNG image.",
+    "googleOAuth": "Google sign-in failed: Supabase could not verify your Google credentials. Check Google Cloud Console and Supabase Google provider settings.",
+    "loadCandidates": "Could not load candidates. Please try again.",
+    "loadInterviews": "Could not load interviews. Please try again.",
+    "loadJobs": "Could not load jobs. Please try again.",
+    "loadMessages": "Could not load messages. Please try again.",
+    "loadProfile": "Could not load your profile. Please try again.",
+    "loadProfileShort": "Could not load your profile.",
+    "messageEmpty": "Message cannot be empty.",
+    "photoTooLarge": "Profile photo must be 5MB or smaller.",
+    "pleaseLogInToMessage": "Please log in to send messages.",
+    "publishProfile": "Failed to publish your profile.",
+    "saveProgress": "Failed to save your progress.",
+    "sendMessage": "Failed to send message.",
+    "uploadPhoto": "Failed to upload profile photo.",
+    "uploadVideo": "Failed to upload introduction video.",
+    "videoMustBeMp4": "Introduction video must be an MP4 file.",
+    "videoTooLarge": "Introduction video must be 30MB or smaller."
+  },
+  "help": {
+    "candidate": {
+      "createProfile": {
+        "answer": "Sign up with Google, phone, or email, then complete the onboarding steps: basic info, location and visa, experience and skills, photo and video, and review. A complete profile with verified documents gets far more employer views.",
+        "question": "How do I create a profile?"
+      },
+      "delete": {
+        "answer": "Email support@housemaid-ae.com from your registered address and request account deletion. We remove your profile, documents, and messages within 30 days, except where UAE law requires us to retain records.",
+        "question": "How do I delete my account?"
+      },
+      "documents": {
+        "answer": "Your ID, visa, and reference documents are never shown publicly. Only Housemaid-AE's verification team reviews them. Employers see a Verified badge once approved — they do not download your raw documents unless you choose to share them in chat.",
+        "question": "Who can see my documents?"
+      },
+      "employersFind": {
+        "answer": "Employers browse verified candidates on Discover. Your name is partially masked until an employer unlocks your full profile. Employers can filter by role type, location, and availability. Keep your profile active and complete to rank higher.",
+        "question": "How do employers find me?"
+      },
+      "pause": {
+        "answer": "Go to My Profile → Settings and switch your availability to unavailable, or contact support. While paused, your profile is hidden from Discover and employers cannot send new messages. Existing conversations remain accessible.",
+        "question": "How do I pause my profile?"
       }
     },
-    "experience": {
-      "title": "अपने अनुभव के बारे में बताएँ",
-      "subtitle": "यह नियोक्ताओं को आपको बेहतर समझने में मदद करता है।",
-      "yearsOfExperience": "अनुभव के वर्ष",
-      "skillsLabel": "कौशल (सभी लागू चुनें)",
-      "languagesLabel": "भाषाएँ",
-      "aboutMeOptional": "मेरे बारे में (वैकल्पिक)",
-      "aboutPlaceholder": "अपने बारे में संक्षिप्त विवरण लिखें..."
+    "employer": {
+      "find": {
+        "answer": "Use Discover filters for full-time, part-time, live-in, or live-out roles. Save candidates you like, read their skills and experience, and message those who match your household needs. Verified profiles with intro videos are the strongest signal of fit.",
+        "question": "How do I find the right candidate?"
+      },
+      "message": {
+        "answer": "Browse candidates on Discover — no account needed. When you're ready to message, create a free employer account. You get 3 lifetime free messages across all candidates. After that, a one-time AED 100 unlock gives you unlimited messaging.",
+        "question": "How do I message a candidate?"
+      },
+      "refund": {
+        "answer": "Unlock payments are one-time and non-refundable unless required by UAE law. If you believe you were charged in error, email support@housemaid-ae.com within 7 days with your account email and payment reference.",
+        "question": "Can I get a refund?"
+      },
+      "unlock": {
+        "answer": "AED 100 is a one-time payment per unlock — not a subscription. It unlocks unlimited messaging to any candidate, or full access to a candidate's employment history and references, depending on which action you take. Your 3 free messages are a lifetime grant.",
+        "question": "How does the AED 100 unlock work?"
+      }
     },
-    "media": {
-      "title": "अपनी फ़ोटो, वीडियो और उपलब्धता जोड़ें",
-      "subtitle": "यह नियोक्ताओं को आपको बेहतर जानने में मदद करता है।",
-      "profilePhoto": "प्रोफ़ाइल फ़ोटो",
-      "photoFormats": "JPG, PNG (अधिकतम 5MB)",
-      "introVideo": "परिचय वीडियो (अत्यधिक अनुशंसित)",
-      "videoFormats": "केवल MP4, अधिकतम 30 सेकंड, अधिकतम 30MB",
-      "salaryExpectation": "वेतन अपेक्षा (AED)",
-      "preferredEmploymentType": "पसंदीदा रोज़गार प्रकार",
-      "liveInTitle": "लाइव-इन",
-      "liveInSubtitle": "मैं नियोक्ता के घर में रह सकती हूँ",
-      "liveOutTitle": "लाइव-आउट",
-      "liveOutSubtitle": "मैं काम के बाद घर जाऊँगी",
-      "preferredWorkingDays": "पसंदीदा कार्य दिवस"
-    },
-    "review": {
-      "title": "अपनी प्रोफ़ाइल की समीक्षा करें",
-      "subtitle": "प्रकाशित करने से पहले कृपया अपनी जानकारी की समीक्षा करें।",
-      "basicInformation": "मूल जानकारी",
-      "locationAndVisa": "स्थान और वीज़ा",
-      "experienceSkillsLanguages": "अनुभव, कौशल और भाषाएँ",
-      "mediaSalaryAvailability": "मीडिया, वेतन और उपलब्धता",
-      "currentLocation": "वर्तमान स्थान",
-      "visaStatus": "वीज़ा स्थिति",
-      "yearsOfExperience": "अनुभव के वर्ष",
-      "salaryExpectation": "वेतन अपेक्षा",
-      "employmentType": "रोज़गार प्रकार",
-      "preferredDays": "पसंदीदा दिवस"
-    },
-    "errors": {
-      "chooseImage": "कृपया JPG या PNG छवि चुनें।",
-      "photoTooLarge": "प्रोफ़ाइल फ़ोटो 5MB या उससे छोटी होनी चाहिए।",
-      "videoMustBeMp4": "परिचय वीडियो MP4 फ़ाइल होनी चाहिए।",
-      "videoTooLarge": "परिचय वीडियो 30MB या उससे छोटा होना चाहिए।",
-      "failedSaveProgress": "आपकी प्रगति सहेजने में विफल।",
-      "failedPublish": "आपकी प्रोफ़ाइल प्रकाशित करने में विफल।",
-      "failedUploadPhoto": "प्रोफ़ाइल फ़ोटो अपलोड करने में विफल।",
-      "failedUploadVideo": "परिचय वीडियो अपलोड करने में विफल।"
-    }
+    "responseTime": "We typically respond within 24 hours.",
+    "stillNeedHelp": "Still need help?",
+    "title": "Help & Support"
   },
-  "options": {
-    "gender": {
-      "female": "महिला",
-      "male": "पुरुष"
+  "landing": {
+    "candidateBullets": {
+      "createProfile": "Create your profile",
+      "findJob": "Find the right job",
+      "getDiscovered": "Get discovered"
     },
-    "nationalities": {
-      "philippines": "फ़िलीपींस",
-      "kenya": "केन्या",
-      "sriLanka": "श्रीलंका",
-      "bangladesh": "बांग्लादेश",
-      "india": "भारत",
-      "indonesia": "इंडोनेशिया",
-      "nepal": "नेपाल",
-      "ethiopia": "इथियोपिया",
-      "uganda": "युगांडा",
-      "other": "अन्य"
-    },
-    "emirates": {
-      "dubai": "Dubai",
+    "candidateDesc": "Looking for a job",
+    "candidateRole": "Candidate",
+    "candidateTag": "I'm a",
+    "cities": {
       "abuDhabi": "Abu Dhabi",
-      "sharjah": "Sharjah",
       "ajman": "Ajman",
-      "rasAlKhaimah": "Ras Al Khaimah",
-      "fujairah": "Fujairah",
-      "ummAlQuwain": "Umm Al Quwain"
+      "dubai": "Dubai",
+      "more": "+3",
+      "rak": "RAK",
+      "sharjah": "Sharjah"
     },
-    "districts": {
-      "alBarsha": "Al Barsha",
-      "deira": "Deira",
-      "alNahda": "Al Nahda",
-      "khalifaCity": "Khalifa City",
-      "jumeirah": "Jumeirah",
-      "mirdif": "Mirdif",
-      "marina": "Marina",
-      "alQuoz": "Al Quoz",
-      "downtown": "Downtown"
+    "employerBullets": {
+      "browse": "Browse verified candidates",
+      "chat": "Chat directly",
+      "findMatch": "Find the perfect match"
     },
-    "availability": {
-      "availableImmediately": "तुरंत उपलब्ध",
-      "withinOneWeek": "1 सप्ताह के भीतर",
-      "withinTwoWeeks": "2 सप्ताह के भीतर",
-      "withinOneMonth": "1 महीने के भीतर",
-      "currentlyEmployed": "वर्तमान में कार्यरत"
+    "employerDesc": "Hiring a housemaid",
+    "employerRole": "Employer",
+    "employerTag": "I'm an",
+    "roleHeading": "What brings you here today?",
+    "roleSubheading": "Please choose an option to continue",
+    "tagline": "Connecting trusted housemaids and employers across {uae}",
+    "trustFeatures": {
+      "directChat": "Direct Chat",
+      "safeSecure": "Safe & Secure",
+      "verifiedProfiles": "Verified Profiles"
     },
-    "experience": {
-      "lessThanOneYear": "1 वर्ष से कम",
-      "oneToThreeYears": "1 - 3 वर्ष",
-      "threeToFiveYears": "3 - 5 वर्ष",
-      "fivePlusYears": "5+ वर्ष"
-    },
-    "skills": {
-      "cleaning": "सफ़ाई",
-      "cooking": "खाना बनाना",
-      "childcare": "बाल देखभाल",
-      "laundry": "कपड़े धोना",
-      "ironing": "इस्त्री",
-      "elderlyCare": "बुज़ुर्गों की देखभाल",
-      "petCare": "पालतू जानवरों की देखभाल",
-      "carWashing": "कार धोना",
-      "gardening": "बागवानी",
-      "tutoring": "ट्यूशन",
-      "disabledCare": "विकलांग देखभाल",
-      "other": "अन्य"
-    },
-    "languages": {
-      "english": "अंग्रेज़ी",
-      "arabic": "अरबी",
-      "tagalog": "तागालोग",
-      "hindi": "हिंदी",
-      "urdu": "उर्दू",
-      "tamil": "तमिल",
-      "french": "फ़्रेंच",
-      "other": "अन्य"
-    },
-    "days": {
-      "mon": "सोम",
-      "tue": "मंगल",
-      "wed": "बुध",
-      "thu": "गुरु",
-      "fri": "शुक्र",
-      "sat": "शनि",
-      "sun": "रवि"
-    },
-    "visaLabels": {
-      "ownVisa": "स्वयं का वीज़ा",
-      "visitVisa": "विज़िट वीज़ा",
-      "cancelledVisa": "रद्द वीज़ा",
-      "sponsoredVisa": "प्रायोजित वीज़ा",
-      "lookingForSponsorship": "प्रायोजन की तलाश"
-    },
-    "employmentLabels": {
-      "liveIn": "लाइव-इन",
-      "liveOut": "लाइव-आउट"
-    },
-    "filters": {
-      "all": "सभी",
-      "fullTime": "पूर्णकालिक",
-      "partTime": "अंशकालिक",
-      "liveIn": "लाइव-इन",
-      "liveOut": "लाइव-आउट"
-    },
-    "employmentType": {
-      "fullTime": "पूर्णकालिक",
-      "partTime": "अंशकालिक",
-      "liveIn": "लाइव-इन",
-      "liveOut": "लाइव-आउट"
-    }
+    "trustedBy": "Trusted by families across UAE",
+    "uaeWide": "UAE Wide",
+    "verifiedProfiles": "Verified Profiles",
+    "welcomeTo": "Welcome to"
   },
   "legal": {
-    "candidateTerms": {
-      "title": "सेवा की शर्तें",
-      "intro": "ये शर्तें UAE में घरेलू कार्य खोजने के लिए Housemaid-AE का उपयोग करने वाले उम्मीदवारों पर लागू होती हैं। प्रोफ़ाइल बनाकर, आप नीचे दिए नियमों से सहमत होते हैं।",
-      "sections": {
-        "yourProfile": {
-          "heading": "1. आपकी प्रोफ़ाइल",
-          "body": "आप जो सामग्री जमा करते हैं उसके स्वामी आप हैं — जिसमें आपकी फ़ोटो, परिचय वीडियो, दस्तावेज़, कार्य इतिहास और जीवनी शामिल हैं। अपनी प्रोफ़ाइल प्रकाशित करके, आप Housemaid-AE को नौकरी के अवसरों से मिलाने के उद्देश्य से नियोक्ताओं को इस जानकारी को प्लेटफ़ॉर्म पर प्रदर्शित करने का लाइसेंस देते हैं।"
-        },
-        "informationYouShare": {
-          "heading": "2. आप जो जानकारी साझा करते हैं",
-          "body": "आपकी प्रोफ़ाइल में शामिल हो सकता है:",
-          "items": {
-            "photoVideo": "प्रोफ़ाइल फ़ोटो और परिचय वीडियो",
-            "documents": "पहचान और वीज़ा दस्तावेज़ (केवल सत्यापन के लिए)",
-            "history": "रोज़गार इतिहास और संदर्भ",
-            "details": "कौशल, भाषाएँ, वेतन अपेक्षाएँ और उपलब्धता",
-            "contact": "संपर्क विवरण (केवल नियोक्ता से जुड़ने का चुनाव करने के बाद साझा)"
-          }
-        },
-        "howWeUseData": {
-          "heading": "3. हम आपका डेटा कैसे उपयोग करते हैं",
-          "body": "हम आपकी प्रोफ़ाइल का उपयोग UAE में घरेलू कर्मचारियों की तलाश करने वाले नियोक्ताओं से आपको मिलाने के लिए करते हैं। नियोक्ता द्वारा आपकी पूर्ण प्रोफ़ाइल अनलॉक करने से पहले हम खोज में आपका आंशिक रूप से मास्क्ड नाम और मुख्य विवरण दिखा सकते हैं। हम आपका व्यक्तिगत डेटा तृतीय पक्षों को नहीं बेचते।"
-        },
-        "matching": {
-          "heading": "4. नियोक्ताओं से मिलान",
-          "body": "नियोक्ता प्लेटफ़ॉर्म के माध्यम से आपको ब्राउज़, सहेज और संदेश भेज सकते हैं। आप किसी भी अवसर को स्वीकार या अस्वीकार करने के लिए स्वतंत्र हैं। Housemaid-AE रोज़गार, साक्षात्कार या विशिष्ट वेतन प्रस्तावों की गारंटी नहीं देता।"
-        },
-        "accuracy": {
-          "heading": "5. सटीकता और आचरण",
-          "body": "आप सहमत हैं कि आपकी प्रोफ़ाइल की सभी जानकारी सत्य है। भ्रामक फ़ोटो, नकली संदर्भ या गलत वीज़ा स्थिति तत्काल हटाने का कारण बन सकती है। सभी संदेशों में नियोक्ताओं के साथ सम्मानपूर्वक व्यवहार करें।"
-        },
-        "deactivating": {
-          "heading": "6. अपनी प्रोफ़ाइल निष्क्रिय करना",
-          "body": "आप किसी भी समय अपनी प्रोफ़ाइल रोक या निष्क्रिय कर सकते हैं। निष्क्रिय होने पर, आपकी प्रोफ़ाइल खोज से छिपी रहती है और नए नियोक्ता संपर्क अवरुद्ध हो जाते हैं। मौजूदा संदेश थ्रेड तब तक रहते हैं जब तक आप पूर्ण खाता हटाने का अनुरोध नहीं करते।"
-        },
-        "deletion": {
-          "heading": "7. खाता हटाना",
-          "body": "अपना खाता और डेटा स्थायी रूप से हटाने के लिए, support@housemaid-ae.com से संपर्क करें। हम UAE में कानूनी प्रतिधारण आवश्यकताओं के अधीन 30 दिनों के भीतर हटाने के अनुरोधों को संसाधित करते हैं।"
-        },
-        "contact": {
-          "heading": "8. संपर्क",
-          "body": "इन शर्तों के बारे में प्रश्न: support@housemaid-ae.com"
-        }
-      }
-    },
     "candidatePrivacy": {
-      "title": "गोपनीयता नीति",
-      "intro": "यह गोपनीयता नीति बताती है कि हम उम्मीदवारों से क्या एकत्र करते हैं, क्यों एकत्र करते हैं, और आप अपने डेटा को कैसे नियंत्रित कर सकते हैं।",
+      "intro": "This Privacy Policy explains what we collect from candidates, why we collect it, and how you can control your data.",
       "sections": {
-        "whatWeCollect": {
-          "heading": "हम क्या एकत्र करते हैं",
-          "body": "जब आप उम्मीदवार प्रोफ़ाइल बनाते हैं, तो हम एकत्र करते हैं:",
-          "items": {
-            "contact": "नाम, फ़ोन नंबर और ईमेल पता",
-            "media": "प्रोफ़ाइल फ़ोटो और परिचय वीडियो",
-            "documents": "पहचान और वीज़ा दस्तावेज़",
-            "history": "रोज़गार इतिहास और संदर्भ",
-            "location": "स्थान (अमीरात और ज़िला)",
-            "details": "कौशल, भाषाएँ, वेतन अपेक्षाएँ और उपलब्धता"
-          }
-        },
-        "whyWeCollect": {
-          "heading": "हम इसे क्यों एकत्र करते हैं",
-          "body": "हम इस जानकारी का उपयोग आपकी प्रोफ़ाइल बनाने, आपकी पहचान सत्यापित करने, नियोक्ताओं से मिलाने, धोखाधड़ी रोकने और प्लेटफ़ॉर्म में सुधार करने के लिए करते हैं। दस्तावेज़ों की समीक्षा हमारी टीम करती है — वे सार्वजनिक रूप से प्रदर्शित नहीं होते।"
-        },
-        "whoCanSee": {
-          "heading": "आपकी जानकारी कौन देख सकता है",
-          "body": "खोज ब्राउज़ करने वाले नियोक्ता आपकी प्रोफ़ाइल का आंशिक रूप से मास्क्ड संस्करण देखते हैं। पूर्ण विवरण — जिसमें अनमास्क्ड नाम, पूर्ण रोज़गार इतिहास और संपर्क जानकारी शामिल है — केवल उन नियोक्ताओं को दिखाई देते हैं जिन्होंने आपकी प्रोफ़ाइल अनलॉक की है या जिन्हें आपने संदेश भेजने का चुनाव किया है।"
+        "contact": {
+          "body": "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com",
+          "heading": "Contact"
         },
         "howLong": {
-          "heading": "हम इसे कितने समय तक रखते हैं",
-          "body": "हम आपका प्रोफ़ाइल डेटा तब तक रखते हैं जब तक आपका खाता सक्रिय है। यदि आप निष्क्रिय करते हैं, तो हम 12 महीने तक सीमित रिकॉर्ड रखते हैं। खाता हटाने के बाद, हम 30 दिनों के भीतर व्यक्तिगत डेटा हटा देते हैं, सिवाय जहाँ UAE कानून लंबी प्रतिधारण की आवश्यकता हो।"
+          "body": "We retain your profile data while your account is active. If you deactivate, we keep a limited record for up to 12 months. After account deletion, we remove personal data within 30 days except where UAE law requires longer retention.",
+          "heading": "How long we keep it"
         },
         "howToDelete": {
-          "heading": "अपना डेटा कैसे हटाएँ",
-          "body": "आप अपनी प्रोफ़ाइल से अधिकांश जानकारी किसी भी समय अपडेट या हटा सकते हैं। अपना खाता पूरी तरह हटाने के लिए, अपने पंजीकृत पते से support@housemaid-ae.com पर ईमेल करें।"
+          "body": "You can update or remove most information from your profile at any time. To delete your account entirely, email support@housemaid-ae.com from your registered address.",
+          "heading": "How to delete your data"
         },
-        "yourRights": {
-          "heading": "आपके अधिकार",
-          "body": "आप अपने व्यक्तिगत डेटा तक पहुँच, सुधार या हटाने का अनुरोध कर सकते हैं। support@housemaid-ae.com से संपर्क करें और हम 30 दिनों के भीतर जवाब देंगे।"
-        },
-        "contact": {
-          "heading": "संपर्क",
-          "body": "Housemaid-AE, Dubai, UAE. ईमेल: support@housemaid-ae.com"
-        }
-      }
-    },
-    "employerTerms": {
-      "title": "सेवा की शर्तें",
-      "intro": "ये शर्तें UAE में घरेलू कर्मचारियों को खोजने के लिए Housemaid-AE का उपयोग करने वाले नियोक्ताओं पर लागू होती हैं। खाता बनाकर, आप नीचे दिए नियमों से सहमत होते हैं।",
-      "sections": {
-        "browsingFree": {
-          "heading": "1. ब्राउज़िंग मुफ़्त है",
-          "body": "आप बिना खाता बनाए खोज पर सत्यापित उम्मीदवार प्रोफ़ाइल ब्राउज़ कर सकते हैं। नाम आंशिक रूप से मास्क्ड होते हैं और रोज़गार इतिहास तब तक छिपा रहता है जब तक आप प्रोफ़ाइल अनलॉक नहीं करते।"
-        },
-        "freeMessages": {
-          "heading": "2. मुफ़्त संदेश",
-          "body": "मुफ़्त नियोक्ता खाता बनाने के बाद, आपको सभी उम्मीदवारों में कुल 3 आजीवन मुफ़्त संदेश मिलते हैं। यह एक बार का अनुदान है — मुफ़्त संदेश मासिक रूप से रीसेट नहीं होते।"
-        },
-        "unlock": {
-          "heading": "3. AED 100 अनलॉक",
-          "body": "आपके 3 मुफ़्त संदेश उपयोग हो जाने के बाद, एक बार का AED 100 भुगतान असीमित संदेश अनलॉक करता है। एक अलग एक बार का AED 100 भुगतान उम्मीदवार की पूर्ण प्रोफ़ाइल (रोज़गार इतिहास, संदर्भ और अनमास्क्ड विवरण) अनलॉक करता है। ये सदस्यता नहीं हैं और स्वतः नवीनीकृत नहीं होते।"
-        },
-        "noRefunds": {
-          "heading": "4. कोई रिफ़ंड नहीं",
-          "body": "अनलॉक भुगतान गैर-वापसी योग्य हैं, जब तक UAE कानून द्वारा आवश्यक न हो। यदि आपको लगता है कि गलती से शुल्क लिया गया, तो 7 दिनों के भीतर support@housemaid-ae.com से संपर्क करें।"
-        },
-        "responsibilities": {
-          "heading": "5. आपकी ज़िम्मेदारियाँ",
-          "body": "एक नियोक्ता के रूप में, आप पूरी तरह ज़िम्मेदार हैं:",
+        "whatWeCollect": {
+          "body": "When you create a candidate profile, we collect:",
+          "heading": "What we collect",
           "items": {
-            "labour": "UAE श्रम और आप्रवासन कानूनों का पालन करना",
-            "checks": "अपने स्वयं के साक्षात्कार और पृष्ठभूमि जाँच करना",
-            "contracts": "रोज़गार अनुबंध तैयार और पालन करना",
-            "respect": "उम्मीदवारों के साथ सम्मान और गरिमा से व्यवहार करना",
-            "illegal": "अवैध भुगतान माँगना या पासपोर्ट रोकना नहीं"
+            "contact": "Name, phone number, and email address",
+            "details": "Skills, languages, salary expectations, and availability",
+            "documents": "Identity and visa documents",
+            "history": "Employment history and references",
+            "location": "Location (emirate and district)",
+            "media": "Profile photo and intro video"
           }
         },
-        "messagingRules": {
-          "heading": "6. संदेश नियम",
-          "body": "स्पैम, उत्पीड़न, धमकी या भेदभावपूर्ण संदेश न भेजें। उल्लंघन के परिणामस्वरूप बिना रिफ़ंड के स्थायी खाता निलंबन हो सकता है।"
+        "whoCanSee": {
+          "body": "Employers browsing Discover see a partially masked version of your profile. Full details — including unmasked name, complete employment history, and contact information — are visible only to employers who have unlocked your profile or whom you have chosen to message.",
+          "heading": "Who can see your information"
         },
-        "noGuarantee": {
-          "heading": "7. कोई रोज़गार गारंटी नहीं",
-          "body": "Housemaid-AE केवल परिचय सुविधा प्रदान करता है। हम उम्मीदवारों को नियोजित नहीं करते, उपयुक्तता की गारंटी नहीं देते, या रोज़गार विवादों में मध्यस्थता नहीं करते।"
+        "whyWeCollect": {
+          "body": "We use this information to build your profile, verify your identity, match you with employers, prevent fraud, and improve the platform. Documents are reviewed by our team — they are not displayed publicly.",
+          "heading": "Why we collect it"
         },
-        "governingLaw": {
-          "heading": "8. शासी कानून",
-          "body": "ये शर्तें संयुक्त अरब अमीरात के कानूनों द्वारा शासित हैं।"
+        "yourRights": {
+          "body": "You may request access to, correction of, or deletion of your personal data. Contact support@housemaid-ae.com and we will respond within 30 days.",
+          "heading": "Your rights"
+        }
+      },
+      "title": "Privacy Policy"
+    },
+    "candidateTerms": {
+      "intro": "These Terms apply to candidates using Housemaid-AE to find domestic work in the UAE. By creating a profile, you agree to the rules below.",
+      "sections": {
+        "accuracy": {
+          "body": "You agree that all information in your profile is truthful. Misleading photos, fake references, or false visa status may result in immediate removal. Treat employers respectfully in all messages.",
+          "heading": "5. Accuracy and conduct"
         },
         "contact": {
-          "heading": "9. संपर्क",
-          "body": "इन शर्तों के बारे में प्रश्न: support@housemaid-ae.com"
+          "body": "Questions about these Terms: support@housemaid-ae.com",
+          "heading": "8. Contact"
+        },
+        "deactivating": {
+          "body": "You may pause or deactivate your profile at any time. When deactivated, your profile is hidden from Discover and new employer contact is blocked. Existing message threads remain unless you request full account deletion.",
+          "heading": "6. Deactivating your profile"
+        },
+        "deletion": {
+          "body": "To permanently delete your account and data, contact support@housemaid-ae.com. We process deletion requests within 30 days, subject to legal retention requirements in the UAE.",
+          "heading": "7. Account deletion"
+        },
+        "howWeUseData": {
+          "body": "We use your profile to match you with employers searching for domestic workers in the UAE. We may show your partially masked name and key details in Discover before an employer unlocks your full profile. We do not sell your personal data to third parties.",
+          "heading": "3. How we use your data"
+        },
+        "informationYouShare": {
+          "body": "Your profile may include:",
+          "heading": "2. Information you share",
+          "items": {
+            "contact": "Contact details (shared only after you choose to engage with an employer)",
+            "details": "Skills, languages, salary expectations, and availability",
+            "documents": "Identity and visa documents (for verification only)",
+            "history": "Employment history and references",
+            "photoVideo": "Profile photo and intro video"
+          }
+        },
+        "matching": {
+          "body": "Employers can browse, save, and message you through the platform. You are free to accept or decline any opportunity. Housemaid-AE does not guarantee employment, interviews, or specific salary offers.",
+          "heading": "4. Matching with employers"
+        },
+        "yourProfile": {
+          "body": "You own the content you submit — including your photo, intro video, documents, work history, and bio. By publishing your profile, you grant Housemaid-AE a licence to display this information to employers on the platform for the purpose of matching you with job opportunities.",
+          "heading": "1. Your profile"
         }
-      }
+      },
+      "title": "Terms of Service"
     },
     "employerPrivacy": {
-      "title": "गोपनीयता नीति",
-      "intro": "यह गोपनीयता नीति बताती है कि हम नियोक्ताओं से क्या एकत्र करते हैं। हम नियोक्ताओं से उम्मीदवारों की तुलना में बहुत कम डेटा एकत्र करते हैं।",
+      "intro": "This Privacy Policy explains what we collect from employers. We collect far less data from employers than from candidates.",
       "sections": {
+        "contact": {
+          "body": "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com",
+          "heading": "Contact"
+        },
+        "deletion": {
+          "body": "To delete your employer account, email support@housemaid-ae.com from your registered address. Deletion is processed within 30 days.",
+          "heading": "Account deletion"
+        },
+        "howWeUse": {
+          "body": "We use your name and email to operate your account, send message notifications, and provide customer support. Your location helps us show relevant candidates near you.",
+          "heading": "How we use your information"
+        },
+        "noSelling": {
+          "body": "We do not sell, rent, or trade employer personal information to third parties for marketing purposes.",
+          "heading": "We do not sell your data"
+        },
+        "retention": {
+          "body": "We keep your account data while your account is active. If you delete your account, we remove personal data within 30 days, except where UAE law requires retention.",
+          "heading": "Data retention"
+        },
         "whatWeCollect": {
-          "heading": "हम क्या एकत्र करते हैं",
-          "body": "जब आप नियोक्ता खाता बनाते हैं, तो हम केवल एकत्र करते हैं:",
+          "body": "When you create an employer account, we collect only:",
+          "heading": "What we collect",
           "items": {
-            "name": "आपका पूरा नाम",
-            "email": "ईमेल पता",
-            "location": "स्थान (UAE में शहर/अमीरात)"
+            "email": "Email address",
+            "location": "Location (city/emirate in the UAE)",
+            "name": "Your full name"
           }
         },
         "whatWeDoNotCollect": {
-          "heading": "हम क्या एकत्र नहीं करते",
-          "body": "हम आपके भुगतान कार्ड विवरण एकत्र या संग्रहीत नहीं करते। सभी भुगतान PayTabs द्वारा सुरक्षित रूप से संसाधित होते हैं, जो हमारा तृतीय-पक्ष भुगतान प्रदाता है। हमें केवल भुगतान पुष्टि मिलती है — आपका कार्ड नंबर नहीं।"
-        },
-        "howWeUse": {
-          "heading": "हम आपकी जानकारी कैसे उपयोग करते हैं",
-          "body": "हम आपके नाम और ईमेल का उपयोग आपके खाते को संचालित करने, संदेश सूचनाएँ भेजने और ग्राहक सहायता प्रदान करने के लिए करते हैं। आपका स्थान हमें आपके पास प्रासंगिक उम्मीदवार दिखाने में मदद करता है।"
-        },
-        "noSelling": {
-          "heading": "हम आपका डेटा नहीं बेचते",
-          "body": "हम विपणन उद्देश्यों के लिए नियोक्ता व्यक्तिगत जानकारी तृतीय पक्षों को नहीं बेचते, किराए पर नहीं देते या व्यापार नहीं करते।"
-        },
-        "retention": {
-          "heading": "डेटा प्रतिधारण",
-          "body": "हम आपका खाता डेटा तब तक रखते हैं जब तक आपका खाता सक्रिय है। यदि आप अपना खाता हटाते हैं, तो हम 30 दिनों के भीतर व्यक्तिगत डेटा हटा देते हैं, सिवाय जहाँ UAE कानून प्रतिधारण की आवश्यकता हो।"
-        },
-        "deletion": {
-          "heading": "खाता हटाना",
-          "body": "अपना नियोक्ता खाता हटाने के लिए, अपने पंजीकृत पते से support@housemaid-ae.com पर ईमेल करें। हटाना 30 दिनों के भीतर संसाधित होता है।"
+          "body": "We do not collect or store your payment card details. All payments are processed securely by PayTabs, our third-party payment provider. We receive only a payment confirmation — not your card number.",
+          "heading": "What we do not collect"
+        }
+      },
+      "title": "Privacy Policy"
+    },
+    "employerTerms": {
+      "intro": "These Terms apply to employers using Housemaid-AE to find domestic workers in the UAE. By creating an account, you agree to the rules below.",
+      "sections": {
+        "browsingFree": {
+          "body": "You can browse verified candidate profiles on Discover without creating an account. Names are partially masked and employment history is hidden until you unlock a profile.",
+          "heading": "1. Browsing is free"
         },
         "contact": {
-          "heading": "संपर्क",
-          "body": "Housemaid-AE, Dubai, UAE. ईमेल: support@housemaid-ae.com"
+          "body": "Questions about these Terms: support@housemaid-ae.com",
+          "heading": "9. Contact"
+        },
+        "freeMessages": {
+          "body": "After creating a free employer account, you receive 3 lifetime free messages across all candidates. This is a one-time grant — free messages do not reset monthly.",
+          "heading": "2. Free messages"
+        },
+        "governingLaw": {
+          "body": "These Terms are governed by the laws of the United Arab Emirates.",
+          "heading": "8. Governing law"
+        },
+        "messagingRules": {
+          "body": "Do not send spam, harassment, threats, or discriminatory messages. Violations may result in permanent account suspension without refund.",
+          "heading": "6. Messaging rules"
+        },
+        "noGuarantee": {
+          "body": "Housemaid-AE facilitates introductions only. We do not employ candidates, guarantee suitability, or mediate employment disputes.",
+          "heading": "7. No employment guarantee"
+        },
+        "noRefunds": {
+          "body": "Unlock payments are non-refundable unless required by UAE law. If you believe you were charged in error, contact support@housemaid-ae.com within 7 days.",
+          "heading": "4. No refunds"
+        },
+        "responsibilities": {
+          "body": "As an employer, you are solely responsible for:",
+          "heading": "5. Your responsibilities",
+          "items": {
+            "checks": "Conducting your own interviews and background checks",
+            "contracts": "Drafting and honouring employment contracts",
+            "illegal": "Not requesting illegal payments or withholding passports",
+            "labour": "Complying with UAE labour and immigration laws",
+            "respect": "Treating candidates with respect and dignity"
+          }
+        },
+        "unlock": {
+          "body": "Once your 3 free messages are used, a one-time AED 100 payment unlocks unlimited messaging. A separate one-time AED 100 payment unlocks a candidate's full profile (employment history, references, and unmasked details). These are not subscriptions and do not auto-renew.",
+          "heading": "3. AED 100 unlock"
         }
-      }
+      },
+      "title": "Terms of Service"
     },
-    "lastUpdated": "जून 2026"
+    "lastUpdated": "June 2026"
   },
-  "help": {
-    "title": "सहायता और समर्थन",
-    "stillNeedHelp": "अभी भी सहायता चाहिए?",
-    "responseTime": "हम आमतौर पर 24 घंटों के भीतर जवाब देते हैं।",
+  "meta": {
+    "appleWebAppTitle": "Housemaid-AE",
+    "applicationName": "Housemaid-AE",
+    "description": "Connecting trusted housemaids and employers across UAE. Find the right job or hire the perfect match.",
+    "openGraphTitle": "Housemaid-AE — Trusted housemaids & employers in UAE",
+    "title": "Housemaid-AE — Trusted housemaids & employers in UAE"
+  },
+  "nav": {
     "candidate": {
-      "createProfile": {
-        "question": "मैं प्रोफ़ाइल कैसे बनाऊँ?",
-        "answer": "Google, फ़ोन या ईमेल से साइन अप करें, फिर ऑनबोर्डिंग चरण पूर्ण करें: मूल जानकारी, स्थान और वीज़ा, अनुभव और कौशल, फ़ोटो और वीडियो, और समीक्षा। सत्यापित दस्तावेज़ों के साथ पूर्ण प्रोफ़ाइल को बहुत अधिक नियोक्ता दृश्य मिलते हैं।"
-      },
-      "employersFind": {
-        "question": "नियोक्ता मुझे कैसे खोजते हैं?",
-        "answer": "नियोक्ता खोज पर सत्यापित उम्मीदवारों को ब्राउज़ करते हैं। नियोक्ता द्वारा आपकी पूर्ण प्रोफ़ाइल अनलॉक करने तक आपका नाम आंशिक रूप से मास्क्ड रहता है। नियोक्ता भूमिका प्रकार, स्थान और उपलब्धता के अनुसार फ़िल्टर कर सकते हैं। उच्च रैंकिंग के लिए अपनी प्रोफ़ाइल सक्रिय और पूर्ण रखें।"
-      },
-      "documents": {
-        "question": "मेरे दस्तावेज़ कौन देख सकता है?",
-        "answer": "आपकी पहचान, वीज़ा और संदर्भ दस्तावेज़ कभी सार्वजनिक रूप से नहीं दिखाए जाते। केवल Housemaid-AE की सत्यापन टीम उनकी समीक्षा करती है। स्वीकृति के बाद नियोक्ता सत्यापित बैज देखते हैं — वे आपके मूल दस्तावेज़ डाउनलोड नहीं करते जब तक आप चैट में साझा न करें।"
-      },
-      "pause": {
-        "question": "मैं अपनी प्रोफ़ाइल कैसे रोकूँ?",
-        "answer": "मेरी प्रोफ़ाइल → सेटिंग्स पर जाएँ और अपनी उपलब्धता को अनुपलब्ध पर स्विच करें, या सहायता से संपर्क करें। रोकने पर, आपकी प्रोफ़ाइल खोज से छिपी रहती है और नियोक्ता नए संदेश नहीं भेज सकते। मौजूदा बातचीत सुलभ रहती हैं।"
-      },
-      "delete": {
-        "question": "मैं अपना खाता कैसे हटाऊँ?",
-        "answer": "अपने पंजीकृत पते से support@housemaid-ae.com पर ईमेल करें और खाता हटाने का अनुरोध करें। हम UAE कानून द्वारा रिकॉर्ड रखने की आवश्यकता को छोड़कर 30 दिनों के भीतर आपकी प्रोफ़ाइल, दस्तावेज़ और संदेश हटा देते हैं।"
-      }
+      "home": "Home",
+      "interviews": "Interviews",
+      "jobs": "Jobs",
+      "messages": "Messages",
+      "profile": "Profile"
     },
     "employer": {
-      "message": {
-        "question": "मैं उम्मीदवार को संदेश कैसे भेजूँ?",
-        "answer": "खोज पर उम्मीदवारों को ब्राउज़ करें — खाते की आवश्यकता नहीं। संदेश भेजने के लिए तैयार होने पर, मुफ़्त नियोक्ता खाता बनाएँ। आपको सभी उम्मीदवारों में कुल 3 आजीवन मुफ़्त संदेश मिलते हैं। उसके बाद, एक बार का AED 100 अनलॉक आपको असीमित संदेश देता है।"
-      },
-      "unlock": {
-        "question": "AED 100 अनलॉक कैसे काम करता है?",
-        "answer": "AED 100 प्रति अनलॉक एक बार का भुगतान है — सदस्यता नहीं। यह किसी भी उम्मीदवार को असीमित संदेश, या उम्मीदवार के रोज़गार इतिहास और संदर्भों तक पूर्ण पहुँच अनलॉक करता है, जो भी कार्रवाई आप करते हैं। आपके 3 मुफ़्त संदेश आजीवन अनुदान हैं।"
-      },
-      "refund": {
-        "question": "क्या मुझे रिफ़ंड मिल सकता है?",
-        "answer": "अनलॉक भुगतान एक बार के और गैर-वापसी योग्य हैं, जब तक UAE कानून द्वारा आवश्यक न हो। यदि आपको लगता है कि गलती से शुल्क लिया गया, तो 7 दिनों के भीतर अपने खाता ईमेल और भुगतान संदर्भ के साथ support@housemaid-ae.com पर ईमेल करें।"
-      },
-      "find": {
-        "question": "मैं सही उम्मीदवार कैसे खोजूँ?",
-        "answer": "पूर्णकालिक, अंशकालिक, लाइव-इन या लाइव-आउट भूमिकाओं के लिए खोज फ़िल्टर उपयोग करें। पसंदीदा उम्मीदवार सहेजें, उनके कौशल और अनुभव पढ़ें, और अपने घरेलू ज़रूरतों से मेल खाने वालों को संदेश भेजें। परिचय वीडियो वाली सत्यापित प्रोफ़ाइल उपयुक्तता का सबसे मज़बूत संकेत हैं।"
-      }
+      "discover": "Discover",
+      "interviews": "Interviews",
+      "messages": "Messages",
+      "profile": "Profile",
+      "saved": "Saved"
     }
   },
-  "validation": {
-    "firstNameRequired": "पहला नाम आवश्यक है।",
-    "lastNameRequired": "उपनाम आवश्यक है।",
-    "phoneRequired": "फ़ोन नंबर आवश्यक है।",
-    "nationalityRequired": "राष्ट्रीयता आवश्यक है।",
-    "genderRequired": "लिंग आवश्यक है।",
-    "emirateRequired": "अमीरात आवश्यक है।",
-    "districtRequired": "ज़िला आवश्यक है।",
-    "visaRequired": "वीज़ा स्थिति आवश्यक है।",
-    "experienceRequired": "अनुभव के वर्ष आवश्यक हैं।",
-    "photoRequired": "प्रोफ़ाइल फ़ोटो आवश्यक है।",
-    "salaryRequired": "वेतन सीमा आवश्यक है।",
-    "employmentTypeRequired": "रोज़गार प्रकार आवश्यक है।",
-    "messageEmpty": "संदेश खाली नहीं हो सकता।"
+  "onboard": {
+    "basicInfo": {
+      "emailAddress": "Email address",
+      "firstName": "First name",
+      "gender": "Gender",
+      "lastName": "Last name",
+      "nationality": "Nationality",
+      "phoneNumber": "Phone number",
+      "photoHint": "Add a clear photo of yourself",
+      "subtitle": "Let's get started! Tell us a bit about yourself.",
+      "title": "Create your profile",
+      "selectNationality": "राष्ट्रीयता चुनें",
+      "searchCountries": "देश खोजें..."
+    },
+    "errors": {
+      "chooseImage": "Please choose a JPG or PNG image.",
+      "failedPublish": "Failed to publish your profile.",
+      "failedSaveProgress": "Failed to save your progress.",
+      "failedUploadPhoto": "Failed to upload profile photo.",
+      "failedUploadVideo": "Failed to upload introduction video.",
+      "photoTooLarge": "Profile photo must be 5MB or smaller.",
+      "videoMustBeMp4": "Introduction video must be an MP4 file.",
+      "videoTooLarge": "Introduction video must be 30MB or smaller."
+    },
+    "experience": {
+      "aboutMeOptional": "About me (optional)",
+      "aboutPlaceholder": "Write a short description about yourself...",
+      "languagesLabel": "Languages",
+      "skillsLabel": "Skills (select all that apply)",
+      "subtitle": "This helps employers understand you better.",
+      "title": "Tell us about your experience",
+      "yearsOfExperience": "Years of experience"
+    },
+    "locationVisa": {
+      "currentLocation": "Current location",
+      "subtitle": "This helps employers find you in their area.",
+      "title": "Where are you located?",
+      "visaOptions": {
+        "cancelledVisa": {
+          "subtitle": "You have a cancelled visa",
+          "title": "Cancelled visa"
+        },
+        "lookingForSponsorship": {
+          "subtitle": "You need visa sponsorship",
+          "title": "Looking for sponsorship"
+        },
+        "ownVisa": {
+          "subtitle": "You are sponsoring your own visa",
+          "title": "Own visa"
+        },
+        "sponsoredVisa": {
+          "subtitle": "Your visa is sponsored by your employer",
+          "title": "Sponsored visa"
+        },
+        "visitVisa": {
+          "subtitle": "You are in UAE on a visit visa",
+          "title": "Visit visa"
+        }
+      },
+      "visaStatus": "Visa status in UAE",
+      "whenCanStart": "When can you start working?"
+    },
+    "media": {
+      "introVideo": "Introduction video (highly recommended)",
+      "liveInSubtitle": "I can live at employer's home",
+      "liveInTitle": "Live-in",
+      "liveOutSubtitle": "I will go home after work",
+      "liveOutTitle": "Live-out",
+      "photoFormats": "JPG, PNG (max 5MB)",
+      "preferredEmploymentType": "Preferred employment type",
+      "preferredWorkingDays": "Preferred working days",
+      "profilePhoto": "Profile photo",
+      "salaryExpectation": "Salary expectation (AED)",
+      "subtitle": "This helps employers get to know you better.",
+      "title": "Add your photos, video and availability",
+      "videoFormats": "MP4 only, max 30 seconds, max 30MB"
+    },
+    "review": {
+      "basicInformation": "Basic information",
+      "currentLocation": "Current location",
+      "employmentType": "Employment type",
+      "experienceSkillsLanguages": "Experience, skills & languages",
+      "locationAndVisa": "Location & visa",
+      "mediaSalaryAvailability": "Media, salary & availability",
+      "preferredDays": "Preferred days",
+      "salaryExpectation": "Salary expectation",
+      "subtitle": "Please review your information before publishing.",
+      "title": "Review your profile",
+      "visaStatus": "Visa status",
+      "yearsOfExperience": "Years of experience"
+    },
+    "steps": {
+      "basicInfo": "Basic Info",
+      "experienceSkills": "Experience & Skills",
+      "locationVisa": "Location & Visa",
+      "media": "Media",
+      "review": "Review"
+    }
+  },
+  "options": {
+    "availability": {
+      "availableImmediately": "Available immediately",
+      "currentlyEmployed": "Currently employed",
+      "withinOneMonth": "Within 1 month",
+      "withinOneWeek": "Within 1 week",
+      "withinTwoWeeks": "Within 2 weeks"
+    },
+    "days": {
+      "fri": "Fri",
+      "mon": "Mon",
+      "sat": "Sat",
+      "sun": "Sun",
+      "thu": "Thu",
+      "tue": "Tue",
+      "wed": "Wed"
+    },
+    "districts": {
+      "alBarsha": "Al Barsha",
+      "alNahda": "Al Nahda",
+      "alQuoz": "Al Quoz",
+      "deira": "Deira",
+      "downtown": "Downtown",
+      "jumeirah": "Jumeirah",
+      "khalifaCity": "Khalifa City",
+      "marina": "Marina",
+      "mirdif": "Mirdif"
+    },
+    "emirates": {
+      "abuDhabi": "Abu Dhabi",
+      "ajman": "Ajman",
+      "dubai": "Dubai",
+      "fujairah": "Fujairah",
+      "rasAlKhaimah": "Ras Al Khaimah",
+      "sharjah": "Sharjah",
+      "ummAlQuwain": "Umm Al Quwain"
+    },
+    "employmentLabels": {
+      "liveIn": "Live-in",
+      "liveOut": "Live-out"
+    },
+    "employmentType": {
+      "fullTime": "Full-Time",
+      "liveIn": "Live-In",
+      "liveOut": "Live-Out",
+      "partTime": "Part-Time"
+    },
+    "experience": {
+      "fivePlusYears": "5+ years",
+      "lessThanOneYear": "Less than 1 year",
+      "oneToThreeYears": "1 - 3 years",
+      "threeToFiveYears": "3 - 5 years"
+    },
+    "filters": {
+      "all": "All",
+      "fullTime": "Full-Time",
+      "liveIn": "Live-In",
+      "liveOut": "Live-Out",
+      "partTime": "Part-Time"
+    },
+    "gender": {
+      "female": "Female",
+      "male": "Male"
+    },
+    "languages": {
+      "arabic": "Arabic",
+      "english": "English",
+      "french": "French",
+      "hindi": "Hindi",
+      "other": "Other",
+      "tagalog": "Tagalog",
+      "tamil": "Tamil",
+      "urdu": "Urdu"
+    },
+    "nationalities": {
+      "bangladesh": "Bangladesh",
+      "ethiopia": "Ethiopia",
+      "india": "India",
+      "indonesia": "Indonesia",
+      "kenya": "Kenya",
+      "nepal": "Nepal",
+      "other": "Other",
+      "philippines": "Philippines",
+      "sriLanka": "Sri Lanka",
+      "uganda": "Uganda"
+    },
+    "skills": {
+      "carWashing": "Car washing",
+      "childcare": "Childcare",
+      "cleaning": "Cleaning",
+      "cooking": "Cooking",
+      "disabledCare": "Disabled care",
+      "elderlyCare": "Elderly care",
+      "gardening": "Gardening",
+      "ironing": "Ironing",
+      "laundry": "Laundry",
+      "other": "Other",
+      "petCare": "Pet care",
+      "tutoring": "Tutoring"
+    },
+    "visaLabels": {
+      "cancelledVisa": "Cancelled visa",
+      "lookingForSponsorship": "Looking for sponsorship",
+      "ownVisa": "Own visa",
+      "sponsoredVisa": "Sponsored visa",
+      "visitVisa": "Visit visa"
+    }
   },
   "time": {
-    "justNow": "अभी",
-    "minutesAgo": "{minutes}मि पहले",
-    "hoursAgo": "{hours}घं पहले",
-    "yesterday": "कल",
-    "daysAgo": "{days} दिन पहले",
-    "toBeConfirmed": "पुष्टि होनी बाकी",
-    "resendIn": "{time} में पुनः भेजें",
-    "posted": "{posted} को पोस्ट किया गया",
+    "daysAgo": "{days} days ago",
+    "hoursAgo": "{hours}h ago",
+    "initialsFallback": "EM",
+    "justNow": "Just now",
     "lastActive": {
-      "today": "आज",
-      "yesterday": "कल",
-      "thisWeek": "इस सप्ताह",
-      "twoWeeksAgo": "2 सप्ताह पहले",
-      "threeWeeksAgo": "3 सप्ताह पहले",
-      "thirtyPlusDays": "30+ दिन पहले"
+      "thirtyPlusDays": "30+ days ago",
+      "thisWeek": "this week",
+      "threeWeeksAgo": "3 weeks ago",
+      "today": "today",
+      "twoWeeksAgo": "2 weeks ago",
+      "yesterday": "yesterday"
     },
-    "initialsFallback": "EM"
+    "minutesAgo": "{minutes}m ago",
+    "posted": "Posted {posted}",
+    "resendIn": "Resend in {time}",
+    "toBeConfirmed": "To be confirmed",
+    "yesterday": "Yesterday"
   },
-  "completionFields": {
-    "firstName": "पहला नाम",
-    "lastName": "उपनाम",
-    "phoneNumber": "फ़ोन नंबर",
-    "nationality": "राष्ट्रीयता",
-    "gender": "लिंग",
-    "emirate": "अमीरात",
-    "district": "ज़िला",
-    "visaStatus": "वीज़ा स्थिति",
-    "availability": "उपलब्धता",
-    "experience": "अनुभव",
-    "skills": "कौशल",
-    "languages": "भाषाएँ",
-    "aboutYou": "आपके बारे में",
-    "profilePhoto": "प्रोफ़ाइल फ़ोटो",
-    "salaryRange": "वेतन सीमा",
-    "employmentType": "रोज़गार प्रकार",
-    "videoIntro": "वीडियो परिचय",
-    "hints": {
-      "complete": "आपकी प्रोफ़ाइल पूरी तरह पूर्ण है।",
-      "videoIntro": "नियोक्ताओं में अलग दिखने के लिए वीडियो परिचय जोड़ें।",
-      "single": "अपनी प्रोफ़ाइल सुधारने के लिए अपना {field} जोड़ें।",
-      "double": "अपनी प्रोफ़ाइल सुधारने के लिए अपना {field1} और {field2} जोड़ें।"
-    },
-    "defaultFirstName": "वहाँ"
-  },
-  "errors": {
-    "googleOAuth": "Google साइन-इन विफल: Supabase आपके Google क्रेडेंशियल सत्यापित नहीं कर सका। Google Cloud Console और Supabase Google प्रदाता सेटिंग्स जाँचें।",
-    "loadProfile": "आपकी प्रोफ़ाइल लोड नहीं हो सकी। कृपया पुनः प्रयास करें।",
-    "loadProfileShort": "आपकी प्रोफ़ाइल लोड नहीं हो सकी।",
-    "loadMessages": "संदेश लोड नहीं हो सके। कृपया पुनः प्रयास करें।",
-    "loadInterviews": "साक्षात्कार लोड नहीं हो सके। कृपया पुनः प्रयास करें।",
-    "loadJobs": "नौकरियाँ लोड नहीं हो सकीं। कृपया पुनः प्रयास करें।",
-    "loadCandidates": "उम्मीदवार लोड नहीं हो सके। कृपया पुनः प्रयास करें।",
-    "sendMessage": "संदेश भेजने में विफल।",
-    "saveProgress": "आपकी प्रगति सहेजने में विफल।",
-    "publishProfile": "आपकी प्रोफ़ाइल प्रकाशित करने में विफल।",
-    "uploadPhoto": "प्रोफ़ाइल फ़ोटो अपलोड करने में विफल।",
-    "uploadVideo": "परिचय वीडियो अपलोड करने में विफल।",
-    "pleaseLogInToMessage": "संदेश भेजने के लिए कृपया लॉग इन करें।",
-    "chooseImage": "कृपया JPG या PNG छवि चुनें।",
-    "photoTooLarge": "प्रोफ़ाइल फ़ोटो 5MB या उससे छोटी होनी चाहिए।",
-    "videoMustBeMp4": "परिचय वीडियो MP4 फ़ाइल होनी चाहिए।",
-    "videoTooLarge": "परिचय वीडियो 30MB या उससे छोटा होना चाहिए।",
-    "messageEmpty": "संदेश खाली नहीं हो सकता।"
+  "validation": {
+    "districtRequired": "District is required.",
+    "emirateRequired": "Emirate is required.",
+    "employmentTypeRequired": "Employment type is required.",
+    "experienceRequired": "Years of experience is required.",
+    "firstNameRequired": "First name is required.",
+    "genderRequired": "Gender is required.",
+    "lastNameRequired": "Last name is required.",
+    "messageEmpty": "Message cannot be empty.",
+    "nationalityRequired": "Nationality is required.",
+    "phoneRequired": "Phone number is required.",
+    "photoRequired": "Profile photo is required.",
+    "salaryRequired": "Salary range is required.",
+    "visaRequired": "Visa status is required."
   }
 }

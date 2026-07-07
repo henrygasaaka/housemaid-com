@@ -18,6 +18,7 @@ import {
   User,
 } from "lucide-react";
 import { FreshnessDot } from "@/components/employer/freshness-dot";
+import { CountryFlag } from "@/components/ui/country-flag";
 import {
   fetchCandidateProfileDisplay,
   type CandidateProfileDisplay,
@@ -243,9 +244,10 @@ export function CandidateProfileScreen({
           <p className="font-head m-0 text-[18px] font-bold text-navy">
             {profile.name}
           </p>
-          {profile.nationality && (
-            <p className="m-0 mt-1 text-[13px] text-ink-soft">
-              {profile.nationalityFlag} {profile.nationality}
+          {profile.nationalityCode && (
+            <p className="m-0 mt-1 flex items-center justify-center gap-1.5 text-[13px] text-ink-soft">
+              <CountryFlag code={profile.nationalityCode} height={18} />
+              {profile.nationality}
             </p>
           )}
           <p className="m-0 mt-1 flex items-center justify-center gap-1 text-[12px] text-ink-soft">

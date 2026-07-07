@@ -384,7 +384,9 @@
       "emailAddress": "عنوان البريد الإلكتروني",
       "phoneNumber": "رقم الهاتف",
       "nationality": "الجنسية",
-      "gender": "الجنس"
+      "gender": "الجنس",
+      "selectNationality": "اختر الجنسية",
+      "searchCountries": "ابحث عن دولة..."
     },
     "locationVisa": {
       "title": "أين موقعك؟",

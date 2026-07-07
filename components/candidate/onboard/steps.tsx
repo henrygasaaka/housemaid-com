@@ -8,7 +8,6 @@ import {
   Check,
   Edit2,
   Eye,
-  Globe,
   Mail,
   MapPin,
   Phone,
@@ -24,6 +23,7 @@ import { ScreenHeading } from "@/components/ui/screen-heading";
 import { FieldLabel } from "@/components/ui/field-label";
 import { TextField } from "@/components/ui/text-field";
 import { SelectField } from "@/components/ui/select-field";
+import { NationalitySelectField } from "@/components/ui/nationality-select-field";
 import { RadioCard } from "@/components/ui/radio-card";
 import { CheckChip } from "@/components/ui/check-chip";
 import { FooterNav } from "@/components/ui/footer-nav";
@@ -49,10 +49,8 @@ import {
   getExperienceLabel,
   getGenderLabel,
   getLanguageLabel,
-  getNationalityLabel,
   getSkillLabel,
   LANGUAGE_VALUES,
-  NATIONALITY_VALUES,
   SKILL_ICONS,
   SKILL_VALUES,
 } from "@/lib/i18n-options";
@@ -183,12 +181,11 @@ export function BasicInfoStep({
         />
 
         <FieldLabel required>{tOnboard("nationality")}</FieldLabel>
-        <SelectField
-          icon={<Globe size={15} className="text-ink-faint" aria-hidden />}
+        <NationalitySelectField
           value={data.nationality}
-          options={[...NATIONALITY_VALUES]}
-          getLabel={(v) => getNationalityLabel((key) => t(key), v)}
           onChange={(v) => setData({ ...data, nationality: v })}
+          placeholder={tOnboard("basicInfo.selectNationality")}
+          searchPlaceholder={tOnboard("basicInfo.searchCountries")}
         />
 
         <FieldLabel required>{tOnboard("gender")}</FieldLabel>

@@ -6,6 +6,7 @@ import {
   type CandidateProfile,
   type CandidateStatus,
 } from "@/lib/candidate-profile";
+import { normalizeNationalityCode } from "@/lib/countries";
 
 /** Columns confirmed on public.candidates via PostgREST introspection. */
 export type CandidateRow = {
@@ -102,7 +103,7 @@ export function mapProfileToRow(
     first_name: profile.firstName.trim() || null,
     last_name: profile.lastName.trim() || null,
     phone: profile.phone.trim() || null,
-    nationality: profile.nationality || null,
+    nationality: normalizeNationalityCode(profile.nationality) || null,
     gender: profile.gender || null,
     emirate: profile.emirate || null,
     district: profile.district || null,
@@ -126,7 +127,7 @@ export function mapRowToProfile(row: CandidateRow): Partial<CandidateProfile> {
     firstName: row.first_name ?? "",
     lastName: row.last_name ?? "",
     phone: row.phone ?? "",
-    nationality: row.nationality ?? "",
+    nationality: normalizeNationalityCode(row.nationality ?? ""),
     gender: row.gender ?? "",
     emirate: row.emirate ?? "",
     district: row.district ?? "",
