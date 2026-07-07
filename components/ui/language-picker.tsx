@@ -4,13 +4,13 @@ import { useEffect, useRef, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import { useRouter } from "next/navigation";
 import { ChevronDown, Globe } from "lucide-react";
-import { locales, type AppLocale } from "@/i18n/routing";
+import { locales, LOCALE_COOKIE_NAME, type AppLocale } from "@/i18n/routing";
 import { LOCALE_CODES, LOCALE_LABELS } from "@/lib/i18n-config";
 
 const LOCALE_STORAGE_KEY = "locale";
 
 function setLocaleCookie(locale: AppLocale) {
-  document.cookie = `NEXT_LOCALE=${locale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
+  document.cookie = `${LOCALE_COOKIE_NAME}=${locale};path=/;max-age=${60 * 60 * 24 * 365};SameSite=Lax`;
   try {
     localStorage.setItem(LOCALE_STORAGE_KEY, locale);
   } catch {
