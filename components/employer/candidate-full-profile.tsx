@@ -45,6 +45,7 @@ import {
   saveEmployerPaywallState,
   type EmployerPaywallState,
 } from "@/lib/employer-session";
+import { PAYWALL_ENABLED } from "@/lib/config";
 
 type CandidateFullProfileProps = {
   candidate: DiscoverCandidate;
@@ -164,6 +165,10 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
   }
 
   function openMessageFlow(state: EmployerPaywallState) {
+    if (!PAYWALL_ENABLED) {
+      setComposerOpen(true);
+      return;
+    }
     if (!canSendFreeMessage(state)) {
       setPendingAction("message");
       setPaywallVariant("messaging");
@@ -216,6 +221,10 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
     } catch (error) {
       console.error("[employer] Failed to send message:", error);
       if (isMessageQuotaExceededError(error)) {
+        if (!PAYWALL_ENABLED) {
+          setMessageError(tErrors("sendMessage"));
+          return;
+        }
         setMessageError(null);
         setComposerOpen(false);
         persistPaywall({

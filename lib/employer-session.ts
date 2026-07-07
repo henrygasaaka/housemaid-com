@@ -67,7 +67,10 @@ export function saveEmployerSession(state: EmployerPaywallState) {
   saveEmployerPaywallState(state);
 }
 
+import { PAYWALL_ENABLED } from "@/lib/config";
+
 export function canSendFreeMessage(state: EmployerPaywallState): boolean {
+  if (!PAYWALL_ENABLED) return true;
   return (
     state.hasUnlockedPremium || state.freeMessagesSent < FREE_MESSAGE_LIMIT
   );
