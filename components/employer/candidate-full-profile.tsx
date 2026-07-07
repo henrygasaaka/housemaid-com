@@ -24,7 +24,6 @@ import { AccountGateSheet } from "@/components/employer/account-gate-sheet";
 import { EmployerLoginSheet } from "@/components/employer/employer-login-sheet";
 import { MessageComposerSheet } from "@/components/employer/message-composer-sheet";
 import { PaywallScreen } from "@/components/employer/paywall-screen";
-import { CountryFlag } from "@/components/ui/country-flag";
 import { FreshnessDot } from "@/components/employer/freshness-dot";
 import { useEmployerAuth } from "@/components/employer/use-employer-auth";
 import { maskCandidateName, type DiscoverCandidate } from "@/lib/discover-candidates";
@@ -388,15 +387,10 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
       </div>
 
       <div className="flex-1 overflow-x-hidden overflow-y-auto px-[18px] py-4">
-        <p className="font-head m-0 flex flex-wrap items-center gap-2 text-[19px] font-bold text-navy">
-          <span>
-            {isUnlocked ? c.name : maskCandidateName(c.name)}
-          </span>
-          {c.nationalityCode && (
-            <span className="inline-flex items-center gap-1.5 text-[13px] font-semibold text-ink-soft">
-              <CountryFlag code={c.nationalityCode} height={18} />
-              {c.nationality}
-            </span>
+        <p className="font-head m-0 text-[19px] font-bold text-navy">
+          {isUnlocked ? c.name : maskCandidateName(c.name)}
+          {c.nationality && (
+            <span className="font-semibold text-ink-soft"> · {c.nationality}</span>
           )}
         </p>
         <p className="mb-2.5 mt-[3px] flex items-center gap-1 text-[12.5px] text-ink-soft">

@@ -72,7 +72,7 @@ export function LanguagePicker() {
               <button
                 type="button"
                 onClick={() => handleSelect(item)}
-                className={`flex w-full cursor-pointer border-none bg-transparent px-3 py-2 text-start text-[12.5px] ${
+                className={`flex w-full cursor-pointer items-center gap-2 border-none bg-transparent px-3 py-2 text-start text-[12.5px] ${
                   item === locale
                     ? "font-bold text-purple"
                     : "font-medium text-ink"

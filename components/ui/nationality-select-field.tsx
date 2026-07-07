@@ -3,7 +3,6 @@
 import { useMemo, useState } from "react";
 import { Check, ChevronDown, Globe, Search } from "lucide-react";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
-import { CountryFlag } from "@/components/ui/country-flag";
 import {
   COUNTRIES,
   getCountryName,
@@ -54,14 +53,13 @@ export function NationalitySelectField({
         className="mb-4 flex w-full cursor-pointer items-center gap-2.5 rounded-xl border border-border px-3.5 py-3 text-left"
       >
         <Globe size={15} className="shrink-0 text-ink-faint" aria-hidden />
-        {normalizedValue ? (
-          <span className="flex flex-1 items-center gap-2 text-sm text-ink">
-            <CountryFlag code={normalizedValue} height={18} />
-            <span className="truncate">{selectedName}</span>
-          </span>
-        ) : (
-          <span className="flex-1 text-sm text-ink-faint">{placeholder}</span>
-        )}
+        <span
+          className={`flex-1 truncate text-sm ${
+            normalizedValue ? "text-ink" : "text-ink-faint"
+          }`}
+        >
+          {normalizedValue ? selectedName : placeholder}
+        </span>
         <ChevronDown size={16} className="shrink-0 text-ink-faint" aria-hidden />
       </button>
       <BottomSheet open={open} onDismiss={handleDismiss}>
@@ -84,15 +82,12 @@ export function NationalitySelectField({
               onClick={() => handleSelect(country.code)}
               className="flex w-full cursor-pointer items-center justify-between border-b border-[#F1EFF9] px-1.5 py-3.5 text-left"
             >
-              <span className="flex min-w-0 items-center gap-2.5">
-                <CountryFlag code={country.code} height={18} />
-                <span
-                  className={`truncate text-[14.5px] text-ink ${
-                    country.code === normalizedValue ? "font-bold" : "font-medium"
-                  }`}
-                >
-                  {country.name}
-                </span>
+              <span
+                className={`truncate text-[14.5px] text-ink ${
+                  country.code === normalizedValue ? "font-bold" : "font-medium"
+                }`}
+              >
+                {country.name}
               </span>
               {country.code === normalizedValue && (
                 <Check size={16} className="shrink-0 text-purple" strokeWidth={3} />

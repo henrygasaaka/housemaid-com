@@ -34,9 +34,7 @@ export function PhoneEntryScreen({ flow = "signup" }: PhoneEntryScreenProps) {
       />
       <div className="flex-1 px-[18px] pt-2.5">
         <div className="mb-3 flex items-center gap-2 rounded-xl border border-border px-3.5 py-3">
-          <span className="text-base" aria-hidden>
-            🇦🇪
-          </span>
+          <span className="text-sm font-semibold text-ink">{tCommon("uae")}</span>
           <span className="text-sm font-semibold text-ink">{tCommon("countryCode")}</span>
           <ChevronDown size={14} className="text-ink-faint" aria-hidden />
         </div>
