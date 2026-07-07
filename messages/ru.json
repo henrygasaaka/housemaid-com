@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Housemaid-AE — Trusted housemaids & employers in UAE",
-    "description": "Connecting trusted housemaids and employers across UAE. Find the right job or hire the perfect match.",
-    "openGraphTitle": "Housemaid-AE — Trusted housemaids & employers in UAE",
+    "title": "Housemaid-AE — Проверенные домработницы и работодатели в UAE",
+    "description": "Соединяем проверенных домработниц и работодателей по всему UAE. Найдите подходящую работу или идеального кандидата.",
+    "openGraphTitle": "Housemaid-AE — Проверенные домработницы и работодатели в UAE",
     "appleWebAppTitle": "Housemaid-AE",
     "applicationName": "Housemaid-AE"
   },
@@ -13,149 +13,149 @@
     "uae": "UAE",
     "languageCode": "RU",
     "emDash": "—",
-    "tryAgain": "Try again",
-    "continue": "Continue",
-    "back": "Back",
-    "edit": "Edit",
-    "save": "Save",
-    "saved": "Saved",
-    "message": "Message",
-    "verified": "Verified",
-    "guest": "Guest",
-    "employer": "Employer",
-    "candidate": "Candidate",
-    "about": "About",
-    "skills": "Skills",
-    "languages": "Languages",
-    "settings": "Settings",
-    "notifications": "Notifications",
-    "logOut": "Log Out",
-    "logIn": "Log In",
-    "createAccount": "Create Account",
-    "create": "Create",
+    "tryAgain": "Повторить",
+    "continue": "Продолжить",
+    "back": "Назад",
+    "edit": "Изменить",
+    "save": "Сохранить",
+    "saved": "Сохранено",
+    "message": "Сообщение",
+    "verified": "Проверено",
+    "guest": "Гость",
+    "employer": "Работодатель",
+    "candidate": "Кандидат",
+    "about": "О себе",
+    "skills": "Навыки",
+    "languages": "Языки",
+    "settings": "Настройки",
+    "notifications": "Уведомления",
+    "logOut": "Выйти",
+    "logIn": "Войти",
+    "createAccount": "Создать аккаунт",
+    "create": "Создать",
     "email": "Email",
     "whatsapp": "WhatsApp",
-    "termsOfService": "Terms of Service",
-    "privacyPolicy": "Privacy Policy",
-    "helpSupport": "Help & Support",
-    "lastUpdated": "Last updated: {date}",
-    "redirecting": "Redirecting…",
-    "saving": "Saving…",
-    "sending": "Sending…",
-    "publishing": "Publishing…",
-    "loggingOut": "Logging out…",
-    "uploadingPhoto": "Uploading photo…",
-    "uploadingVideo": "Uploading video…",
-    "photoAdded": "Photo added",
-    "videoAdded": "Video added",
-    "uploadPhoto": "Upload photo",
-    "uploadVideo": "Upload video",
-    "tapToChange": "Tap to change",
-    "tapToReplace": "Tap to replace",
-    "profileNotFound": "Profile not found",
-    "couldNotLoadProfile": "Could not load your profile. Please try again.",
-    "couldNotLoadProfileShort": "Could not load your profile.",
-    "privacySafe": "We keep your information safe and secure",
-    "privacyNeverShare": "We never share your data with anyone",
-    "footerNavSafe": "Your information is safe with us. We will never share your data.",
+    "termsOfService": "Условия использования",
+    "privacyPolicy": "Политика конфиденциальности",
+    "helpSupport": "Помощь и поддержка",
+    "lastUpdated": "Последнее обновление: {date}",
+    "redirecting": "Перенаправление…",
+    "saving": "Сохранение…",
+    "sending": "Отправка…",
+    "publishing": "Публикация…",
+    "loggingOut": "Выход…",
+    "uploadingPhoto": "Загрузка фото…",
+    "uploadingVideo": "Загрузка видео…",
+    "photoAdded": "Фото добавлено",
+    "videoAdded": "Видео добавлено",
+    "uploadPhoto": "Загрузить фото",
+    "uploadVideo": "Загрузить видео",
+    "tapToChange": "Нажмите, чтобы изменить",
+    "tapToReplace": "Нажмите, чтобы заменить",
+    "profileNotFound": "Профиль не найден",
+    "couldNotLoadProfile": "Не удалось загрузить профиль. Попробуйте ещё раз.",
+    "couldNotLoadProfileShort": "Не удалось загрузить профиль.",
+    "privacySafe": "Мы надёжно защищаем вашу информацию",
+    "privacyNeverShare": "Мы никогда не передаём ваши данные третьим лицам",
+    "footerNavSafe": "Ваша информация в безопасности. Мы никогда не передаём ваши данные.",
     "requiredMark": "*",
     "aed": "AED",
-    "oneTimePayment": "One-time payment",
-    "noSubscription": "No subscription. No hidden fees.",
-    "identity": "Identity",
-    "visa": "Visa",
-    "references": "References",
-    "previousRole": "Previous role",
-    "previousEmployer": "Previous employer",
-    "recommended": "Recommended",
-    "min": "Min",
-    "max": "Max",
-    "name": "Name",
-    "verify": "Verify",
-    "previewProfile": "Preview profile",
-    "publishMyProfile": "Publish my profile",
-    "profileCompletion": "Profile completion",
-    "profileCompletionHint": "A complete profile gets more views and better job opportunities.",
-    "interested": "Interested",
-    "expressInterest": "Express Interest",
-    "viewDetails": "View details",
-    "upcoming": "Upcoming",
-    "past": "Past",
-    "noActivityYet": "No activity yet",
-    "noMessagesYet": "No messages yet",
-    "noMessagesInConversation": "No messages in this conversation yet.",
-    "typeMessage": "Type a message...",
-    "sendMessage": "Send message",
-    "quickMessage": "Quick message",
-    "simpleGreeting": "Simple greeting",
-    "writeYourOwn": "Write your own message.",
-    "backToSuggestions": "Back to suggestions",
-    "unlockAccess": "Unlock access",
+    "oneTimePayment": "Разовый платёж",
+    "noSubscription": "Без подписки. Без скрытых комиссий.",
+    "identity": "Личность",
+    "visa": "Виза",
+    "references": "Рекомендации",
+    "previousRole": "Предыдущая должность",
+    "previousEmployer": "Предыдущий работодатель",
+    "recommended": "Рекомендуется",
+    "min": "Мин.",
+    "max": "Макс.",
+    "name": "Имя",
+    "verify": "Подтвердить",
+    "previewProfile": "Предпросмотр профиля",
+    "publishMyProfile": "Опубликовать профиль",
+    "profileCompletion": "Заполнение профиля",
+    "profileCompletionHint": "Полный профиль получает больше просмотров и лучшие предложения о работе.",
+    "interested": "Интересно",
+    "expressInterest": "Выразить интерес",
+    "viewDetails": "Подробнее",
+    "upcoming": "Предстоящие",
+    "past": "Прошедшие",
+    "noActivityYet": "Пока нет активности",
+    "noMessagesYet": "Пока нет сообщений",
+    "noMessagesInConversation": "В этом чате пока нет сообщений.",
+    "typeMessage": "Введите сообщение...",
+    "sendMessage": "Отправить сообщение",
+    "quickMessage": "Быстрое сообщение",
+    "simpleGreeting": "Простое приветствие",
+    "writeYourOwn": "Напишите своё сообщение.",
+    "backToSuggestions": "Назад к предложениям",
+    "unlockAccess": "Разблокировать доступ",
     "aed100": "AED 100",
-    "profileUnlocked": "Profile unlocked",
-    "viewProfile": "View profile",
-    "viewFullProfile": "View full employment history & references",
-    "verifiedReference": "{count} verified reference",
-    "verifiedReferences": "{count} verified references",
-    "verifiedReferenceCount": "{count} verified reference",
-    "verifiedReferencesCount": "{count} verified references",
-    "typicallyRepliesIn": "Typically replies in {responseTime}",
-    "repliesIn": "Replies in {responseTime}",
-    "playingIntroVideo": "Playing {firstName}'s intro video...",
-    "salaryPerMonth": "AED {min} - {max}/mo",
+    "profileUnlocked": "Профиль разблокирован",
+    "viewProfile": "Смотреть профиль",
+    "viewFullProfile": "Смотреть полную историю работы и рекомендации",
+    "verifiedReference": "{count} проверенная рекомендация",
+    "verifiedReferences": "{count} проверенных рекомендаций",
+    "verifiedReferenceCount": "{count} проверенная рекомендация",
+    "verifiedReferencesCount": "{count} проверенных рекомендаций",
+    "typicallyRepliesIn": "Обычно отвечает в течение {responseTime}",
+    "repliesIn": "Отвечает в течение {responseTime}",
+    "playingIntroVideo": "Воспроизведение вступительного видео {firstName}...",
+    "salaryPerMonth": "AED {min} - {max}/мес.",
     "salaryExpectation": "AED {min} – {max}",
     "salaryRangeReview": "AED {min} – {max}",
     "locationReview": "{district}, {emirate}",
     "nameReview": "{firstName} {lastName}",
     "aboutCharCount": "{count}/300",
-    "freeMessagesUsed": "{used} of {limit} free messages used",
-    "profileCompletePercent": "Your profile is {percent}% complete",
-    "hiFirstName": "Hi {firstName} 👋",
-    "sendMessageTo": "Send a message to {candidateName}.",
-    "writeMessageTo": "Write a message to {candidateName}...",
-    "quickMessageTemplate": "Hi {candidateName}, I'm interested in your profile — especially your experience with childcare. Are you available to discuss?",
-    "simpleGreetingTemplate": "Hi {candidateName}, I saw your profile and I'm interested. Is now a good time to chat?",
-    "gateOneStepAway": "You're one step away from {actionLabel} {candidateName}.",
-    "gateCreateAccount": "Create your free employer account",
-    "gateTermsAgree": "By continuing, you agree to our {terms} and {privacy}.",
-    "thisCandidate": "this candidate",
-    "actionSaving": "saving",
-    "actionMessaging": "messaging",
-    "actionViewing": "viewing",
-    "guestMode": "Guest mode",
-    "browsingAsGuest": "Browsing as guest",
-    "guestBrowseHint": "{logIn} or {create} a free account to message candidates.",
-    "logInLower": "log-in",
-    "createLower": "create",
-    "verifiedProfilesBanner": "100% verified profiles",
-    "verifiedProfilesDesc": "All candidates are background checked for your safety.",
-    "expSuffix": "{years} Exp.",
-    "availableNow": "Available Now",
-    "referencesNotAvailable": "References are not available yet.",
-    "employmentHistoryNotAvailable": "Employment history is not available yet.",
-    "noSkillsAdded": "No skills added yet.",
-    "completeProfileForStats": "Complete your profile to show experience and preferences.",
+    "freeMessagesUsed": "Использовано {used} из {limit} бесплатных сообщений",
+    "profileCompletePercent": "Ваш профиль заполнен на {percent}%",
+    "hiFirstName": "Привет, {firstName} 👋",
+    "sendMessageTo": "Отправить сообщение {candidateName}.",
+    "writeMessageTo": "Напишите сообщение {candidateName}...",
+    "quickMessageTemplate": "Здравствуйте, {candidateName}! Меня заинтересовал ваш профиль — особенно опыт работы с детьми. Можем обсудить?",
+    "simpleGreetingTemplate": "Здравствуйте, {candidateName}! Я увидел(а) ваш профиль и заинтересован(а). Удобно ли сейчас пообщаться?",
+    "gateOneStepAway": "Вы в одном шаге от {actionLabel} {candidateName}.",
+    "gateCreateAccount": "Создайте бесплатный аккаунт работодателя",
+    "gateTermsAgree": "Продолжая, вы соглашаетесь с нашими {terms} и {privacy}.",
+    "thisCandidate": "этого кандидата",
+    "actionSaving": "сохранения",
+    "actionMessaging": "переписки",
+    "actionViewing": "просмотра",
+    "guestMode": "Режим гостя",
+    "browsingAsGuest": "Просмотр как гость",
+    "guestBrowseHint": "{logIn} или {create} бесплатный аккаунт, чтобы писать кандидатам.",
+    "logInLower": "войдите",
+    "createLower": "создайте",
+    "verifiedProfilesBanner": "100% проверенных профилей",
+    "verifiedProfilesDesc": "Все кандидаты проходят проверку для вашей безопасности.",
+    "expSuffix": "{years} опыта",
+    "availableNow": "Доступна сейчас",
+    "referencesNotAvailable": "Рекомендации пока недоступны.",
+    "employmentHistoryNotAvailable": "История работы пока недоступна.",
+    "noSkillsAdded": "Навыки пока не добавлены.",
+    "completeProfileForStats": "Заполните профиль, чтобы показать опыт и предпочтения.",
     "countryCode": "+971"
   },
   "aria": {
-    "goBack": "Go back",
-    "backToInbox": "Back to inbox",
-    "notifications": "Notifications",
-    "settings": "Settings",
-    "sendMessage": "Send message",
-    "saveCandidate": "Save candidate",
-    "unsaveCandidate": "Unsave candidate",
-    "playIntroVideo": "Play intro video",
-    "pauseVideo": "Pause video",
-    "profilePhoto": "Profile",
-    "otpDigit": "Digit {index}",
-    "profilePhotoAlt": "Profile",
+    "goBack": "Назад",
+    "backToInbox": "Назад к входящим",
+    "notifications": "Уведомления",
+    "settings": "Настройки",
+    "sendMessage": "Отправить сообщение",
+    "saveCandidate": "Сохранить кандидата",
+    "unsaveCandidate": "Убрать из сохранённых",
+    "playIntroVideo": "Воспроизвести вступительное видео",
+    "pauseVideo": "Приостановить видео",
+    "profilePhoto": "Профиль",
+    "otpDigit": "Цифра {index}",
+    "profilePhotoAlt": "Профиль",
     "selectLanguage": "Выберите язык"
   },
   "landing": {
-    "welcomeTo": "Welcome to",
-    "tagline": "Connecting trusted housemaids and employers across {uae}",
-    "uaeWide": "UAE Wide",
+    "welcomeTo": "Добро пожаловать в",
+    "tagline": "Соединяем проверенных домработниц и работодателей по всему {uae}",
+    "uaeWide": "По всему UAE",
     "cities": {
       "dubai": "Dubai",
       "abuDhabi": "Abu Dhabi",
@@ -164,322 +164,322 @@
       "rak": "RAK",
       "more": "+3"
     },
-    "roleHeading": "What brings you here today?",
-    "roleSubheading": "Please choose an option to continue",
-    "candidateTag": "I'm a",
-    "candidateRole": "Candidate",
-    "candidateDesc": "Looking for a job",
+    "roleHeading": "Что привело вас сюда сегодня?",
+    "roleSubheading": "Выберите вариант, чтобы продолжить",
+    "candidateTag": "Я",
+    "candidateRole": "Кандидат",
+    "candidateDesc": "Ищу работу",
     "candidateBullets": {
-      "createProfile": "Create your profile",
-      "getDiscovered": "Get discovered",
-      "findJob": "Find the right job"
+      "createProfile": "Создайте профиль",
+      "getDiscovered": "Будьте заметны",
+      "findJob": "Найдите подходящую работу"
     },
-    "employerTag": "I'm an",
-    "employerRole": "Employer",
-    "employerDesc": "Hiring a housemaid",
+    "employerTag": "Я",
+    "employerRole": "Работодатель",
+    "employerDesc": "Нанимаю домработницу",
     "employerBullets": {
-      "browse": "Browse verified candidates",
-      "chat": "Chat directly",
-      "findMatch": "Find the perfect match"
+      "browse": "Просматривайте проверенных кандидатов",
+      "chat": "Общайтесь напрямую",
+      "findMatch": "Найдите идеального кандидата"
     },
-    "trustedBy": "Trusted by families across UAE",
-    "verifiedProfiles": "Verified Profiles",
+    "trustedBy": "Нам доверяют семьи по всему UAE",
+    "verifiedProfiles": "Проверенные профили",
     "trustFeatures": {
-      "verifiedProfiles": "Verified Profiles",
-      "safeSecure": "Safe & Secure",
-      "directChat": "Direct Chat"
+      "verifiedProfiles": "Проверенные профили",
+      "safeSecure": "Безопасно и надёжно",
+      "directChat": "Прямой чат"
     }
   },
   "nav": {
     "candidate": {
-      "home": "Home",
-      "messages": "Messages",
-      "interviews": "Interviews",
-      "jobs": "Jobs",
-      "profile": "Profile"
+      "home": "Главная",
+      "messages": "Сообщения",
+      "interviews": "Собеседования",
+      "jobs": "Вакансии",
+      "profile": "Профиль"
     },
     "employer": {
-      "discover": "Discover",
-      "saved": "Saved",
-      "messages": "Messages",
-      "interviews": "Interviews",
-      "profile": "Profile"
+      "discover": "Поиск",
+      "saved": "Сохранённые",
+      "messages": "Сообщения",
+      "interviews": "Собеседования",
+      "profile": "Профиль"
     }
   },
   "auth": {
-    "welcomeBack": "Welcome Back!",
-    "createYourAccount": "Create your account",
-    "loginToAccount": "Login to your account",
-    "findJobMinutes": "Find the right job in minutes",
-    "continueWithGoogle": "Continue with Google",
-    "continueWithEmail": "Continue with Email",
-    "continueWithPhone": "Continue with Phone Number",
-    "continueWithApple": "Continue with Apple",
-    "dontHaveAccount": "Don't have an account?",
-    "alreadyHaveAccount": "Already have an account?",
-    "googleSignInFailed": "Google sign-in failed",
-    "googleSignInFailedDetail": "Google sign-in failed: Supabase could not verify your Google credentials. Check Google Cloud Console and Supabase Google provider settings.",
-    "logInWithGoogle": "Log in with Google",
-    "signUpWithGoogle": "Sign up with Google",
-    "redirectingToGoogle": "Redirecting you to Google…",
-    "backToLogin": "Back to login",
-    "phoneWelcomeBack": "Welcome back",
-    "phoneWhatsYourNumber": "What's your phone number?",
-    "phoneLoginSubtitle": "Enter your phone number to log in",
-    "phoneSignupSubtitle": "We will use this to verify your account",
-    "logIn": "Log in",
-    "otpTitle": "Enter verification code",
-    "otpSubtitle": "We've sent a 6-digit code to",
+    "welcomeBack": "С возвращением!",
+    "createYourAccount": "Создайте аккаунт",
+    "loginToAccount": "Войдите в аккаунт",
+    "findJobMinutes": "Найдите подходящую работу за несколько минут",
+    "continueWithGoogle": "Продолжить с Google",
+    "continueWithEmail": "Продолжить с Email",
+    "continueWithPhone": "Продолжить с номером телефона",
+    "continueWithApple": "Продолжить с Apple",
+    "dontHaveAccount": "Нет аккаунта?",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "googleSignInFailed": "Не удалось войти через Google",
+    "googleSignInFailedDetail": "Не удалось войти через Google: Supabase не смог проверить ваши учётные данные Google. Проверьте настройки Google Cloud Console и провайдера Google в Supabase.",
+    "logInWithGoogle": "Войти через Google",
+    "signUpWithGoogle": "Зарегистрироваться через Google",
+    "redirectingToGoogle": "Перенаправление в Google…",
+    "backToLogin": "Назад ко входу",
+    "phoneWelcomeBack": "С возвращением",
+    "phoneWhatsYourNumber": "Какой у вас номер телефона?",
+    "phoneLoginSubtitle": "Введите номер телефона для входа",
+    "phoneSignupSubtitle": "Мы используем его для подтверждения аккаунта",
+    "logIn": "Войти",
+    "otpTitle": "Введите код подтверждения",
+    "otpSubtitle": "Мы отправили 6-значный код на",
     "otpPhoneExample": "+971 50 123 4567",
-    "otpDidntReceive": "Didn't receive the code?",
-    "otpResendIn": "Resend in {time}",
-    "emailLoginTitle": "Log in with email",
-    "emailCheckTitle": "Check your email",
-    "emailLoginSubtitle": "Enter the email you signed up with",
-    "emailSentMagicLink": "We sent a magic link to {email}",
-    "emailAddressPlaceholder": "Email address",
-    "emailConfirmHint": "Tap the link in your email to sign in. You can close this page and return once you've confirmed.",
-    "sendMagicLink": "Send magic link",
-    "useDifferentEmail": "Use a different email",
-    "employerLoginSubtitle": "Log in to browse and message candidates",
-    "employerSignupSubtitle": "Find the perfect match for your household",
-    "emailSignInComingSoon": "Email sign-in coming soon",
-    "loginToYourAccount": "Log in to your account",
-    "loginSheetWelcome": "Welcome back — pick up right where you left off.",
-    "loginSheetEmailHint": "Continue on the sign-in page to use email.",
-    "logInWithGoogleProfile": "Log in with Google"
+    "otpDidntReceive": "Не получили код?",
+    "otpResendIn": "Отправить повторно через {time}",
+    "emailLoginTitle": "Войти по email",
+    "emailCheckTitle": "Проверьте почту",
+    "emailLoginSubtitle": "Введите email, с которым вы регистрировались",
+    "emailSentMagicLink": "Мы отправили magic link на {email}",
+    "emailAddressPlaceholder": "Адрес email",
+    "emailConfirmHint": "Нажмите на ссылку в письме, чтобы войти. Вы можете закрыть эту страницу и вернуться после подтверждения.",
+    "sendMagicLink": "Отправить magic link",
+    "useDifferentEmail": "Использовать другой email",
+    "employerLoginSubtitle": "Войдите, чтобы просматривать и писать кандидатам",
+    "employerSignupSubtitle": "Найдите идеального кандидата для вашего дома",
+    "emailSignInComingSoon": "Вход по email скоро появится",
+    "loginToYourAccount": "Войдите в аккаунт",
+    "loginSheetWelcome": "С возвращением — продолжайте с того места, где остановились.",
+    "loginSheetEmailHint": "Перейдите на страницу входа, чтобы использовать email.",
+    "logInWithGoogleProfile": "Войти через Google"
   },
   "candidate": {
     "dashboard": {
-      "viewsThisWeek": "Views this week",
-      "savedByEmployers": "Saved by employers",
-      "interviewRequests": "Interview requests",
-      "completeYourProfile": "Complete your profile",
-      "completeProfileCta": "Employers are more likely to contact candidates with complete profiles.",
-      "recentActivity": "Recent activity",
-      "noActivityDesc": "Profile views, saves, and interview requests will appear here once employers start engaging with your profile."
+      "viewsThisWeek": "Просмотры за неделю",
+      "savedByEmployers": "Сохранили работодатели",
+      "interviewRequests": "Приглашения на собеседование",
+      "completeYourProfile": "Заполните профиль",
+      "completeProfileCta": "Работодатели чаще связываются с кандидатами с полными профилями.",
+      "recentActivity": "Недавняя активность",
+      "noActivityDesc": "Просмотры профиля, сохранения и приглашения на собеседование появятся здесь, когда работодатели начнут интересоваться вашим профилем."
     },
     "profile": {
-      "title": "My Profile",
-      "edit": "Edit",
-      "about": "About",
-      "skills": "Skills",
-      "languages": "Languages",
-      "employmentHistory": "Employment history",
-      "salaryExpectation": "Salary expectation",
-      "availability": "Availability",
-      "editProfile": "Edit Profile",
-      "myDocuments": "My Documents"
+      "title": "Мой профиль",
+      "edit": "Изменить",
+      "about": "О себе",
+      "skills": "Навыки",
+      "languages": "Языки",
+      "employmentHistory": "История работы",
+      "salaryExpectation": "Ожидаемая зарплата",
+      "availability": "Доступность",
+      "editProfile": "Редактировать профиль",
+      "myDocuments": "Мои документы"
     },
     "messages": {
-      "title": "Messages",
-      "emptyDesc": "When an employer contacts you, your conversations will appear here.",
-      "couldNotLoad": "Could not load messages. Please try again.",
-      "failedToSend": "Failed to send message."
+      "title": "Сообщения",
+      "emptyDesc": "Когда работодатель свяжется с вами, переписки появятся здесь.",
+      "couldNotLoad": "Не удалось загрузить сообщения. Попробуйте ещё раз.",
+      "failedToSend": "Не удалось отправить сообщение."
     },
     "interviews": {
-      "title": "Interviews",
-      "empty": "No interviews yet. Keep your profile active to get noticed.",
-      "couldNotLoad": "Could not load interviews. Please try again.",
-      "toBeConfirmed": "To be confirmed",
+      "title": "Собеседования",
+      "empty": "Собеседований пока нет. Держите профиль активным, чтобы вас заметили.",
+      "couldNotLoad": "Не удалось загрузить собеседования. Попробуйте ещё раз.",
+      "toBeConfirmed": "Подлежит подтверждению",
       "status": {
-        "proposed": "Proposed",
-        "confirmed": "Confirmed",
-        "interviewed": "Interviewed"
+        "proposed": "Предложено",
+        "confirmed": "Подтверждено",
+        "interviewed": "Собеседование прошло"
       }
     },
     "jobs": {
-      "title": "Jobs",
-      "subtitle": "Open positions near you",
-      "posted": "Posted {posted}",
-      "empty": "No open positions yet. Check back soon — new jobs are added regularly.",
-      "filterEmpty": "No jobs match this filter. Try another category.",
-      "couldNotLoad": "Could not load jobs. Please try again."
+      "title": "Вакансии",
+      "subtitle": "Открытые вакансии рядом с вами",
+      "posted": "Опубликовано {posted}",
+      "empty": "Открытых вакансий пока нет. Загляните позже — новые вакансии добавляются регулярно.",
+      "filterEmpty": "Нет вакансий по этому фильтру. Попробуйте другую категорию.",
+      "couldNotLoad": "Не удалось загрузить вакансии. Попробуйте ещё раз."
     },
     "conversationStatus": {
-      "messaging": "Messaging",
-      "interviewProposed": "Interview proposed",
-      "interviewScheduled": "Interview scheduled",
-      "interviewed": "Interviewed",
-      "hired": "Hired",
-      "declined": "Not proceeding"
+      "messaging": "Переписка",
+      "interviewProposed": "Собеседование предложено",
+      "interviewScheduled": "Собеседование назначено",
+      "interviewed": "Собеседование прошло",
+      "hired": "Нанята",
+      "declined": "Не продолжаем"
     },
     "freshness": {
-      "activeToday": "Active today",
-      "activeThisWeek": "Active this week",
-      "activeTwoWeeksAgo": "Active 2+ weeks ago",
-      "inactiveThirtyDays": "Inactive 30+ days"
+      "activeToday": "Активна сегодня",
+      "activeThisWeek": "Активна на этой неделе",
+      "activeTwoWeeksAgo": "Активна 2+ недели назад",
+      "inactiveThirtyDays": "Неактивна 30+ дней"
     }
   },
   "employer": {
     "discover": {
-      "title": "Discover",
-      "subtitle": "Browse verified candidates anonymously.",
-      "empty": "No candidates available yet",
-      "emptyDesc": "Published candidate profiles will appear here once housemaids complete onboarding and go live.",
-      "filterEmpty": "No matches for this filter",
-      "filterEmptyDesc": "Try another filter or check back as more candidates publish their profiles.",
-      "couldNotLoad": "Could not load candidates. Please try again."
+      "title": "Поиск",
+      "subtitle": "Просматривайте проверенных кандидатов анонимно.",
+      "empty": "Кандидатов пока нет",
+      "emptyDesc": "Опубликованные профили появятся здесь, когда домработницы завершат регистрацию и выйдут в сеть.",
+      "filterEmpty": "Нет совпадений по этому фильтру",
+      "filterEmptyDesc": "Попробуйте другой фильтр или загляните позже, когда появятся новые профили.",
+      "couldNotLoad": "Не удалось загрузить кандидатов. Попробуйте ещё раз."
     },
     "profile": {
-      "title": "My Account",
-      "guestHint": "Log in to save your progress and message candidates.",
-      "editProfile": "Edit Profile",
-      "savedCandidates": "Saved Candidates"
+      "title": "Мой аккаунт",
+      "guestHint": "Войдите, чтобы сохранять прогресс и писать кандидатам.",
+      "editProfile": "Редактировать профиль",
+      "savedCandidates": "Сохранённые кандидаты"
     },
     "saved": {
-      "title": "Saved Candidates",
-      "empty": "No saved candidates yet",
-      "emptyDesc": "Tap the heart icon on any candidate profile to save them here"
+      "title": "Сохранённые кандидаты",
+      "empty": "Сохранённых кандидатов пока нет",
+      "emptyDesc": "Нажмите на сердечко в профиле кандидата, чтобы сохранить его здесь"
     },
     "notifications": {
-      "title": "Notifications",
-      "reply": "Maria Santos replied to your message",
-      "saved": "You saved Grace Wanjiru",
-      "viewed": "You viewed Nilanthi Perera's profile",
-      "verified": "Your account is verified",
-      "oneHourAgo": "1 hour ago",
-      "threeHoursAgo": "3 hours ago",
-      "yesterday": "Yesterday",
-      "twoDaysAgo": "2 days ago"
+      "title": "Уведомления",
+      "reply": "Maria Santos ответила на ваше сообщение",
+      "saved": "Вы сохранили Grace Wanjiru",
+      "viewed": "Вы просмотрели профиль Nilanthi Perera",
+      "verified": "Ваш аккаунт подтверждён",
+      "oneHourAgo": "1 час назад",
+      "threeHoursAgo": "3 часа назад",
+      "yesterday": "Вчера",
+      "twoDaysAgo": "2 дня назад"
     },
     "paywall": {
-      "freeMessagesUsed": "{used} of {limit} free messages used",
-      "unlockMessagingTitle": "Unlock Unlimited Messaging",
-      "unlockProfileTitle": "Unlock Full Profile Access",
-      "unlockMessagingDesc": "Plus personalized filters that learn what you're looking for.",
-      "unlockProfileDesc": "See full employment history, references, and contact details.",
+      "freeMessagesUsed": "Использовано {used} из {limit} бесплатных сообщений",
+      "unlockMessagingTitle": "Разблокировать безлимитные сообщения",
+      "unlockProfileTitle": "Разблокировать полный доступ к профилю",
+      "unlockMessagingDesc": "Плюс персональные фильтры, которые учатся вашим предпочтениям.",
+      "unlockProfileDesc": "Смотрите полную историю работы, рекомендации и контактные данные.",
       "messagingFeatures": {
-        "unlimited": "Message any candidate without limits",
-        "smartFilters": "Smart filters that learn your preferences",
-        "oneTime": "One-time payment — no subscription"
+        "unlimited": "Пишите любому кандидату без ограничений",
+        "smartFilters": "Умные фильтры, которые учатся вашим предпочтениям",
+        "oneTime": "Разовый платёж — без подписки"
       },
       "profileFeatures": {
-        "history": "Full employment history & references",
-        "unmasked": "Unmasked name and location details",
-        "oneTime": "One-time payment — no subscription"
+        "history": "Полная история работы и рекомендации",
+        "unmasked": "Полное имя и данные о местоположении",
+        "oneTime": "Разовый платёж — без подписки"
       },
-      "freeAllowanceHint": "Your free allowance of {limit} messages is a one-time, lifetime grant and won't return."
+      "freeAllowanceHint": "Ваш бесплатный лимит в {limit} сообщений — разовая пожизненная квота, она не восстанавливается."
     },
     "candidateProfile": {
-      "employmentHistory": "Employment history",
-      "pleaseLogInToMessage": "Please log in to send messages.",
-      "failedToSend": "Failed to send message."
+      "employmentHistory": "История работы",
+      "pleaseLogInToMessage": "Войдите, чтобы отправлять сообщения.",
+      "failedToSend": "Не удалось отправить сообщение."
     }
   },
   "onboard": {
     "steps": {
-      "basicInfo": "Basic Info",
-      "locationVisa": "Location & Visa",
-      "experienceSkills": "Experience & Skills",
-      "media": "Media",
-      "review": "Review"
+      "basicInfo": "Основная информация",
+      "locationVisa": "Местоположение и виза",
+      "experienceSkills": "Опыт и навыки",
+      "media": "Медиа",
+      "review": "Проверка"
     },
     "basicInfo": {
-      "title": "Create your profile",
-      "subtitle": "Let's get started! Tell us a bit about yourself.",
-      "photoHint": "Add a clear photo of yourself",
-      "firstName": "First name",
-      "lastName": "Last name",
-      "emailAddress": "Email address",
-      "phoneNumber": "Phone number",
-      "nationality": "Nationality",
-      "gender": "Gender"
+      "title": "Создайте профиль",
+      "subtitle": "Начнём! Расскажите немного о себе.",
+      "photoHint": "Добавьте чёткое фото себя",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "emailAddress": "Адрес email",
+      "phoneNumber": "Номер телефона",
+      "nationality": "Гражданство",
+      "gender": "Пол"
     },
     "locationVisa": {
-      "title": "Where are you located?",
-      "subtitle": "This helps employers find you in their area.",
-      "currentLocation": "Current location",
-      "visaStatus": "Visa status in UAE",
-      "whenCanStart": "When can you start working?",
+      "title": "Где вы находитесь?",
+      "subtitle": "Это поможет работодателям найти вас в их районе.",
+      "currentLocation": "Текущее местоположение",
+      "visaStatus": "Статус визы в UAE",
+      "whenCanStart": "Когда вы можете начать работать?",
       "visaOptions": {
         "ownVisa": {
-          "title": "Own visa",
-          "subtitle": "You are sponsoring your own visa"
+          "title": "Собственная виза",
+          "subtitle": "Вы спонсируете свою визу самостоятельно"
         },
         "visitVisa": {
-          "title": "Visit visa",
-          "subtitle": "You are in UAE on a visit visa"
+          "title": "Гостевая виза",
+          "subtitle": "Вы в UAE по гостевой визе"
         },
         "cancelledVisa": {
-          "title": "Cancelled visa",
-          "subtitle": "You have a cancelled visa"
+          "title": "Аннулированная виза",
+          "subtitle": "У вас аннулированная виза"
         },
         "sponsoredVisa": {
-          "title": "Sponsored visa",
-          "subtitle": "Your visa is sponsored by your employer"
+          "title": "Спонсируемая виза",
+          "subtitle": "Вашу визу спонсирует работодатель"
         },
         "lookingForSponsorship": {
-          "title": "Looking for sponsorship",
-          "subtitle": "You need visa sponsorship"
+          "title": "Ищу спонсорство",
+          "subtitle": "Вам нужно спонсорство визы"
         }
       }
     },
     "experience": {
-      "title": "Tell us about your experience",
-      "subtitle": "This helps employers understand you better.",
-      "yearsOfExperience": "Years of experience",
-      "skillsLabel": "Skills (select all that apply)",
-      "languagesLabel": "Languages",
-      "aboutMeOptional": "About me (optional)",
-      "aboutPlaceholder": "Write a short description about yourself..."
+      "title": "Расскажите об опыте",
+      "subtitle": "Это поможет работодателям лучше вас понять.",
+      "yearsOfExperience": "Лет опыта",
+      "skillsLabel": "Навыки (выберите все подходящие)",
+      "languagesLabel": "Языки",
+      "aboutMeOptional": "О себе (необязательно)",
+      "aboutPlaceholder": "Напишите краткое описание о себе..."
     },
     "media": {
-      "title": "Add your photos, video and availability",
-      "subtitle": "This helps employers get to know you better.",
-      "profilePhoto": "Profile photo",
-      "photoFormats": "JPG, PNG (max 5MB)",
-      "introVideo": "Introduction video (highly recommended)",
-      "videoFormats": "MP4 only, max 30 seconds, max 30MB",
-      "salaryExpectation": "Salary expectation (AED)",
-      "preferredEmploymentType": "Preferred employment type",
-      "liveInTitle": "Live-in",
-      "liveInSubtitle": "I can live at employer's home",
-      "liveOutTitle": "Live-out",
-      "liveOutSubtitle": "I will go home after work",
-      "preferredWorkingDays": "Preferred working days"
+      "title": "Добавьте фото, видео и доступность",
+      "subtitle": "Это поможет работодателям лучше вас узнать.",
+      "profilePhoto": "Фото профиля",
+      "photoFormats": "JPG, PNG (макс. 5 МБ)",
+      "introVideo": "Вступительное видео (настоятельно рекомендуется)",
+      "videoFormats": "Только MP4, макс. 30 секунд, макс. 30 МБ",
+      "salaryExpectation": "Ожидаемая зарплата (AED)",
+      "preferredEmploymentType": "Предпочтительный тип занятости",
+      "liveInTitle": "С проживанием",
+      "liveInSubtitle": "Могу жить в доме работодателя",
+      "liveOutTitle": "Без проживания",
+      "liveOutSubtitle": "Буду уходить домой после работы",
+      "preferredWorkingDays": "Предпочтительные рабочие дни"
     },
     "review": {
-      "title": "Review your profile",
-      "subtitle": "Please review your information before publishing.",
-      "basicInformation": "Basic information",
-      "locationAndVisa": "Location & visa",
-      "experienceSkillsLanguages": "Experience, skills & languages",
-      "mediaSalaryAvailability": "Media, salary & availability",
-      "currentLocation": "Current location",
-      "visaStatus": "Visa status",
-      "yearsOfExperience": "Years of experience",
-      "salaryExpectation": "Salary expectation",
-      "employmentType": "Employment type",
-      "preferredDays": "Preferred days"
+      "title": "Проверьте профиль",
+      "subtitle": "Проверьте информацию перед публикацией.",
+      "basicInformation": "Основная информация",
+      "locationAndVisa": "Местоположение и виза",
+      "experienceSkillsLanguages": "Опыт, навыки и языки",
+      "mediaSalaryAvailability": "Медиа, зарплата и доступность",
+      "currentLocation": "Текущее местоположение",
+      "visaStatus": "Статус визы",
+      "yearsOfExperience": "Лет опыта",
+      "salaryExpectation": "Ожидаемая зарплата",
+      "employmentType": "Тип занятости",
+      "preferredDays": "Предпочтительные дни"
     },
     "errors": {
-      "chooseImage": "Please choose a JPG or PNG image.",
-      "photoTooLarge": "Profile photo must be 5MB or smaller.",
-      "videoMustBeMp4": "Introduction video must be an MP4 file.",
-      "videoTooLarge": "Introduction video must be 30MB or smaller.",
-      "failedSaveProgress": "Failed to save your progress.",
-      "failedPublish": "Failed to publish your profile.",
-      "failedUploadPhoto": "Failed to upload profile photo.",
-      "failedUploadVideo": "Failed to upload introduction video."
+      "chooseImage": "Выберите изображение в формате JPG или PNG.",
+      "photoTooLarge": "Фото профиля должно быть не больше 5 МБ.",
+      "videoMustBeMp4": "Вступительное видео должно быть в формате MP4.",
+      "videoTooLarge": "Вступительное видео должно быть не больше 30 МБ.",
+      "failedSaveProgress": "Не удалось сохранить прогресс.",
+      "failedPublish": "Не удалось опубликовать профиль.",
+      "failedUploadPhoto": "Не удалось загрузить фото профиля.",
+      "failedUploadVideo": "Не удалось загрузить вступительное видео."
     }
   },
   "options": {
     "gender": {
-      "female": "Female",
-      "male": "Male"
+      "female": "Женский",
+      "male": "Мужской"
     },
     "nationalities": {
-      "philippines": "Philippines",
-      "kenya": "Kenya",
-      "sriLanka": "Sri Lanka",
-      "bangladesh": "Bangladesh",
-      "india": "India",
-      "indonesia": "Indonesia",
-      "nepal": "Nepal",
-      "ethiopia": "Ethiopia",
-      "uganda": "Uganda",
-      "other": "Other"
+      "philippines": "Филиппины",
+      "kenya": "Кения",
+      "sriLanka": "Шри-Ланка",
+      "bangladesh": "Бангладеш",
+      "india": "Индия",
+      "indonesia": "Индонезия",
+      "nepal": "Непал",
+      "ethiopia": "Эфиопия",
+      "uganda": "Уганда",
+      "other": "Другое"
     },
     "emirates": {
       "dubai": "Dubai",
@@ -502,377 +502,377 @@
       "downtown": "Downtown"
     },
     "availability": {
-      "availableImmediately": "Available immediately",
-      "withinOneWeek": "Within 1 week",
-      "withinTwoWeeks": "Within 2 weeks",
-      "withinOneMonth": "Within 1 month",
-      "currentlyEmployed": "Currently employed"
+      "availableImmediately": "Доступна немедленно",
+      "withinOneWeek": "В течение 1 недели",
+      "withinTwoWeeks": "В течение 2 недель",
+      "withinOneMonth": "В течение 1 месяца",
+      "currentlyEmployed": "Сейчас работаю"
     },
     "experience": {
-      "lessThanOneYear": "Less than 1 year",
-      "oneToThreeYears": "1 - 3 years",
-      "threeToFiveYears": "3 - 5 years",
-      "fivePlusYears": "5+ years"
+      "lessThanOneYear": "Менее 1 года",
+      "oneToThreeYears": "1 - 3 года",
+      "threeToFiveYears": "3 - 5 лет",
+      "fivePlusYears": "5+ лет"
     },
     "skills": {
-      "cleaning": "Cleaning",
-      "cooking": "Cooking",
-      "childcare": "Childcare",
-      "laundry": "Laundry",
-      "ironing": "Ironing",
-      "elderlyCare": "Elderly care",
-      "petCare": "Pet care",
-      "carWashing": "Car washing",
-      "gardening": "Gardening",
-      "tutoring": "Tutoring",
-      "disabledCare": "Disabled care",
-      "other": "Other"
+      "cleaning": "Уборка",
+      "cooking": "Готовка",
+      "childcare": "Уход за детьми",
+      "laundry": "Стирка",
+      "ironing": "Глажка",
+      "elderlyCare": "Уход за пожилыми",
+      "petCare": "Уход за животными",
+      "carWashing": "Мойка автомобиля",
+      "gardening": "Садоводство",
+      "tutoring": "Репетиторство",
+      "disabledCare": "Уход за людьми с ограниченными возможностями",
+      "other": "Другое"
     },
     "languages": {
-      "english": "English",
-      "arabic": "Arabic",
-      "tagalog": "Tagalog",
-      "hindi": "Hindi",
-      "urdu": "Urdu",
-      "tamil": "Tamil",
-      "french": "French",
-      "other": "Other"
+      "english": "Английский",
+      "arabic": "Арабский",
+      "tagalog": "Тагальский",
+      "hindi": "Хинди",
+      "urdu": "Урду",
+      "tamil": "Тамильский",
+      "french": "Французский",
+      "other": "Другое"
     },
     "days": {
-      "mon": "Mon",
-      "tue": "Tue",
-      "wed": "Wed",
-      "thu": "Thu",
-      "fri": "Fri",
-      "sat": "Sat",
-      "sun": "Sun"
+      "mon": "Пн",
+      "tue": "Вт",
+      "wed": "Ср",
+      "thu": "Чт",
+      "fri": "Пт",
+      "sat": "Сб",
+      "sun": "Вс"
     },
     "visaLabels": {
-      "ownVisa": "Own visa",
-      "visitVisa": "Visit visa",
-      "cancelledVisa": "Cancelled visa",
-      "sponsoredVisa": "Sponsored visa",
-      "lookingForSponsorship": "Looking for sponsorship"
+      "ownVisa": "Собственная виза",
+      "visitVisa": "Гостевая виза",
+      "cancelledVisa": "Аннулированная виза",
+      "sponsoredVisa": "Спонсируемая виза",
+      "lookingForSponsorship": "Ищу спонсорство"
     },
     "employmentLabels": {
-      "liveIn": "Live-in",
-      "liveOut": "Live-out"
+      "liveIn": "С проживанием",
+      "liveOut": "Без проживания"
     },
     "filters": {
-      "all": "All",
-      "fullTime": "Full-Time",
-      "partTime": "Part-Time",
-      "liveIn": "Live-In",
-      "liveOut": "Live-Out"
+      "all": "Все",
+      "fullTime": "Полная занятость",
+      "partTime": "Частичная занятость",
+      "liveIn": "С проживанием",
+      "liveOut": "Без проживания"
     },
     "employmentType": {
-      "fullTime": "Full-Time",
-      "partTime": "Part-Time",
-      "liveIn": "Live-In",
-      "liveOut": "Live-Out"
+      "fullTime": "Полная занятость",
+      "partTime": "Частичная занятость",
+      "liveIn": "С проживанием",
+      "liveOut": "Без проживания"
     }
   },
   "legal": {
     "candidateTerms": {
-      "title": "Terms of Service",
-      "intro": "These Terms apply to candidates using Housemaid-AE to find domestic work in the UAE. By creating a profile, you agree to the rules below.",
+      "title": "Условия использования",
+      "intro": "Эти Условия применяются к кандидатам, использующим Housemaid-AE для поиска работы по дому в UAE. Создавая профиль, вы соглашаетесь с правилами ниже.",
       "sections": {
         "yourProfile": {
-          "heading": "1. Your profile",
-          "body": "You own the content you submit — including your photo, intro video, documents, work history, and bio. By publishing your profile, you grant Housemaid-AE a licence to display this information to employers on the platform for the purpose of matching you with job opportunities."
+          "heading": "1. Ваш профиль",
+          "body": "Вы владеете контентом, который отправляете — включая фото, вступительное видео, документы, историю работы и биографию. Публикуя профиль, вы предоставляете Housemaid-AE лицензию на отображение этой информации работодателям на платформе с целью подбора вакансий."
         },
         "informationYouShare": {
-          "heading": "2. Information you share",
-          "body": "Your profile may include:",
+          "heading": "2. Информация, которой вы делитесь",
+          "body": "Ваш профиль может включать:",
           "items": {
-            "photoVideo": "Profile photo and intro video",
-            "documents": "Identity and visa documents (for verification only)",
-            "history": "Employment history and references",
-            "details": "Skills, languages, salary expectations, and availability",
-            "contact": "Contact details (shared only after you choose to engage with an employer)"
+            "photoVideo": "Фото профиля и вступительное видео",
+            "documents": "Документы, удостоверяющие личность и визу (только для проверки)",
+            "history": "История работы и рекомендации",
+            "details": "Навыки, языки, ожидания по зарплате и доступность",
+            "contact": "Контактные данные (передаются только после того, как вы решите связаться с работодателем)"
           }
         },
         "howWeUseData": {
-          "heading": "3. How we use your data",
-          "body": "We use your profile to match you with employers searching for domestic workers in the UAE. We may show your partially masked name and key details in Discover before an employer unlocks your full profile. We do not sell your personal data to third parties."
+          "heading": "3. Как мы используем ваши данные",
+          "body": "Мы используем ваш профиль для подбора работодателей, ищущих домработниц в UAE. Мы можем показывать частично скрытое имя и ключевые данные в разделе Поиск до того, как работодатель разблокирует полный профиль. Мы не продаём ваши персональные данные третьим лицам."
         },
         "matching": {
-          "heading": "4. Matching with employers",
-          "body": "Employers can browse, save, and message you through the platform. You are free to accept or decline any opportunity. Housemaid-AE does not guarantee employment, interviews, or specific salary offers."
+          "heading": "4. Подбор с работодателями",
+          "body": "Работодатели могут просматривать, сохранять и писать вам через платформу. Вы свободны принимать или отклонять любое предложение. Housemaid-AE не гарантирует трудоустройство, собеседования или конкретные предложения по зарплате."
         },
         "accuracy": {
-          "heading": "5. Accuracy and conduct",
-          "body": "You agree that all information in your profile is truthful. Misleading photos, fake references, or false visa status may result in immediate removal. Treat employers respectfully in all messages."
+          "heading": "5. Достоверность и поведение",
+          "body": "Вы соглашаетесь, что вся информация в профиле правдива. Вводящие в заблуждение фото, поддельные рекомендации или ложный статус визы могут привести к немедленному удалению. Относитесь к работодателям уважительно во всех сообщениях."
         },
         "deactivating": {
-          "heading": "6. Deactivating your profile",
-          "body": "You may pause or deactivate your profile at any time. When deactivated, your profile is hidden from Discover and new employer contact is blocked. Existing message threads remain unless you request full account deletion."
+          "heading": "6. Деактивация профиля",
+          "body": "Вы можете приостановить или деактивировать профиль в любое время. При деактивации профиль скрывается из Поиска, и новые обращения от работодателей блокируются. Существующие переписки сохраняются, если вы не запросите полное удаление аккаунта."
         },
         "deletion": {
-          "heading": "7. Account deletion",
-          "body": "To permanently delete your account and data, contact support@housemaid-ae.com. We process deletion requests within 30 days, subject to legal retention requirements in the UAE."
+          "heading": "7. Удаление аккаунта",
+          "body": "Чтобы навсегда удалить аккаунт и данные, напишите на support@housemaid-ae.com. Мы обрабатываем запросы на удаление в течение 30 дней с учётом требований законодательства UAE о хранении данных."
         },
         "contact": {
-          "heading": "8. Contact",
-          "body": "Questions about these Terms: support@housemaid-ae.com"
+          "heading": "8. Контакты",
+          "body": "Вопросы по этим Условиям: support@housemaid-ae.com"
         }
       }
     },
     "candidatePrivacy": {
-      "title": "Privacy Policy",
-      "intro": "This Privacy Policy explains what we collect from candidates, why we collect it, and how you can control your data.",
+      "title": "Политика конфиденциальности",
+      "intro": "Эта Политика конфиденциальности объясняет, какие данные мы собираем от кандидатов, зачем мы их собираем и как вы можете управлять своими данными.",
       "sections": {
         "whatWeCollect": {
-          "heading": "What we collect",
-          "body": "When you create a candidate profile, we collect:",
+          "heading": "Что мы собираем",
+          "body": "При создании профиля кандидата мы собираем:",
           "items": {
-            "contact": "Name, phone number, and email address",
-            "media": "Profile photo and intro video",
-            "documents": "Identity and visa documents",
-            "history": "Employment history and references",
-            "location": "Location (emirate and district)",
-            "details": "Skills, languages, salary expectations, and availability"
+            "contact": "Имя, номер телефона и адрес email",
+            "media": "Фото профиля и вступительное видео",
+            "documents": "Документы, удостоверяющие личность и визу",
+            "history": "История работы и рекомендации",
+            "location": "Местоположение (эмират и район)",
+            "details": "Навыки, языки, ожидания по зарплате и доступность"
           }
         },
         "whyWeCollect": {
-          "heading": "Why we collect it",
-          "body": "We use this information to build your profile, verify your identity, match you with employers, prevent fraud, and improve the platform. Documents are reviewed by our team — they are not displayed publicly."
+          "heading": "Зачем мы это собираем",
+          "body": "Мы используем эту информацию для создания профиля, подтверждения личности, подбора работодателей, предотвращения мошенничества и улучшения платформы. Документы проверяет наша команда — они не отображаются публично."
         },
         "whoCanSee": {
-          "heading": "Who can see your information",
-          "body": "Employers browsing Discover see a partially masked version of your profile. Full details — including unmasked name, complete employment history, and contact information — are visible only to employers who have unlocked your profile or whom you have chosen to message."
+          "heading": "Кто может видеть вашу информацию",
+          "body": "Работодатели в разделе Поиск видят частично скрытую версию профиля. Полные данные — включая полное имя, полную историю работы и контактную информацию — доступны только работодателям, которые разблокировали профиль или с которыми вы решили переписываться."
         },
         "howLong": {
-          "heading": "How long we keep it",
-          "body": "We retain your profile data while your account is active. If you deactivate, we keep a limited record for up to 12 months. After account deletion, we remove personal data within 30 days except where UAE law requires longer retention."
+          "heading": "Как долго мы храним данные",
+          "body": "Мы храним данные профиля, пока аккаунт активен. При деактивации мы сохраняем ограниченную запись до 12 месяцев. После удаления аккаунта мы удаляем персональные данные в течение 30 дней, за исключением случаев, когда законодательство UAE требует более длительного хранения."
         },
         "howToDelete": {
-          "heading": "How to delete your data",
-          "body": "You can update or remove most information from your profile at any time. To delete your account entirely, email support@housemaid-ae.com from your registered address."
+          "heading": "Как удалить данные",
+          "body": "Вы можете обновлять или удалять большую часть информации в профиле в любое время. Чтобы полностью удалить аккаунт, напишите на support@housemaid-ae.com с зарегистрированного адреса."
         },
         "yourRights": {
-          "heading": "Your rights",
-          "body": "You may request access to, correction of, or deletion of your personal data. Contact support@housemaid-ae.com and we will respond within 30 days."
+          "heading": "Ваши права",
+          "body": "Вы можете запросить доступ к персональным данным, их исправление или удаление. Напишите на support@housemaid-ae.com — мы ответим в течение 30 дней."
         },
         "contact": {
-          "heading": "Contact",
+          "heading": "Контакты",
           "body": "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com"
         }
       }
     },
     "employerTerms": {
-      "title": "Terms of Service",
-      "intro": "These Terms apply to employers using Housemaid-AE to find domestic workers in the UAE. By creating an account, you agree to the rules below.",
+      "title": "Условия использования",
+      "intro": "Эти Условия применяются к работодателям, использующим Housemaid-AE для поиска домработниц в UAE. Создавая аккаунт, вы соглашаетесь с правилами ниже.",
       "sections": {
         "browsingFree": {
-          "heading": "1. Browsing is free",
-          "body": "You can browse verified candidate profiles on Discover without creating an account. Names are partially masked and employment history is hidden until you unlock a profile."
+          "heading": "1. Просмотр бесплатный",
+          "body": "Вы можете просматривать проверенные профили кандидатов в разделе Поиск без создания аккаунта. Имена частично скрыты, а история работы недоступна, пока вы не разблокируете профиль."
         },
         "freeMessages": {
-          "heading": "2. Free messages",
-          "body": "After creating a free employer account, you receive 3 lifetime free messages across all candidates. This is a one-time grant — free messages do not reset monthly."
+          "heading": "2. Бесплатные сообщения",
+          "body": "После создания бесплатного аккаунта работодателя вы получаете 3 бесплатных сообщения на всё время для всех кандидатов. Это разовая квота — бесплатные сообщения не восстанавливаются ежемесячно."
         },
         "unlock": {
-          "heading": "3. AED 100 unlock",
-          "body": "Once your 3 free messages are used, a one-time AED 100 payment unlocks unlimited messaging. A separate one-time AED 100 payment unlocks a candidate's full profile (employment history, references, and unmasked details). These are not subscriptions and do not auto-renew."
+          "heading": "3. Разблокировка за AED 100",
+          "body": "После использования 3 бесплатных сообщений разовый платёж AED 100 разблокирует безлимитные сообщения. Отдельный разовый платёж AED 100 разблокирует полный профиль кандидата (историю работы, рекомендации и полные данные). Это не подписки и они не продлеваются автоматически."
         },
         "noRefunds": {
-          "heading": "4. No refunds",
-          "body": "Unlock payments are non-refundable unless required by UAE law. If you believe you were charged in error, contact support@housemaid-ae.com within 7 days."
+          "heading": "4. Без возврата средств",
+          "body": "Платежи за разблокировку не подлежат возврату, если иное не требуется законодательством UAE. Если вы считаете, что списание произошло по ошибке, напишите на support@housemaid-ae.com в течение 7 дней."
         },
         "responsibilities": {
-          "heading": "5. Your responsibilities",
-          "body": "As an employer, you are solely responsible for:",
+          "heading": "5. Ваши обязанности",
+          "body": "Как работодатель, вы несёте полную ответственность за:",
           "items": {
-            "labour": "Complying with UAE labour and immigration laws",
-            "checks": "Conducting your own interviews and background checks",
-            "contracts": "Drafting and honouring employment contracts",
-            "respect": "Treating candidates with respect and dignity",
-            "illegal": "Not requesting illegal payments or withholding passports"
+            "labour": "Соблюдение трудового и миграционного законодательства UAE",
+            "checks": "Проведение собственных собеседований и проверок",
+            "contracts": "Составление и соблюдение трудовых договоров",
+            "respect": "Уважительное отношение к кандидатам",
+            "illegal": "Отсутствие требований незаконных платежей или удержания паспортов"
           }
         },
         "messagingRules": {
-          "heading": "6. Messaging rules",
-          "body": "Do not send spam, harassment, threats, or discriminatory messages. Violations may result in permanent account suspension without refund."
+          "heading": "6. Правила переписки",
+          "body": "Не отправляйте спам, оскорбления, угрозы или дискриминационные сообщения. Нарушения могут привести к постоянной блокировке аккаунта без возврата средств."
         },
         "noGuarantee": {
-          "heading": "7. No employment guarantee",
-          "body": "Housemaid-AE facilitates introductions only. We do not employ candidates, guarantee suitability, or mediate employment disputes."
+          "heading": "7. Без гарантии трудоустройства",
+          "body": "Housemaid-AE только знакомит стороны. Мы не нанимаем кандидатов, не гарантируем их соответствие и не выступаем посредником в трудовых спорах."
         },
         "governingLaw": {
-          "heading": "8. Governing law",
-          "body": "These Terms are governed by the laws of the United Arab Emirates."
+          "heading": "8. Применимое право",
+          "body": "Эти Условия регулируются законодательством Объединённых Арабских Эмиратов."
         },
         "contact": {
-          "heading": "9. Contact",
-          "body": "Questions about these Terms: support@housemaid-ae.com"
+          "heading": "9. Контакты",
+          "body": "Вопросы по этим Условиям: support@housemaid-ae.com"
         }
       }
     },
     "employerPrivacy": {
-      "title": "Privacy Policy",
-      "intro": "This Privacy Policy explains what we collect from employers. We collect far less data from employers than from candidates.",
+      "title": "Политика конфиденциальности",
+      "intro": "Эта Политика конфиденциальности объясняет, какие данные мы собираем от работодателей. Мы собираем от работодателей гораздо меньше данных, чем от кандидатов.",
       "sections": {
         "whatWeCollect": {
-          "heading": "What we collect",
-          "body": "When you create an employer account, we collect only:",
+          "heading": "Что мы собираем",
+          "body": "При создании аккаунта работодателя мы собираем только:",
           "items": {
-            "name": "Your full name",
-            "email": "Email address",
-            "location": "Location (city/emirate in the UAE)"
+            "name": "Ваше полное имя",
+            "email": "Адрес email",
+            "location": "Местоположение (город/эмират в UAE)"
           }
         },
         "whatWeDoNotCollect": {
-          "heading": "What we do not collect",
-          "body": "We do not collect or store your payment card details. All payments are processed securely by PayTabs, our third-party payment provider. We receive only a payment confirmation — not your card number."
+          "heading": "Что мы не собираем",
+          "body": "Мы не собираем и не храним данные вашей платёжной карты. Все платежи обрабатываются безопасно через PayTabs, нашего стороннего платёжного провайдера. Мы получаем только подтверждение оплаты — не номер карты."
         },
         "howWeUse": {
-          "heading": "How we use your information",
-          "body": "We use your name and email to operate your account, send message notifications, and provide customer support. Your location helps us show relevant candidates near you."
+          "heading": "Как мы используем вашу информацию",
+          "body": "Мы используем ваше имя и email для работы аккаунта, отправки уведомлений о сообщениях и поддержки клиентов. Местоположение помогает показывать релевантных кандидатов рядом с вами."
         },
         "noSelling": {
-          "heading": "We do not sell your data",
-          "body": "We do not sell, rent, or trade employer personal information to third parties for marketing purposes."
+          "heading": "Мы не продаём ваши данные",
+          "body": "Мы не продаём, не сдаём в аренду и не передаём персональную информацию работодателей третьим лицам в маркетинговых целях."
         },
         "retention": {
-          "heading": "Data retention",
-          "body": "We keep your account data while your account is active. If you delete your account, we remove personal data within 30 days, except where UAE law requires retention."
+          "heading": "Хранение данных",
+          "body": "Мы храним данные аккаунта, пока он активен. При удалении аккаунта мы удаляем персональные данные в течение 30 дней, за исключением случаев, когда законодательство UAE требует хранения."
         },
         "deletion": {
-          "heading": "Account deletion",
-          "body": "To delete your employer account, email support@housemaid-ae.com from your registered address. Deletion is processed within 30 days."
+          "heading": "Удаление аккаунта",
+          "body": "Чтобы удалить аккаунт работодателя, напишите на support@housemaid-ae.com с зарегистрированного адреса. Удаление обрабатывается в течение 30 дней."
         },
         "contact": {
-          "heading": "Contact",
+          "heading": "Контакты",
           "body": "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com"
         }
       }
     },
-    "lastUpdated": "June 2026"
+    "lastUpdated": "Июнь 2026"
   },
   "help": {
-    "title": "Help & Support",
-    "stillNeedHelp": "Still need help?",
-    "responseTime": "We typically respond within 24 hours.",
+    "title": "Помощь и поддержка",
+    "stillNeedHelp": "Всё ещё нужна помощь?",
+    "responseTime": "Обычно мы отвечаем в течение 24 часов.",
     "candidate": {
       "createProfile": {
-        "question": "How do I create a profile?",
-        "answer": "Sign up with Google, phone, or email, then complete the onboarding steps: basic info, location and visa, experience and skills, photo and video, and review. A complete profile with verified documents gets far more employer views."
+        "question": "Как создать профиль?",
+        "answer": "Зарегистрируйтесь через Google, телефон или email, затем пройдите шаги регистрации: основная информация, местоположение и виза, опыт и навыки, фото и видео, проверка. Полный профиль с проверенными документами получает гораздо больше просмотров от работодателей."
       },
       "employersFind": {
-        "question": "How do employers find me?",
-        "answer": "Employers browse verified candidates on Discover. Your name is partially masked until an employer unlocks your full profile. Employers can filter by role type, location, and availability. Keep your profile active and complete to rank higher."
+        "question": "Как работодатели меня находят?",
+        "answer": "Работодатели просматривают проверенных кандидатов в разделе Поиск. Ваше имя частично скрыто, пока работодатель не разблокирует полный профиль. Работодатели могут фильтровать по типу занятости, местоположению и доступности. Держите профиль активным и полным, чтобы быть выше в результатах."
       },
       "documents": {
-        "question": "Who can see my documents?",
-        "answer": "Your ID, visa, and reference documents are never shown publicly. Only Housemaid-AE's verification team reviews them. Employers see a Verified badge once approved — they do not download your raw documents unless you choose to share them in chat."
+        "question": "Кто может видеть мои документы?",
+        "answer": "Ваши документы, удостоверяющие личность, визу и рекомендации никогда не показываются публично. Их проверяет только команда верификации Housemaid-AE. Работодатели видят значок «Проверено» после одобрения — они не скачивают ваши оригинальные документы, если вы сами не решите поделиться ими в чате."
       },
       "pause": {
-        "question": "How do I pause my profile?",
-        "answer": "Go to My Profile → Settings and switch your availability to unavailable, or contact support. While paused, your profile is hidden from Discover and employers cannot send new messages. Existing conversations remain accessible."
+        "question": "Как приостановить профиль?",
+        "answer": "Перейдите в Мой профиль → Настройки и переключите доступность на «недоступна», или напишите в поддержку. Пока профиль приостановлен, он скрыт из Поиска, и работодатели не могут отправлять новые сообщения. Существующие переписки остаются доступными."
       },
       "delete": {
-        "question": "How do I delete my account?",
-        "answer": "Email support@housemaid-ae.com from your registered address and request account deletion. We remove your profile, documents, and messages within 30 days, except where UAE law requires us to retain records."
+        "question": "Как удалить аккаунт?",
+        "answer": "Напишите на support@housemaid-ae.com с зарегистрированного адреса и запросите удаление аккаунта. Мы удалим профиль, документы и сообщения в течение 30 дней, за исключением случаев, когда законодательство UAE требует хранения записей."
       }
     },
     "employer": {
       "message": {
-        "question": "How do I message a candidate?",
-        "answer": "Browse candidates on Discover — no account needed. When you're ready to message, create a free employer account. You get 3 lifetime free messages across all candidates. After that, a one-time AED 100 unlock gives you unlimited messaging."
+        "question": "Как написать кандидату?",
+        "answer": "Просматривайте кандидатов в разделе Поиск — аккаунт не нужен. Когда будете готовы написать, создайте бесплатный аккаунт работодателя. Вы получите 3 бесплатных сообщения на всё время для всех кандидатов. После этого разовый платёж AED 100 даёт безлимитные сообщения."
       },
       "unlock": {
-        "question": "How does the AED 100 unlock work?",
-        "answer": "AED 100 is a one-time payment per unlock — not a subscription. It unlocks unlimited messaging to any candidate, or full access to a candidate's employment history and references, depending on which action you take. Your 3 free messages are a lifetime grant."
+        "question": "Как работает разблокировка за AED 100?",
+        "answer": "AED 100 — это разовый платёж за каждую разблокировку, а не подписка. Он открывает безлимитные сообщения любому кандидату или полный доступ к истории работы и рекомендациям кандидата — в зависимости от выбранного действия. Ваши 3 бесплатных сообщения — пожизненная квота."
       },
       "refund": {
-        "question": "Can I get a refund?",
-        "answer": "Unlock payments are one-time and non-refundable unless required by UAE law. If you believe you were charged in error, email support@housemaid-ae.com within 7 days with your account email and payment reference."
+        "question": "Можно ли вернуть деньги?",
+        "answer": "Платежи за разблокировку разовые и не подлежат возврату, если иное не требуется законодательством UAE. Если вы считаете, что списание произошло по ошибке, напишите на support@housemaid-ae.com в течение 7 дней с email аккаунта и номером платежа."
       },
       "find": {
-        "question": "How do I find the right candidate?",
-        "answer": "Use Discover filters for full-time, part-time, live-in, or live-out roles. Save candidates you like, read their skills and experience, and message those who match your household needs. Verified profiles with intro videos are the strongest signal of fit."
+        "question": "Как найти подходящего кандидата?",
+        "answer": "Используйте фильтры в Поиске для полной или частичной занятости, с проживанием или без. Сохраняйте понравившихся кандидатов, читайте их навыки и опыт и пишите тем, кто подходит вашему дому. Проверенные профили с вступительным видео — лучший сигнал соответствия."
       }
     }
   },
   "validation": {
-    "firstNameRequired": "First name is required.",
-    "lastNameRequired": "Last name is required.",
-    "phoneRequired": "Phone number is required.",
-    "nationalityRequired": "Nationality is required.",
-    "genderRequired": "Gender is required.",
-    "emirateRequired": "Emirate is required.",
-    "districtRequired": "District is required.",
-    "visaRequired": "Visa status is required.",
-    "experienceRequired": "Years of experience is required.",
-    "photoRequired": "Profile photo is required.",
-    "salaryRequired": "Salary range is required.",
-    "employmentTypeRequired": "Employment type is required.",
-    "messageEmpty": "Message cannot be empty."
+    "firstNameRequired": "Имя обязательно.",
+    "lastNameRequired": "Фамилия обязательна.",
+    "phoneRequired": "Номер телефона обязателен.",
+    "nationalityRequired": "Гражданство обязательно.",
+    "genderRequired": "Пол обязателен.",
+    "emirateRequired": "Эмират обязателен.",
+    "districtRequired": "Район обязателен.",
+    "visaRequired": "Статус визы обязателен.",
+    "experienceRequired": "Опыт работы обязателен.",
+    "photoRequired": "Фото профиля обязательно.",
+    "salaryRequired": "Диапазон зарплаты обязателен.",
+    "employmentTypeRequired": "Тип занятости обязателен.",
+    "messageEmpty": "Сообщение не может быть пустым."
   },
   "time": {
-    "justNow": "Just now",
-    "minutesAgo": "{minutes}m ago",
-    "hoursAgo": "{hours}h ago",
-    "yesterday": "Yesterday",
-    "daysAgo": "{days} days ago",
-    "toBeConfirmed": "To be confirmed",
-    "resendIn": "Resend in {time}",
-    "posted": "Posted {posted}",
+    "justNow": "Только что",
+    "minutesAgo": "{minutes} мин. назад",
+    "hoursAgo": "{hours} ч. назад",
+    "yesterday": "Вчера",
+    "daysAgo": "{days} дн. назад",
+    "toBeConfirmed": "Подлежит подтверждению",
+    "resendIn": "Отправить повторно через {time}",
+    "posted": "Опубликовано {posted}",
     "lastActive": {
-      "today": "today",
-      "yesterday": "yesterday",
-      "thisWeek": "this week",
-      "twoWeeksAgo": "2 weeks ago",
-      "threeWeeksAgo": "3 weeks ago",
-      "thirtyPlusDays": "30+ days ago"
+      "today": "сегодня",
+      "yesterday": "вчера",
+      "thisWeek": "на этой неделе",
+      "twoWeeksAgo": "2 недели назад",
+      "threeWeeksAgo": "3 недели назад",
+      "thirtyPlusDays": "30+ дней назад"
     },
     "initialsFallback": "EM"
   },
   "completionFields": {
-    "firstName": "first name",
-    "lastName": "last name",
-    "phoneNumber": "phone number",
-    "nationality": "nationality",
-    "gender": "gender",
-    "emirate": "emirate",
-    "district": "district",
-    "visaStatus": "visa status",
-    "availability": "availability",
-    "experience": "experience",
-    "skills": "skills",
-    "languages": "languages",
-    "aboutYou": "about you",
-    "profilePhoto": "profile photo",
-    "salaryRange": "salary range",
-    "employmentType": "employment type",
-    "videoIntro": "video intro",
+    "firstName": "имя",
+    "lastName": "фамилию",
+    "phoneNumber": "номер телефона",
+    "nationality": "гражданство",
+    "gender": "пол",
+    "emirate": "эмират",
+    "district": "район",
+    "visaStatus": "статус визы",
+    "availability": "доступность",
+    "experience": "опыт",
+    "skills": "навыки",
+    "languages": "языки",
+    "aboutYou": "информацию о себе",
+    "profilePhoto": "фото профиля",
+    "salaryRange": "диапазон зарплаты",
+    "employmentType": "тип занятости",
+    "videoIntro": "вступительное видео",
     "hints": {
-      "complete": "Your profile is fully complete.",
-      "videoIntro": "Add a video intro to stand out to employers.",
-      "single": "Add your {field} to improve your profile.",
-      "double": "Add your {field1} and {field2} to improve your profile."
+      "complete": "Ваш профиль полностью заполнен.",
+      "videoIntro": "Добавьте вступительное видео, чтобы выделиться среди работодателей.",
+      "single": "Добавьте {field}, чтобы улучшить профиль.",
+      "double": "Добавьте {field1} и {field2}, чтобы улучшить профиль."
     },
-    "defaultFirstName": "there"
+    "defaultFirstName": "друг"
   },
   "errors": {
-    "googleOAuth": "Google sign-in failed: Supabase could not verify your Google credentials. Check Google Cloud Console and Supabase Google provider settings.",
-    "loadProfile": "Could not load your profile. Please try again.",
-    "loadProfileShort": "Could not load your profile.",
-    "loadMessages": "Could not load messages. Please try again.",
-    "loadInterviews": "Could not load interviews. Please try again.",
-    "loadJobs": "Could not load jobs. Please try again.",
-    "loadCandidates": "Could not load candidates. Please try again.",
-    "sendMessage": "Failed to send message.",
-    "saveProgress": "Failed to save your progress.",
-    "publishProfile": "Failed to publish your profile.",
-    "uploadPhoto": "Failed to upload profile photo.",
-    "uploadVideo": "Failed to upload introduction video.",
-    "pleaseLogInToMessage": "Please log in to send messages.",
-    "chooseImage": "Please choose a JPG or PNG image.",
-    "photoTooLarge": "Profile photo must be 5MB or smaller.",
-    "videoMustBeMp4": "Introduction video must be an MP4 file.",
-    "videoTooLarge": "Introduction video must be 30MB or smaller.",
-    "messageEmpty": "Message cannot be empty."
+    "googleOAuth": "Не удалось войти через Google: Supabase не смог проверить ваши учётные данные Google. Проверьте настройки Google Cloud Console и провайдера Google в Supabase.",
+    "loadProfile": "Не удалось загрузить профиль. Попробуйте ещё раз.",
+    "loadProfileShort": "Не удалось загрузить профиль.",
+    "loadMessages": "Не удалось загрузить сообщения. Попробуйте ещё раз.",
+    "loadInterviews": "Не удалось загрузить собеседования. Попробуйте ещё раз.",
+    "loadJobs": "Не удалось загрузить вакансии. Попробуйте ещё раз.",
+    "loadCandidates": "Не удалось загрузить кандидатов. Попробуйте ещё раз.",
+    "sendMessage": "Не удалось отправить сообщение.",
+    "saveProgress": "Не удалось сохранить прогресс.",
+    "publishProfile": "Не удалось опубликовать профиль.",
+    "uploadPhoto": "Не удалось загрузить фото профиля.",
+    "uploadVideo": "Не удалось загрузить вступительное видео.",
+    "pleaseLogInToMessage": "Войдите, чтобы отправлять сообщения.",
+    "chooseImage": "Выберите изображение в формате JPG или PNG.",
+    "photoTooLarge": "Фото профиля должно быть не больше 5 МБ.",
+    "videoMustBeMp4": "Вступительное видео должно быть в формате MP4.",
+    "videoTooLarge": "Вступительное видео должно быть не больше 30 МБ.",
+    "messageEmpty": "Сообщение не может быть пустым."
   }
 }
