@@ -1,38 +1,35 @@
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import {
   ArrowRight,
   Check,
-  ChevronDown,
-  Globe,
   Lock,
   MessageCircle,
   Shield,
   User,
 } from "lucide-react";
 import { Logo } from "@/components/logo";
+import { LanguagePicker } from "@/components/ui/language-picker";
 import {
   LANDING_CANDIDATE_PHOTO,
   LANDING_EMPLOYER_PHOTO,
   TRUSTED_AVATAR_PHOTOS,
 } from "@/lib/photos";
 
-const CITIES = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "RAK", "+3"];
-
-const TRUST_FEATURES = [
-  { icon: Shield, label: "Verified Profiles" },
-  { icon: Lock, label: "Safe & Secure" },
-  { icon: MessageCircle, label: "Direct Chat" },
+const CITY_KEYS = [
+  "dubai",
+  "abuDhabi",
+  "sharjah",
+  "ajman",
+  "rak",
+  "more",
 ] as const;
 
-function LanguagePicker() {
-  return (
-    <div className="flex items-center gap-[3px] rounded-[20px] border border-border px-2.5 py-[5px] text-[12.5px] font-medium text-ink">
-      <Globe size={13} aria-hidden />
-      EN
-      <ChevronDown size={12} aria-hidden />
-    </div>
-  );
-}
+const TRUST_FEATURE_KEYS = [
+  "verifiedProfiles",
+  "safeSecure",
+  "directChat",
+] as const;
 
 type RoleCardProps = {
   tag: string;
@@ -107,27 +104,41 @@ function RoleCard({
   );
 }
 
-function LandingScreen() {
+async function LandingScreen() {
+  const t = await getTranslations("landing");
+  const tc = await getTranslations("common");
+
+  const candidateBullets = [
+    t("candidateBullets.createProfile"),
+    t("candidateBullets.getDiscovered"),
+    t("candidateBullets.findJob"),
+  ];
+  const employerBullets = [
+    t("employerBullets.browse"),
+    t("employerBullets.chat"),
+    t("employerBullets.findMatch"),
+  ];
+
   return (
     <div>
-      {/* Header */}
       <div className="flex items-center justify-between px-[18px] pt-4">
         <Logo accent="purple" />
         <LanguagePicker />
       </div>
 
-      {/* Hero */}
       <div className="px-6 pb-1.5 pt-5 text-center">
-        <p className="m-0 text-[15px] font-medium text-ink-soft">Welcome to</p>
+        <p className="m-0 text-[15px] font-medium text-ink-soft">
+          {t("welcomeTo")}
+        </p>
         <h1 className="font-head m-0 mt-0.5 inline-flex items-start text-[30px] font-extrabold leading-none text-navy">
-          Housemaid
+          {tc("brand")}
           <span
             className="bg-clip-text font-extrabold text-transparent"
             style={{
               backgroundImage: "linear-gradient(135deg, #9B6BFF, #6B3FE0)",
             }}
           >
-            -AE
+            {tc("brandSuffix")}
           </span>
           <svg
             width="20"
@@ -146,65 +157,56 @@ function LandingScreen() {
           </svg>
         </h1>
         <p className="m-0 mt-2 text-[13.5px] leading-[1.5] text-ink-soft">
-          Connecting trusted housemaids and employers across{" "}
-          <span className="font-semibold text-purple">UAE</span>
+          {t("tagline", { uae: tc("uae") })}
         </p>
       </div>
 
-      {/* City filter bar */}
       <div className="min-w-0 overflow-hidden px-[18px] mt-3.5">
         <div className="no-scrollbar flex items-center gap-2 overflow-x-auto rounded-[30px] border border-border px-3.5 py-2 text-[12.5px] font-semibold text-ink">
-        <span className="flex shrink-0 items-center gap-[5px]">UAE Wide</span>
-        <span className="text-border">|</span>
-        {CITIES.map((c) => (
-          <span key={c} className="shrink-0 font-medium text-ink-soft">
-            {c}
+          <span className="flex shrink-0 items-center gap-[5px]">
+            {t("uaeWide")}
           </span>
-        ))}
+          <span className="text-border">|</span>
+          {CITY_KEYS.map((key) => (
+            <span key={key} className="shrink-0 font-medium text-ink-soft">
+              {t(`cities.${key}`)}
+            </span>
+          ))}
         </div>
       </div>
 
-      {/* Role picker heading */}
       <div className="px-6 pb-1 pt-[22px] text-center">
         <h2 className="font-head m-0 text-[16.5px] font-bold text-navy">
-          What brings you here today?
+          {t("roleHeading")}
         </h2>
         <p className="m-0 mt-1 text-[12.5px] text-ink-soft">
-          Please choose an option to continue
+          {t("roleSubheading")}
         </p>
       </div>
 
-      {/* Role cards */}
       <div className="px-[18px] pt-3">
         <RoleCard
-          tag="I'm a"
-          role="Candidate"
-          desc="Looking for a job"
-          bullets={["Create your profile", "Get discovered", "Find the right job"]}
+          tag={t("candidateTag")}
+          role={t("candidateRole")}
+          desc={t("candidateDesc")}
+          bullets={candidateBullets}
           accent="purple"
           photoUrl={LANDING_CANDIDATE_PHOTO}
           href="/candidate/auth"
         />
         <RoleCard
-          tag="I'm an"
-          role="Employer"
-          desc="Hiring a housemaid"
-          bullets={[
-            "Browse verified candidates",
-            "Chat directly",
-            "Find the perfect match",
-          ]}
+          tag={t("employerTag")}
+          role={t("employerRole")}
+          desc={t("employerDesc")}
+          bullets={employerBullets}
           accent="blue"
           photoUrl={LANDING_EMPLOYER_PHOTO}
           href="/employer/discover"
         />
       </div>
 
-      {/* Trust section */}
       <div className="px-6 pb-[22px] pt-5 text-center">
-        <p className="mb-2.5 text-xs text-ink-soft">
-          Trusted by families across UAE
-        </p>
+        <p className="mb-2.5 text-xs text-ink-soft">{t("trustedBy")}</p>
         <div className="flex items-center justify-center gap-2.5">
           <div className="flex">
             {TRUSTED_AVATAR_PHOTOS.map((photo, i) => (
@@ -224,21 +226,29 @@ function LandingScreen() {
           </div>
           <span className="flex items-center gap-[5px] rounded-[10px] bg-purple-light px-3 py-[7px] text-xs font-bold text-purple">
             <Shield size={13} aria-hidden />
-            Verified Profiles
+            {t("verifiedProfiles")}
           </span>
         </div>
         <div className="mt-[18px] flex justify-around">
-          {TRUST_FEATURES.map(({ icon: Icon, label }) => (
-            <div
-              key={label}
-              className="flex flex-col items-center gap-[5px] text-purple"
-            >
-              <Icon size={18} aria-hidden />
-              <span className="text-[10.5px] font-medium text-ink-soft">
-                {label}
-              </span>
-            </div>
-          ))}
+          {TRUST_FEATURE_KEYS.map((key) => {
+            const Icon =
+              key === "verifiedProfiles"
+                ? Shield
+                : key === "safeSecure"
+                  ? Lock
+                  : MessageCircle;
+            return (
+              <div
+                key={key}
+                className="flex flex-col items-center gap-[5px] text-purple"
+              >
+                <Icon size={18} aria-hidden />
+                <span className="text-[10.5px] font-medium text-ink-soft">
+                  {t(`trustFeatures.${key}`)}
+                </span>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

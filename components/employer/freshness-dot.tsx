@@ -1,15 +1,23 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+
 type FreshnessTier = {
-  label: string;
+  labelKey:
+    | "activeToday"
+    | "activeThisWeek"
+    | "activeTwoWeeksAgo"
+    | "inactiveThirtyDays";
   color: string;
   dot: string;
 };
 
 const FRESHNESS_TIERS = {
-  fresh: { label: "Active today", color: "#16A34A", dot: "#16A34A" },
-  warm: { label: "Active this week", color: "#CA8A04", dot: "#F59E0B" },
-  decaying: { label: "Active 2+ weeks ago", color: "#6B7280", dot: "#D1D0DC" },
-  stale: { label: "Inactive 30+ days", color: "#9CA3AF", dot: "#E5E7EB" },
-} satisfies Record<string, FreshnessTier>;
+  fresh: { labelKey: "activeToday", color: "#16A34A", dot: "#16A34A" },
+  warm: { labelKey: "activeThisWeek", color: "#CA8A04", dot: "#F59E0B" },
+  decaying: { labelKey: "activeTwoWeeksAgo", color: "#6B7280", dot: "#D1D0DC" },
+  stale: { labelKey: "inactiveThirtyDays", color: "#9CA3AF", dot: "#E5E7EB" },
+} satisfies Record<string, Omit<FreshnessTier, "labelKey"> & { labelKey: FreshnessTier["labelKey"] }>;
 
 function getFreshness(lastActive: string): FreshnessTier {
   if (lastActive === "today" || lastActive === "now") {
@@ -30,6 +38,7 @@ type FreshnessDotProps = {
 };
 
 export function FreshnessDot({ lastActive, showLabel }: FreshnessDotProps) {
+  const t = useTranslations("candidate.freshness");
   const tier = getFreshness(lastActive);
 
   return (
@@ -44,7 +53,7 @@ export function FreshnessDot({ lastActive, showLabel }: FreshnessDotProps) {
           className="text-[10.5px] font-semibold"
           style={{ color: tier.color }}
         >
-          {tier.label}
+          {t(tier.labelKey)}
         </span>
       )}
     </span>

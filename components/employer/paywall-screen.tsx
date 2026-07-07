@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronDown, ChevronLeft, Globe, Lock, Shield, Sparkles } from "lucide-react";
+import { ChevronLeft, Lock, Sparkles } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Logo } from "@/components/logo";
+import { LanguagePicker } from "@/components/ui/language-picker";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import { FREE_MESSAGE_LIMIT } from "@/lib/employer-session";
 
@@ -20,7 +22,23 @@ export function PaywallScreen({
   onUnlock,
   onBack,
 }: PaywallScreenProps) {
+  const t = useTranslations("employer.paywall");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
   const isProfile = variant === "profile";
+
+  const features = isProfile
+    ? [
+        t("profileFeatures.history"),
+        t("profileFeatures.unmasked"),
+        t("profileFeatures.oneTime"),
+      ]
+    : [
+        t("messagingFeatures.unlimited"),
+        t("messagingFeatures.smartFilters"),
+        t("messagingFeatures.oneTime"),
+      ];
+
   return (
     <div className="absolute inset-0 z-[60] flex min-h-full flex-1 flex-col bg-white px-[22px]">
       <div className="flex items-center justify-between pt-4">
@@ -29,23 +47,19 @@ export function PaywallScreen({
             type="button"
             onClick={onBack}
             className="-ml-2 flex cursor-pointer border-none bg-transparent p-1"
-            aria-label="Go back"
+            aria-label={tAria("goBack")}
           >
             <ChevronLeft size={20} className="text-ink" aria-hidden />
           </button>
           <Logo accent="blue" />
         </div>
-        <div className="flex items-center gap-[3px] rounded-[20px] border border-border px-2.5 py-[5px] text-[12.5px] font-medium text-ink">
-          <Globe size={13} aria-hidden />
-          EN
-          <ChevronDown size={12} aria-hidden />
-        </div>
+        <LanguagePicker />
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center text-center">
         {!isProfile && (
           <span className="mb-[22px] rounded-[20px] bg-[#FEF3E2] px-3 py-[5px] text-[11.5px] font-bold text-[#D97706]">
-            {used} of {limit} free messages used
+            {t("freeMessagesUsed", { used, limit })}
           </span>
         )}
 
@@ -74,27 +88,14 @@ export function PaywallScreen({
         </div>
 
         <h2 className="font-head m-0 text-[21px] font-semibold leading-snug text-navy">
-          {isProfile ? "Unlock Full Profile Access" : "Unlock Unlimited Messaging"}
+          {isProfile ? t("unlockProfileTitle") : t("unlockMessagingTitle")}
         </h2>
         <p className="mb-[18px] mt-2 text-[13px] leading-normal text-ink-soft">
-          {isProfile
-            ? "See full employment history, references, and contact details."
-            : "Plus personalized filters that learn what you're looking for."}
+          {isProfile ? t("unlockProfileDesc") : t("unlockMessagingDesc")}
         </p>
 
         <ul className="mb-[18px] m-0 list-none space-y-2 p-0 text-left">
-          {(isProfile
-            ? [
-                "Full employment history & references",
-                "Unmasked name and location details",
-                "One-time payment — no subscription",
-              ]
-            : [
-                "Message any candidate without limits",
-                "Smart filters that learn your preferences",
-                "One-time payment — no subscription",
-              ]
-          ).map((item) => (
+          {features.map((item) => (
             <li
               key={item}
               className="flex items-center gap-2 text-[12.5px] text-ink-soft"
@@ -105,23 +106,22 @@ export function PaywallScreen({
           ))}
         </ul>
 
-        <p className="m-0 text-[32px] font-extrabold text-blue">AED 100</p>
-        <p className="mb-1.5 mt-0 text-xs text-ink-soft">One-time payment</p>
+        <p className="m-0 text-[32px] font-extrabold text-blue">{tCommon("aed100")}</p>
+        <p className="mb-1.5 mt-0 text-xs text-ink-soft">{tCommon("oneTimePayment")}</p>
         {!isProfile && (
           <p className="m-0 max-w-[280px] text-[11px] text-ink-faint">
-            Your free allowance of {limit} messages is a one-time, lifetime grant
-            and won&apos;t return.
+            {t("freeAllowanceHint", { limit })}
           </p>
         )}
       </div>
 
       <div className="pb-6">
         <PrimaryButton accent="blue" onClick={onUnlock}>
-          Unlock access
+          {tCommon("unlockAccess")}
         </PrimaryButton>
         <p className="mt-3 flex items-center justify-center gap-[5px] text-center text-[11.5px] text-ink-faint">
-          <Shield size={12} aria-hidden />
-          No subscription. No hidden fees.
+          <Lock size={12} aria-hidden />
+          {tCommon("noSubscription")}
         </p>
       </div>
     </div>

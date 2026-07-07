@@ -3,7 +3,7 @@ import { mapRowToProfile, type CandidateRow } from "@/lib/candidate-db";
 import { CANDIDATE_STATUS, VISA_LABELS } from "@/lib/candidate-profile";
 import { lastActiveFromDate, NATIONALITY_FLAGS } from "@/lib/candidate-profile-display";
 import type { DiscoverCandidate } from "@/lib/discover-candidates";
-
+import type { AppTranslateFn } from "@/lib/i18n-types";
 const PHOTO_TONES = ["#C9B8E8", "#A7D8C9", "#F3C7A5", "#B8D4E8", "#E8C9B8"];
 
 export const DISCOVER_FILTERS = [
@@ -15,6 +15,21 @@ export const DISCOVER_FILTERS = [
 ] as const;
 
 export type DiscoverFilter = (typeof DISCOVER_FILTERS)[number];
+
+const DISCOVER_FILTER_I18N_KEYS: Record<DiscoverFilter, string> = {
+  All: "all",
+  "Full-Time": "fullTime",
+  "Part-Time": "partTime",
+  "Live-In": "liveIn",
+  "Live-Out": "liveOut",
+};
+
+export function getDiscoverFilterLabel(
+  t: AppTranslateFn,
+  filter: DiscoverFilter
+): string {
+  return t(`options.filters.${DISCOVER_FILTER_I18N_KEYS[filter]}`);
+}
 
 function photoToneFromId(id: string): string {
   let hash = 0;

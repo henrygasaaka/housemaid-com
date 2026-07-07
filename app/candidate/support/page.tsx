@@ -1,6 +1,11 @@
+import { getTranslations } from "next-intl/server";
 import { HelpSupportScreen } from "@/components/support/help-support-screen";
-import { CANDIDATE_HELP_FAQ } from "@/lib/candidate-help";
+import { getCandidateHelpFaq } from "@/lib/i18n-help";
 
-export default function CandidateSupportPage() {
-  return <HelpSupportScreen items={CANDIDATE_HELP_FAQ} emailAccent="purple" />;
+export default async function CandidateSupportPage() {
+  const t = await getTranslations("help");
+
+  return (
+    <HelpSupportScreen items={getCandidateHelpFaq(t)} emailAccent="purple" />
+  );
 }

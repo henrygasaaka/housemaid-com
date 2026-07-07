@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, MessageCircle } from "lucide-react";
 import type { Conversation } from "@/lib/candidate-conversations";
 import { CandidateBottomNav } from "@/components/candidate/candidate-bottom-nav";
@@ -13,14 +14,19 @@ type CandidateMessagesInboxProps = {
 };
 
 function EmptyState() {
+  const t = useTranslations("candidate.messages");
+  const tCommon = useTranslations("common");
+
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-purple-light">
         <MessageCircle size={26} className="text-purple" aria-hidden />
       </div>
-      <p className="m-0 text-[15px] font-bold text-navy">No messages yet</p>
+      <p className="m-0 text-[15px] font-bold text-navy">
+        {tCommon("noMessagesYet")}
+      </p>
       <p className="m-0 mt-2 max-w-[280px] text-[12.5px] leading-relaxed text-ink-soft">
-        When an employer contacts you, your conversations will appear here.
+        {t("emptyDesc")}
       </p>
     </div>
   );
@@ -31,6 +37,8 @@ export function CandidateMessagesInbox({
   onOpenThread,
 }: CandidateMessagesInboxProps) {
   const onNavigate = useCandidateNav();
+  const t = useTranslations("candidate.messages");
+  const tAria = useTranslations("aria");
 
   return (
     <div className="flex min-h-full flex-1 flex-col bg-app-bg">
@@ -38,12 +46,12 @@ export function CandidateMessagesInbox({
         <Link
           href="/candidate/dashboard"
           className="flex border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </Link>
         <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-          Messages
+          {t("title")}
         </h1>
       </header>
 

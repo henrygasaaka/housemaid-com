@@ -1,3 +1,5 @@
+import type { AppTranslateFn } from "@/lib/i18n-types";
+
 export const JOB_FILTERS = [
   "All",
   "Full-Time",
@@ -7,6 +9,18 @@ export const JOB_FILTERS = [
 ] as const;
 
 export type JobFilter = (typeof JOB_FILTERS)[number];
+
+const JOB_FILTER_I18N_KEYS: Record<JobFilter, string> = {
+  All: "all",
+  "Full-Time": "fullTime",
+  "Part-Time": "partTime",
+  "Live-In": "liveIn",
+  "Live-Out": "liveOut",
+};
+
+export function getJobFilterLabel(t: AppTranslateFn, filter: JobFilter): string {
+  return t(`options.filters.${JOB_FILTER_I18N_KEYS[filter]}`);
+}
 
 export type CandidateJob = {
   id: string;

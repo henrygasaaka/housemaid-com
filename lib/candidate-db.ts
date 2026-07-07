@@ -356,34 +356,37 @@ export async function uploadCandidateVideo(
   return { storagePath };
 }
 
+import type { AppTranslateFn } from "@/lib/i18n-types";
+
 export function validateOnboardStep(
   step: number,
-  profile: CandidateProfile
+  profile: CandidateProfile,
+  t: AppTranslateFn
 ): string | null {
   switch (step) {
     case 1:
-      if (!profile.firstName.trim()) return "First name is required.";
-      if (!profile.lastName.trim()) return "Last name is required.";
-      if (!profile.phone.trim()) return "Phone number is required.";
-      if (!profile.nationality) return "Nationality is required.";
-      if (!profile.gender) return "Gender is required.";
+      if (!profile.firstName.trim()) return t("firstNameRequired");
+      if (!profile.lastName.trim()) return t("lastNameRequired");
+      if (!profile.phone.trim()) return t("phoneRequired");
+      if (!profile.nationality) return t("nationalityRequired");
+      if (!profile.gender) return t("genderRequired");
       return null;
     case 2:
-      if (!profile.emirate) return "Emirate is required.";
-      if (!profile.district) return "District is required.";
-      if (!profile.visa) return "Visa status is required.";
+      if (!profile.emirate) return t("emirateRequired");
+      if (!profile.district) return t("districtRequired");
+      if (!profile.visa) return t("visaRequired");
       return null;
     case 3:
-      if (!profile.experience) return "Years of experience is required.";
+      if (!profile.experience) return t("experienceRequired");
       return null;
     case 4:
       if (!profile.photoUploaded && !profile.photoUrl) {
-        return "Profile photo is required.";
+        return t("photoRequired");
       }
       if (!profile.salaryMin.trim() || !profile.salaryMax.trim()) {
-        return "Salary range is required.";
+        return t("salaryRequired");
       }
-      if (!profile.employmentType) return "Employment type is required.";
+      if (!profile.employmentType) return t("employmentTypeRequired");
       return null;
     default:
       return null;

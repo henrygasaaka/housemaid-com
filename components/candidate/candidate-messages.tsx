@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import type { Conversation } from "@/lib/candidate-conversations";
 import {
   fetchCandidateConversations,
@@ -29,6 +30,10 @@ function InboxSkeleton() {
 
 export function CandidateMessages() {
   const router = useRouter();
+  const t = useTranslations();
+  const tMessages = useTranslations("candidate.messages");
+  const tCommon = useTranslations("common");
+  const tErrors = useTranslations("errors");
   const [conversations, setConversations] = useState<Conversation[]>([]);
   const [activeThreadId, setActiveThreadId] = useState<string | null>(null);
   const [userId, setUserId] = useState<string | null>(null);
@@ -47,10 +52,12 @@ export function CandidateMessages() {
     }
 
     setUserId(user.id);
-    const data = await fetchCandidateConversations(supabase, user.id);
+    const data = await fetchCandidateConversations(supabase, user.id, (key, values) =>
+      t(key, values)
+    );
     setConversations(data);
     return user.id;
-  }, [router]);
+  }, [router, t]);
 
   useEffect(() => {
     let cancelled = false;
@@ -63,9 +70,7 @@ export function CandidateMessages() {
         if (cancelled) return;
         console.error("[messages] Failed to load conversations:", error);
         setLoadError(
-          error instanceof Error
-            ? error.message
-            : "Could not load messages. Please try again."
+          error instanceof Error ? error.message : tErrors("loadMessages")
         );
       } finally {
         if (!cancelled) setLoading(false);
@@ -125,7 +130,7 @@ export function CandidateMessages() {
       <div className="flex min-h-full flex-1 flex-col bg-app-bg">
         <header className="flex items-center gap-2 border-b border-border bg-white px-4 py-3.5">
           <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-            Messages
+            {tMessages("title")}
           </h1>
         </header>
         <InboxSkeleton />
@@ -142,7 +147,7 @@ export function CandidateMessages() {
           onClick={() => window.location.reload()}
           className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
         >
-          Try again
+          {tCommon("tryAgain")}
         </button>
       </div>
     );

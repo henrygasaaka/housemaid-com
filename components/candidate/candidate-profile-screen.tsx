@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   Bell,
   Briefcase,
@@ -48,12 +49,13 @@ function NotificationToggle({
   enabled: boolean;
   onChange: (value: boolean) => void;
 }) {
+  const tAria = useTranslations("aria");
   return (
     <button
       type="button"
       role="switch"
       aria-checked={enabled}
-      aria-label="Notifications"
+      aria-label={tAria("notifications")}
       onClick={() => onChange(!enabled)}
       className={`relative h-6 w-11 shrink-0 cursor-pointer rounded-full border-none transition-colors ${
         enabled ? "bg-purple" : "bg-border"
@@ -117,6 +119,10 @@ export function CandidateProfileScreen({
 }: CandidateProfileScreenProps) {
   const router = useRouter();
   const onNavigate = useCandidateNav();
+  const t = useTranslations("candidate.profile");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const tErrors = useTranslations("errors");
   const [notificationsOn, setNotificationsOn] = useState(true);
   const [profile, setProfile] = useState<CandidateProfileDisplay | null>(
     profileOverride ?? null
@@ -157,7 +163,7 @@ export function CandidateProfileScreen({
         setLoadError(
           error instanceof Error
             ? error.message
-            : "Could not load your profile."
+            : tErrors("loadProfileShort")
         );
       } finally {
         if (!cancelled) setLoading(false);
@@ -184,14 +190,14 @@ export function CandidateProfileScreen({
     return (
       <div className="flex min-h-full flex-1 flex-col items-center justify-center bg-app-bg px-6 text-center">
         <p className="m-0 text-[14px] font-semibold text-navy">
-          {loadError ?? "Profile not found"}
+          {loadError ?? tCommon("profileNotFound")}
         </p>
         <button
           type="button"
           onClick={() => window.location.reload()}
           className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
         >
-          Try again
+          {tCommon("tryAgain")}
         </button>
       </div>
     );
@@ -203,18 +209,18 @@ export function CandidateProfileScreen({
         <Link
           href="/candidate/dashboard"
           className="flex border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </Link>
         <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-          My Profile
+          {t("title")}
         </h1>
         <Link
           href="/candidate/onboard"
           className="cursor-pointer border-none bg-transparent p-0 text-[13px] font-bold text-purple no-underline"
         >
-          Edit
+          {t("edit")}
         </Link>
       </header>
 
@@ -256,17 +262,17 @@ export function CandidateProfileScreen({
             profile.stats.map((stat) => <StatPill key={stat} label={stat} />)
           ) : (
             <p className="m-0 text-[12px] text-ink-faint">
-              Complete your profile to show experience and preferences.
+              {tCommon("completeProfileForStats")}
             </p>
           )}
         </div>
 
-        <SectionTitle>About</SectionTitle>
+        <SectionTitle>{t("about")}</SectionTitle>
         <p className="m-0 text-[12.5px] leading-relaxed text-ink-soft">
           {profile.bio}
         </p>
 
-        <SectionTitle>Skills</SectionTitle>
+        <SectionTitle>{t("skills")}</SectionTitle>
         {profile.skills.length > 0 ? (
           <div className="flex min-w-0 flex-wrap gap-1.5">
             {profile.skills.map((skill) => (
@@ -279,17 +285,17 @@ export function CandidateProfileScreen({
             ))}
           </div>
         ) : (
-          <p className="m-0 text-[12.5px] text-ink-faint">No skills added yet.</p>
+          <p className="m-0 text-[12.5px] text-ink-faint">{tCommon("noSkillsAdded")}</p>
         )}
 
-        <SectionTitle>Languages</SectionTitle>
+        <SectionTitle>{t("languages")}</SectionTitle>
         <p className="m-0 text-[12.5px] text-ink-soft">
           {profile.languages.length > 0
             ? profile.languages.join(", ")
             : "—"}
         </p>
 
-        <SectionTitle>Employment history</SectionTitle>
+        <SectionTitle>{t("employmentHistory")}</SectionTitle>
         {profile.employmentHistory.length > 0 ? (
           <div className="space-y-2.5">
             {profile.employmentHistory.map((job) => (
@@ -313,28 +319,28 @@ export function CandidateProfileScreen({
           </div>
         ) : (
           <p className="m-0 text-[12.5px] text-ink-faint">
-            Employment history is not available yet.
+            {tCommon("employmentHistoryNotAvailable")}
           </p>
         )}
 
-        <SectionTitle>Salary expectation</SectionTitle>
+        <SectionTitle>{t("salaryExpectation")}</SectionTitle>
         <p className="m-0 text-[13px] font-bold text-purple">{profile.salary}</p>
 
-        <SectionTitle>Availability</SectionTitle>
+        <SectionTitle>{t("availability")}</SectionTitle>
         <p className="m-0 text-[12.5px] text-ink-soft">{profile.availability}</p>
 
         <div className="my-5 border-t border-border" />
 
-        <p className="m-0 mb-1 text-[13px] font-bold text-ink">Settings</p>
+        <p className="m-0 mb-1 text-[13px] font-bold text-ink">{tCommon("settings")}</p>
         <div className="rounded-[14px] border border-border bg-white px-3.5">
           <SettingsLinkRow
             icon={<User size={15} aria-hidden />}
-            label="Edit Profile"
+            label={t("editProfile")}
             href="/candidate/onboard"
           />
           <SettingsLinkRow
             icon={<FileText size={15} aria-hidden />}
-            label="My Documents"
+            label={t("myDocuments")}
             href="/candidate/documents"
           />
 
@@ -343,7 +349,7 @@ export function CandidateProfileScreen({
               <Bell size={15} aria-hidden />
             </span>
             <span className="flex-1 text-[13px] font-semibold text-ink">
-              Notifications
+              {tCommon("notifications")}
             </span>
             <NotificationToggle
               enabled={notificationsOn}
@@ -353,17 +359,17 @@ export function CandidateProfileScreen({
 
           <SettingsLinkRow
             icon={<FileText size={15} aria-hidden />}
-            label="Terms of Service"
+            label={tCommon("termsOfService")}
             href="/candidate/terms"
           />
           <SettingsLinkRow
             icon={<Shield size={15} aria-hidden />}
-            label="Privacy Policy"
+            label={tCommon("privacyPolicy")}
             href="/candidate/privacy"
           />
           <SettingsLinkRow
             icon={<HelpCircle size={15} aria-hidden />}
-            label="Help & Support"
+            label={tCommon("helpSupport")}
             href="/candidate/support"
           />
 
@@ -375,7 +381,9 @@ export function CandidateProfileScreen({
             <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#FEE2E2] text-[#E0245E]">
               <LogOut size={15} aria-hidden />
             </span>
-            <span className="text-[13px] font-bold text-[#E0245E]">Log Out</span>
+            <span className="text-[13px] font-bold text-[#E0245E]">
+              {tCommon("logOut")}
+            </span>
           </button>
         </div>
       </div>

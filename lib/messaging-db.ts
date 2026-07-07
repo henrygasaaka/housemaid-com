@@ -54,20 +54,25 @@ function pickEmployer(
   return Array.isArray(employers) ? employers[0] ?? null : employers;
 }
 
-export function employerDisplayName(employer: EmployerRow | null): string {
+import type { AppTranslateFn } from "@/lib/i18n-types";
+
+export function employerDisplayName(
+  employer: EmployerRow | null,
+  t?: AppTranslateFn
+): string {
   return (
     employer?.full_name?.trim() ||
     employer?.family_name?.trim() ||
-    "Employer"
+    (t ? t("common.employer") : "Employer")
   );
 }
 
-export function initialsFromName(name: string): string {
+export function initialsFromName(name: string, t?: AppTranslateFn): string {
   const parts = name.split(/\s+/).filter(Boolean);
   if (parts.length >= 2) {
     return `${parts[0]![0] ?? ""}${parts[1]![0] ?? ""}`.toUpperCase();
   }
-  return name.slice(0, 2).toUpperCase() || "EM";
+  return name.slice(0, 2).toUpperCase() || (t ? t("time.initialsFallback") : "EM");
 }
 
 export function formatMessageTime(iso: string): string {
@@ -78,16 +83,24 @@ export function formatMessageTime(iso: string): string {
   });
 }
 
-export function formatRelativeTime(iso: string): string {
+export function formatRelativeTime(iso: string, t?: AppTranslateFn): string {
   const diffMs = Date.now() - new Date(iso).getTime();
   const minutes = Math.floor(diffMs / (1000 * 60));
-  if (minutes < 1) return "Just now";
-  if (minutes < 60) return `${minutes}m ago`;
+  if (minutes < 1) return t ? t("time.justNow") : "Just now";
+  if (minutes < 60) {
+    return t
+      ? t("time.minutesAgo", { minutes })
+      : `${minutes}m ago`;
+  }
   const hours = Math.floor(minutes / 60);
-  if (hours < 24) return `${hours}h ago`;
+  if (hours < 24) {
+    return t ? t("time.hoursAgo", { hours }) : `${hours}h ago`;
+  }
   const days = Math.floor(hours / 24);
-  if (days === 1) return "Yesterday";
-  if (days < 7) return `${days} days ago`;
+  if (days === 1) return t ? t("time.yesterday") : "Yesterday";
+  if (days < 7) {
+    return t ? t("time.daysAgo", { days }) : `${days} days ago`;
+  }
   return new Date(iso).toLocaleDateString("en-US", {
     month: "short",
     day: "numeric",
@@ -118,10 +131,11 @@ export function mapMessageRow(
 
 export function mapConversationRow(
   row: ConversationWithRelations,
-  viewerId: string
+  viewerId: string,
+  t?: AppTranslateFn
 ): Conversation {
   const employer = pickEmployer(row.employers);
-  const employerName = employerDisplayName(employer);
+  const employerName = employerDisplayName(employer, t);
   const messages = [...(row.messages ?? [])].sort(
     (a, b) =>
       new Date(a.created_at).getTime() - new Date(b.created_at).getTime()
@@ -137,12 +151,12 @@ export function mapConversationRow(
     candidateId: row.candidate_id,
     employerId: row.employer_id,
     employerName,
-    initials: initialsFromName(employerName),
+    initials: initialsFromName(employerName, t),
     status: row.status ?? "messaging",
-    lastPreview: lastMessage?.body ?? "No messages yet",
+    lastPreview: lastMessage?.body ?? (t ? t("common.noMessagesYet") : "No messages yet"),
     lastTime: lastMessage
-      ? formatRelativeTime(lastMessage.created_at)
-      : formatRelativeTime(row.created_at),
+      ? formatRelativeTime(lastMessage.created_at, t)
+      : formatRelativeTime(row.created_at, t),
     unreadCount,
     messages: messages.map((message) =>
       mapMessageRow(message, row.candidate_id, viewerId)
@@ -152,7 +166,8 @@ export function mapConversationRow(
 
 export async function fetchCandidateConversations(
   supabase: SupabaseClient,
-  candidateId: string
+  candidateId: string,
+  t?: AppTranslateFn
 ): Promise<Conversation[]> {
   const { data, error } = await supabase
     .from("conversations")
@@ -166,12 +181,13 @@ export async function fetchCandidateConversations(
   }
 
   const rows = (data ?? []) as ConversationWithRelations[];
-  return rows.map((row) => mapConversationRow(row, candidateId));
+  return rows.map((row) => mapConversationRow(row, candidateId, t));
 }
 
 export async function fetchEmployerConversations(
   supabase: SupabaseClient,
-  employerId: string
+  employerId: string,
+  t?: AppTranslateFn
 ): Promise<Conversation[]> {
   const { data, error } = await supabase
     .from("conversations")
@@ -185,7 +201,7 @@ export async function fetchEmployerConversations(
   }
 
   const rows = (data ?? []) as ConversationWithRelations[];
-  return rows.map((row) => mapConversationRow(row, employerId));
+  return rows.map((row) => mapConversationRow(row, employerId, t));
 }
 
 export async function markConversationRead(

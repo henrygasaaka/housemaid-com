@@ -1,7 +1,9 @@
 "use client";
 
-import { ChevronLeft, Globe, ChevronDown } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Logo } from "@/components/logo";
+import { LanguagePicker } from "@/components/ui/language-picker";
 
 type TopBarProps = {
   onBack?: () => void;
@@ -9,6 +11,8 @@ type TopBarProps = {
 };
 
 export function TopBar({ onBack, accent = "purple" }: TopBarProps) {
+  const t = useTranslations("aria");
+
   return (
     <div className="flex items-center justify-between px-[18px] pt-4 pb-1.5">
       {onBack ? (
@@ -16,7 +20,7 @@ export function TopBar({ onBack, accent = "purple" }: TopBarProps) {
           type="button"
           onClick={onBack}
           className="flex cursor-pointer border-none bg-transparent p-1"
-          aria-label="Go back"
+          aria-label={t("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </button>
@@ -24,11 +28,7 @@ export function TopBar({ onBack, accent = "purple" }: TopBarProps) {
         <div className="w-5" />
       )}
       <Logo accent={accent} />
-      <div className="flex items-center gap-[3px] rounded-[20px] border border-border px-2.5 py-[5px] text-[12.5px] font-medium text-ink">
-        <Globe size={13} aria-hidden />
-        EN
-        <ChevronDown size={12} aria-hidden />
-      </div>
+      <LanguagePicker />
     </div>
   );
 }

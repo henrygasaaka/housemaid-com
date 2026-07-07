@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Mail } from "lucide-react";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { TextField } from "@/components/ui/text-field";
@@ -28,6 +29,8 @@ export function EmployerLoginSheet({
   onBack,
 }: EmployerLoginSheetProps) {
   const router = useRouter();
+  const t = useTranslations("auth");
+  const tCommon = useTranslations("common");
   const [mode, setMode] = useState<"options" | "email">("options");
   const [contact, setContact] = useState("");
   const [googleLoading, setGoogleLoading] = useState(false);
@@ -98,14 +101,14 @@ export function EmployerLoginSheet({
     return (
       <BottomSheet open={open} onDismiss={handleDismiss}>
         <p className="mb-1.5 mt-1 text-center text-[17px] font-extrabold text-navy">
-          Log in to your account
+          {t("loginToYourAccount")}
         </p>
         <p className="mb-[18px] text-center text-[12.5px] text-ink-soft">
-          Continue on the sign-in page to use email.
+          {t("loginSheetEmailHint")}
         </p>
         <TextField
           icon={<Mail size={15} className="text-ink-faint" aria-hidden />}
-          placeholder="Email address"
+          placeholder={t("emailAddressPlaceholder")}
           value={contact}
           onChange={setContact}
           type="email"
@@ -115,14 +118,14 @@ export function EmployerLoginSheet({
           disabled={!contact.trim()}
           onClick={handleEmailContinue}
         >
-          Continue
+          {tCommon("continue")}
         </PrimaryButton>
         <button
           type="button"
           onClick={() => setMode("options")}
           className="mt-3.5 w-full cursor-pointer border-none bg-transparent text-center text-[13px] font-semibold text-ink-soft"
         >
-          Back
+          {tCommon("back")}
         </button>
       </BottomSheet>
     );
@@ -131,10 +134,10 @@ export function EmployerLoginSheet({
   return (
     <BottomSheet open={open} onDismiss={handleDismiss}>
       <p className="mb-1.5 mt-1 text-center text-[17px] font-extrabold text-navy">
-        Log in to your account
+        {t("loginToYourAccount")}
       </p>
       <p className="mb-[18px] text-center text-[12.5px] text-ink-soft">
-        Welcome back — pick up right where you left off.
+        {t("loginSheetWelcome")}
       </p>
 
       {error && (
@@ -162,7 +165,7 @@ export function EmployerLoginSheet({
       >
         <Mail size={17} className="text-blue" aria-hidden />
         <span className="text-[14.5px] font-bold text-ink">
-          Continue with Email
+          {t("continueWithEmail")}
         </span>
       </button>
 
@@ -171,7 +174,7 @@ export function EmployerLoginSheet({
         onClick={handleBack}
         className="mt-3.5 w-full cursor-pointer border-none bg-transparent text-center text-[13px] font-semibold text-ink-soft"
       >
-        Back
+        {tCommon("back")}
       </button>
     </BottomSheet>
   );

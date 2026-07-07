@@ -1,0 +1,878 @@
+{
+  "meta": {
+    "title": "Housemaid-AE — UAE 值得信赖的家政人员与雇主",
+    "description": "连接 UAE 值得信赖的家政人员与雇主。找到合适的工作或雇佣理想人选。",
+    "openGraphTitle": "Housemaid-AE — UAE 值得信赖的家政人员与雇主",
+    "appleWebAppTitle": "Housemaid-AE",
+    "applicationName": "Housemaid-AE"
+  },
+  "common": {
+    "appName": "Housemaid-AE",
+    "brand": "Housemaid",
+    "brandSuffix": "-AE",
+    "uae": "UAE",
+    "languageCode": "ZH",
+    "emDash": "—",
+    "tryAgain": "重试",
+    "continue": "继续",
+    "back": "返回",
+    "edit": "编辑",
+    "save": "保存",
+    "saved": "已保存",
+    "message": "消息",
+    "verified": "已验证",
+    "guest": "访客",
+    "employer": "雇主",
+    "candidate": "候选人",
+    "about": "关于",
+    "skills": "技能",
+    "languages": "语言",
+    "settings": "设置",
+    "notifications": "通知",
+    "logOut": "退出登录",
+    "logIn": "登录",
+    "createAccount": "创建账户",
+    "create": "创建",
+    "email": "邮箱",
+    "whatsapp": "WhatsApp",
+    "termsOfService": "服务条款",
+    "privacyPolicy": "隐私政策",
+    "helpSupport": "帮助与支持",
+    "lastUpdated": "最后更新：{date}",
+    "redirecting": "正在跳转…",
+    "saving": "正在保存…",
+    "sending": "正在发送…",
+    "publishing": "正在发布…",
+    "loggingOut": "正在退出…",
+    "uploadingPhoto": "正在上传照片…",
+    "uploadingVideo": "正在上传视频…",
+    "photoAdded": "照片已添加",
+    "videoAdded": "视频已添加",
+    "uploadPhoto": "上传照片",
+    "uploadVideo": "上传视频",
+    "tapToChange": "点击更换",
+    "tapToReplace": "点击替换",
+    "profileNotFound": "未找到个人资料",
+    "couldNotLoadProfile": "无法加载您的个人资料，请重试。",
+    "couldNotLoadProfileShort": "无法加载您的个人资料。",
+    "privacySafe": "我们妥善保护您的信息安全",
+    "privacyNeverShare": "我们绝不会与任何人分享您的数据",
+    "footerNavSafe": "您的信息在我们这里是安全的，我们绝不会分享您的数据。",
+    "requiredMark": "*",
+    "aed": "AED",
+    "oneTimePayment": "一次性付款",
+    "noSubscription": "无订阅，无隐藏费用。",
+    "identity": "身份",
+    "visa": "签证",
+    "references": "推荐信",
+    "previousRole": "上一职位",
+    "previousEmployer": "上一雇主",
+    "recommended": "推荐",
+    "min": "最低",
+    "max": "最高",
+    "name": "姓名",
+    "verify": "验证",
+    "previewProfile": "预览个人资料",
+    "publishMyProfile": "发布我的个人资料",
+    "profileCompletion": "个人资料完成度",
+    "profileCompletionHint": "完整的个人资料会获得更多浏览量和更好的工作机会。",
+    "interested": "感兴趣",
+    "expressInterest": "表达兴趣",
+    "viewDetails": "查看详情",
+    "upcoming": "即将到来",
+    "past": "过往",
+    "noActivityYet": "暂无活动",
+    "noMessagesYet": "暂无消息",
+    "noMessagesInConversation": "此对话中暂无消息。",
+    "typeMessage": "输入消息...",
+    "sendMessage": "发送消息",
+    "quickMessage": "快捷消息",
+    "simpleGreeting": "简单问候",
+    "writeYourOwn": "撰写您自己的消息。",
+    "backToSuggestions": "返回建议",
+    "unlockAccess": "解锁访问",
+    "aed100": "AED 100",
+    "profileUnlocked": "个人资料已解锁",
+    "viewProfile": "查看个人资料",
+    "viewFullProfile": "查看完整工作经历与推荐信",
+    "verifiedReference": "{count} 条已验证推荐信",
+    "verifiedReferences": "{count} 条已验证推荐信",
+    "verifiedReferenceCount": "{count} 条已验证推荐信",
+    "verifiedReferencesCount": "{count} 条已验证推荐信",
+    "typicallyRepliesIn": "通常 {responseTime} 内回复",
+    "repliesIn": "{responseTime} 内回复",
+    "playingIntroVideo": "正在播放 {firstName} 的介绍视频...",
+    "salaryPerMonth": "AED {min} - {max}/月",
+    "salaryExpectation": "AED {min} – {max}",
+    "salaryRangeReview": "AED {min} – {max}",
+    "locationReview": "{district}, {emirate}",
+    "nameReview": "{firstName} {lastName}",
+    "aboutCharCount": "{count}/300",
+    "freeMessagesUsed": "已使用 {used}/{limit} 条免费消息",
+    "profileCompletePercent": "您的个人资料已完成 {percent}%",
+    "hiFirstName": "您好 {firstName} 👋",
+    "sendMessageTo": "向 {candidateName} 发送消息。",
+    "writeMessageTo": "向 {candidateName} 撰写消息...",
+    "quickMessageTemplate": "您好 {candidateName}，我对您的个人资料很感兴趣——尤其是您的育儿经验。方便聊聊吗？",
+    "simpleGreetingTemplate": "您好 {candidateName}，我看到了您的个人资料并很感兴趣。现在方便聊天吗？",
+    "gateOneStepAway": "您距离{actionLabel}{candidateName}仅一步之遥。",
+    "gateCreateAccount": "创建您的免费雇主账户",
+    "gateTermsAgree": "继续即表示您同意我们的 {terms} 和 {privacy}。",
+    "thisCandidate": "该候选人",
+    "actionSaving": "保存",
+    "actionMessaging": "发消息",
+    "actionViewing": "查看",
+    "guestMode": "访客模式",
+    "browsingAsGuest": "以访客身份浏览",
+    "guestBrowseHint": "{logIn} 或 {create} 免费账户以向候选人发消息。",
+    "logInLower": "登录",
+    "createLower": "创建",
+    "verifiedProfilesBanner": "100% 已验证个人资料",
+    "verifiedProfilesDesc": "所有候选人均经过背景调查，保障您的安全。",
+    "expSuffix": "{years} 年经验",
+    "availableNow": "立即可用",
+    "referencesNotAvailable": "推荐信暂不可用。",
+    "employmentHistoryNotAvailable": "工作经历暂不可用。",
+    "noSkillsAdded": "尚未添加技能。",
+    "completeProfileForStats": "完善个人资料以展示经验与偏好。",
+    "countryCode": "+971"
+  },
+  "aria": {
+    "goBack": "返回",
+    "backToInbox": "返回收件箱",
+    "notifications": "通知",
+    "settings": "设置",
+    "sendMessage": "发送消息",
+    "saveCandidate": "保存候选人",
+    "unsaveCandidate": "取消保存候选人",
+    "playIntroVideo": "播放介绍视频",
+    "pauseVideo": "暂停视频",
+    "profilePhoto": "个人资料",
+    "otpDigit": "第 {index} 位数字",
+    "profilePhotoAlt": "个人资料",
+    "selectLanguage": "选择语言"
+  },
+  "landing": {
+    "welcomeTo": "欢迎来到",
+    "tagline": "连接 {uae} 值得信赖的家政人员与雇主",
+    "uaeWide": "UAE 全境",
+    "cities": {
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "more": "+3"
+    },
+    "roleHeading": "您今天来这里做什么？",
+    "roleSubheading": "请选择一个选项以继续",
+    "candidateTag": "我是",
+    "candidateRole": "候选人",
+    "candidateDesc": "正在找工作",
+    "candidateBullets": {
+      "createProfile": "创建个人资料",
+      "getDiscovered": "获得曝光",
+      "findJob": "找到合适的工作"
+    },
+    "employerTag": "我是",
+    "employerRole": "雇主",
+    "employerDesc": "正在雇佣家政人员",
+    "employerBullets": {
+      "browse": "浏览已验证候选人",
+      "chat": "直接聊天",
+      "findMatch": "找到理想人选"
+    },
+    "trustedBy": "深受 UAE 家庭信赖",
+    "verifiedProfiles": "已验证个人资料",
+    "trustFeatures": {
+      "verifiedProfiles": "已验证个人资料",
+      "safeSecure": "安全可靠",
+      "directChat": "直接聊天"
+    }
+  },
+  "nav": {
+    "candidate": {
+      "home": "首页",
+      "messages": "消息",
+      "interviews": "面试",
+      "jobs": "工作",
+      "profile": "个人资料"
+    },
+    "employer": {
+      "discover": "发现",
+      "saved": "已保存",
+      "messages": "消息",
+      "interviews": "面试",
+      "profile": "个人资料"
+    }
+  },
+  "auth": {
+    "welcomeBack": "欢迎回来！",
+    "createYourAccount": "创建您的账户",
+    "loginToAccount": "登录您的账户",
+    "findJobMinutes": "几分钟内找到合适的工作",
+    "continueWithGoogle": "使用 Google 继续",
+    "continueWithEmail": "使用 Email 继续",
+    "continueWithPhone": "使用手机号码继续",
+    "continueWithApple": "使用 Apple 继续",
+    "dontHaveAccount": "还没有账户？",
+    "alreadyHaveAccount": "已有账户？",
+    "googleSignInFailed": "Google 登录失败",
+    "googleSignInFailedDetail": "Google 登录失败：Supabase 无法验证您的 Google 凭据。请检查 Google Cloud Console 和 Supabase Google 提供商设置。",
+    "logInWithGoogle": "使用 Google 登录",
+    "signUpWithGoogle": "使用 Google 注册",
+    "redirectingToGoogle": "正在跳转到 Google…",
+    "backToLogin": "返回登录",
+    "phoneWelcomeBack": "欢迎回来",
+    "phoneWhatsYourNumber": "您的手机号码是多少？",
+    "phoneLoginSubtitle": "输入手机号码以登录",
+    "phoneSignupSubtitle": "我们将用此号码验证您的账户",
+    "logIn": "登录",
+    "otpTitle": "输入验证码",
+    "otpSubtitle": "我们已向以下号码发送 6 位验证码",
+    "otpPhoneExample": "+971 50 123 4567",
+    "otpDidntReceive": "没有收到验证码？",
+    "otpResendIn": "{time} 后重新发送",
+    "emailLoginTitle": "使用 Email 登录",
+    "emailCheckTitle": "请查收邮件",
+    "emailLoginSubtitle": "输入您注册时使用的 Email",
+    "emailSentMagicLink": "我们已向 {email} 发送魔法链接",
+    "emailAddressPlaceholder": "Email 地址",
+    "emailConfirmHint": "点击邮件中的链接即可登录。您可以关闭此页面，确认后返回。",
+    "sendMagicLink": "发送魔法链接",
+    "useDifferentEmail": "使用其他 Email",
+    "employerLoginSubtitle": "登录以浏览并向候选人发消息",
+    "employerSignupSubtitle": "为您的家庭找到理想人选",
+    "emailSignInComingSoon": "Email 登录即将推出",
+    "loginToYourAccount": "登录您的账户",
+    "loginSheetWelcome": "欢迎回来——从上次离开的地方继续。",
+    "loginSheetEmailHint": "在登录页面继续使用 Email。",
+    "logInWithGoogleProfile": "使用 Google 登录"
+  },
+  "candidate": {
+    "dashboard": {
+      "viewsThisWeek": "本周浏览量",
+      "savedByEmployers": "被雇主保存",
+      "interviewRequests": "面试请求",
+      "completeYourProfile": "完善您的个人资料",
+      "completeProfileCta": "资料完整的候选人更容易获得雇主联系。",
+      "recentActivity": "最近活动",
+      "noActivityDesc": "当雇主开始关注您的个人资料后，浏览、保存和面试请求将显示在这里。"
+    },
+    "profile": {
+      "title": "我的个人资料",
+      "edit": "编辑",
+      "about": "关于",
+      "skills": "技能",
+      "languages": "语言",
+      "employmentHistory": "工作经历",
+      "salaryExpectation": "期望薪资",
+      "availability": "可用时间",
+      "editProfile": "编辑个人资料",
+      "myDocuments": "我的文件"
+    },
+    "messages": {
+      "title": "消息",
+      "emptyDesc": "当雇主联系您时，对话将显示在这里。",
+      "couldNotLoad": "无法加载消息，请重试。",
+      "failedToSend": "发送消息失败。"
+    },
+    "interviews": {
+      "title": "面试",
+      "empty": "暂无面试。保持个人资料活跃以获得更多关注。",
+      "couldNotLoad": "无法加载面试，请重试。",
+      "toBeConfirmed": "待确认",
+      "status": {
+        "proposed": "已提议",
+        "confirmed": "已确认",
+        "interviewed": "已面试"
+      }
+    },
+    "jobs": {
+      "title": "工作",
+      "subtitle": "您附近的开放职位",
+      "posted": "发布于 {posted}",
+      "empty": "暂无开放职位。请稍后再来——新职位会定期添加。",
+      "filterEmpty": "没有符合此筛选条件的职位，请尝试其他类别。",
+      "couldNotLoad": "无法加载职位，请重试。"
+    },
+    "conversationStatus": {
+      "messaging": "消息中",
+      "interviewProposed": "已提议面试",
+      "interviewScheduled": "已安排面试",
+      "interviewed": "已面试",
+      "hired": "已录用",
+      "declined": "未继续"
+    },
+    "freshness": {
+      "activeToday": "今日活跃",
+      "activeThisWeek": "本周活跃",
+      "activeTwoWeeksAgo": "2 周以上前活跃",
+      "inactiveThirtyDays": "30 天以上未活跃"
+    }
+  },
+  "employer": {
+    "discover": {
+      "title": "发现",
+      "subtitle": "匿名浏览已验证候选人。",
+      "empty": "暂无可用候选人",
+      "emptyDesc": "当家政人员完成入驻流程并上线后，已发布的个人资料将显示在这里。",
+      "filterEmpty": "此筛选无匹配结果",
+      "filterEmptyDesc": "请尝试其他筛选条件，或等待更多候选人发布个人资料。",
+      "couldNotLoad": "无法加载候选人，请重试。"
+    },
+    "profile": {
+      "title": "我的账户",
+      "guestHint": "登录以保存进度并向候选人发消息。",
+      "editProfile": "编辑个人资料",
+      "savedCandidates": "已保存的候选人"
+    },
+    "saved": {
+      "title": "已保存的候选人",
+      "empty": "暂无已保存的候选人",
+      "emptyDesc": "点击任意候选人个人资料上的心形图标即可保存到这里"
+    },
+    "notifications": {
+      "title": "通知",
+      "reply": "Maria Santos 回复了您的消息",
+      "saved": "您已保存 Grace Wanjiru",
+      "viewed": "您查看了 Nilanthi Perera 的个人资料",
+      "verified": "您的账户已验证",
+      "oneHourAgo": "1 小时前",
+      "threeHoursAgo": "3 小时前",
+      "yesterday": "昨天",
+      "twoDaysAgo": "2 天前"
+    },
+    "paywall": {
+      "freeMessagesUsed": "已使用 {used}/{limit} 条免费消息",
+      "unlockMessagingTitle": "解锁无限消息",
+      "unlockProfileTitle": "解锁完整个人资料访问",
+      "unlockMessagingDesc": "另含会学习您偏好的个性化筛选。",
+      "unlockProfileDesc": "查看完整工作经历、推荐信和联系方式。",
+      "messagingFeatures": {
+        "unlimited": "无限制地向任意候选人发消息",
+        "smartFilters": "会学习您偏好的智能筛选",
+        "oneTime": "一次性付款——无订阅"
+      },
+      "profileFeatures": {
+        "history": "完整工作经历与推荐信",
+        "unmasked": "未遮蔽的姓名与位置详情",
+        "oneTime": "一次性付款——无订阅"
+      },
+      "freeAllowanceHint": "您的 {limit} 条免费消息为一次性终身额度，不会恢复。"
+    },
+    "candidateProfile": {
+      "employmentHistory": "工作经历",
+      "pleaseLogInToMessage": "请登录后再发送消息。",
+      "failedToSend": "发送消息失败。"
+    }
+  },
+  "onboard": {
+    "steps": {
+      "basicInfo": "基本信息",
+      "locationVisa": "位置与签证",
+      "experienceSkills": "经验与技能",
+      "media": "媒体",
+      "review": "审核"
+    },
+    "basicInfo": {
+      "title": "创建您的个人资料",
+      "subtitle": "让我们开始吧！请简单介绍一下您自己。",
+      "photoHint": "添加一张清晰的个人照片",
+      "firstName": "名",
+      "lastName": "姓",
+      "emailAddress": "邮箱地址",
+      "phoneNumber": "手机号码",
+      "nationality": "国籍",
+      "gender": "性别"
+    },
+    "locationVisa": {
+      "title": "您在哪里？",
+      "subtitle": "这有助于雇主在您所在区域找到您。",
+      "currentLocation": "当前位置",
+      "visaStatus": "UAE 签证状态",
+      "whenCanStart": "您何时可以开始工作？",
+      "visaOptions": {
+        "ownVisa": {
+          "title": "自有签证",
+          "subtitle": "您自行担保签证"
+        },
+        "visitVisa": {
+          "title": "访问签证",
+          "subtitle": "您持访问签证在 UAE"
+        },
+        "cancelledVisa": {
+          "title": "已取消签证",
+          "subtitle": "您有已取消的签证"
+        },
+        "sponsoredVisa": {
+          "title": "担保签证",
+          "subtitle": "您的签证由雇主担保"
+        },
+        "lookingForSponsorship": {
+          "title": "寻求担保",
+          "subtitle": "您需要签证担保"
+        }
+      }
+    },
+    "experience": {
+      "title": "告诉我们您的经验",
+      "subtitle": "这有助于雇主更好地了解您。",
+      "yearsOfExperience": "工作年限",
+      "skillsLabel": "技能（选择所有适用项）",
+      "languagesLabel": "语言",
+      "aboutMeOptional": "关于我（可选）",
+      "aboutPlaceholder": "写一段简短的自我介绍..."
+    },
+    "media": {
+      "title": "添加照片、视频和可用时间",
+      "subtitle": "这有助于雇主更好地了解您。",
+      "profilePhoto": "个人资料照片",
+      "photoFormats": "JPG, PNG（最大 5MB）",
+      "introVideo": "介绍视频（强烈推荐）",
+      "videoFormats": "仅 MP4，最长 30 秒，最大 30MB",
+      "salaryExpectation": "期望薪资（AED）",
+      "preferredEmploymentType": "首选雇佣类型",
+      "liveInTitle": "住家",
+      "liveInSubtitle": "我可以住在雇主家中",
+      "liveOutTitle": "不住家",
+      "liveOutSubtitle": "下班后我会回家",
+      "preferredWorkingDays": "首选工作日"
+    },
+    "review": {
+      "title": "审核您的个人资料",
+      "subtitle": "发布前请审核您的信息。",
+      "basicInformation": "基本信息",
+      "locationAndVisa": "位置与签证",
+      "experienceSkillsLanguages": "经验、技能与语言",
+      "mediaSalaryAvailability": "媒体、薪资与可用时间",
+      "currentLocation": "当前位置",
+      "visaStatus": "签证状态",
+      "yearsOfExperience": "工作年限",
+      "salaryExpectation": "期望薪资",
+      "employmentType": "雇佣类型",
+      "preferredDays": "首选日期"
+    },
+    "errors": {
+      "chooseImage": "请选择 JPG 或 PNG 图片。",
+      "photoTooLarge": "个人资料照片必须为 5MB 或更小。",
+      "videoMustBeMp4": "介绍视频必须为 MP4 文件。",
+      "videoTooLarge": "介绍视频必须为 30MB 或更小。",
+      "failedSaveProgress": "保存进度失败。",
+      "failedPublish": "发布个人资料失败。",
+      "failedUploadPhoto": "上传个人资料照片失败。",
+      "failedUploadVideo": "上传介绍视频失败。"
+    }
+  },
+  "options": {
+    "gender": {
+      "female": "女",
+      "male": "男"
+    },
+    "nationalities": {
+      "philippines": "菲律宾",
+      "kenya": "肯尼亚",
+      "sriLanka": "斯里兰卡",
+      "bangladesh": "孟加拉国",
+      "india": "印度",
+      "indonesia": "印度尼西亚",
+      "nepal": "尼泊尔",
+      "ethiopia": "埃塞俄比亚",
+      "uganda": "乌干达",
+      "other": "其他"
+    },
+    "emirates": {
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rasAlKhaimah": "Ras Al Khaimah",
+      "fujairah": "Fujairah",
+      "ummAlQuwain": "Umm Al Quwain"
+    },
+    "districts": {
+      "alBarsha": "Al Barsha",
+      "deira": "Deira",
+      "alNahda": "Al Nahda",
+      "khalifaCity": "Khalifa City",
+      "jumeirah": "Jumeirah",
+      "mirdif": "Mirdif",
+      "marina": "Marina",
+      "alQuoz": "Al Quoz",
+      "downtown": "Downtown"
+    },
+    "availability": {
+      "availableImmediately": "立即可用",
+      "withinOneWeek": "1 周内",
+      "withinTwoWeeks": "2 周内",
+      "withinOneMonth": "1 个月内",
+      "currentlyEmployed": "目前在职"
+    },
+    "experience": {
+      "lessThanOneYear": "不足 1 年",
+      "oneToThreeYears": "1 - 3 年",
+      "threeToFiveYears": "3 - 5 年",
+      "fivePlusYears": "5 年以上"
+    },
+    "skills": {
+      "cleaning": "清洁",
+      "cooking": "烹饪",
+      "childcare": "育儿",
+      "laundry": "洗衣",
+      "ironing": "熨烫",
+      "elderlyCare": "老人护理",
+      "petCare": "宠物护理",
+      "carWashing": "洗车",
+      "gardening": "园艺",
+      "tutoring": "辅导",
+      "disabledCare": "残障护理",
+      "other": "其他"
+    },
+    "languages": {
+      "english": "英语",
+      "arabic": "阿拉伯语",
+      "tagalog": "他加禄语",
+      "hindi": "印地语",
+      "urdu": "乌尔都语",
+      "tamil": "泰米尔语",
+      "french": "法语",
+      "other": "其他"
+    },
+    "days": {
+      "mon": "周一",
+      "tue": "周二",
+      "wed": "周三",
+      "thu": "周四",
+      "fri": "周五",
+      "sat": "周六",
+      "sun": "周日"
+    },
+    "visaLabels": {
+      "ownVisa": "自有签证",
+      "visitVisa": "访问签证",
+      "cancelledVisa": "已取消签证",
+      "sponsoredVisa": "担保签证",
+      "lookingForSponsorship": "寻求担保"
+    },
+    "employmentLabels": {
+      "liveIn": "住家",
+      "liveOut": "不住家"
+    },
+    "filters": {
+      "all": "全部",
+      "fullTime": "全职",
+      "partTime": "兼职",
+      "liveIn": "住家",
+      "liveOut": "不住家"
+    },
+    "employmentType": {
+      "fullTime": "全职",
+      "partTime": "兼职",
+      "liveIn": "住家",
+      "liveOut": "不住家"
+    }
+  },
+  "legal": {
+    "candidateTerms": {
+      "title": "服务条款",
+      "intro": "本条款适用于使用 Housemaid-AE 在 UAE 寻找家政工作的候选人。创建个人资料即表示您同意以下规则。",
+      "sections": {
+        "yourProfile": {
+          "heading": "1. 您的个人资料",
+          "body": "您拥有所提交的内容——包括照片、介绍视频、文件、工作历史和简介。发布个人资料即表示您授予 Housemaid-AE 在平台上向雇主展示这些信息的许可，以便为您匹配工作机会。"
+        },
+        "informationYouShare": {
+          "heading": "2. 您分享的信息",
+          "body": "您的个人资料可能包括：",
+          "items": {
+            "photoVideo": "个人资料照片和介绍视频",
+            "documents": "身份和签证文件（仅用于验证）",
+            "history": "工作经历和推荐信",
+            "details": "技能、语言、期望薪资和可用时间",
+            "contact": "联系方式（仅在您选择与雇主互动后分享）"
+          }
+        },
+        "howWeUseData": {
+          "heading": "3. 我们如何使用您的数据",
+          "body": "我们使用您的个人资料为您匹配在 UAE 寻找家政人员的雇主。在雇主解锁您的完整个人资料之前，我们可能在发现页展示部分遮蔽的姓名和关键详情。我们不会向第三方出售您的个人数据。"
+        },
+        "matching": {
+          "heading": "4. 与雇主匹配",
+          "body": "雇主可以通过平台浏览、保存并向您发消息。您可以自由接受或拒绝任何机会。Housemaid-AE 不保证就业、面试或特定薪资报价。"
+        },
+        "accuracy": {
+          "heading": "5. 准确性与行为",
+          "body": "您同意个人资料中的所有信息均真实准确。误导性照片、虚假推荐信或虚假签证状态可能导致立即移除。在所有消息中请尊重雇主。"
+        },
+        "deactivating": {
+          "heading": "6. 停用个人资料",
+          "body": "您可以随时暂停或停用个人资料。停用后，您的个人资料将从发现页隐藏，新的雇主联系将被阻止。现有消息线程将保留，除非您请求完全删除账户。"
+        },
+        "deletion": {
+          "heading": "7. 账户删除",
+          "body": "要永久删除您的账户和数据，请联系 support@housemaid-ae.com。我们将在 30 天内处理删除请求，但需遵守 UAE 的法律保留要求。"
+        },
+        "contact": {
+          "heading": "8. 联系方式",
+          "body": "有关本条款的问题：support@housemaid-ae.com"
+        }
+      }
+    },
+    "candidatePrivacy": {
+      "title": "隐私政策",
+      "intro": "本隐私政策说明我们从候选人处收集什么、为何收集以及您如何控制数据。",
+      "sections": {
+        "whatWeCollect": {
+          "heading": "我们收集的内容",
+          "body": "当您创建候选人个人资料时，我们收集：",
+          "items": {
+            "contact": "姓名、Phone number 和 Email 地址",
+            "media": "个人资料照片和介绍视频",
+            "documents": "身份和签证文件",
+            "history": "工作经历和推荐信",
+            "location": "位置（emirate 和 district）",
+            "details": "技能、语言、期望薪资和可用时间"
+          }
+        },
+        "whyWeCollect": {
+          "heading": "我们为何收集",
+          "body": "我们使用这些信息构建您的个人资料、验证身份、匹配雇主、防止欺诈并改进平台。文件由我们的团队审核——不会公开显示。"
+        },
+        "whoCanSee": {
+          "heading": "谁可以看到您的信息",
+          "body": "浏览发现页的雇主会看到部分遮蔽的个人资料版本。完整详情——包括未遮蔽的姓名、完整工作经历和联系信息——仅对已解锁您个人资料或您选择发消息的雇主可见。"
+        },
+        "howLong": {
+          "heading": "我们保留多久",
+          "body": "在账户活跃期间我们保留您的个人资料数据。如果您停用，我们会保留有限记录最多 12 个月。账户删除后，我们会在 30 天内移除个人数据，除非 UAE 法律要求更长的保留期。"
+        },
+        "howToDelete": {
+          "heading": "如何删除您的数据",
+          "body": "您可以随时更新或移除个人资料中的大部分信息。要完全删除账户，请从注册 Email 发送邮件至 support@housemaid-ae.com。"
+        },
+        "yourRights": {
+          "heading": "您的权利",
+          "body": "您可以请求访问、更正或删除您的个人数据。请联系 support@housemaid-ae.com，我们将在 30 天内回复。"
+        },
+        "contact": {
+          "heading": "联系方式",
+          "body": "Housemaid-AE，Dubai，UAE。Email：support@housemaid-ae.com"
+        }
+      }
+    },
+    "employerTerms": {
+      "title": "服务条款",
+      "intro": "本条款适用于使用 Housemaid-AE 在 UAE 寻找家政人员的雇主。创建账户即表示您同意以下规则。",
+      "sections": {
+        "browsingFree": {
+          "heading": "1. 浏览免费",
+          "body": "您可以在不创建账户的情况下在发现页浏览已验证的候选人个人资料。姓名部分遮蔽，工作经历在解锁个人资料前隐藏。"
+        },
+        "freeMessages": {
+          "heading": "2. 免费消息",
+          "body": "创建免费雇主账户后，您将获得 3 条终身免费消息（所有候选人合计）。这是一次性额度——免费消息不会每月重置。"
+        },
+        "unlock": {
+          "heading": "3. AED 100 解锁",
+          "body": "用完 3 条免费消息后，一次性支付 AED 100 可解锁无限消息。另需一次性支付 AED 100 可解锁候选人的完整个人资料（工作经历、推荐信和未遮蔽详情）。这些不是订阅，不会自动续费。"
+        },
+        "noRefunds": {
+          "heading": "4. 不退款",
+          "body": "解锁付款不可退款，除非 UAE 法律要求。如果您认为被错误收费，请在 7 天内联系 support@housemaid-ae.com。"
+        },
+        "responsibilities": {
+          "heading": "5. 您的责任",
+          "body": "作为雇主，您独自负责：",
+          "items": {
+            "labour": "遵守 UAE 劳动和移民法律",
+            "checks": "自行进行面试和背景调查",
+            "contracts": "起草并履行雇佣合同",
+            "respect": "尊重并善待候选人",
+            "illegal": "不索要非法付款或扣留护照"
+          }
+        },
+        "messagingRules": {
+          "heading": "6. 消息规则",
+          "body": "请勿发送垃圾信息、骚扰、威胁或歧视性消息。违规可能导致永久账户暂停且不退款。"
+        },
+        "noGuarantee": {
+          "heading": "7. 无就业保证",
+          "body": "Housemaid-AE 仅促成介绍。我们不雇佣候选人、不保证合适性，也不调解雇佣纠纷。"
+        },
+        "governingLaw": {
+          "heading": "8. 适用法律",
+          "body": "本条款受阿拉伯联合酋长国法律管辖。"
+        },
+        "contact": {
+          "heading": "9. 联系方式",
+          "body": "有关本条款的问题：support@housemaid-ae.com"
+        }
+      }
+    },
+    "employerPrivacy": {
+      "title": "隐私政策",
+      "intro": "本隐私政策说明我们从雇主处收集的内容。我们从雇主处收集的数据远少于从候选人处收集的数据。",
+      "sections": {
+        "whatWeCollect": {
+          "heading": "我们收集的内容",
+          "body": "当您创建雇主账户时，我们仅收集：",
+          "items": {
+            "name": "您的全名",
+            "email": "Email 地址",
+            "location": "位置（UAE 城市/emirate）"
+          }
+        },
+        "whatWeDoNotCollect": {
+          "heading": "我们不收集的内容",
+          "body": "我们不收集或存储您的支付卡详情。所有付款由我们的第三方支付提供商 PayTabs 安全处理。我们仅收到付款确认——而非您的卡号。"
+        },
+        "howWeUse": {
+          "heading": "我们如何使用您的信息",
+          "body": "我们使用您的姓名和邮箱运营账户、发送消息通知并提供客户支持。您的位置有助于我们展示您附近的相关候选人。"
+        },
+        "noSelling": {
+          "heading": "我们不出售您的数据",
+          "body": "我们不会为营销目的向第三方出售、出租或交易雇主个人信息。"
+        },
+        "retention": {
+          "heading": "数据保留",
+          "body": "在账户活跃期间我们保留您的账户数据。如果您删除账户，我们会在 30 天内移除个人数据，除非 UAE 法律要求保留。"
+        },
+        "deletion": {
+          "heading": "账户删除",
+          "body": "要删除雇主账户，请从注册 Email 发送邮件至 support@housemaid-ae.com。删除将在 30 天内处理。"
+        },
+        "contact": {
+          "heading": "联系方式",
+          "body": "Housemaid-AE，Dubai，UAE。Email：support@housemaid-ae.com"
+        }
+      }
+    },
+    "lastUpdated": "2026 年 6 月"
+  },
+  "help": {
+    "title": "帮助与支持",
+    "stillNeedHelp": "仍需要帮助？",
+    "responseTime": "我们通常在 24 小时内回复。",
+    "candidate": {
+      "createProfile": {
+        "question": "如何创建个人资料？",
+        "answer": "使用 Google、手机或邮箱注册，然后完成入驻步骤：基本信息、位置与签证、经验与技能、照片与视频以及审核。资料完整且文件已验证的个人资料会获得更多雇主浏览。"
+      },
+      "employersFind": {
+        "question": "雇主如何找到我？",
+        "answer": "雇主在发现页浏览已验证候选人。在雇主解锁您的完整个人资料之前，您的姓名部分遮蔽。雇主可按职位类型、位置和可用时间筛选。保持个人资料活跃且完整以提高排名。"
+      },
+      "documents": {
+        "question": "谁可以看到我的文件？",
+        "answer": "您的身份证、签证和推荐信文件绝不会公开显示。仅 Housemaid-AE 的验证团队会审核它们。批准后雇主会看到已验证徽章——除非您在聊天中选择分享，否则他们无法下载您的原始文件。"
+      },
+      "pause": {
+        "question": "如何暂停个人资料？",
+        "answer": "前往我的个人资料 → 设置，将可用时间切换为不可用，或联系支持。暂停期间，您的个人资料将从发现页隐藏，雇主无法发送新消息。现有对话仍可访问。"
+      },
+      "delete": {
+        "question": "如何删除账户？",
+        "answer": "从注册 Email 发送邮件至 support@housemaid-ae.com 并请求删除账户。我们会在 30 天内移除您的个人资料、文件和消息，除非 UAE 法律要求我们保留记录。"
+      }
+    },
+    "employer": {
+      "message": {
+        "question": "如何向候选人发消息？",
+        "answer": "在发现页浏览候选人——无需账户。准备发消息时，创建免费雇主账户。您将获得 3 条终身免费消息（所有候选人合计）。之后，一次性支付 AED 100 解锁即可无限发消息。"
+      },
+      "unlock": {
+        "question": "AED 100 解锁如何运作？",
+        "answer": "AED 100 为每次解锁的一次性付款——不是订阅。可解锁向任意候选人无限发消息，或完整访问候选人的工作经历和推荐信，取决于您采取的操作。您的 3 条免费消息为终身额度。"
+      },
+      "refund": {
+        "question": "可以退款吗？",
+        "answer": "解锁付款为一次性且不可退款，除非 UAE 法律要求。如果您认为被错误收费，请在 7 天内发送邮件至 support@housemaid-ae.com，并提供账户 Email 和付款参考号。"
+      },
+      "find": {
+        "question": "如何找到合适的候选人？",
+        "answer": "使用发现页筛选全职、兼职、住家或不住家职位。保存您喜欢的候选人，阅读其技能和经验，并向符合家庭需求的人发消息。带有介绍视频的已验证个人资料是最强的匹配信号。"
+      }
+    }
+  },
+  "validation": {
+    "firstNameRequired": "名为必填项。",
+    "lastNameRequired": "姓为必填项。",
+    "phoneRequired": "手机号码为必填项。",
+    "nationalityRequired": "国籍为必填项。",
+    "genderRequired": "性别为必填项。",
+    "emirateRequired": "酋长国为必填项。",
+    "districtRequired": "区域为必填项。",
+    "visaRequired": "签证状态为必填项。",
+    "experienceRequired": "工作年限为必填项。",
+    "photoRequired": "个人资料照片为必填项。",
+    "salaryRequired": "薪资范围为必填项。",
+    "employmentTypeRequired": "雇佣类型为必填项。",
+    "messageEmpty": "消息不能为空。"
+  },
+  "time": {
+    "justNow": "刚刚",
+    "minutesAgo": "{minutes} 分钟前",
+    "hoursAgo": "{hours} 小时前",
+    "yesterday": "昨天",
+    "daysAgo": "{days} 天前",
+    "toBeConfirmed": "待确认",
+    "resendIn": "{time} 后重新发送",
+    "posted": "发布于 {posted}",
+    "lastActive": {
+      "today": "今天",
+      "yesterday": "昨天",
+      "thisWeek": "本周",
+      "twoWeeksAgo": "2 周前",
+      "threeWeeksAgo": "3 周前",
+      "thirtyPlusDays": "30 天以上前"
+    },
+    "initialsFallback": "EM"
+  },
+  "completionFields": {
+    "firstName": "名",
+    "lastName": "姓",
+    "phoneNumber": "手机号码",
+    "nationality": "国籍",
+    "gender": "性别",
+    "emirate": "酋长国",
+    "district": "区域",
+    "visaStatus": "签证状态",
+    "availability": "可用时间",
+    "experience": "工作经验",
+    "skills": "技能",
+    "languages": "语言",
+    "aboutYou": "自我介绍",
+    "profilePhoto": "个人资料照片",
+    "salaryRange": "薪资范围",
+    "employmentType": "雇佣类型",
+    "videoIntro": "视频介绍",
+    "hints": {
+      "complete": "您的个人资料已完全完成。",
+      "videoIntro": "添加视频介绍以在雇主中脱颖而出。",
+      "single": "添加您的 {field} 以完善个人资料。",
+      "double": "添加您的 {field1} 和 {field2} 以完善个人资料。"
+    },
+    "defaultFirstName": "朋友"
+  },
+  "errors": {
+    "googleOAuth": "Google 登录失败：Supabase 无法验证您的 Google 凭据。请检查 Google Cloud Console 和 Supabase Google 提供商设置。",
+    "loadProfile": "无法加载您的个人资料，请重试。",
+    "loadProfileShort": "无法加载您的个人资料。",
+    "loadMessages": "无法加载消息，请重试。",
+    "loadInterviews": "无法加载面试，请重试。",
+    "loadJobs": "无法加载职位，请重试。",
+    "loadCandidates": "无法加载候选人，请重试。",
+    "sendMessage": "发送消息失败。",
+    "saveProgress": "保存进度失败。",
+    "publishProfile": "发布个人资料失败。",
+    "uploadPhoto": "上传个人资料照片失败。",
+    "uploadVideo": "上传介绍视频失败。",
+    "pleaseLogInToMessage": "请登录后再发送消息。",
+    "chooseImage": "请选择 JPG 或 PNG 图片。",
+    "photoTooLarge": "个人资料照片必须为 5MB 或更小。",
+    "videoMustBeMp4": "介绍视频必须为 MP4 文件。",
+    "videoTooLarge": "介绍视频必须为 30MB 或更小。",
+    "messageEmpty": "消息不能为空。"
+  }
+}

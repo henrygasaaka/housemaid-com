@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, Mail, Shield } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { LanguagePicker } from "@/components/ui/language-picker";
@@ -22,6 +23,9 @@ export function EmployerAuthWelcomeScreen({
   nextPath = "/employer/discover",
 }: EmployerAuthWelcomeScreenProps) {
   const isLogin = mode === "login";
+  const t = useTranslations("auth");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(authError ?? null);
 
@@ -38,15 +42,13 @@ export function EmployerAuthWelcomeScreen({
         description.includes("unable to exchange external code") ||
         hashParams.get("error") === "server_error"
       ) {
-        setError(
-          "Google sign-in failed: Supabase could not verify your Google credentials. Check Google Cloud Console and Supabase Google provider settings."
-        );
+        setError(t("googleSignInFailedDetail"));
       }
     }
 
     const cleanUrl = window.location.pathname + window.location.search;
     window.history.replaceState(null, "", cleanUrl);
-  }, [authError]);
+  }, [authError, t]);
 
   async function handleGoogleAuth() {
     setGoogleLoading(true);
@@ -73,7 +75,7 @@ export function EmployerAuthWelcomeScreen({
           <Link
             href={isLogin ? "/" : "/employer/auth"}
             className="flex border-none bg-transparent p-1"
-            aria-label="Go back"
+            aria-label={tAria("goBack")}
           >
             <ChevronLeft size={20} className="text-ink" aria-hidden />
           </Link>
@@ -88,12 +90,10 @@ export function EmployerAuthWelcomeScreen({
         </div>
 
         <h2 className="m-0 text-center text-[27px] font-extrabold text-navy">
-          {isLogin ? "Welcome Back!" : "Create your account"}
+          {isLogin ? t("welcomeBack") : t("createYourAccount")}
         </h2>
         <p className="mb-[22px] mt-1.5 text-center text-sm text-ink-soft">
-          {isLogin
-            ? "Log in to browse and message candidates"
-            : "Find the perfect match for your household"}
+          {isLogin ? t("employerLoginSubtitle") : t("employerSignupSubtitle")}
         </p>
 
         {error && (
@@ -110,19 +110,19 @@ export function EmployerAuthWelcomeScreen({
         >
           <GoogleIcon variant="white" />
           <span className="text-[15px] font-bold text-white">
-            {googleLoading ? "Redirecting…" : "Continue with Google"}
+            {googleLoading ? t("redirectingToGoogle") : t("continueWithGoogle")}
           </span>
         </button>
 
         <div className="mb-[22px] flex cursor-default items-center justify-center gap-2.5 rounded-[14px] border border-border py-[15px] opacity-60">
           <Mail size={17} className="text-navy" aria-hidden />
           <span className="text-[15px] font-bold text-navy">
-            Email sign-in coming soon
+            {t("emailSignInComingSoon")}
           </span>
         </div>
 
         <p className="m-0 text-center text-[13px] text-ink-soft">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}
+          {isLogin ? t("dontHaveAccount") : t("alreadyHaveAccount")}
         </p>
         <Link
           href={
@@ -132,7 +132,7 @@ export function EmployerAuthWelcomeScreen({
           }
           className="mt-1 block cursor-pointer text-center text-[14.5px] font-bold text-blue no-underline"
         >
-          {isLogin ? "Create Account" : "Log In"}
+          {isLogin ? tCommon("createAccount") : tCommon("logIn")}
         </Link>
       </div>
 

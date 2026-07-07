@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   Calendar,
   ChevronLeft,
@@ -23,6 +24,7 @@ function InterviewStatusBadge({
 }: {
   status: CandidateInterview["status"];
 }) {
+  const t = useTranslations("candidate.interviews.status");
   const meta = getInterviewStatusMeta(status);
 
   return (
@@ -30,7 +32,7 @@ function InterviewStatusBadge({
       className="inline-block rounded-[20px] px-2.5 py-[3px] text-[10.5px] font-bold"
       style={{ color: meta.color, background: meta.bg }}
     >
-      {meta.label}
+      {t(status)}
     </span>
   );
 }
@@ -42,6 +44,7 @@ function InterviewCard({
   interview: CandidateInterview;
   onMessage?: () => void;
 }) {
+  const tCommon = useTranslations("common");
   const isUpcoming = interview.section === "upcoming";
   const showLocation = interview.location && interview.location !== "—";
 
@@ -83,7 +86,7 @@ function InterviewCard({
           type="button"
           className="flex flex-1 cursor-pointer items-center justify-center rounded-[11px] border-[1.5px] border-purple bg-white py-2.5 text-[13px] font-bold text-purple"
         >
-          View details
+          {tCommon("viewDetails")}
         </button>
         {isUpcoming && (
           <button
@@ -91,7 +94,7 @@ function InterviewCard({
             onClick={onMessage}
             className="flex flex-1 cursor-pointer items-center justify-center rounded-[11px] border-none bg-purple py-2.5 text-[13px] font-bold text-white"
           >
-            Message
+            {tCommon("message")}
           </button>
         )}
       </div>
@@ -100,13 +103,14 @@ function InterviewCard({
 }
 
 function EmptyState() {
+  const t = useTranslations("candidate.interviews");
   return (
     <div className="flex flex-col items-center px-6 py-12 text-center">
       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-purple-light">
         <Calendar size={26} className="text-purple" aria-hidden />
       </div>
       <p className="m-0 max-w-[260px] text-[13px] leading-relaxed text-ink-soft">
-        No interviews yet. Keep your profile active to get noticed.
+        {t("empty")}
       </p>
     </div>
   );
@@ -125,6 +129,11 @@ function InterviewsSkeleton() {
 export function CandidateInterviews() {
   const router = useRouter();
   const onNavigate = useCandidateNav();
+  const t = useTranslations();
+  const tInterviews = useTranslations("candidate.interviews");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const tErrors = useTranslations("errors");
   const [interviews, setInterviews] = useState<CandidateInterview[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -144,7 +153,9 @@ export function CandidateInterviews() {
       }
 
       try {
-        const data = await fetchCandidateInterviews(supabase, user.id);
+        const data = await fetchCandidateInterviews(supabase, user.id, (key, values) =>
+          t(key, values)
+        );
         if (cancelled) return;
         setInterviews(data);
         setLoadError(null);
@@ -152,9 +163,7 @@ export function CandidateInterviews() {
         if (cancelled) return;
         console.error("[interviews] Failed to load:", error);
         setLoadError(
-          error instanceof Error
-            ? error.message
-            : "Could not load interviews. Please try again."
+          error instanceof Error ? error.message : tErrors("loadInterviews")
         );
       } finally {
         if (!cancelled) setLoading(false);
@@ -177,12 +186,12 @@ export function CandidateInterviews() {
         <Link
           href="/candidate/dashboard"
           className="flex border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </Link>
         <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-          Interviews
+          {tInterviews("title")}
         </h1>
       </header>
 
@@ -197,7 +206,7 @@ export function CandidateInterviews() {
               onClick={() => window.location.reload()}
               className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
             >
-              Try again
+              {tCommon("tryAgain")}
             </button>
           </div>
         ) : !hasInterviews ? (
@@ -207,7 +216,7 @@ export function CandidateInterviews() {
             {upcoming.length > 0 && (
               <section className="mb-5">
                 <h2 className="font-head m-0 mb-2.5 text-[15px] font-bold text-navy">
-                  Upcoming
+                  {tCommon("upcoming")}
                 </h2>
                 <div className="space-y-2.5">
                   {upcoming.map((interview) => (
@@ -224,7 +233,7 @@ export function CandidateInterviews() {
             {past.length > 0 && (
               <section>
                 <h2 className="font-head m-0 mb-2.5 text-[15px] font-bold text-navy">
-                  Past
+                  {tCommon("past")}
                 </h2>
                 <div className="space-y-2.5">
                   {past.map((interview) => (

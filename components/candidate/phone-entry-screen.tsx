@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown, Phone } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { TopBar } from "@/components/ui/top-bar";
 import { ScreenHeading } from "@/components/ui/screen-heading";
 import { TextField } from "@/components/ui/text-field";
@@ -15,6 +16,8 @@ type PhoneEntryScreenProps = {
 
 export function PhoneEntryScreen({ flow = "signup" }: PhoneEntryScreenProps) {
   const router = useRouter();
+  const t = useTranslations("auth");
+  const tCommon = useTranslations("common");
   const [phone, setPhone] = useState("50 123 4567");
   const isLogin = flow === "login";
 
@@ -23,11 +26,9 @@ export function PhoneEntryScreen({ flow = "signup" }: PhoneEntryScreenProps) {
       <TopBar onBack={() => router.back()} accent="purple" />
       <ScreenHeading
         icon={<Phone size={26} className="text-purple" aria-hidden />}
-        title={isLogin ? "Welcome back" : "What's your phone number?"}
+        title={isLogin ? t("phoneWelcomeBack") : t("phoneWhatsYourNumber")}
         subtitle={
-          isLogin
-            ? "Enter your phone number to log in"
-            : "We will use this to verify your account"
+          isLogin ? t("phoneLoginSubtitle") : t("phoneSignupSubtitle")
         }
         accent="purple"
       />
@@ -36,7 +37,7 @@ export function PhoneEntryScreen({ flow = "signup" }: PhoneEntryScreenProps) {
           <span className="text-base" aria-hidden>
             🇦🇪
           </span>
-          <span className="text-sm font-semibold text-ink">+971</span>
+          <span className="text-sm font-semibold text-ink">{tCommon("countryCode")}</span>
           <ChevronDown size={14} className="text-ink-faint" aria-hidden />
         </div>
         <TextField value={phone} onChange={setPhone} />
@@ -47,7 +48,7 @@ export function PhoneEntryScreen({ flow = "signup" }: PhoneEntryScreenProps) {
             router.push(`/candidate/auth/otp?flow=${flow}`)
           }
         >
-          {isLogin ? "Log in" : "Continue"}
+          {isLogin ? t("logIn") : tCommon("continue")}
         </PrimaryButton>
         <PrivacyNote />
       </div>

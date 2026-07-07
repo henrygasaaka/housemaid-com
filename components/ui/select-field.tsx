@@ -10,6 +10,7 @@ type SelectFieldProps = {
   options?: string[];
   onChange: (value: string) => void;
   placeholder?: string;
+  getLabel?: (value: string) => string;
 };
 
 export function SelectField({
@@ -18,8 +19,10 @@ export function SelectField({
   options = [],
   onChange,
   placeholder = "Select...",
+  getLabel,
 }: SelectFieldProps) {
   const [open, setOpen] = useState(false);
+  const display = (v: string) => (getLabel && v ? getLabel(v) : v);
 
   return (
     <>
@@ -32,7 +35,7 @@ export function SelectField({
         <span
           className={`flex-1 text-sm ${value ? "text-ink" : "text-ink-faint"}`}
         >
-          {value || placeholder}
+          {value ? display(value) : placeholder}
         </span>
         <ChevronDown size={16} className="text-ink-faint" aria-hidden />
       </button>
@@ -53,7 +56,7 @@ export function SelectField({
                   opt === value ? "font-bold" : "font-medium"
                 }`}
               >
-                {opt}
+                {display(opt)}
               </span>
               {opt === value && (
                 <Check size={16} className="text-purple" strokeWidth={3} />

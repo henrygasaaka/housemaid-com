@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, Send } from "lucide-react";
 import type {
   Conversation,
@@ -36,6 +37,10 @@ export function CandidateMessageThread({
   onBack,
   onUpdateConversation,
 }: CandidateMessageThreadProps) {
+  const t = useTranslations();
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const tErrors = useTranslations("errors");
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState(conversation.messages);
   const [sending, setSending] = useState(false);
@@ -75,7 +80,7 @@ export function CandidateMessageThread({
     } catch (error) {
       console.error("[messages] Failed to send:", error);
       setSendError(
-        error instanceof Error ? error.message : "Failed to send message."
+        error instanceof Error ? error.message : tErrors("sendMessage")
       );
     } finally {
       setSending(false);
@@ -91,7 +96,7 @@ export function CandidateMessageThread({
       ...conversation,
       messages: nextMessages,
       lastPreview: mapped.text,
-      lastTime: formatRelativeTime(row.created_at),
+      lastTime: formatRelativeTime(row.created_at, (key, values) => t(key, values)),
       unreadCount: 0,
     });
   }
@@ -103,7 +108,7 @@ export function CandidateMessageThread({
           type="button"
           onClick={onBack}
           className="cursor-pointer border-none bg-transparent p-0.5"
-          aria-label="Back to inbox"
+          aria-label={tAria("backToInbox")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </button>
@@ -129,7 +134,7 @@ export function CandidateMessageThread({
       >
         {messages.length === 0 && (
           <p className="m-0 text-center text-[12.5px] text-ink-faint">
-            No messages in this conversation yet.
+            {tCommon("noMessagesInConversation")}
           </p>
         )}
         {messages.map((message) => {
@@ -179,7 +184,7 @@ export function CandidateMessageThread({
           onKeyDown={(e) => {
             if (e.key === "Enter") void handleSend();
           }}
-          placeholder="Type a message..."
+          placeholder={tCommon("typeMessage")}
           disabled={sending}
           className="flex-1 rounded-[20px] border border-border px-4 py-[11px] text-[13.5px] text-ink outline-none placeholder:text-ink-faint focus:border-purple disabled:opacity-60"
         />
@@ -188,7 +193,7 @@ export function CandidateMessageThread({
           onClick={() => void handleSend()}
           disabled={!draft.trim() || sending}
           className="flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-purple disabled:cursor-default disabled:opacity-50"
-          aria-label="Send message"
+          aria-label={tAria("sendMessage")}
         >
           <Send size={16} className="text-white" aria-hidden />
         </button>

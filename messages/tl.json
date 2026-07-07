@@ -1,0 +1,878 @@
+{
+  "meta": {
+    "title": "Housemaid-AE — Mapagkakatiwalaang mga housemaid at employer sa UAE",
+    "description": "Nag-uugnay ng mga mapagkakatiwalaang housemaid at employer sa buong UAE. Hanapin ang tamang trabaho o kumuha ng perpektong katugma.",
+    "openGraphTitle": "Housemaid-AE — Mapagkakatiwalaang mga housemaid at employer sa UAE",
+    "appleWebAppTitle": "Housemaid-AE",
+    "applicationName": "Housemaid-AE"
+  },
+  "common": {
+    "appName": "Housemaid-AE",
+    "brand": "Housemaid",
+    "brandSuffix": "-AE",
+    "uae": "UAE",
+    "languageCode": "TL",
+    "emDash": "—",
+    "tryAgain": "Subukan muli",
+    "continue": "Magpatuloy",
+    "back": "Bumalik",
+    "edit": "I-edit",
+    "save": "I-save",
+    "saved": "Na-save",
+    "message": "Mensahe",
+    "verified": "Na-verify",
+    "guest": "Bisita",
+    "employer": "Employer",
+    "candidate": "Kandidato",
+    "about": "Tungkol sa akin",
+    "skills": "Mga kasanayan",
+    "languages": "Mga wika",
+    "settings": "Mga setting",
+    "notifications": "Mga abiso",
+    "logOut": "Mag-log out",
+    "logIn": "Mag-log in",
+    "createAccount": "Gumawa ng account",
+    "create": "Gumawa",
+    "email": "Email",
+    "whatsapp": "WhatsApp",
+    "termsOfService": "Mga Tuntunin ng Serbisyo",
+    "privacyPolicy": "Patakaran sa Privacy",
+    "helpSupport": "Tulong at Suporta",
+    "lastUpdated": "Huling na-update: {date}",
+    "redirecting": "Nire-redirect…",
+    "saving": "Sine-save…",
+    "sending": "Ipinapadala…",
+    "publishing": "Inilalathala…",
+    "loggingOut": "Naglo-log out…",
+    "uploadingPhoto": "Ina-upload ang larawan…",
+    "uploadingVideo": "Ina-upload ang video…",
+    "photoAdded": "Naidagdag ang larawan",
+    "videoAdded": "Naidagdag ang video",
+    "uploadPhoto": "Mag-upload ng larawan",
+    "uploadVideo": "Mag-upload ng video",
+    "tapToChange": "I-tap para palitan",
+    "tapToReplace": "I-tap para palitan",
+    "profileNotFound": "Hindi nahanap ang profile",
+    "couldNotLoadProfile": "Hindi ma-load ang iyong profile. Pakisubukan muli.",
+    "couldNotLoadProfileShort": "Hindi ma-load ang iyong profile.",
+    "privacySafe": "Pinapanatili naming ligtas at secure ang iyong impormasyon",
+    "privacyNeverShare": "Hindi namin ibinabahagi ang iyong data sa sinuman",
+    "footerNavSafe": "Ligtas ang iyong impormasyon sa amin. Hindi namin ibabahagi ang iyong data.",
+    "requiredMark": "*",
+    "aed": "AED",
+    "oneTimePayment": "Isang beses na bayad",
+    "noSubscription": "Walang subscription. Walang nakatagong bayad.",
+    "identity": "Pagkakakilanlan",
+    "visa": "Visa",
+    "references": "Mga sanggunian",
+    "previousRole": "Nakaraang tungkulin",
+    "previousEmployer": "Nakaraang employer",
+    "recommended": "Inirerekomenda",
+    "min": "Min",
+    "max": "Max",
+    "name": "Pangalan",
+    "verify": "I-verify",
+    "previewProfile": "I-preview ang profile",
+    "publishMyProfile": "I-publish ang aking profile",
+    "profileCompletion": "Pagkumpleto ng profile",
+    "profileCompletionHint": "Mas maraming view at mas magagandang oportunidad sa trabaho ang makukuha ng kumpletong profile.",
+    "interested": "Interesado",
+    "expressInterest": "Ipahayag ang Interes",
+    "viewDetails": "Tingnan ang detalye",
+    "upcoming": "Paparating",
+    "past": "Nakaraan",
+    "noActivityYet": "Wala pang aktibidad",
+    "noMessagesYet": "Wala pang mensahe",
+    "noMessagesInConversation": "Wala pang mensahe sa pag-uusap na ito.",
+    "typeMessage": "Mag-type ng mensahe...",
+    "sendMessage": "Magpadala ng mensahe",
+    "quickMessage": "Mabilis na mensahe",
+    "simpleGreeting": "Simpleng pagbati",
+    "writeYourOwn": "Sumulat ng sarili mong mensahe.",
+    "backToSuggestions": "Bumalik sa mga mungkahi",
+    "unlockAccess": "I-unlock ang access",
+    "aed100": "AED 100",
+    "profileUnlocked": "Na-unlock ang profile",
+    "viewProfile": "Tingnan ang profile",
+    "viewFullProfile": "Tingnan ang buong kasaysayan ng trabaho at mga sanggunian",
+    "verifiedReference": "{count} na-verify na sanggunian",
+    "verifiedReferences": "{count} na-verify na mga sanggunian",
+    "verifiedReferenceCount": "{count} na-verify na sanggunian",
+    "verifiedReferencesCount": "{count} na-verify na mga sanggunian",
+    "typicallyRepliesIn": "Karaniwang sumasagot sa loob ng {responseTime}",
+    "repliesIn": "Sumasagot sa loob ng {responseTime}",
+    "playingIntroVideo": "Pinapatugtog ang intro video ni {firstName}...",
+    "salaryPerMonth": "AED {min} - {max}/buwan",
+    "salaryExpectation": "AED {min} – {max}",
+    "salaryRangeReview": "AED {min} – {max}",
+    "locationReview": "{district}, {emirate}",
+    "nameReview": "{firstName} {lastName}",
+    "aboutCharCount": "{count}/300",
+    "freeMessagesUsed": "{used} sa {limit} libreng mensahe ang nagamit",
+    "profileCompletePercent": "{percent}% kumpleto ang iyong profile",
+    "hiFirstName": "Kumusta {firstName} 👋",
+    "sendMessageTo": "Magpadala ng mensahe kay {candidateName}.",
+    "writeMessageTo": "Sumulat ng mensahe kay {candidateName}...",
+    "quickMessageTemplate": "Kumusta {candidateName}, interesado ako sa iyong profile — lalo na sa iyong karanasan sa pag-aalaga ng bata. Available ka bang mag-usap?",
+    "simpleGreetingTemplate": "Kumusta {candidateName}, nakita ko ang iyong profile at interesado ako. Magandang oras ba ngayon para mag-chat?",
+    "gateOneStepAway": "Isang hakbang na lang bago mo {actionLabel} si {candidateName}.",
+    "gateCreateAccount": "Gumawa ng libreng employer account",
+    "gateTermsAgree": "Sa pagpapatuloy, sumasang-ayon ka sa aming {terms} at {privacy}.",
+    "thisCandidate": "ang kandidatong ito",
+    "actionSaving": "i-save",
+    "actionMessaging": "magpadala ng mensahe",
+    "actionViewing": "tingnan",
+    "guestMode": "Guest mode",
+    "browsingAsGuest": "Nagba-browse bilang bisita",
+    "guestBrowseHint": "{logIn} o {create} ng libreng account para magpadala ng mensahe sa mga kandidato.",
+    "logInLower": "mag-log in",
+    "createLower": "gumawa",
+    "verifiedProfilesBanner": "100% na-verify na mga profile",
+    "verifiedProfilesDesc": "Lahat ng kandidato ay naka-background check para sa iyong kaligtasan.",
+    "expSuffix": "{years} Taon ng Karanasan",
+    "availableNow": "Available Ngayon",
+    "referencesNotAvailable": "Hindi pa available ang mga sanggunian.",
+    "employmentHistoryNotAvailable": "Hindi pa available ang kasaysayan ng trabaho.",
+    "noSkillsAdded": "Wala pang idinagdag na kasanayan.",
+    "completeProfileForStats": "Kumpletuhin ang iyong profile para ipakita ang karanasan at mga kagustuhan.",
+    "countryCode": "+971"
+  },
+  "aria": {
+    "goBack": "Bumalik",
+    "backToInbox": "Bumalik sa inbox",
+    "notifications": "Mga abiso",
+    "settings": "Mga setting",
+    "sendMessage": "Magpadala ng mensahe",
+    "saveCandidate": "I-save ang kandidato",
+    "unsaveCandidate": "Alisin sa naka-save ang kandidato",
+    "playIntroVideo": "I-play ang intro video",
+    "pauseVideo": "I-pause ang video",
+    "profilePhoto": "Profile",
+    "otpDigit": "Digit {index}",
+    "profilePhotoAlt": "Profile",
+    "selectLanguage": "Pumili ng wika"
+  },
+  "landing": {
+    "welcomeTo": "Maligayang pagdating sa",
+    "tagline": "Nag-uugnay ng mga mapagkakatiwalaang housemaid at employer sa buong {uae}",
+    "uaeWide": "Buong UAE",
+    "cities": {
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "more": "+3"
+    },
+    "roleHeading": "Ano ang dahilan ng pagpunta mo rito ngayon?",
+    "roleSubheading": "Pumili ng opsyon para magpatuloy",
+    "candidateTag": "Ako ay isang",
+    "candidateRole": "Kandidato",
+    "candidateDesc": "Naghahanap ng trabaho",
+    "candidateBullets": {
+      "createProfile": "Gumawa ng iyong profile",
+      "getDiscovered": "Makilala ng mga employer",
+      "findJob": "Hanapin ang tamang trabaho"
+    },
+    "employerTag": "Ako ay isang",
+    "employerRole": "Employer",
+    "employerDesc": "Kumukuha ng housemaid",
+    "employerBullets": {
+      "browse": "Mag-browse ng mga na-verify na kandidato",
+      "chat": "Makipag-chat nang direkta",
+      "findMatch": "Hanapin ang perpektong katugma"
+    },
+    "trustedBy": "Pinagkakatiwalaan ng mga pamilya sa buong UAE",
+    "verifiedProfiles": "Mga Na-verify na Profile",
+    "trustFeatures": {
+      "verifiedProfiles": "Mga Na-verify na Profile",
+      "safeSecure": "Ligtas at Secure",
+      "directChat": "Direktang Chat"
+    }
+  },
+  "nav": {
+    "candidate": {
+      "home": "Home",
+      "messages": "Mga Mensahe",
+      "interviews": "Mga Interview",
+      "jobs": "Mga Trabaho",
+      "profile": "Profile"
+    },
+    "employer": {
+      "discover": "Tuklasin",
+      "saved": "Naka-save",
+      "messages": "Mga Mensahe",
+      "interviews": "Mga Interview",
+      "profile": "Profile"
+    }
+  },
+  "auth": {
+    "welcomeBack": "Maligayang pagbabalik!",
+    "createYourAccount": "Gumawa ng iyong account",
+    "loginToAccount": "Mag-log in sa iyong account",
+    "findJobMinutes": "Hanapin ang tamang trabaho sa loob ng ilang minuto",
+    "continueWithGoogle": "Magpatuloy gamit ang Google",
+    "continueWithEmail": "Magpatuloy gamit ang Email",
+    "continueWithPhone": "Magpatuloy gamit ang Numero ng Telepono",
+    "continueWithApple": "Magpatuloy gamit ang Apple",
+    "dontHaveAccount": "Wala ka pang account?",
+    "alreadyHaveAccount": "May account ka na?",
+    "googleSignInFailed": "Nabigo ang pag-sign in sa Google",
+    "googleSignInFailedDetail": "Nabigo ang pag-sign in sa Google: Hindi ma-verify ng Supabase ang iyong Google credentials. Suriin ang Google Cloud Console at mga setting ng Google provider sa Supabase.",
+    "logInWithGoogle": "Mag-log in gamit ang Google",
+    "signUpWithGoogle": "Mag-sign up gamit ang Google",
+    "redirectingToGoogle": "Nire-redirect ka sa Google…",
+    "backToLogin": "Bumalik sa pag-log in",
+    "phoneWelcomeBack": "Maligayang pagbabalik",
+    "phoneWhatsYourNumber": "Ano ang numero ng iyong telepono?",
+    "phoneLoginSubtitle": "Ilagay ang numero ng telepono para mag-log in",
+    "phoneSignupSubtitle": "Gagamitin namin ito para i-verify ang iyong account",
+    "logIn": "Mag-log in",
+    "otpTitle": "Ilagay ang verification code",
+    "otpSubtitle": "Nagpadala kami ng 6-digit na code sa",
+    "otpPhoneExample": "+971 50 123 4567",
+    "otpDidntReceive": "Hindi mo natanggap ang code?",
+    "otpResendIn": "Ipadala muli sa loob ng {time}",
+    "emailLoginTitle": "Mag-log in gamit ang email",
+    "emailCheckTitle": "Tingnan ang iyong email",
+    "emailLoginSubtitle": "Ilagay ang email na ginamit mo sa pag-sign up",
+    "emailSentMagicLink": "Nagpadala kami ng magic link sa {email}",
+    "emailAddressPlaceholder": "Email address",
+    "emailConfirmHint": "I-tap ang link sa iyong email para mag-sign in. Maaari mong isara ang pahinang ito at bumalik kapag nakumpirma mo na.",
+    "sendMagicLink": "Ipadala ang magic link",
+    "useDifferentEmail": "Gumamit ng ibang email",
+    "employerLoginSubtitle": "Mag-log in para mag-browse at magpadala ng mensahe sa mga kandidato",
+    "employerSignupSubtitle": "Hanapin ang perpektong katugma para sa iyong sambahayan",
+    "emailSignInComingSoon": "Malapit nang magamit ang pag-sign in gamit ang email",
+    "loginToYourAccount": "Mag-log in sa iyong account",
+    "loginSheetWelcome": "Maligayang pagbabalik — magpatuloy kung saan ka tumigil.",
+    "loginSheetEmailHint": "Magpatuloy sa sign-in page para gumamit ng email.",
+    "logInWithGoogleProfile": "Mag-log in gamit ang Google"
+  },
+  "candidate": {
+    "dashboard": {
+      "viewsThisWeek": "Mga view ngayong linggo",
+      "savedByEmployers": "Na-save ng mga employer",
+      "interviewRequests": "Mga kahilingan sa interview",
+      "completeYourProfile": "Kumpletuhin ang iyong profile",
+      "completeProfileCta": "Mas malamang makipag-ugnayan ang mga employer sa mga kandidatong may kumpletong profile.",
+      "recentActivity": "Kamakailang aktibidad",
+      "noActivityDesc": "Lalabas dito ang mga view ng profile, pag-save, at kahilingan sa interview kapag nagsimulang makipag-ugnayan ang mga employer sa iyong profile."
+    },
+    "profile": {
+      "title": "Aking Profile",
+      "edit": "I-edit",
+      "about": "Tungkol sa akin",
+      "skills": "Mga kasanayan",
+      "languages": "Mga wika",
+      "employmentHistory": "Kasaysayan ng trabaho",
+      "salaryExpectation": "Inaasahang sahod",
+      "availability": "Availability",
+      "editProfile": "I-edit ang Profile",
+      "myDocuments": "Aking mga Dokumento"
+    },
+    "messages": {
+      "title": "Mga Mensahe",
+      "emptyDesc": "Kapag may employer na nakipag-ugnayan sa iyo, lalabas dito ang iyong mga pag-uusap.",
+      "couldNotLoad": "Hindi ma-load ang mga mensahe. Pakisubukan muli.",
+      "failedToSend": "Nabigong magpadala ng mensahe."
+    },
+    "interviews": {
+      "title": "Mga Interview",
+      "empty": "Wala pang interview. Panatilihing aktibo ang iyong profile para mapansin.",
+      "couldNotLoad": "Hindi ma-load ang mga interview. Pakisubukan muli.",
+      "toBeConfirmed": "Kukumpirmahin pa",
+      "status": {
+        "proposed": "Iminungkahi",
+        "confirmed": "Nakumpirma",
+        "interviewed": "Na-interview na"
+      }
+    },
+    "jobs": {
+      "title": "Mga Trabaho",
+      "subtitle": "Mga bukas na posisyon malapit sa iyo",
+      "posted": "Na-post {posted}",
+      "empty": "Wala pang bukas na posisyon. Bumalik muli — regular na nagdadagdag ng mga bagong trabaho.",
+      "filterEmpty": "Walang trabahong tumutugma sa filter na ito. Subukan ang ibang kategorya.",
+      "couldNotLoad": "Hindi ma-load ang mga trabaho. Pakisubukan muli."
+    },
+    "conversationStatus": {
+      "messaging": "Nagme-message",
+      "interviewProposed": "Iminungkahing interview",
+      "interviewScheduled": "Nakaiskedyul na interview",
+      "interviewed": "Na-interview na",
+      "hired": "Nakuha",
+      "declined": "Hindi magpapatuloy"
+    },
+    "freshness": {
+      "activeToday": "Aktibo ngayon",
+      "activeThisWeek": "Aktibo ngayong linggo",
+      "activeTwoWeeksAgo": "Aktibo 2+ linggo na ang nakalipas",
+      "inactiveThirtyDays": "Hindi aktibo 30+ araw"
+    }
+  },
+  "employer": {
+    "discover": {
+      "title": "Tuklasin",
+      "subtitle": "Mag-browse ng mga na-verify na kandidato nang hindi nagpapakilala.",
+      "empty": "Wala pang available na kandidato",
+      "emptyDesc": "Lalabas dito ang mga na-publish na profile ng kandidato kapag nakumpleto na ng mga housemaid ang onboarding at naging live.",
+      "filterEmpty": "Walang tumutugma sa filter na ito",
+      "filterEmptyDesc": "Subukan ang ibang filter o bumalik muli habang mas maraming kandidato ang nagpu-publish ng kanilang profile.",
+      "couldNotLoad": "Hindi ma-load ang mga kandidato. Pakisubukan muli."
+    },
+    "profile": {
+      "title": "Aking Account",
+      "guestHint": "Mag-log in para i-save ang iyong progreso at magpadala ng mensahe sa mga kandidato.",
+      "editProfile": "I-edit ang Profile",
+      "savedCandidates": "Mga Naka-save na Kandidato"
+    },
+    "saved": {
+      "title": "Mga Naka-save na Kandidato",
+      "empty": "Wala pang naka-save na kandidato",
+      "emptyDesc": "I-tap ang heart icon sa anumang profile ng kandidato para i-save dito"
+    },
+    "notifications": {
+      "title": "Mga Abiso",
+      "reply": "Sumagot si Maria Santos sa iyong mensahe",
+      "saved": "Na-save mo si Grace Wanjiru",
+      "viewed": "Tiningnan mo ang profile ni Nilanthi Perera",
+      "verified": "Na-verify ang iyong account",
+      "oneHourAgo": "1 oras ang nakalipas",
+      "threeHoursAgo": "3 oras ang nakalipas",
+      "yesterday": "Kahapon",
+      "twoDaysAgo": "2 araw ang nakalipas"
+    },
+    "paywall": {
+      "freeMessagesUsed": "{used} sa {limit} libreng mensahe ang nagamit",
+      "unlockMessagingTitle": "I-unlock ang Walang Limitasyong Pagmemensahe",
+      "unlockProfileTitle": "I-unlock ang Buong Access sa Profile",
+      "unlockMessagingDesc": "Kasama ang mga personalized na filter na natututo kung ano ang hinahanap mo.",
+      "unlockProfileDesc": "Tingnan ang buong kasaysayan ng trabaho, mga sanggunian, at mga detalye ng contact.",
+      "messagingFeatures": {
+        "unlimited": "Magpadala ng mensahe sa anumang kandidato nang walang limitasyon",
+        "smartFilters": "Mga smart filter na natututo ang iyong mga kagustuhan",
+        "oneTime": "Isang beses na bayad — walang subscription"
+      },
+      "profileFeatures": {
+        "history": "Buong kasaysayan ng trabaho at mga sanggunian",
+        "unmasked": "Hindi nakatago ang pangalan at mga detalye ng lokasyon",
+        "oneTime": "Isang beses na bayad — walang subscription"
+      },
+      "freeAllowanceHint": "Ang iyong libreng allowance na {limit} mensahe ay isang beses lang, habambuhay, at hindi na babalik."
+    },
+    "candidateProfile": {
+      "employmentHistory": "Kasaysayan ng trabaho",
+      "pleaseLogInToMessage": "Mag-log in para magpadala ng mga mensahe.",
+      "failedToSend": "Nabigong magpadala ng mensahe."
+    }
+  },
+  "onboard": {
+    "steps": {
+      "basicInfo": "Pangunahing Impormasyon",
+      "locationVisa": "Lokasyon at Visa",
+      "experienceSkills": "Karanasan at Kasanayan",
+      "media": "Media",
+      "review": "Suriin"
+    },
+    "basicInfo": {
+      "title": "Gumawa ng iyong profile",
+      "subtitle": "Magsimula na tayo! Sabihin sa amin ang kaunti tungkol sa iyo.",
+      "photoHint": "Magdagdag ng malinaw na larawan ng iyong sarili",
+      "firstName": "Pangalan",
+      "lastName": "Apelyido",
+      "emailAddress": "Email address",
+      "phoneNumber": "Numero ng telepono",
+      "nationality": "Nasyonalidad",
+      "gender": "Kasarian"
+    },
+    "locationVisa": {
+      "title": "Saan ka nakatira?",
+      "subtitle": "Tumutulong ito sa mga employer na mahanap ka sa kanilang lugar.",
+      "currentLocation": "Kasalukuyang lokasyon",
+      "visaStatus": "Status ng visa sa UAE",
+      "whenCanStart": "Kailan ka maaaring magsimulang magtrabaho?",
+      "visaOptions": {
+        "ownVisa": {
+          "title": "Sariling visa",
+          "subtitle": "Ikaw ang nag-sponsor ng sarili mong visa"
+        },
+        "visitVisa": {
+          "title": "Visit visa",
+          "subtitle": "Nasa UAE ka gamit ang visit visa"
+        },
+        "cancelledVisa": {
+          "title": "Cancelled visa",
+          "subtitle": "Mayroon kang cancelled visa"
+        },
+        "sponsoredVisa": {
+          "title": "Sponsored visa",
+          "subtitle": "Ang iyong visa ay sponsored ng iyong employer"
+        },
+        "lookingForSponsorship": {
+          "title": "Naghahanap ng sponsorship",
+          "subtitle": "Kailangan mo ng visa sponsorship"
+        }
+      }
+    },
+    "experience": {
+      "title": "Sabihin sa amin ang tungkol sa iyong karanasan",
+      "subtitle": "Tumutulong ito sa mga employer na mas makilala ka.",
+      "yearsOfExperience": "Mga taon ng karanasan",
+      "skillsLabel": "Mga kasanayan (piliin ang lahat ng naaangkop)",
+      "languagesLabel": "Mga wika",
+      "aboutMeOptional": "Tungkol sa akin (opsyonal)",
+      "aboutPlaceholder": "Sumulat ng maikling paglalarawan tungkol sa iyong sarili..."
+    },
+    "media": {
+      "title": "Idagdag ang iyong mga larawan, video at availability",
+      "subtitle": "Tumutulong ito sa mga employer na mas makilala ka.",
+      "profilePhoto": "Larawan sa profile",
+      "photoFormats": "JPG, PNG (max 5MB)",
+      "introVideo": "Introduction video (lubos na inirerekomenda)",
+      "videoFormats": "MP4 lang, max 30 segundo, max 30MB",
+      "salaryExpectation": "Inaasahang sahod (AED)",
+      "preferredEmploymentType": "Gustong uri ng trabaho",
+      "liveInTitle": "Live-in",
+      "liveInSubtitle": "Maaari akong tumira sa bahay ng employer",
+      "liveOutTitle": "Live-out",
+      "liveOutSubtitle": "Uuwi ako pagkatapos ng trabaho",
+      "preferredWorkingDays": "Gustong araw ng trabaho"
+    },
+    "review": {
+      "title": "Suriin ang iyong profile",
+      "subtitle": "Pakisuri ang iyong impormasyon bago i-publish.",
+      "basicInformation": "Pangunahing impormasyon",
+      "locationAndVisa": "Lokasyon at visa",
+      "experienceSkillsLanguages": "Karanasan, kasanayan at wika",
+      "mediaSalaryAvailability": "Media, sahod at availability",
+      "currentLocation": "Kasalukuyang lokasyon",
+      "visaStatus": "Status ng visa",
+      "yearsOfExperience": "Mga taon ng karanasan",
+      "salaryExpectation": "Inaasahang sahod",
+      "employmentType": "Uri ng trabaho",
+      "preferredDays": "Gustong araw"
+    },
+    "errors": {
+      "chooseImage": "Pumili ng JPG o PNG na larawan.",
+      "photoTooLarge": "Ang larawan sa profile ay dapat 5MB o mas maliit.",
+      "videoMustBeMp4": "Ang introduction video ay dapat MP4 file.",
+      "videoTooLarge": "Ang introduction video ay dapat 30MB o mas maliit.",
+      "failedSaveProgress": "Nabigong i-save ang iyong progreso.",
+      "failedPublish": "Nabigong i-publish ang iyong profile.",
+      "failedUploadPhoto": "Nabigong i-upload ang larawan sa profile.",
+      "failedUploadVideo": "Nabigong i-upload ang introduction video."
+    }
+  },
+  "options": {
+    "gender": {
+      "female": "Babae",
+      "male": "Lalaki"
+    },
+    "nationalities": {
+      "philippines": "Philippines",
+      "kenya": "Kenya",
+      "sriLanka": "Sri Lanka",
+      "bangladesh": "Bangladesh",
+      "india": "India",
+      "indonesia": "Indonesia",
+      "nepal": "Nepal",
+      "ethiopia": "Ethiopia",
+      "uganda": "Uganda",
+      "other": "Iba pa"
+    },
+    "emirates": {
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rasAlKhaimah": "Ras Al Khaimah",
+      "fujairah": "Fujairah",
+      "ummAlQuwain": "Umm Al Quwain"
+    },
+    "districts": {
+      "alBarsha": "Al Barsha",
+      "deira": "Deira",
+      "alNahda": "Al Nahda",
+      "khalifaCity": "Khalifa City",
+      "jumeirah": "Jumeirah",
+      "mirdif": "Mirdif",
+      "marina": "Marina",
+      "alQuoz": "Al Quoz",
+      "downtown": "Downtown"
+    },
+    "availability": {
+      "availableImmediately": "Available agad",
+      "withinOneWeek": "Sa loob ng 1 linggo",
+      "withinTwoWeeks": "Sa loob ng 2 linggo",
+      "withinOneMonth": "Sa loob ng 1 buwan",
+      "currentlyEmployed": "Kasalukuyang may trabaho"
+    },
+    "experience": {
+      "lessThanOneYear": "Mas mababa sa 1 taon",
+      "oneToThreeYears": "1 - 3 taon",
+      "threeToFiveYears": "3 - 5 taon",
+      "fivePlusYears": "5+ taon"
+    },
+    "skills": {
+      "cleaning": "Paglilinis",
+      "cooking": "Pagluluto",
+      "childcare": "Pag-aalaga ng bata",
+      "laundry": "Paglalaba",
+      "ironing": "Pagplantsa",
+      "elderlyCare": "Pag-aalaga sa matatanda",
+      "petCare": "Pag-aalaga ng alagang hayop",
+      "carWashing": "Paghuhugas ng kotse",
+      "gardening": "Paghahalaman",
+      "tutoring": "Pagtuturo",
+      "disabledCare": "Pag-aalaga sa may kapansanan",
+      "other": "Iba pa"
+    },
+    "languages": {
+      "english": "English",
+      "arabic": "Arabic",
+      "tagalog": "Tagalog",
+      "hindi": "Hindi",
+      "urdu": "Urdu",
+      "tamil": "Tamil",
+      "french": "French",
+      "other": "Iba pa"
+    },
+    "days": {
+      "mon": "Lun",
+      "tue": "Mar",
+      "wed": "Miy",
+      "thu": "Huw",
+      "fri": "Biy",
+      "sat": "Sab",
+      "sun": "Lin"
+    },
+    "visaLabels": {
+      "ownVisa": "Sariling visa",
+      "visitVisa": "Visit visa",
+      "cancelledVisa": "Cancelled visa",
+      "sponsoredVisa": "Sponsored visa",
+      "lookingForSponsorship": "Naghahanap ng sponsorship"
+    },
+    "employmentLabels": {
+      "liveIn": "Live-in",
+      "liveOut": "Live-out"
+    },
+    "filters": {
+      "all": "Lahat",
+      "fullTime": "Full-Time",
+      "partTime": "Part-Time",
+      "liveIn": "Live-In",
+      "liveOut": "Live-Out"
+    },
+    "employmentType": {
+      "fullTime": "Full-Time",
+      "partTime": "Part-Time",
+      "liveIn": "Live-In",
+      "liveOut": "Live-Out"
+    }
+  },
+  "legal": {
+    "candidateTerms": {
+      "title": "Mga Tuntunin ng Serbisyo",
+      "intro": "Nalalapat ang mga Tuntuning ito sa mga kandidatong gumagamit ng Housemaid-AE para maghanap ng domestic work sa UAE. Sa paggawa ng profile, sumasang-ayon ka sa mga patakaran sa ibaba.",
+      "sections": {
+        "yourProfile": {
+          "heading": "1. Ang iyong profile",
+          "body": "Pagmamay-ari mo ang nilalaman na isinusumite mo — kasama ang iyong larawan, intro video, mga dokumento, kasaysayan ng trabaho, at bio. Sa pag-publish ng iyong profile, binibigyan mo ang Housemaid-AE ng lisensya na ipakita ang impormasyong ito sa mga employer sa platform para sa layuning i-match ka sa mga oportunidad sa trabaho."
+        },
+        "informationYouShare": {
+          "heading": "2. Impormasyong ibinabahagi mo",
+          "body": "Maaaring kasama sa iyong profile ang:",
+          "items": {
+            "photoVideo": "Larawan sa profile at intro video",
+            "documents": "Mga dokumento ng pagkakakilanlan at visa (para sa verification lamang)",
+            "history": "Kasaysayan ng trabaho at mga sanggunian",
+            "details": "Mga kasanayan, wika, inaasahang sahod, at availability",
+            "contact": "Mga detalye ng contact (ibinabahagi lamang pagkatapos mong piliing makipag-ugnayan sa isang employer)"
+          }
+        },
+        "howWeUseData": {
+          "heading": "3. Paano namin ginagamit ang iyong data",
+          "body": "Ginagamit namin ang iyong profile para i-match ka sa mga employer na naghahanap ng domestic workers sa UAE. Maaari naming ipakita ang bahagyang nakatagong pangalan mo at mga pangunahing detalye sa Discover bago i-unlock ng employer ang iyong buong profile. Hindi namin ibinebenta ang iyong personal na data sa mga third party."
+        },
+        "matching": {
+          "heading": "4. Pag-match sa mga employer",
+          "body": "Maaaring mag-browse, mag-save, at magpadala ng mensahe ang mga employer sa iyo sa pamamagitan ng platform. Malaya kang tumanggap o tumanggi sa anumang oportunidad. Hindi ginagarantiyahan ng Housemaid-AE ang trabaho, mga interview, o partikular na alok ng sahod."
+        },
+        "accuracy": {
+          "heading": "5. Katumpakan at pag-uugali",
+          "body": "Sumasang-ayon ka na lahat ng impormasyon sa iyong profile ay totoo. Ang mga nakaliligaw na larawan, pekeng sanggunian, o maling status ng visa ay maaaring magresulta sa agarang pag-alis. Tratuhin nang may respeto ang mga employer sa lahat ng mensahe."
+        },
+        "deactivating": {
+          "heading": "6. Pag-deactivate ng iyong profile",
+          "body": "Maaari mong i-pause o i-deactivate ang iyong profile anumang oras. Kapag na-deactivate, nakatago ang iyong profile sa Discover at naka-block ang bagong contact mula sa employer. Mananatili ang mga umiiral na thread ng mensahe maliban kung humiling ka ng buong pag-delete ng account."
+        },
+        "deletion": {
+          "heading": "7. Pag-delete ng account",
+          "body": "Para permanenteng i-delete ang iyong account at data, makipag-ugnayan sa support@housemaid-ae.com. Pinoproseso namin ang mga kahilingan sa pag-delete sa loob ng 30 araw, alinsunod sa mga legal na kinakailangan sa pagpapanatili sa UAE."
+        },
+        "contact": {
+          "heading": "8. Contact",
+          "body": "Mga tanong tungkol sa mga Tuntuning ito: support@housemaid-ae.com"
+        }
+      }
+    },
+    "candidatePrivacy": {
+      "title": "Patakaran sa Privacy",
+      "intro": "Ipinapaliwanag ng Patakaran sa Privacy na ito kung ano ang kinokolekta namin mula sa mga kandidato, bakit namin ito kinokolekta, at paano mo makokontrol ang iyong data.",
+      "sections": {
+        "whatWeCollect": {
+          "heading": "Ano ang kinokolekta namin",
+          "body": "Kapag gumawa ka ng candidate profile, kinokolekta namin ang:",
+          "items": {
+            "contact": "Pangalan, numero ng telepono, at email address",
+            "media": "Larawan sa profile at intro video",
+            "documents": "Mga dokumento ng pagkakakilanlan at visa",
+            "history": "Kasaysayan ng trabaho at mga sanggunian",
+            "location": "Lokasyon (emirate at district)",
+            "details": "Mga kasanayan, wika, inaasahang sahod, at availability"
+          }
+        },
+        "whyWeCollect": {
+          "heading": "Bakit namin ito kinokolekta",
+          "body": "Ginagamit namin ang impormasyong ito para buuin ang iyong profile, i-verify ang iyong pagkakakilanlan, i-match ka sa mga employer, pigilan ang panloloko, at pagbutihin ang platform. Sinusuri ng aming team ang mga dokumento — hindi ito ipinapakita sa publiko."
+        },
+        "whoCanSee": {
+          "heading": "Sino ang makakakita ng iyong impormasyon",
+          "body": "Nakakakita ang mga employer na nagba-browse sa Discover ng bahagyang nakatagong bersyon ng iyong profile. Ang buong detalye — kasama ang hindi nakatagong pangalan, kumpletong kasaysayan ng trabaho, at impormasyon sa contact — ay makikita lamang ng mga employer na na-unlock ang iyong profile o pinili mong padalhan ng mensahe."
+        },
+        "howLong": {
+          "heading": "Gaano katagal namin ito pinapanatili",
+          "body": "Pinapanatili namin ang data ng iyong profile habang aktibo ang iyong account. Kung i-deactivate mo, nagpapanatili kami ng limitadong rekord hanggang 12 buwan. Pagkatapos ng pag-delete ng account, inaalis namin ang personal na data sa loob ng 30 araw maliban kung nangangailangan ang batas ng UAE ng mas mahabang pagpapanatili."
+        },
+        "howToDelete": {
+          "heading": "Paano i-delete ang iyong data",
+          "body": "Maaari mong i-update o alisin ang karamihan ng impormasyon mula sa iyong profile anumang oras. Para ganap na i-delete ang iyong account, mag-email sa support@housemaid-ae.com mula sa iyong rehistradong address."
+        },
+        "yourRights": {
+          "heading": "Ang iyong mga karapatan",
+          "body": "Maaari kang humiling ng access, pagwawasto, o pag-delete ng iyong personal na data. Makipag-ugnayan sa support@housemaid-ae.com at tutugon kami sa loob ng 30 araw."
+        },
+        "contact": {
+          "heading": "Contact",
+          "body": "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com"
+        }
+      }
+    },
+    "employerTerms": {
+      "title": "Mga Tuntunin ng Serbisyo",
+      "intro": "Nalalapat ang mga Tuntuning ito sa mga employer na gumagamit ng Housemaid-AE para maghanap ng domestic workers sa UAE. Sa paggawa ng account, sumasang-ayon ka sa mga patakaran sa ibaba.",
+      "sections": {
+        "browsingFree": {
+          "heading": "1. Libre ang pag-browse",
+          "body": "Maaari kang mag-browse ng mga na-verify na profile ng kandidato sa Discover nang hindi gumagawa ng account. Bahagyang nakatago ang mga pangalan at nakatago ang kasaysayan ng trabaho hanggang i-unlock mo ang isang profile."
+        },
+        "freeMessages": {
+          "heading": "2. Libreng mensahe",
+          "body": "Pagkatapos gumawa ng libreng employer account, makakatanggap ka ng 3 libreng mensahe habambuhay sa lahat ng kandidato. Isang beses lang ito — hindi nagre-reset ang libreng mensahe buwan-buwan."
+        },
+        "unlock": {
+          "heading": "3. AED 100 unlock",
+          "body": "Kapag nagamit na ang iyong 3 libreng mensahe, ang isang beses na bayad na AED 100 ay mag-u-unlock ng walang limitasyong pagmemensahe. Ang hiwalay na isang beses na bayad na AED 100 ay mag-u-unlock ng buong profile ng kandidato (kasaysayan ng trabaho, mga sanggunian, at hindi nakatagong detalye). Hindi ito subscription at hindi awtomatikong magre-renew."
+        },
+        "noRefunds": {
+          "heading": "4. Walang refund",
+          "body": "Hindi mare-refund ang mga unlock payment maliban kung kinakailangan ng batas ng UAE. Kung naniniwala kang mali ang singil sa iyo, makipag-ugnayan sa support@housemaid-ae.com sa loob ng 7 araw."
+        },
+        "responsibilities": {
+          "heading": "5. Ang iyong mga responsibilidad",
+          "body": "Bilang employer, ikaw lamang ang responsable sa:",
+          "items": {
+            "labour": "Pagsunod sa mga batas sa paggawa at imigrasyon ng UAE",
+            "checks": "Pagsasagawa ng sarili mong mga interview at background check",
+            "contracts": "Pagsulat at pagsunod sa mga employment contract",
+            "respect": "Pagtrato sa mga kandidato nang may respeto at dignidad",
+            "illegal": "Hindi humihiling ng ilegal na bayad o nagtatago ng pasaporte"
+          }
+        },
+        "messagingRules": {
+          "heading": "6. Mga patakaran sa pagmemensahe",
+          "body": "Huwag magpadala ng spam, panliligalig, banta, o mapang-abusong mensahe. Maaaring magresulta ang mga paglabag sa permanenteng suspensyon ng account nang walang refund."
+        },
+        "noGuarantee": {
+          "heading": "7. Walang garantiya sa trabaho",
+          "body": "Nagpapadali lamang ang Housemaid-AE ng mga pagpapakilala. Hindi kami nag-eempleyo ng mga kandidato, nagga-garantiya ng pagiging angkop, o nagma-mediate sa mga hindi pagkakasundo sa trabaho."
+        },
+        "governingLaw": {
+          "heading": "8. Namamahalang batas",
+          "body": "Ang mga Tuntuning ito ay pinamamahalaan ng mga batas ng United Arab Emirates."
+        },
+        "contact": {
+          "heading": "9. Contact",
+          "body": "Mga tanong tungkol sa mga Tuntuning ito: support@housemaid-ae.com"
+        }
+      }
+    },
+    "employerPrivacy": {
+      "title": "Patakaran sa Privacy",
+      "intro": "Ipinapaliwanag ng Patakaran sa Privacy na ito kung ano ang kinokolekta namin mula sa mga employer. Mas kaunting data ang kinokolekta namin mula sa mga employer kaysa sa mga kandidato.",
+      "sections": {
+        "whatWeCollect": {
+          "heading": "Ano ang kinokolekta namin",
+          "body": "Kapag gumawa ka ng employer account, kinokolekta lamang namin ang:",
+          "items": {
+            "name": "Ang iyong buong pangalan",
+            "email": "Email address",
+            "location": "Lokasyon (lungsod/emirate sa UAE)"
+          }
+        },
+        "whatWeDoNotCollect": {
+          "heading": "Ano ang hindi namin kinokolekta",
+          "body": "Hindi namin kinokolekta o iniimbak ang mga detalye ng iyong payment card. Lahat ng bayad ay secure na pinoproseso ng PayTabs, ang aming third-party payment provider. Tumatanggap lamang kami ng kumpirmasyon ng bayad — hindi ang numero ng iyong card."
+        },
+        "howWeUse": {
+          "heading": "Paano namin ginagamit ang iyong impormasyon",
+          "body": "Ginagamit namin ang iyong pangalan at email para patakbuhin ang iyong account, magpadala ng mga abiso sa mensahe, at magbigay ng customer support. Tumutulong ang iyong lokasyon na ipakita ang mga kaugnay na kandidato malapit sa iyo."
+        },
+        "noSelling": {
+          "heading": "Hindi namin ibinebenta ang iyong data",
+          "body": "Hindi namin ibinebenta, inuupahan, o ipinagpapalit ang personal na impormasyon ng employer sa mga third party para sa layuning marketing."
+        },
+        "retention": {
+          "heading": "Pagpapanatili ng data",
+          "body": "Pinapanatili namin ang data ng iyong account habang aktibo ang iyong account. Kung i-delete mo ang iyong account, inaalis namin ang personal na data sa loob ng 30 araw, maliban kung nangangailangan ang batas ng UAE ng pagpapanatili."
+        },
+        "deletion": {
+          "heading": "Pag-delete ng account",
+          "body": "Para i-delete ang iyong employer account, mag-email sa support@housemaid-ae.com mula sa iyong rehistradong address. Pinoproseso ang pag-delete sa loob ng 30 araw."
+        },
+        "contact": {
+          "heading": "Contact",
+          "body": "Housemaid-AE, Dubai, UAE. Email: support@housemaid-ae.com"
+        }
+      }
+    },
+    "lastUpdated": "Hunyo 2026"
+  },
+  "help": {
+    "title": "Tulong at Suporta",
+    "stillNeedHelp": "Kailangan pa ng tulong?",
+    "responseTime": "Karaniwang sumasagot kami sa loob ng 24 oras.",
+    "candidate": {
+      "createProfile": {
+        "question": "Paano gumawa ng profile?",
+        "answer": "Mag-sign up gamit ang Google, telepono, o email, pagkatapos kumpletuhin ang mga hakbang sa onboarding: pangunahing impormasyon, lokasyon at visa, karanasan at kasanayan, larawan at video, at pagsusuri. Mas maraming view ng employer ang makukuha ng kumpletong profile na may na-verify na mga dokumento."
+      },
+      "employersFind": {
+        "question": "Paano ako mahahanap ng mga employer?",
+        "answer": "Nagba-browse ang mga employer ng mga na-verify na kandidato sa Discover. Bahagyang nakatago ang iyong pangalan hanggang i-unlock ng employer ang iyong buong profile. Maaaring mag-filter ang mga employer ayon sa uri ng tungkulin, lokasyon, at availability. Panatilihing aktibo at kumpleto ang iyong profile para mas mataas ang ranking."
+      },
+      "documents": {
+        "question": "Sino ang makakakita ng aking mga dokumento?",
+        "answer": "Hindi kailanman ipinapakita sa publiko ang iyong ID, visa, at mga dokumento ng sanggunian. Tanging ang verification team ng Housemaid-AE ang nagsusuri nito. Makakakita ang mga employer ng Verified badge kapag naaprubahan — hindi nila ida-download ang iyong mga raw na dokumento maliban kung pipiliin mong ibahagi ang mga ito sa chat."
+      },
+      "pause": {
+        "question": "Paano i-pause ang aking profile?",
+        "answer": "Pumunta sa Aking Profile → Mga Setting at ilipat ang iyong availability sa hindi available, o makipag-ugnayan sa support. Habang naka-pause, nakatago ang iyong profile sa Discover at hindi makakapagpadala ng bagong mensahe ang mga employer. Mananatiling accessible ang mga umiiral na pag-uusap."
+      },
+      "delete": {
+        "question": "Paano i-delete ang aking account?",
+        "answer": "Mag-email sa support@housemaid-ae.com mula sa iyong rehistradong address at humiling ng pag-delete ng account. Inaalis namin ang iyong profile, mga dokumento, at mensahe sa loob ng 30 araw, maliban kung nangangailangan ang batas ng UAE na panatilihin ang mga rekord."
+      }
+    },
+    "employer": {
+      "message": {
+        "question": "Paano magpadala ng mensahe sa isang kandidato?",
+        "answer": "Mag-browse ng mga kandidato sa Discover — hindi kailangan ng account. Kapag handa ka nang magpadala ng mensahe, gumawa ng libreng employer account. Makakakuha ka ng 3 libreng mensahe habambuhay sa lahat ng kandidato. Pagkatapos nito, ang isang beses na AED 100 unlock ay magbibigay sa iyo ng walang limitasyong pagmemensahe."
+      },
+      "unlock": {
+        "question": "Paano gumagana ang AED 100 unlock?",
+        "answer": "Ang AED 100 ay isang beses na bayad bawat unlock — hindi subscription. Ina-unlock nito ang walang limitasyong pagmemensahe sa anumang kandidato, o buong access sa kasaysayan ng trabaho at mga sanggunian ng kandidato, depende sa aksyong gagawin mo. Ang iyong 3 libreng mensahe ay habambuhay na grant."
+      },
+      "refund": {
+        "question": "Maaari ba akong makakuha ng refund?",
+        "answer": "Ang mga unlock payment ay isang beses at hindi mare-refund maliban kung kinakailangan ng batas ng UAE. Kung naniniwala kang mali ang singil sa iyo, mag-email sa support@housemaid-ae.com sa loob ng 7 araw kasama ang email ng iyong account at payment reference."
+      },
+      "find": {
+        "question": "Paano hanapin ang tamang kandidato?",
+        "answer": "Gamitin ang mga filter sa Discover para sa full-time, part-time, live-in, o live-out na mga tungkulin. I-save ang mga kandidatong gusto mo, basahin ang kanilang mga kasanayan at karanasan, at magpadala ng mensahe sa mga tumutugma sa pangangailangan ng iyong sambahayan. Ang mga na-verify na profile na may intro video ang pinakamalakas na senyales ng pagiging angkop."
+      }
+    }
+  },
+  "validation": {
+    "firstNameRequired": "Kailangan ang pangalan.",
+    "lastNameRequired": "Kailangan ang apelyido.",
+    "phoneRequired": "Kailangan ang numero ng telepono.",
+    "nationalityRequired": "Kailangan ang nasyonalidad.",
+    "genderRequired": "Kailangan ang kasarian.",
+    "emirateRequired": "Kailangan ang emirate.",
+    "districtRequired": "Kailangan ang district.",
+    "visaRequired": "Kailangan ang status ng visa.",
+    "experienceRequired": "Kailangan ang mga taon ng karanasan.",
+    "photoRequired": "Kailangan ang larawan sa profile.",
+    "salaryRequired": "Kailangan ang saklaw ng sahod.",
+    "employmentTypeRequired": "Kailangan ang uri ng trabaho.",
+    "messageEmpty": "Hindi maaaring walang laman ang mensahe."
+  },
+  "time": {
+    "justNow": "Ngayon lang",
+    "minutesAgo": "{minutes}m ang nakalipas",
+    "hoursAgo": "{hours}o ang nakalipas",
+    "yesterday": "Kahapon",
+    "daysAgo": "{days} araw ang nakalipas",
+    "toBeConfirmed": "Kukumpirmahin pa",
+    "resendIn": "Ipadala muli sa loob ng {time}",
+    "posted": "Na-post {posted}",
+    "lastActive": {
+      "today": "ngayon",
+      "yesterday": "kahapon",
+      "thisWeek": "ngayong linggo",
+      "twoWeeksAgo": "2 linggo ang nakalipas",
+      "threeWeeksAgo": "3 linggo ang nakalipas",
+      "thirtyPlusDays": "30+ araw ang nakalipas"
+    },
+    "initialsFallback": "EM"
+  },
+  "completionFields": {
+    "firstName": "pangalan",
+    "lastName": "apelyido",
+    "phoneNumber": "numero ng telepono",
+    "nationality": "nasyonalidad",
+    "gender": "kasarian",
+    "emirate": "emirate",
+    "district": "district",
+    "visaStatus": "status ng visa",
+    "availability": "availability",
+    "experience": "karanasan",
+    "skills": "mga kasanayan",
+    "languages": "mga wika",
+    "aboutYou": "tungkol sa iyo",
+    "profilePhoto": "larawan sa profile",
+    "salaryRange": "saklaw ng sahod",
+    "employmentType": "uri ng trabaho",
+    "videoIntro": "video intro",
+    "hints": {
+      "complete": "Ganap na kumpleto ang iyong profile.",
+      "videoIntro": "Magdagdag ng video intro para mapansin ng mga employer.",
+      "single": "Idagdag ang iyong {field} para mapabuti ang iyong profile.",
+      "double": "Idagdag ang iyong {field1} at {field2} para mapabuti ang iyong profile."
+    },
+    "defaultFirstName": "kaibigan"
+  },
+  "errors": {
+    "googleOAuth": "Nabigo ang pag-sign in sa Google: Hindi ma-verify ng Supabase ang iyong Google credentials. Suriin ang Google Cloud Console at mga setting ng Google provider sa Supabase.",
+    "loadProfile": "Hindi ma-load ang iyong profile. Pakisubukan muli.",
+    "loadProfileShort": "Hindi ma-load ang iyong profile.",
+    "loadMessages": "Hindi ma-load ang mga mensahe. Pakisubukan muli.",
+    "loadInterviews": "Hindi ma-load ang mga interview. Pakisubukan muli.",
+    "loadJobs": "Hindi ma-load ang mga trabaho. Pakisubukan muli.",
+    "loadCandidates": "Hindi ma-load ang mga kandidato. Pakisubukan muli.",
+    "sendMessage": "Nabigong magpadala ng mensahe.",
+    "saveProgress": "Nabigong i-save ang iyong progreso.",
+    "publishProfile": "Nabigong i-publish ang iyong profile.",
+    "uploadPhoto": "Nabigong i-upload ang larawan sa profile.",
+    "uploadVideo": "Nabigong i-upload ang introduction video.",
+    "pleaseLogInToMessage": "Mag-log in para magpadala ng mga mensahe.",
+    "chooseImage": "Pumili ng JPG o PNG na larawan.",
+    "photoTooLarge": "Ang larawan sa profile ay dapat 5MB o mas maliit.",
+    "videoMustBeMp4": "Ang introduction video ay dapat MP4 file.",
+    "videoTooLarge": "Ang introduction video ay dapat 30MB o mas maliit.",
+    "messageEmpty": "Hindi maaaring walang laman ang mensahe."
+  }
+}

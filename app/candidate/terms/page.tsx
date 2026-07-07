@@ -1,17 +1,20 @@
+import { getTranslations } from "next-intl/server";
 import { LegalDocumentScreen } from "@/components/legal/legal-document-screen";
 import {
-  CANDIDATE_TERMS_INTRO,
-  CANDIDATE_TERMS_SECTIONS,
-} from "@/lib/candidate-legal";
-import { LEGAL_LAST_UPDATED } from "@/lib/legal-types";
+  getCandidateTermsIntro,
+  getCandidateTermsSections,
+} from "@/lib/i18n-legal";
 
-export default function CandidateTermsPage() {
+export default async function CandidateTermsPage() {
+  const t = await getTranslations("legal");
+  const tCommon = await getTranslations("common");
+
   return (
     <LegalDocumentScreen
-      title="Terms of Service"
-      lastUpdated={LEGAL_LAST_UPDATED}
-      intro={CANDIDATE_TERMS_INTRO}
-      sections={CANDIDATE_TERMS_SECTIONS}
+      title={t("candidateTerms.title")}
+      lastUpdated={tCommon("lastUpdated", { date: t("lastUpdated") })}
+      intro={getCandidateTermsIntro(t)}
+      sections={getCandidateTermsSections(t)}
     />
   );
 }

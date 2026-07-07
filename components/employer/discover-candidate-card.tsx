@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import {
   Check,
   Clock,
@@ -28,6 +29,9 @@ export function DiscoverCandidateCard({
   onSave,
   onMessage,
 }: DiscoverCandidateCardProps) {
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+
   return (
     <Link
       href={`/employer/candidate/${c.id}`}
@@ -48,14 +52,16 @@ export function DiscoverCandidateCard({
         )}
         <div className="absolute left-2 top-2 flex items-center gap-[3px] rounded-[20px] bg-green px-[7px] py-[3px] text-[9.5px] font-bold text-white">
           <Check size={9} strokeWidth={3} aria-hidden />
-          Verified
+          {tCommon("verified")}
         </div>
 
         <button
           type="button"
           onClick={onSave}
           className="absolute right-2 top-2 flex h-[26px] w-[26px] cursor-pointer items-center justify-center rounded-full border-none bg-white/90"
-          aria-label={isSaved ? "Unsave candidate" : "Save candidate"}
+          aria-label={
+            isSaved ? tAria("unsaveCandidate") : tAria("saveCandidate")
+          }
         >
           <Heart
             size={13}
@@ -93,7 +99,7 @@ export function DiscoverCandidateCard({
           {c.responseTime ? (
             <p className="m-0 flex items-center gap-[3px] text-[10px] text-ink-faint">
               <Clock size={9} aria-hidden />
-              Replies in {c.responseTime}
+              {tCommon("repliesIn", { responseTime: c.responseTime })}
             </p>
           ) : (
             <span />
@@ -112,7 +118,7 @@ export function DiscoverCandidateCard({
             }`}
           >
             <Heart size={11} fill={isSaved ? "#E11D48" : "none"} aria-hidden />
-            Save
+            {tCommon("save")}
           </button>
           <button
             type="button"
@@ -120,7 +126,7 @@ export function DiscoverCandidateCard({
             className="flex flex-1 cursor-pointer items-center justify-center gap-1 rounded-[9px] border border-border bg-white py-1.5 text-[10px] font-semibold text-ink-soft"
           >
             <MessageCircle size={11} aria-hidden />
-            Message
+            {tCommon("message")}
           </button>
         </div>
       </div>

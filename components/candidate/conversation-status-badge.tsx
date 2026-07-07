@@ -1,23 +1,35 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import type { ConversationStatus } from "@/lib/candidate-conversations";
 
-const STATUS_META: Record<
+const STATUS_KEYS: Record<
   ConversationStatus,
-  { label: string; color: string; bg: string }
+  | "messaging"
+  | "interviewProposed"
+  | "interviewScheduled"
+  | "interviewed"
+  | "hired"
+  | "declined"
 > = {
-  messaging: { label: "Messaging", color: "#6B7280", bg: "#F1EFF9" },
-  interview_requested: {
-    label: "Interview proposed",
-    color: "#CA8A04",
-    bg: "#FEF3E2",
-  },
-  interview_scheduled: {
-    label: "Interview scheduled",
-    color: "#1E3A8A",
-    bg: "#DBEAFE",
-  },
-  interviewed: { label: "Interviewed", color: "#4C1D95", bg: "#EDE9FE" },
-  hired: { label: "Hired", color: "#15803D", bg: "#E8F8EE" },
-  declined: { label: "Not proceeding", color: "#9CA3AF", bg: "#F1EFF9" },
+  messaging: "messaging",
+  interview_requested: "interviewProposed",
+  interview_scheduled: "interviewScheduled",
+  interviewed: "interviewed",
+  hired: "hired",
+  declined: "declined",
+};
+
+const STATUS_COLORS: Record<
+  ConversationStatus,
+  { color: string; bg: string }
+> = {
+  messaging: { color: "#6B7280", bg: "#F1EFF9" },
+  interview_requested: { color: "#CA8A04", bg: "#FEF3E2" },
+  interview_scheduled: { color: "#1E3A8A", bg: "#DBEAFE" },
+  interviewed: { color: "#4C1D95", bg: "#EDE9FE" },
+  hired: { color: "#15803D", bg: "#E8F8EE" },
+  declined: { color: "#9CA3AF", bg: "#F1EFF9" },
 };
 
 type ConversationStatusBadgeProps = {
@@ -27,14 +39,16 @@ type ConversationStatusBadgeProps = {
 export function ConversationStatusBadge({
   status,
 }: ConversationStatusBadgeProps) {
-  const meta = STATUS_META[status] ?? STATUS_META.messaging;
+  const t = useTranslations("candidate.conversationStatus");
+  const colors = STATUS_COLORS[status] ?? STATUS_COLORS.messaging;
+  const labelKey = STATUS_KEYS[status] ?? "messaging";
 
   return (
     <span
       className="inline-block rounded-[20px] px-2.5 py-[3px] text-[10.5px] font-bold"
-      style={{ color: meta.color, background: meta.bg }}
+      style={{ color: colors.color, background: colors.bg }}
     >
-      {meta.label}
+      {t(labelKey)}
     </span>
   );
 }

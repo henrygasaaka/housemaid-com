@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Shield } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { TopBar } from "@/components/ui/top-bar";
 import { ScreenHeading } from "@/components/ui/screen-heading";
 import { PrimaryButton } from "@/components/ui/primary-button";
@@ -14,6 +15,9 @@ type OtpScreenProps = {
 
 export function OtpScreen({ flow = "signup" }: OtpScreenProps) {
   const router = useRouter();
+  const t = useTranslations("auth");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
   const [code, setCode] = useState(["", "", "", "", "", ""]);
 
   function handleDigit(i: number, val: string) {
@@ -28,11 +32,11 @@ export function OtpScreen({ flow = "signup" }: OtpScreenProps) {
       <TopBar onBack={() => router.back()} accent="purple" />
       <ScreenHeading
         icon={<Shield size={24} className="text-purple" aria-hidden />}
-        title="Enter verification code"
+        title={t("otpTitle")}
         subtitle={
           <>
-            We&apos;ve sent a 6-digit code to <br />
-            <span className="font-bold text-ink">+971 50 123 4567</span>
+            {t("otpSubtitle")} <br />
+            <span className="font-bold text-ink">{t("otpPhoneExample")}</span>
           </>
         }
         accent="purple"
@@ -45,20 +49,22 @@ export function OtpScreen({ flow = "signup" }: OtpScreenProps) {
             onChange={(e) => handleDigit(i, e.target.value)}
             maxLength={1}
             inputMode="numeric"
-            aria-label={`Digit ${i + 1}`}
+            aria-label={tAria("otpDigit", { index: i + 1 })}
             className="h-[50px] w-[42px] rounded-[10px] border border-border text-center text-lg font-bold text-ink outline-none"
           />
         ))}
       </div>
       <div className="flex-1 text-center">
         <p className="m-0 text-[12.5px] text-ink-soft">
-          Didn&apos;t receive the code?
+          {t("otpDidntReceive")}
         </p>
-        <p className="mt-1 text-[13px] font-bold text-purple">Resend in 00:25</p>
+        <p className="mt-1 text-[13px] font-bold text-purple">
+          {t("otpResendIn", { time: "00:25" })}
+        </p>
       </div>
       <div className="px-[18px] pb-[22px] pt-2.5">
         <PrimaryButton onClick={() => router.push("/candidate/onboard")}>
-          Verify
+          {tCommon("verify")}
         </PrimaryButton>
         <PrivacyNote />
       </div>

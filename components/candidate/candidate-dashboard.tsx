@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   Bell,
   Bookmark,
@@ -87,6 +88,11 @@ function formatStatValue(value: number) {
 export function CandidateDashboard() {
   const router = useRouter();
   const onNavigate = useCandidateNav();
+  const t = useTranslations();
+  const tCandidate = useTranslations("candidate.dashboard");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const tCompletion = useTranslations("completionFields");
   const [dashboard, setDashboard] = useState<CandidateDashboardData | null>(
     null
   );
@@ -124,7 +130,7 @@ export function CandidateDashboard() {
         setLoadError(
           error instanceof Error
             ? error.message
-            : "Could not load your profile. Please try again."
+            : t("errors.loadProfile")
         );
       } finally {
         if (!cancelled) setLoading(false);
@@ -145,14 +151,14 @@ export function CandidateDashboard() {
     return (
       <div className="flex min-h-full flex-1 flex-col items-center justify-center bg-app-bg px-6 text-center">
         <p className="m-0 text-[14px] font-semibold text-navy">
-          {loadError ?? "Profile not found"}
+          {loadError ?? tCommon("profileNotFound")}
         </p>
         <button
           type="button"
           onClick={() => window.location.reload()}
           className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
         >
-          Try again
+          {tCommon("tryAgain")}
         </button>
       </div>
     );
@@ -161,19 +167,22 @@ export function CandidateDashboard() {
   const { firstName, completion, stats } = dashboard;
   const completionPercent = completion.percent;
   const showCompleteCta = completionPercent < 100;
-  const completionHint = getCompletionHint(completion.missing);
+  const completionHint = getCompletionHint(
+    (key, values) => t(key, values),
+    completion.missing
+  );
 
   const statItems = [
-    { icon: Eye, value: formatStatValue(stats.viewsThisWeek), label: "Views this week" },
+    { icon: Eye, value: formatStatValue(stats.viewsThisWeek), label: tCandidate("viewsThisWeek") },
     {
       icon: Bookmark,
       value: formatStatValue(stats.savesCount),
-      label: "Saved by employers",
+      label: tCandidate("savedByEmployers"),
     },
     {
       icon: Calendar,
       value: formatStatValue(stats.interviewRequests),
-      label: "Interview requests",
+      label: tCandidate("interviewRequests"),
     },
   ] as const;
 
@@ -181,20 +190,25 @@ export function CandidateDashboard() {
     <div className="flex min-h-full flex-1 flex-col bg-app-bg">
       <header className="flex items-center justify-between px-[18px] pt-4">
         <h1 className="font-head m-0 text-[20px] font-bold text-navy">
-          Hi {firstName} 👋
+          {tCommon("hiFirstName", {
+            firstName:
+              firstName === "there"
+                ? tCompletion("defaultFirstName")
+                : firstName,
+          })}
         </h1>
         <div className="flex items-center gap-3">
           <button
             type="button"
             className="cursor-pointer border-none bg-transparent p-0"
-            aria-label="Notifications"
+            aria-label={tAria("notifications")}
           >
             <Bell size={20} className="text-ink" aria-hidden />
           </button>
           <button
             type="button"
             className="cursor-pointer border-none bg-transparent p-0"
-            aria-label="Settings"
+            aria-label={tAria("settings")}
           >
             <Settings size={20} className="text-ink" aria-hidden />
           </button>
@@ -206,7 +220,7 @@ export function CandidateDashboard() {
           <ProfileProgressRing percent={completionPercent} />
           <div className="min-w-0 flex-1">
             <p className="m-0 text-[14px] font-bold text-navy">
-              Your profile is {completionPercent}% complete
+              {tCommon("profileCompletePercent", { percent: completionPercent })}
             </p>
             <p className="m-0 mt-1 text-[12px] leading-snug text-ink-soft">
               {completionHint}
@@ -234,32 +248,30 @@ export function CandidateDashboard() {
         {showCompleteCta && (
           <div className="mb-4 rounded-[14px] bg-purple px-4 py-4">
             <p className="m-0 text-[14px] font-bold text-white">
-              Complete your profile
+              {tCandidate("completeYourProfile")}
             </p>
             <p className="m-0 mt-1 text-[12px] leading-snug text-white/85">
-              Employers are more likely to contact candidates with complete
-              profiles.
+              {tCandidate("completeProfileCta")}
             </p>
             <Link
               href="/candidate/onboard"
               className="mt-3 flex cursor-pointer items-center justify-center gap-1 rounded-[11px] bg-white py-2.5 text-[13px] font-bold text-purple no-underline"
             >
-              Complete your profile
+              {tCandidate("completeYourProfile")}
               <ChevronRight size={16} aria-hidden />
             </Link>
           </div>
         )}
 
         <h2 className="font-head m-0 mb-2.5 text-[15px] font-bold text-navy">
-          Recent activity
+          {tCandidate("recentActivity")}
         </h2>
         <div className="rounded-[13px] border border-border bg-white px-3.5 py-6 text-center">
           <p className="m-0 text-[12.5px] font-semibold text-ink">
-            No activity yet
+            {tCommon("noActivityYet")}
           </p>
           <p className="m-0 mt-1 text-[11px] leading-snug text-ink-faint">
-            Profile views, saves, and interview requests will appear here once
-            employers start engaging with your profile.
+            {tCandidate("noActivityDesc")}
           </p>
         </div>
       </div>

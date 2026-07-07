@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   BasicInfoStep,
   ExperienceStep,
@@ -36,6 +37,9 @@ function logWizardFailure(
 
 export function OnboardWizard() {
   const router = useRouter();
+  const tValidation = useTranslations("validation");
+  const tErrors = useTranslations("errors");
+  const tOnboard = useTranslations("onboard.errors");
   const [step, setStep] = useState(1);
   const [data, setDataState] = useState<CandidateProfile>(
     INITIAL_CANDIDATE_PROFILE
@@ -105,7 +109,7 @@ export function OnboardWizard() {
       return;
     }
 
-    const validationError = validateOnboardStep(currentStep, data);
+    const validationError = validateOnboardStep(currentStep, data, tValidation);
     if (validationError) {
       setSaveError(validationError);
       return;
@@ -121,7 +125,7 @@ export function OnboardWizard() {
     } catch (error) {
       logWizardFailure("continue", error, { step: currentStep, userId, data });
       setSaveError(
-        error instanceof Error ? error.message : "Failed to save your progress."
+        error instanceof Error ? error.message : tErrors("saveProgress")
       );
     } finally {
       setSaving(false);
@@ -134,7 +138,7 @@ export function OnboardWizard() {
       return;
     }
 
-    const validationError = validateOnboardStep(4, data);
+    const validationError = validateOnboardStep(4, data, tValidation);
     if (validationError) {
       setSaveError(validationError);
       return;
@@ -152,7 +156,7 @@ export function OnboardWizard() {
     } catch (error) {
       logWizardFailure("publish", error, { userId, data });
       setSaveError(
-        error instanceof Error ? error.message : "Failed to publish your profile."
+        error instanceof Error ? error.message : tErrors("publishProfile")
       );
       setSaving(false);
     }
@@ -165,17 +169,17 @@ export function OnboardWizard() {
     }
 
     if (!file.type.startsWith("image/")) {
-      setSaveError("Please choose a JPG or PNG image.");
+      setSaveError(tOnboard("chooseImage"));
       return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      setSaveError("Profile photo must be 5MB or smaller.");
+      setSaveError(tOnboard("photoTooLarge"));
       return;
     }
 
     if (step === 1) {
-      const validationError = validateOnboardStep(1, data);
+      const validationError = validateOnboardStep(1, data, tValidation);
       if (validationError) {
         setSaveError(validationError);
         return;
@@ -212,7 +216,7 @@ export function OnboardWizard() {
         fileSize: file.size,
       });
       setSaveError(
-        error instanceof Error ? error.message : "Failed to upload profile photo."
+        error instanceof Error ? error.message : tErrors("uploadPhoto")
       );
     } finally {
       setUploadingPhoto(false);
@@ -226,12 +230,12 @@ export function OnboardWizard() {
     }
 
     if (file.type !== "video/mp4" && !file.name.toLowerCase().endsWith(".mp4")) {
-      setSaveError("Introduction video must be an MP4 file.");
+      setSaveError(tOnboard("videoMustBeMp4"));
       return;
     }
 
     if (file.size > 30 * 1024 * 1024) {
-      setSaveError("Introduction video must be 30MB or smaller.");
+      setSaveError(tOnboard("videoTooLarge"));
       return;
     }
 
@@ -262,7 +266,7 @@ export function OnboardWizard() {
         fileSize: file.size,
       });
       setSaveError(
-        error instanceof Error ? error.message : "Failed to upload introduction video."
+        error instanceof Error ? error.message : tErrors("uploadVideo")
       );
     } finally {
       setUploadingVideo(false);

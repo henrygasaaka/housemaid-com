@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import { useTranslations } from "next-intl";
 import {
   Calendar,
   Camera,
@@ -28,13 +29,33 @@ import { CheckChip } from "@/components/ui/check-chip";
 import { FooterNav } from "@/components/ui/footer-nav";
 import { PrimaryButton } from "@/components/ui/primary-button";
 import {
-  CANDIDATE_STEPS,
-  EMPLOYMENT_LABELS,
+  getCandidateSteps,
+  getEmploymentLabel,
+  getVisaLabel,
   EMPLOYMENT_TYPE,
-  VISA_LABELS,
   VISA_STATUS,
   type CandidateProfile,
 } from "@/lib/candidate-profile";
+import {
+  AVAILABILITY_VALUES,
+  DAY_VALUES,
+  DISTRICT_VALUES,
+  EMIRATE_VALUES,
+  EXPERIENCE_VALUES,
+  getAvailabilityLabel,
+  getDayLabel,
+  getDistrictLabel,
+  getEmirateLabel,
+  getExperienceLabel,
+  getGenderLabel,
+  getLanguageLabel,
+  getNationalityLabel,
+  getSkillLabel,
+  LANGUAGE_VALUES,
+  NATIONALITY_VALUES,
+  SKILL_ICONS,
+  SKILL_VALUES,
+} from "@/lib/i18n-options";
 import { calculateProfileCompletion } from "@/lib/candidate-dashboard";
 
 type StepProps = {
@@ -61,14 +82,19 @@ export function BasicInfoStep({
   onPhotoSelect,
 }: StepProps) {
   const photoInputRef = useRef<HTMLInputElement>(null);
+  const t = useTranslations();
+  const tOnboard = useTranslations("onboard.basicInfo");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const steps = getCandidateSteps((key) => t(key));
 
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
-      <StepIndicator steps={CANDIDATE_STEPS} current={1} />
+      <StepIndicator steps={steps} current={1} />
       <ScreenHeading
-        title="Create your profile"
-        subtitle="Let's get started! Tell us a bit about yourself."
+        title={tOnboard("title")}
+        subtitle={tOnboard("subtitle")}
       />
       <div className="flex-1 px-[18px] pt-2">
         <div className="mb-[18px] text-center">
@@ -95,7 +121,7 @@ export function BasicInfoStep({
               // eslint-disable-next-line @next/next/no-img-element
               <img
                 src={data.photoUrl}
-                alt="Profile"
+                alt={tAria("profilePhotoAlt")}
                 className="h-full w-full object-cover"
               />
             ) : data.photoUploaded ? (
@@ -110,21 +136,21 @@ export function BasicInfoStep({
             }`}
           >
             {uploadingPhoto
-              ? "Uploading photo…"
+              ? tCommon("uploadingPhoto")
               : data.photoUploaded
-                ? "Photo added"
-                : "Upload photo"}
+                ? tCommon("photoAdded")
+                : tCommon("uploadPhoto")}
           </p>
           <p className="m-0 mt-[3px] text-[11.5px] text-ink-soft">
             {data.photoUploaded
-              ? "Tap to change"
-              : "Add a clear photo of yourself"}
+              ? tCommon("tapToChange")
+              : tOnboard("photoHint")}
           </p>
         </div>
 
         <div className="flex gap-2.5">
           <div className="flex-1">
-            <FieldLabel required>First name</FieldLabel>
+            <FieldLabel required>{tOnboard("firstName")}</FieldLabel>
             <TextField
               icon={<User size={15} className="text-ink-faint" aria-hidden />}
               value={data.firstName}
@@ -132,7 +158,7 @@ export function BasicInfoStep({
             />
           </div>
           <div className="flex-1">
-            <FieldLabel required>Last name</FieldLabel>
+            <FieldLabel required>{tOnboard("lastName")}</FieldLabel>
             <TextField
               icon={<User size={15} className="text-ink-faint" aria-hidden />}
               value={data.lastName}
@@ -141,7 +167,7 @@ export function BasicInfoStep({
           </div>
         </div>
 
-        <FieldLabel required>Email address</FieldLabel>
+        <FieldLabel required>{tOnboard("emailAddress")}</FieldLabel>
         <TextField
           icon={<Mail size={15} className="text-ink-faint" aria-hidden />}
           value={data.email}
@@ -149,35 +175,25 @@ export function BasicInfoStep({
           type="email"
         />
 
-        <FieldLabel required>Phone number</FieldLabel>
+        <FieldLabel required>{tOnboard("phoneNumber")}</FieldLabel>
         <TextField
           icon={<Phone size={15} className="text-ink-faint" aria-hidden />}
           value={data.phone}
           onChange={(v) => setData({ ...data, phone: v })}
         />
 
-        <FieldLabel required>Nationality</FieldLabel>
+        <FieldLabel required>{tOnboard("nationality")}</FieldLabel>
         <SelectField
           icon={<Globe size={15} className="text-ink-faint" aria-hidden />}
           value={data.nationality}
-          options={[
-            "Philippines",
-            "Kenya",
-            "Sri Lanka",
-            "Bangladesh",
-            "India",
-            "Indonesia",
-            "Nepal",
-            "Ethiopia",
-            "Uganda",
-            "Other",
-          ]}
+          options={[...NATIONALITY_VALUES]}
+          getLabel={(v) => getNationalityLabel((key) => t(key), v)}
           onChange={(v) => setData({ ...data, nationality: v })}
         />
 
-        <FieldLabel required>Gender</FieldLabel>
+        <FieldLabel required>{tOnboard("gender")}</FieldLabel>
         <div className="mb-4 flex gap-2.5">
-          {["Female", "Male"].map((g) => (
+          {(["Female", "Male"] as const).map((g) => (
             <button
               key={g}
               type="button"
@@ -188,7 +204,7 @@ export function BasicInfoStep({
                   : "border-border bg-white"
               }`}
             >
-              {g}
+              {getGenderLabel((key) => t(key), g)}
             </button>
           ))}
         </div>
@@ -211,59 +227,42 @@ export function LocationVisaStep({
   saving,
   saveError,
 }: StepProps) {
+  const t = useTranslations();
+  const tLoc = useTranslations("onboard.locationVisa");
+  const tCommon = useTranslations("common");
+  const steps = getCandidateSteps((key) => t(key));
   const visaOptions = [
     {
       key: VISA_STATUS.OWN,
-      title: "Own visa",
-      subtitle: "You are sponsoring your own visa",
-      badge: "Recommended",
+      titleKey: "ownVisa" as const,
+      badge: tCommon("recommended"),
     },
-    {
-      key: VISA_STATUS.VISIT,
-      title: "Visit visa",
-      subtitle: "You are in UAE on a visit visa",
-    },
-    {
-      key: VISA_STATUS.CANCELLED,
-      title: "Cancelled visa",
-      subtitle: "You have a cancelled visa",
-    },
-    {
-      key: VISA_STATUS.SPONSORED,
-      title: "Sponsored visa",
-      subtitle: "Your visa is sponsored by your employer",
-    },
+    { key: VISA_STATUS.VISIT, titleKey: "visitVisa" as const },
+    { key: VISA_STATUS.CANCELLED, titleKey: "cancelledVisa" as const },
+    { key: VISA_STATUS.SPONSORED, titleKey: "sponsoredVisa" as const },
     {
       key: VISA_STATUS.LOOKING_FOR_SPONSORSHIP,
-      title: "Looking for sponsorship",
-      subtitle: "You need visa sponsorship",
+      titleKey: "lookingForSponsorship" as const,
     },
   ];
 
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
-      <StepIndicator steps={CANDIDATE_STEPS} current={2} />
+      <StepIndicator steps={steps} current={2} />
       <ScreenHeading
-        title="Where are you located?"
-        subtitle="This helps employers find you in their area."
+        title={tLoc("title")}
+        subtitle={tLoc("subtitle")}
       />
       <div className="flex-1 px-[18px] pt-2">
-        <FieldLabel required>Current location</FieldLabel>
+        <FieldLabel required>{tLoc("currentLocation")}</FieldLabel>
         <div className="mb-1 flex gap-2.5">
           <div className="flex-1">
             <SelectField
               icon={<MapPin size={15} className="text-ink-faint" aria-hidden />}
               value={data.emirate}
-              options={[
-                "Dubai",
-                "Abu Dhabi",
-                "Sharjah",
-                "Ajman",
-                "Ras Al Khaimah",
-                "Fujairah",
-                "Umm Al Quwain",
-              ]}
+              options={[...EMIRATE_VALUES]}
+              getLabel={(v) => getEmirateLabel((key) => t(key), v)}
               onChange={(v) => setData({ ...data, emirate: v })}
             />
           </div>
@@ -271,45 +270,31 @@ export function LocationVisaStep({
             <SelectField
               icon={<MapPin size={15} className="text-ink-faint" aria-hidden />}
               value={data.district}
-              options={[
-                "Al Barsha",
-                "Deira",
-                "Al Nahda",
-                "Khalifa City",
-                "Jumeirah",
-                "Mirdif",
-                "Marina",
-                "Al Quoz",
-                "Downtown",
-              ]}
+              options={[...DISTRICT_VALUES]}
+              getLabel={(v) => getDistrictLabel((key) => t(key), v)}
               onChange={(v) => setData({ ...data, district: v })}
             />
           </div>
         </div>
 
-        <FieldLabel required>Visa status in UAE</FieldLabel>
+        <FieldLabel required>{tLoc("visaStatus")}</FieldLabel>
         {visaOptions.map((v) => (
           <RadioCard
             key={v.key}
             selected={data.visa === v.key}
-            title={v.title}
-            subtitle={v.subtitle}
+            title={tLoc(`visaOptions.${v.titleKey}.title`)}
+            subtitle={tLoc(`visaOptions.${v.titleKey}.subtitle`)}
             badge={v.badge}
             onClick={() => setData({ ...data, visa: v.key })}
           />
         ))}
 
-        <FieldLabel>When can you start working?</FieldLabel>
+        <FieldLabel>{tLoc("whenCanStart")}</FieldLabel>
         <SelectField
           icon={<Calendar size={15} className="text-ink-faint" aria-hidden />}
           value={data.availability}
-          options={[
-            "Available immediately",
-            "Within 1 week",
-            "Within 2 weeks",
-            "Within 1 month",
-            "Currently employed",
-          ]}
+          options={[...AVAILABILITY_VALUES]}
+          getLabel={(v) => getAvailabilityLabel((key) => t(key), v)}
           onChange={(v) => setData({ ...data, availability: v })}
         />
       </div>
@@ -331,36 +316,10 @@ export function ExperienceStep({
   saving,
   saveError,
 }: StepProps) {
-  const expOptions = [
-    "Less than 1 year",
-    "1 - 3 years",
-    "3 - 5 years",
-    "5+ years",
-  ];
-  const skillOptions: [string, string][] = [
-    ["Cleaning", "🧹"],
-    ["Cooking", "🍳"],
-    ["Childcare", "🍼"],
-    ["Laundry", "🧺"],
-    ["Ironing", "👕"],
-    ["Elderly care", "🧑‍🦳"],
-    ["Pet care", "🐾"],
-    ["Car washing", "🚗"],
-    ["Gardening", "🌿"],
-    ["Tutoring", "📖"],
-    ["Disabled care", "♿"],
-    ["Other", "···"],
-  ];
-  const langOptions = [
-    "English",
-    "Arabic",
-    "Tagalog",
-    "Hindi",
-    "Urdu",
-    "Tamil",
-    "French",
-    "Other",
-  ];
+  const t = useTranslations();
+  const tExp = useTranslations("onboard.experience");
+  const tCommon = useTranslations("common");
+  const steps = getCandidateSteps((key) => t(key));
 
   function toggle(field: "skills" | "languages", item: string) {
     const set = new Set(data[field]);
@@ -372,15 +331,15 @@ export function ExperienceStep({
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
-      <StepIndicator steps={CANDIDATE_STEPS} current={3} />
+      <StepIndicator steps={steps} current={3} />
       <ScreenHeading
-        title="Tell us about your experience"
-        subtitle="This helps employers understand you better."
+        title={tExp("title")}
+        subtitle={tExp("subtitle")}
       />
       <div className="flex-1 px-[18px] pt-2">
-        <FieldLabel required>Years of experience</FieldLabel>
+        <FieldLabel required>{tExp("yearsOfExperience")}</FieldLabel>
         <div className="mb-4 grid grid-cols-2 gap-2">
-          {expOptions.map((e) => (
+          {EXPERIENCE_VALUES.map((e) => (
             <button
               key={e}
               type="button"
@@ -391,30 +350,30 @@ export function ExperienceStep({
                   : "border-border bg-white"
               }`}
             >
-              {e}
+              {getExperienceLabel((key) => t(key), e)}
             </button>
           ))}
         </div>
 
-        <FieldLabel>Skills (select all that apply)</FieldLabel>
+        <FieldLabel>{tExp("skillsLabel")}</FieldLabel>
         <div className="mb-4 grid grid-cols-2 gap-2">
-          {skillOptions.map(([s, icon]) => (
+          {SKILL_VALUES.map((s) => (
             <CheckChip
               key={s}
-              label={s}
-              icon={icon}
+              label={getSkillLabel((key) => t(key), s)}
+              icon={SKILL_ICONS[s]}
               selected={data.skills.includes(s)}
               onClick={() => toggle("skills", s)}
             />
           ))}
         </div>
 
-        <FieldLabel>Languages</FieldLabel>
+        <FieldLabel>{tExp("languagesLabel")}</FieldLabel>
         <div className="mb-4 grid grid-cols-2 gap-2">
-          {langOptions.map((l) => (
+          {LANGUAGE_VALUES.map((l) => (
             <CheckChip
               key={l}
-              label={l}
+              label={getLanguageLabel((key) => t(key), l)}
               icon="🌐"
               selected={data.languages.includes(l)}
               onClick={() => toggle("languages", l)}
@@ -422,16 +381,16 @@ export function ExperienceStep({
           ))}
         </div>
 
-        <FieldLabel>About me (optional)</FieldLabel>
+        <FieldLabel>{tExp("aboutMeOptional")}</FieldLabel>
         <textarea
           value={data.about}
           onChange={(e) => setData({ ...data, about: e.target.value })}
-          placeholder="Write a short description about yourself..."
+          placeholder={tExp("aboutPlaceholder")}
           maxLength={300}
           className="mb-1 box-border min-h-20 w-full resize-none rounded-xl border border-border p-3 text-[13.5px] text-ink outline-none"
         />
         <p className="mb-4 text-right text-[11px] text-ink-faint">
-          {data.about.length}/300
+          {tCommon("aboutCharCount", { count: data.about.length })}
         </p>
       </div>
       <FooterNav
@@ -458,7 +417,11 @@ export function MediaStep({
 }: StepProps) {
   const photoInputRef = useRef<HTMLInputElement>(null);
   const videoInputRef = useRef<HTMLInputElement>(null);
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const t = useTranslations();
+  const tMedia = useTranslations("onboard.media");
+  const tCommon = useTranslations("common");
+  const steps = getCandidateSteps((key) => t(key));
+  const days = [...DAY_VALUES];
 
   function toggleDay(d: string) {
     const set = new Set(data.days);
@@ -470,13 +433,13 @@ export function MediaStep({
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
-      <StepIndicator steps={CANDIDATE_STEPS} current={4} />
+      <StepIndicator steps={steps} current={4} />
       <ScreenHeading
-        title="Add your photos, video and availability"
-        subtitle="This helps employers get to know you better."
+        title={tMedia("title")}
+        subtitle={tMedia("subtitle")}
       />
       <div className="flex-1 px-[18px] pt-2">
-        <FieldLabel required>Profile photo</FieldLabel>
+        <FieldLabel required>{tMedia("profilePhoto")}</FieldLabel>
         <input
           ref={photoInputRef}
           type="file"
@@ -516,17 +479,17 @@ export function MediaStep({
             }`}
           >
             {uploadingPhoto
-              ? "Uploading photo…"
+              ? tCommon("uploadingPhoto")
               : data.photoUploaded
-                ? "Photo added"
-                : "Upload photo"}
+                ? tCommon("photoAdded")
+                : tCommon("uploadPhoto")}
           </p>
           <p className="m-0 text-[11px] text-ink-soft">
-            {data.photoUploaded ? "Tap to change" : "JPG, PNG (max 5MB)"}
+            {data.photoUploaded ? tCommon("tapToChange") : tMedia("photoFormats")}
           </p>
         </button>
 
-        <FieldLabel>Introduction video (highly recommended)</FieldLabel>
+        <FieldLabel>{tMedia("introVideo")}</FieldLabel>
         <input
           ref={videoInputRef}
           type="file"
@@ -566,46 +529,46 @@ export function MediaStep({
               }`}
             >
               {uploadingVideo
-                ? "Uploading video…"
+                ? tCommon("uploadingVideo")
                 : data.videoUploaded
-                  ? "Video added"
-                  : "Upload video"}
+                  ? tCommon("videoAdded")
+                  : tCommon("uploadVideo")}
             </p>
             <p className="m-0 mt-0.5 text-[11px] text-ink-soft">
               {data.videoUploaded
-                ? data.videoFileName || "Tap to replace"
-                : "MP4 only, max 30 seconds, max 30MB"}
+                ? data.videoFileName || tCommon("tapToReplace")
+                : tMedia("videoFormats")}
             </p>
           </div>
         </button>
 
-        <FieldLabel required>Salary expectation (AED)</FieldLabel>
+        <FieldLabel required>{tMedia("salaryExpectation")}</FieldLabel>
         <div className="mb-4 flex items-center gap-2.5">
           <div className="flex-1 [&>div]:mb-0">
             <TextField
               value={data.salaryMin}
               onChange={(v) => setData({ ...data, salaryMin: v })}
-              placeholder="Min"
+              placeholder={tCommon("min")}
             />
           </div>
-          <span className="text-ink-faint">—</span>
+          <span className="text-ink-faint">{tCommon("emDash")}</span>
           <div className="flex-1 [&>div]:mb-0">
             <TextField
               value={data.salaryMax}
               onChange={(v) => setData({ ...data, salaryMax: v })}
-              placeholder="Max"
+              placeholder={tCommon("max")}
             />
           </div>
         </div>
 
-        <FieldLabel required>Preferred employment type</FieldLabel>
+        <FieldLabel required>{tMedia("preferredEmploymentType")}</FieldLabel>
         <div className="mb-4 flex gap-2.5">
           {(
             [
-              [EMPLOYMENT_TYPE.LIVE_IN, "Live-in", "I can live at employer's home"],
-              [EMPLOYMENT_TYPE.LIVE_OUT, "Live-out", "I will go home after work"],
+              [EMPLOYMENT_TYPE.LIVE_IN, "liveInTitle", "liveInSubtitle"],
+              [EMPLOYMENT_TYPE.LIVE_OUT, "liveOutTitle", "liveOutSubtitle"],
             ] as const
-          ).map(([key, title, subtitle]) => (
+          ).map(([key, titleKey, subtitleKey]) => (
             <button
               key={key}
               type="button"
@@ -616,15 +579,17 @@ export function MediaStep({
                   : "border-border bg-white"
               }`}
             >
-              <p className="m-0 text-[12.5px] font-bold text-ink">{title}</p>
+              <p className="m-0 text-[12.5px] font-bold text-ink">
+                {tMedia(titleKey)}
+              </p>
               <p className="m-0 mt-0.5 text-[10.5px] text-ink-soft">
-                {subtitle}
+                {tMedia(subtitleKey)}
               </p>
             </button>
           ))}
         </div>
 
-        <FieldLabel>Preferred working days</FieldLabel>
+        <FieldLabel>{tMedia("preferredWorkingDays")}</FieldLabel>
         <div className="mb-4 flex flex-wrap gap-1.5">
           {days.map((d) => (
             <button
@@ -637,7 +602,7 @@ export function MediaStep({
                   : "border-border bg-white"
               }`}
             >
-              {d}
+              {getDayLabel((key) => t(key), d)}
             </button>
           ))}
         </div>
@@ -667,12 +632,14 @@ function ReviewSection({
   step,
   onEditSection,
   children,
+  editLabel,
 }: {
   icon: React.ReactNode;
   title: string;
   step: number;
   onEditSection: (step: number) => void;
   children: React.ReactNode;
+  editLabel: string;
 }) {
   return (
     <div className="mb-3 rounded-[14px] border border-border p-3.5">
@@ -689,7 +656,7 @@ function ReviewSection({
           className="flex cursor-pointer items-center gap-[3px] border-none bg-transparent text-xs font-bold text-purple"
         >
           <Edit2 size={11} aria-hidden />
-          Edit
+          {editLabel}
         </button>
       </div>
       {children}
@@ -714,22 +681,28 @@ export function ReviewStep({
   saving,
   saveError,
 }: ReviewStepProps) {
+  const t = useTranslations();
+  const tReview = useTranslations("onboard.review");
+  const tCommon = useTranslations("common");
+  const steps = getCandidateSteps((key) => t(key));
   const completionPercent = calculateProfileCompletion(data).percent;
+  const emDash = tCommon("emDash");
 
   return (
     <div className="flex min-h-full flex-1 flex-col">
       <TopBar onBack={onBack} accent="purple" />
-      <StepIndicator steps={CANDIDATE_STEPS} current={5} />
+      <StepIndicator steps={steps} current={5} />
       <ScreenHeading
-        title="Review your profile"
-        subtitle="Please review your information before publishing."
+        title={tReview("title")}
+        subtitle={tReview("subtitle")}
       />
       <div className="flex-1 overflow-y-auto px-[18px] pt-2">
         <ReviewSection
           icon={<User size={13} className="text-[#4C1D95]" aria-hidden />}
-          title="Basic information"
+          title={tReview("basicInformation")}
           step={1}
           onEditSection={onEditSection}
+          editLabel={tCommon("edit")}
         >
           <div className="flex gap-3">
             <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-[10px] bg-purple-light">
@@ -746,69 +719,85 @@ export function ReviewStep({
             </div>
             <div>
               <ReviewRow
-                label="Name"
-                value={`${data.firstName || "—"} ${data.lastName || ""}`.trim()}
+                label={tCommon("name")}
+                value={`${data.firstName || emDash} ${data.lastName || ""}`.trim()}
               />
-              <ReviewRow label="Email" value={data.email || "—"} />
+              <ReviewRow label={tCommon("email")} value={data.email || emDash} />
             </div>
           </div>
         </ReviewSection>
 
         <ReviewSection
           icon={<MapPin size={13} className="text-[#4C1D95]" aria-hidden />}
-          title="Location & visa"
+          title={tReview("locationAndVisa")}
           step={2}
           onEditSection={onEditSection}
+          editLabel={tCommon("edit")}
         >
           <ReviewRow
-            label="Current location"
-            value={`${data.district || "—"}, ${data.emirate || ""}`}
+            label={tReview("currentLocation")}
+            value={`${data.district || emDash}, ${data.emirate || ""}`}
           />
           <ReviewRow
-            label="Visa status"
-            value={VISA_LABELS[data.visa] || "—"}
+            label={tReview("visaStatus")}
+            value={getVisaLabel((key) => t(key), data.visa) || emDash}
           />
         </ReviewSection>
 
         <ReviewSection
           icon={<Star size={13} className="text-[#4C1D95]" aria-hidden />}
-          title="Experience, skills & languages"
+          title={tReview("experienceSkillsLanguages")}
           step={3}
           onEditSection={onEditSection}
+          editLabel={tCommon("edit")}
         >
           <ReviewRow
-            label="Years of experience"
-            value={data.experience || "—"}
+            label={tReview("yearsOfExperience")}
+            value={getExperienceLabel((key) => t(key), data.experience) || emDash}
           />
           <ReviewRow
-            label="Skills"
-            value={data.skills.join(", ") || "—"}
+            label={tCommon("skills")}
+            value={
+              data.skills.map((s) => getSkillLabel((key) => t(key), s)).join(", ") ||
+              emDash
+            }
           />
           <ReviewRow
-            label="Languages"
-            value={data.languages.join(", ") || "—"}
+            label={tCommon("languages")}
+            value={
+              data.languages
+                .map((l) => getLanguageLabel((key) => t(key), l))
+                .join(", ") || emDash
+            }
           />
         </ReviewSection>
 
         <ReviewSection
           icon={<Video size={13} className="text-[#4C1D95]" aria-hidden />}
-          title="Media, salary & availability"
+          title={tReview("mediaSalaryAvailability")}
           step={4}
           onEditSection={onEditSection}
+          editLabel={tCommon("edit")}
         >
           <ReviewRow
-            label="Salary expectation"
-            value={`AED ${data.salaryMin || "—"} – ${data.salaryMax || "—"}`}
+            label={tReview("salaryExpectation")}
+            value={tCommon("salaryExpectation", {
+              min: data.salaryMin || emDash,
+              max: data.salaryMax || emDash,
+            })}
           />
           <ReviewRow
-            label="Employment type"
+            label={tReview("employmentType")}
             value={
-              EMPLOYMENT_LABELS[data.employmentType] || "—"
+              getEmploymentLabel((key) => t(key), data.employmentType) || emDash
             }
           />
           <ReviewRow
-            label="Preferred days"
-            value={data.days.join(", ") || "—"}
+            label={tReview("preferredDays")}
+            value={
+              data.days.map((d) => getDayLabel((key) => t(key), d)).join(", ") ||
+              emDash
+            }
           />
         </ReviewSection>
 
@@ -845,10 +834,10 @@ export function ReviewStep({
           </div>
           <div>
             <p className="m-0 text-[12.5px] font-bold text-[#15803D]">
-              Profile completion
+              {tCommon("profileCompletion")}
             </p>
             <p className="m-0 mt-px text-[11px] text-[#15803D]">
-              A complete profile gets more views and better job opportunities.
+              {tCommon("profileCompletionHint")}
             </p>
           </div>
         </div>
@@ -862,13 +851,13 @@ export function ReviewStep({
         )}
         <div className="mb-2">
           <PrimaryButton onClick={onPublish} disabled={saving}>
-            {saving ? "Publishing…" : "Publish my profile"}
+            {saving ? tCommon("publishing") : tCommon("publishMyProfile")}
             {!saving && <Send size={15} aria-hidden />}
           </PrimaryButton>
         </div>
         <PrimaryButton outline>
           <Eye size={15} aria-hidden />
-          Preview profile
+          {tCommon("previewProfile")}
         </PrimaryButton>
       </div>
     </div>

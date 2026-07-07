@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { ChevronDown, ChevronLeft, Mail, MessageCircle } from "lucide-react";
 import type { FaqItem } from "@/lib/legal-types";
 import {
@@ -55,6 +56,9 @@ export function HelpSupportScreen({
   emailAccent = "blue",
 }: HelpSupportScreenProps) {
   const router = useRouter();
+  const t = useTranslations("help");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
   const [openId, setOpenId] = useState<string | null>(null);
   const emailClass = emailAccent === "purple" ? "bg-purple" : "bg-blue";
 
@@ -65,12 +69,12 @@ export function HelpSupportScreen({
           type="button"
           onClick={() => router.back()}
           className="cursor-pointer border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </button>
         <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-          Help & Support
+          {t("title")}
         </h1>
       </header>
 
@@ -93,10 +97,10 @@ export function HelpSupportScreen({
 
         <div className="mt-6 text-center">
           <p className="m-0 text-[14px] font-bold text-navy">
-            Still need help?
+            {t("stillNeedHelp")}
           </p>
           <p className="m-0 mt-1 text-[12px] text-ink-soft">
-            We typically respond within 24 hours.
+            {t("responseTime")}
           </p>
 
           <div className="mt-4 space-y-2.5">
@@ -107,14 +111,14 @@ export function HelpSupportScreen({
               className="flex cursor-pointer items-center justify-center gap-2 rounded-[13px] bg-green py-3.5 text-[14px] font-bold text-white no-underline"
             >
               <MessageCircle size={16} aria-hidden />
-              WhatsApp
+              {tCommon("whatsapp")}
             </a>
             <a
               href={`mailto:${SUPPORT_EMAIL}`}
               className={`flex cursor-pointer items-center justify-center gap-2 rounded-[13px] py-3.5 text-[14px] font-bold text-white no-underline ${emailClass}`}
             >
               <Mail size={16} aria-hidden />
-              Email
+              {tCommon("email")}
             </a>
           </div>
         </div>

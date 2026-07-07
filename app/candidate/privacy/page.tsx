@@ -1,17 +1,20 @@
+import { getTranslations } from "next-intl/server";
 import { LegalDocumentScreen } from "@/components/legal/legal-document-screen";
 import {
-  CANDIDATE_PRIVACY_INTRO,
-  CANDIDATE_PRIVACY_SECTIONS,
-} from "@/lib/candidate-legal";
-import { LEGAL_LAST_UPDATED } from "@/lib/legal-types";
+  getCandidatePrivacyIntro,
+  getCandidatePrivacySections,
+} from "@/lib/i18n-legal";
 
-export default function CandidatePrivacyPage() {
+export default async function CandidatePrivacyPage() {
+  const t = await getTranslations("legal");
+  const tCommon = await getTranslations("common");
+
   return (
     <LegalDocumentScreen
-      title="Privacy Policy"
-      lastUpdated={LEGAL_LAST_UPDATED}
-      intro={CANDIDATE_PRIVACY_INTRO}
-      sections={CANDIDATE_PRIVACY_SECTIONS}
+      title={t("candidatePrivacy.title")}
+      lastUpdated={tCommon("lastUpdated", { date: t("lastUpdated") })}
+      intro={getCandidatePrivacyIntro(t)}
+      sections={getCandidatePrivacySections(t)}
     />
   );
 }

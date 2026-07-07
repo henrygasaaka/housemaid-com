@@ -1,3 +1,14 @@
+import type { AppTranslateFn } from "@/lib/i18n-types";
+
+export const CANDIDATE_STEP_KEYS = [
+  "basicInfo",
+  "locationVisa",
+  "experienceSkills",
+  "media",
+  "review",
+] as const;
+
+/** @deprecated Use getCandidateSteps(t) for translated labels */
 export const CANDIDATE_STEPS = [
   "Basic Info",
   "Location & Visa",
@@ -5,6 +16,10 @@ export const CANDIDATE_STEPS = [
   "Media",
   "Review",
 ] as const;
+
+export function getCandidateSteps(t: AppTranslateFn): string[] {
+  return CANDIDATE_STEP_KEYS.map((key) => t(`onboard.steps.${key}`));
+}
 
 export type CandidateProfile = {
   firstName: string;
@@ -112,6 +127,24 @@ export const VISA_LABELS: Record<string, string> = {
   sponsorship: VISA_LABEL_TEXT.looking_for_sponsorship,
 };
 
+const VISA_I18N_KEYS: Record<string, string> = {
+  own_visa: "ownVisa",
+  visit_visa: "visitVisa",
+  cancelled_visa: "cancelledVisa",
+  sponsored_visa: "sponsoredVisa",
+  looking_for_sponsorship: "lookingForSponsorship",
+  own: "ownVisa",
+  visit: "visitVisa",
+  cancelled: "cancelledVisa",
+  sponsored: "sponsoredVisa",
+  sponsorship: "lookingForSponsorship",
+};
+
+export function getVisaLabel(t: AppTranslateFn, key: string): string {
+  const i18nKey = VISA_I18N_KEYS[key];
+  return i18nKey ? t(`options.visaLabels.${i18nKey}`) : VISA_LABELS[key] || key;
+}
+
 export const EMPLOYMENT_TYPE = {
   LIVE_IN: "live_in",
   LIVE_OUT: "live_out",
@@ -136,6 +169,20 @@ export const EMPLOYMENT_LABELS: Record<string, string> = {
   livein: "Live-in",
   liveout: "Live-out",
 };
+
+const EMPLOYMENT_I18N_KEYS: Record<string, string> = {
+  [EMPLOYMENT_TYPE.LIVE_IN]: "liveIn",
+  [EMPLOYMENT_TYPE.LIVE_OUT]: "liveOut",
+  livein: "liveIn",
+  liveout: "liveOut",
+};
+
+export function getEmploymentLabel(t: AppTranslateFn, key: string): string {
+  const i18nKey = EMPLOYMENT_I18N_KEYS[key];
+  return i18nKey
+    ? t(`options.employmentLabels.${i18nKey}`)
+    : EMPLOYMENT_LABELS[key] || key;
+}
 
 export const STORAGE_KEY = "housemaid-candidate-profile";
 

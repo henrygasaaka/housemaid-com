@@ -1,0 +1,878 @@
+{
+  "meta": {
+    "title": "Housemaid-AE — خادمات منزل موثوقات وأصحاب عمل في UAE",
+    "description": "ربط خادمات المنزل الموثوقات وأصحاب العمل في جميع أنحاء UAE. اعثري على الوظيفة المناسبة أو وظّفي الشخص المثالي.",
+    "openGraphTitle": "Housemaid-AE — خادمات منزل موثوقات وأصحاب عمل في UAE",
+    "appleWebAppTitle": "Housemaid-AE",
+    "applicationName": "Housemaid-AE"
+  },
+  "common": {
+    "appName": "Housemaid-AE",
+    "brand": "Housemaid",
+    "brandSuffix": "-AE",
+    "uae": "UAE",
+    "languageCode": "AR",
+    "emDash": "—",
+    "tryAgain": "حاولي مرة أخرى",
+    "continue": "متابعة",
+    "back": "رجوع",
+    "edit": "تعديل",
+    "save": "حفظ",
+    "saved": "تم الحفظ",
+    "message": "رسالة",
+    "verified": "موثّق",
+    "guest": "زائر",
+    "employer": "صاحب عمل",
+    "candidate": "مرشحة",
+    "about": "نبذة",
+    "skills": "المهارات",
+    "languages": "اللغات",
+    "settings": "الإعدادات",
+    "notifications": "الإشعارات",
+    "logOut": "تسجيل الخروج",
+    "logIn": "تسجيل الدخول",
+    "createAccount": "إنشاء حساب",
+    "create": "إنشاء",
+    "email": "البريد الإلكتروني",
+    "whatsapp": "WhatsApp",
+    "termsOfService": "شروط الخدمة",
+    "privacyPolicy": "سياسة الخصوصية",
+    "helpSupport": "المساعدة والدعم",
+    "lastUpdated": "آخر تحديث: {date}",
+    "redirecting": "جارٍ إعادة التوجيه…",
+    "saving": "جارٍ الحفظ…",
+    "sending": "جارٍ الإرسال…",
+    "publishing": "جارٍ النشر…",
+    "loggingOut": "جارٍ تسجيل الخروج…",
+    "uploadingPhoto": "جارٍ رفع الصورة…",
+    "uploadingVideo": "جارٍ رفع الفيديو…",
+    "photoAdded": "تمت إضافة الصورة",
+    "videoAdded": "تمت إضافة الفيديو",
+    "uploadPhoto": "رفع صورة",
+    "uploadVideo": "رفع فيديو",
+    "tapToChange": "اضغطي للتغيير",
+    "tapToReplace": "اضغطي للاستبدال",
+    "profileNotFound": "لم يتم العثور على الملف الشخصي",
+    "couldNotLoadProfile": "تعذّر تحميل ملفك الشخصي. يرجى المحاولة مرة أخرى.",
+    "couldNotLoadProfileShort": "تعذّر تحميل ملفك الشخصي.",
+    "privacySafe": "نحافظ على معلوماتك بأمان",
+    "privacyNeverShare": "لن نشارك بياناتك مع أي شخص",
+    "footerNavSafe": "معلوماتك آمنة معنا. لن نشارك بياناتك أبداً.",
+    "requiredMark": "*",
+    "aed": "AED",
+    "oneTimePayment": "دفعة لمرة واحدة",
+    "noSubscription": "بدون اشتراك. بدون رسوم خفية.",
+    "identity": "الهوية",
+    "visa": "التأشيرة",
+    "references": "المراجع",
+    "previousRole": "الدور السابق",
+    "previousEmployer": "صاحب العمل السابق",
+    "recommended": "موصى به",
+    "min": "الحد الأدنى",
+    "max": "الحد الأقصى",
+    "name": "الاسم",
+    "verify": "تحقق",
+    "previewProfile": "معاينة الملف الشخصي",
+    "publishMyProfile": "نشر ملفي الشخصي",
+    "profileCompletion": "اكتمال الملف الشخصي",
+    "profileCompletionHint": "الملف الشخصي المكتمل يحصل على المزيد من المشاهدات وفرص عمل أفضل.",
+    "interested": "مهتم",
+    "expressInterest": "أبدي اهتمامك",
+    "viewDetails": "عرض التفاصيل",
+    "upcoming": "القادمة",
+    "past": "السابقة",
+    "noActivityYet": "لا يوجد نشاط بعد",
+    "noMessagesYet": "لا توجد رسائل بعد",
+    "noMessagesInConversation": "لا توجد رسائل في هذه المحادثة بعد.",
+    "typeMessage": "اكتبي رسالة...",
+    "sendMessage": "إرسال رسالة",
+    "quickMessage": "رسالة سريعة",
+    "simpleGreeting": "تحية بسيطة",
+    "writeYourOwn": "اكتبي رسالتك الخاصة.",
+    "backToSuggestions": "العودة إلى الاقتراحات",
+    "unlockAccess": "فتح الوصول",
+    "aed100": "AED 100",
+    "profileUnlocked": "تم فتح الملف الشخصي",
+    "viewProfile": "عرض الملف الشخصي",
+    "viewFullProfile": "عرض سجل التوظيف الكامل والمراجع",
+    "verifiedReference": "{count} مرجع موثّق",
+    "verifiedReferences": "{count} مراجع موثّقة",
+    "verifiedReferenceCount": "{count} مرجع موثّق",
+    "verifiedReferencesCount": "{count} مراجع موثّقة",
+    "typicallyRepliesIn": "عادةً يرد خلال {responseTime}",
+    "repliesIn": "يرد خلال {responseTime}",
+    "playingIntroVideo": "تشغيل فيديو التعريف لـ {firstName}...",
+    "salaryPerMonth": "AED {min} - {max}/شهر",
+    "salaryExpectation": "AED {min} – {max}",
+    "salaryRangeReview": "AED {min} – {max}",
+    "locationReview": "{district}، {emirate}",
+    "nameReview": "{firstName} {lastName}",
+    "aboutCharCount": "{count}/300",
+    "freeMessagesUsed": "{used} من {limit} رسائل مجانية مستخدمة",
+    "profileCompletePercent": "ملفك الشخصي مكتمل بنسبة {percent}%",
+    "hiFirstName": "مرحباً {firstName} 👋",
+    "sendMessageTo": "أرسلي رسالة إلى {candidateName}.",
+    "writeMessageTo": "اكتبي رسالة إلى {candidateName}...",
+    "quickMessageTemplate": "مرحباً {candidateName}، أنا مهتم بملفك الشخصي — خاصةً خبرتك في رعاية الأطفال. هل أنت متاحة للمناقشة؟",
+    "simpleGreetingTemplate": "مرحباً {candidateName}، رأيت ملفك الشخصي وأنا مهتم. هل الوقت مناسب للدردشة؟",
+    "gateOneStepAway": "أنت على بُعد خطوة واحدة من {actionLabel} {candidateName}.",
+    "gateCreateAccount": "أنشئي حساب صاحب عمل مجاني",
+    "gateTermsAgree": "بالمتابعة، أنت توافقين على {terms} و{privacy}.",
+    "thisCandidate": "هذه المرشحة",
+    "actionSaving": "الحفظ",
+    "actionMessaging": "المراسلة",
+    "actionViewing": "العرض",
+    "guestMode": "وضع الزائر",
+    "browsingAsGuest": "التصفح كزائر",
+    "guestBrowseHint": "{logIn} أو {create} حساباً مجانياً لمراسلة المرشحات.",
+    "logInLower": "تسجيل الدخول",
+    "createLower": "إنشاء",
+    "verifiedProfilesBanner": "ملفات شخصية موثّقة 100%",
+    "verifiedProfilesDesc": "جميع المرشحات خضعن للتحقق من الخلفية لسلامتك.",
+    "expSuffix": "{years} خبرة",
+    "availableNow": "متاحة الآن",
+    "referencesNotAvailable": "المراجع غير متاحة بعد.",
+    "employmentHistoryNotAvailable": "سجل التوظيف غير متاح بعد.",
+    "noSkillsAdded": "لم تُضف مهارات بعد.",
+    "completeProfileForStats": "أكملي ملفك الشخصي لعرض الخبرة والتفضيلات.",
+    "countryCode": "+971"
+  },
+  "aria": {
+    "goBack": "رجوع",
+    "backToInbox": "العودة إلى صندوق الوارد",
+    "notifications": "الإشعارات",
+    "settings": "الإعدادات",
+    "sendMessage": "إرسال رسالة",
+    "saveCandidate": "حفظ المرشحة",
+    "unsaveCandidate": "إلغاء حفظ المرشحة",
+    "playIntroVideo": "تشغيل فيديو التعريف",
+    "pauseVideo": "إيقاف الفيديو مؤقتاً",
+    "profilePhoto": "الملف الشخصي",
+    "otpDigit": "الرقم {index}",
+    "profilePhotoAlt": "الملف الشخصي",
+    "selectLanguage": "اختر اللغة"
+  },
+  "landing": {
+    "welcomeTo": "مرحباً بك في",
+    "tagline": "ربط خادمات المنزل الموثوقات وأصحاب العمل في جميع أنحاء {uae}",
+    "uaeWide": "في جميع أنحاء UAE",
+    "cities": {
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rak": "RAK",
+      "more": "+3"
+    },
+    "roleHeading": "ما الذي أتى بك هنا اليوم؟",
+    "roleSubheading": "يرجى اختيار خيار للمتابعة",
+    "candidateTag": "أنا",
+    "candidateRole": "مرشحة",
+    "candidateDesc": "أبحث عن وظيفة",
+    "candidateBullets": {
+      "createProfile": "أنشئي ملفك الشخصي",
+      "getDiscovered": "اجعلي نفسك مرئية",
+      "findJob": "اعثري على الوظيفة المناسبة"
+    },
+    "employerTag": "أنا",
+    "employerRole": "صاحب عمل",
+    "employerDesc": "أوظّف خادمة منزل",
+    "employerBullets": {
+      "browse": "تصفحي المرشحات الموثّقات",
+      "chat": "دردشي مباشرة",
+      "findMatch": "اعثري على الشخص المثالي"
+    },
+    "trustedBy": "موثوق من العائلات في جميع أنحاء UAE",
+    "verifiedProfiles": "ملفات شخصية موثّقة",
+    "trustFeatures": {
+      "verifiedProfiles": "ملفات شخصية موثّقة",
+      "safeSecure": "آمن ومضمون",
+      "directChat": "دردشة مباشرة"
+    }
+  },
+  "nav": {
+    "candidate": {
+      "home": "الرئيسية",
+      "messages": "الرسائل",
+      "interviews": "المقابلات",
+      "jobs": "الوظائف",
+      "profile": "الملف الشخصي"
+    },
+    "employer": {
+      "discover": "استكشاف",
+      "saved": "المحفوظات",
+      "messages": "الرسائل",
+      "interviews": "المقابلات",
+      "profile": "الملف الشخصي"
+    }
+  },
+  "auth": {
+    "welcomeBack": "مرحباً بعودتك!",
+    "createYourAccount": "أنشئي حسابك",
+    "loginToAccount": "سجّلي الدخول إلى حسابك",
+    "findJobMinutes": "اعثري على الوظيفة المناسبة في دقائق",
+    "continueWithGoogle": "المتابعة مع Google",
+    "continueWithEmail": "المتابعة بالبريد الإلكتروني",
+    "continueWithPhone": "المتابعة برقم الهاتف",
+    "continueWithApple": "المتابعة مع Apple",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "alreadyHaveAccount": "لديك حساب بالفعل؟",
+    "googleSignInFailed": "فشل تسجيل الدخول عبر Google",
+    "googleSignInFailedDetail": "فشل تسجيل الدخول عبر Google: لم يتمكن Supabase من التحقق من بيانات اعتماد Google الخاصة بك. تحققي من إعدادات Google Cloud Console وموفر Google في Supabase.",
+    "logInWithGoogle": "تسجيل الدخول عبر Google",
+    "signUpWithGoogle": "التسجيل عبر Google",
+    "redirectingToGoogle": "جارٍ إعادة توجيهك إلى Google…",
+    "backToLogin": "العودة لتسجيل الدخول",
+    "phoneWelcomeBack": "مرحباً بعودتك",
+    "phoneWhatsYourNumber": "ما هو رقم هاتفك؟",
+    "phoneLoginSubtitle": "أدخلي رقم هاتفك لتسجيل الدخول",
+    "phoneSignupSubtitle": "سنستخدمه للتحقق من حسابك",
+    "logIn": "تسجيل الدخول",
+    "otpTitle": "أدخلي رمز التحقق",
+    "otpSubtitle": "أرسلنا رمزاً مكوناً من 6 أرقام إلى",
+    "otpPhoneExample": "+971 50 123 4567",
+    "otpDidntReceive": "لم تستلمي الرمز؟",
+    "otpResendIn": "إعادة الإرسال خلال {time}",
+    "emailLoginTitle": "تسجيل الدخول بالبريد الإلكتروني",
+    "emailCheckTitle": "تحققي من بريدك الإلكتروني",
+    "emailLoginSubtitle": "أدخلي البريد الإلكتروني الذي سجّلتِ به",
+    "emailSentMagicLink": "أرسلنا رابطاً سحرياً إلى {email}",
+    "emailAddressPlaceholder": "عنوان البريد الإلكتروني",
+    "emailConfirmHint": "اضغطي على الرابط في بريدك الإلكتروني لتسجيل الدخول. يمكنك إغلاق هذه الصفحة والعودة بعد التأكيد.",
+    "sendMagicLink": "إرسال الرابط السحري",
+    "useDifferentEmail": "استخدام بريد إلكتروني مختلف",
+    "employerLoginSubtitle": "سجّلي الدخول لتصفح المرشحات ومراسلتهن",
+    "employerSignupSubtitle": "اعثري على الشخص المثالي لمنزلك",
+    "emailSignInComingSoon": "تسجيل الدخول بالبريد الإلكتروني قريباً",
+    "loginToYourAccount": "سجّلي الدخول إلى حسابك",
+    "loginSheetWelcome": "مرحباً بعودتك — تابعي من حيث توقفتِ.",
+    "loginSheetEmailHint": "تابعي في صفحة تسجيل الدخول لاستخدام البريد الإلكتروني.",
+    "logInWithGoogleProfile": "تسجيل الدخول عبر Google"
+  },
+  "candidate": {
+    "dashboard": {
+      "viewsThisWeek": "المشاهدات هذا الأسبوع",
+      "savedByEmployers": "حفظها أصحاب العمل",
+      "interviewRequests": "طلبات المقابلة",
+      "completeYourProfile": "أكملي ملفك الشخصي",
+      "completeProfileCta": "أصحاب العمل أكثر ميلاً للتواصل مع المرشحات ذات الملفات الشخصية المكتملة.",
+      "recentActivity": "النشاط الأخير",
+      "noActivityDesc": "ستظهر مشاهدات الملف الشخصي والحفظ وطلبات المقابلة هنا بمجرد أن يبدأ أصحاب العمل بالتفاعل مع ملفك الشخصي."
+    },
+    "profile": {
+      "title": "ملفي الشخصي",
+      "edit": "تعديل",
+      "about": "نبذة",
+      "skills": "المهارات",
+      "languages": "اللغات",
+      "employmentHistory": "سجل التوظيف",
+      "salaryExpectation": "الراتب المتوقع",
+      "availability": "التوفر",
+      "editProfile": "تعديل الملف الشخصي",
+      "myDocuments": "مستنداتي"
+    },
+    "messages": {
+      "title": "الرسائل",
+      "emptyDesc": "عندما يتواصل معك صاحب عمل، ستظهر محادثاتك هنا.",
+      "couldNotLoad": "تعذّر تحميل الرسائل. يرجى المحاولة مرة أخرى.",
+      "failedToSend": "فشل إرسال الرسالة."
+    },
+    "interviews": {
+      "title": "المقابلات",
+      "empty": "لا توجد مقابلات بعد. حافظي على نشاط ملفك الشخصي لجذب الانتباه.",
+      "couldNotLoad": "تعذّر تحميل المقابلات. يرجى المحاولة مرة أخرى.",
+      "toBeConfirmed": "في انتظار التأكيد",
+      "status": {
+        "proposed": "مقترحة",
+        "confirmed": "مؤكدة",
+        "interviewed": "تمت المقابلة"
+      }
+    },
+    "jobs": {
+      "title": "الوظائف",
+      "subtitle": "وظائف شاغرة بالقرب منك",
+      "posted": "نُشرت {posted}",
+      "empty": "لا توجد وظائف شاغرة بعد. تحققي قريباً — تُضاف وظائف جديدة بانتظام.",
+      "filterEmpty": "لا توجد وظائف تطابق هذا الفلتر. جرّبي فئة أخرى.",
+      "couldNotLoad": "تعذّر تحميل الوظائف. يرجى المحاولة مرة أخرى."
+    },
+    "conversationStatus": {
+      "messaging": "مراسلة",
+      "interviewProposed": "مقابلة مقترحة",
+      "interviewScheduled": "مقابلة مجدولة",
+      "interviewed": "تمت المقابلة",
+      "hired": "تم التوظيف",
+      "declined": "غير مستمر"
+    },
+    "freshness": {
+      "activeToday": "نشطة اليوم",
+      "activeThisWeek": "نشطة هذا الأسبوع",
+      "activeTwoWeeksAgo": "نشطة منذ أسبوعين+",
+      "inactiveThirtyDays": "غير نشطة منذ 30+ يوم"
+    }
+  },
+  "employer": {
+    "discover": {
+      "title": "استكشاف",
+      "subtitle": "تصفحي المرشحات الموثّقات بشكل مجهول.",
+      "empty": "لا توجد مرشحات متاحة بعد",
+      "emptyDesc": "ستظهر ملفات المرشحات المنشورة هنا بمجرد أن تكمل الخادمات التسجيل وتنشر ملفاتهن.",
+      "filterEmpty": "لا توجد نتائج لهذا الفلتر",
+      "filterEmptyDesc": "جرّبي فلتراً آخر أو تحققي لاحقاً مع نشر المزيد من المرشحات لملفاتهن.",
+      "couldNotLoad": "تعذّر تحميل المرشحات. يرجى المحاولة مرة أخرى."
+    },
+    "profile": {
+      "title": "حسابي",
+      "guestHint": "سجّلي الدخول لحفظ تقدمك ومراسلة المرشحات.",
+      "editProfile": "تعديل الملف الشخصي",
+      "savedCandidates": "المرشحات المحفوظات"
+    },
+    "saved": {
+      "title": "المرشحات المحفوظات",
+      "empty": "لا توجد مرشحات محفوظة بعد",
+      "emptyDesc": "اضغطي على أيقونة القلب في أي ملف مرشحة لحفظها هنا"
+    },
+    "notifications": {
+      "title": "الإشعارات",
+      "reply": "ردت Maria Santos على رسالتك",
+      "saved": "حفظتِ Grace Wanjiru",
+      "viewed": "اطلعتِ على ملف Nilanthi Perera",
+      "verified": "تم التحقق من حسابك",
+      "oneHourAgo": "منذ ساعة",
+      "threeHoursAgo": "منذ 3 ساعات",
+      "yesterday": "أمس",
+      "twoDaysAgo": "منذ يومين"
+    },
+    "paywall": {
+      "freeMessagesUsed": "{used} من {limit} رسائل مجانية مستخدمة",
+      "unlockMessagingTitle": "فتح المراسلة غير المحدودة",
+      "unlockProfileTitle": "فتح الوصول الكامل للملف الشخصي",
+      "unlockMessagingDesc": "بالإضافة إلى فلاتر مخصصة تتعلم ما تبحثين عنه.",
+      "unlockProfileDesc": "اطلعي على سجل التوظيف الكامل والمراجع وتفاصيل الاتصال.",
+      "messagingFeatures": {
+        "unlimited": "راسلي أي مرشحة بدون حدود",
+        "smartFilters": "فلاتر ذكية تتعلم تفضيلاتك",
+        "oneTime": "دفعة لمرة واحدة — بدون اشتراك"
+      },
+      "profileFeatures": {
+        "history": "سجل التوظيف الكامل والمراجع",
+        "unmasked": "الاسم وتفاصيل الموقع بدون إخفاء",
+        "oneTime": "دفعة لمرة واحدة — بدون اشتراك"
+      },
+      "freeAllowanceHint": "حصتك المجانية البالغة {limit} رسالة هي منحة لمرة واحدة مدى الحياة ولن تعود."
+    },
+    "candidateProfile": {
+      "employmentHistory": "سجل التوظيف",
+      "pleaseLogInToMessage": "يرجى تسجيل الدخول لإرسال الرسائل.",
+      "failedToSend": "فشل إرسال الرسالة."
+    }
+  },
+  "onboard": {
+    "steps": {
+      "basicInfo": "المعلومات الأساسية",
+      "locationVisa": "الموقع والتأشيرة",
+      "experienceSkills": "الخبرة والمهارات",
+      "media": "الوسائط",
+      "review": "المراجعة"
+    },
+    "basicInfo": {
+      "title": "أنشئي ملفك الشخصي",
+      "subtitle": "لنبدأ! أخبرينا قليلاً عن نفسك.",
+      "photoHint": "أضيفي صورة واضحة لنفسك",
+      "firstName": "الاسم الأول",
+      "lastName": "اسم العائلة",
+      "emailAddress": "عنوان البريد الإلكتروني",
+      "phoneNumber": "رقم الهاتف",
+      "nationality": "الجنسية",
+      "gender": "الجنس"
+    },
+    "locationVisa": {
+      "title": "أين موقعك؟",
+      "subtitle": "يساعد أصحاب العمل في العثور عليك في منطقتهم.",
+      "currentLocation": "الموقع الحالي",
+      "visaStatus": "حالة التأشيرة في UAE",
+      "whenCanStart": "متى يمكنك البدء بالعمل؟",
+      "visaOptions": {
+        "ownVisa": {
+          "title": "تأشيرة خاصة",
+          "subtitle": "أنتِ ترعين تأشيرتك الخاصة"
+        },
+        "visitVisa": {
+          "title": "تأشيرة زيارة",
+          "subtitle": "أنتِ في UAE بتأشيرة زيارة"
+        },
+        "cancelledVisa": {
+          "title": "تأشيرة ملغاة",
+          "subtitle": "لديك تأشيرة ملغاة"
+        },
+        "sponsoredVisa": {
+          "title": "تأشيرة برعاية",
+          "subtitle": "تأشيرتك برعاية صاحب عملك"
+        },
+        "lookingForSponsorship": {
+          "title": "أبحث عن رعاية",
+          "subtitle": "تحتاجين رعاية تأشيرة"
+        }
+      }
+    },
+    "experience": {
+      "title": "أخبرينا عن خبرتك",
+      "subtitle": "يساعد أصحاب العمل على فهمك بشكل أفضل.",
+      "yearsOfExperience": "سنوات الخبرة",
+      "skillsLabel": "المهارات (اختاري كل ما ينطبق)",
+      "languagesLabel": "اللغات",
+      "aboutMeOptional": "نبذة عني (اختياري)",
+      "aboutPlaceholder": "اكتبي وصفاً قصيراً عن نفسك..."
+    },
+    "media": {
+      "title": "أضيفي صورك وفيديوك وتوفرك",
+      "subtitle": "يساعد أصحاب العمل على التعرف عليك بشكل أفضل.",
+      "profilePhoto": "صورة الملف الشخصي",
+      "photoFormats": "JPG، PNG (بحد أقصى 5 ميجابايت)",
+      "introVideo": "فيديو التعريف (موصى به بشدة)",
+      "videoFormats": "MP4 فقط، بحد أقصى 30 ثانية، بحد أقصى 30 ميجابايت",
+      "salaryExpectation": "الراتب المتوقع (AED)",
+      "preferredEmploymentType": "نوع التوظيف المفضل",
+      "liveInTitle": "سكن داخلي",
+      "liveInSubtitle": "يمكنني السكن في منزل صاحب العمل",
+      "liveOutTitle": "سكن خارجي",
+      "liveOutSubtitle": "سأعود إلى المنزل بعد العمل",
+      "preferredWorkingDays": "أيام العمل المفضلة"
+    },
+    "review": {
+      "title": "راجعي ملفك الشخصي",
+      "subtitle": "يرجى مراجعة معلوماتك قبل النشر.",
+      "basicInformation": "المعلومات الأساسية",
+      "locationAndVisa": "الموقع والتأشيرة",
+      "experienceSkillsLanguages": "الخبرة والمهارات واللغات",
+      "mediaSalaryAvailability": "الوسائط والراتب والتوفر",
+      "currentLocation": "الموقع الحالي",
+      "visaStatus": "حالة التأشيرة",
+      "yearsOfExperience": "سنوات الخبرة",
+      "salaryExpectation": "الراتب المتوقع",
+      "employmentType": "نوع التوظيف",
+      "preferredDays": "الأيام المفضلة"
+    },
+    "errors": {
+      "chooseImage": "يرجى اختيار صورة JPG أو PNG.",
+      "photoTooLarge": "يجب أن تكون صورة الملف الشخصي 5 ميجابايت أو أقل.",
+      "videoMustBeMp4": "يجب أن يكون فيديو التعريف بصيغة MP4.",
+      "videoTooLarge": "يجب أن يكون فيديو التعريف 30 ميجابايت أو أقل.",
+      "failedSaveProgress": "فشل حفظ تقدمك.",
+      "failedPublish": "فشل نشر ملفك الشخصي.",
+      "failedUploadPhoto": "فشل رفع صورة الملف الشخصي.",
+      "failedUploadVideo": "فشل رفع فيديو التعريف."
+    }
+  },
+  "options": {
+    "gender": {
+      "female": "أنثى",
+      "male": "ذكر"
+    },
+    "nationalities": {
+      "philippines": "الفلبين",
+      "kenya": "كينيا",
+      "sriLanka": "سريلانكا",
+      "bangladesh": "بنغلاديش",
+      "india": "الهند",
+      "indonesia": "إندونيسيا",
+      "nepal": "نيبال",
+      "ethiopia": "إثيوبيا",
+      "uganda": "أوغندا",
+      "other": "أخرى"
+    },
+    "emirates": {
+      "dubai": "Dubai",
+      "abuDhabi": "Abu Dhabi",
+      "sharjah": "Sharjah",
+      "ajman": "Ajman",
+      "rasAlKhaimah": "Ras Al Khaimah",
+      "fujairah": "Fujairah",
+      "ummAlQuwain": "Umm Al Quwain"
+    },
+    "districts": {
+      "alBarsha": "Al Barsha",
+      "deira": "Deira",
+      "alNahda": "Al Nahda",
+      "khalifaCity": "Khalifa City",
+      "jumeirah": "Jumeirah",
+      "mirdif": "Mirdif",
+      "marina": "Marina",
+      "alQuoz": "Al Quoz",
+      "downtown": "Downtown"
+    },
+    "availability": {
+      "availableImmediately": "متاحة فوراً",
+      "withinOneWeek": "خلال أسبوع",
+      "withinTwoWeeks": "خلال أسبوعين",
+      "withinOneMonth": "خلال شهر",
+      "currentlyEmployed": "موظفة حالياً"
+    },
+    "experience": {
+      "lessThanOneYear": "أقل من سنة",
+      "oneToThreeYears": "1 - 3 سنوات",
+      "threeToFiveYears": "3 - 5 سنوات",
+      "fivePlusYears": "5+ سنوات"
+    },
+    "skills": {
+      "cleaning": "التنظيف",
+      "cooking": "الطبخ",
+      "childcare": "رعاية الأطفال",
+      "laundry": "الغسيل",
+      "ironing": "الكي",
+      "elderlyCare": "رعاية كبار السن",
+      "petCare": "رعاية الحيوانات الأليفة",
+      "carWashing": "غسيل السيارات",
+      "gardening": "البستنة",
+      "tutoring": "التدريس",
+      "disabledCare": "رعاية ذوي الإعاقة",
+      "other": "أخرى"
+    },
+    "languages": {
+      "english": "الإنجليزية",
+      "arabic": "العربية",
+      "tagalog": "التاغالوغية",
+      "hindi": "الهندية",
+      "urdu": "الأردية",
+      "tamil": "التاميلية",
+      "french": "الفرنسية",
+      "other": "أخرى"
+    },
+    "days": {
+      "mon": "الإثنين",
+      "tue": "الثلاثاء",
+      "wed": "الأربعاء",
+      "thu": "الخميس",
+      "fri": "الجمعة",
+      "sat": "السبت",
+      "sun": "الأحد"
+    },
+    "visaLabels": {
+      "ownVisa": "تأشيرة خاصة",
+      "visitVisa": "تأشيرة زيارة",
+      "cancelledVisa": "تأشيرة ملغاة",
+      "sponsoredVisa": "تأشيرة برعاية",
+      "lookingForSponsorship": "أبحث عن رعاية"
+    },
+    "employmentLabels": {
+      "liveIn": "سكن داخلي",
+      "liveOut": "سكن خارجي"
+    },
+    "filters": {
+      "all": "الكل",
+      "fullTime": "دوام كامل",
+      "partTime": "دوام جزئي",
+      "liveIn": "سكن داخلي",
+      "liveOut": "سكن خارجي"
+    },
+    "employmentType": {
+      "fullTime": "دوام كامل",
+      "partTime": "دوام جزئي",
+      "liveIn": "سكن داخلي",
+      "liveOut": "سكن خارجي"
+    }
+  },
+  "legal": {
+    "candidateTerms": {
+      "title": "شروط الخدمة",
+      "intro": "تنطبق هذه الشروط على المرشحات اللواتي يستخدمن Housemaid-AE للبحث عن عمل منزلي في UAE. بإنشاء ملف شخصي، أنت توافقين على القواعد أدناه.",
+      "sections": {
+        "yourProfile": {
+          "heading": "1. ملفك الشخصي",
+          "body": "أنتِ تملكين المحتوى الذي تقدمينه — بما في ذلك صورتك وفيديو التعريف والمستندات وسجل العمل والسيرة الذاتية. بنشر ملفك الشخصي، تمنحين Housemaid-AE ترخيصاً لعرض هذه المعلومات على أصحاب العمل في المنصة لغرض مطابقتك مع فرص العمل."
+        },
+        "informationYouShare": {
+          "heading": "2. المعلومات التي تشاركينها",
+          "body": "قد يتضمن ملفك الشخصي:",
+          "items": {
+            "photoVideo": "صورة الملف الشخصي وفيديو التعريف",
+            "documents": "مستندات الهوية والتأشيرة (للتحقق فقط)",
+            "history": "سجل التوظيف والمراجع",
+            "details": "المهارات واللغات وتوقعات الراتب والتوفر",
+            "contact": "تفاصيل الاتصال (تُشارك فقط بعد اختيارك التفاعل مع صاحب عمل)"
+          }
+        },
+        "howWeUseData": {
+          "heading": "3. كيف نستخدم بياناتك",
+          "body": "نستخدم ملفك الشخصي لمطابقتك مع أصحاب العمل الذين يبحثون عن عمال منزليين في UAE. قد نعرض اسمك المخفي جزئياً وتفاصيلك الرئيسية في الاستكشاف قبل أن يفتح صاحب العمل ملفك الشخصي الكامل. لا نبيع بياناتك الشخصية لأطراف ثالثة."
+        },
+        "matching": {
+          "heading": "4. المطابقة مع أصحاب العمل",
+          "body": "يمكن لأصحاب العمل التصفح والحفظ ومراسلتك عبر المنصة. أنتِ حرة في قبول أو رفض أي فرصة. لا تضمن Housemaid-AE التوظيف أو المقابلات أو عروض رواتب محددة."
+        },
+        "accuracy": {
+          "heading": "5. الدقة والسلوك",
+          "body": "أنت توافقين على أن جميع المعلومات في ملفك الشخصي صحيحة. قد تؤدي الصور المضللة أو المراجع المزيفة أو حالة التأشيرة الخاطئة إلى الإزالة الفورية. عاملي أصحاب العمل باحترام في جميع الرسائل."
+        },
+        "deactivating": {
+          "heading": "6. إيقاف ملفك الشخصي",
+          "body": "يمكنك إيقاف أو تعطيل ملفك الشخصي في أي وقت. عند التعطيل، يُخفى ملفك الشخصي من الاستكشاف ويُحظر التواصل الجديد من أصحاب العمل. تبقى محادثات الرسائل الحالية ما لم تطلبي حذف الحساب بالكامل."
+        },
+        "deletion": {
+          "heading": "7. حذف الحساب",
+          "body": "لحذف حسابك وبياناتك نهائياً، تواصلي مع support@housemaid-ae.com. نعالج طلبات الحذف خلال 30 يوماً، وفقاً لمتطلبات الاحتفاظ القانونية في UAE."
+        },
+        "contact": {
+          "heading": "8. التواصل",
+          "body": "أسئلة حول هذه الشروط: support@housemaid-ae.com"
+        }
+      }
+    },
+    "candidatePrivacy": {
+      "title": "سياسة الخصوصية",
+      "intro": "توضح سياسة الخصوصية هذه ما نجمعه من المرشحات ولماذا نجمعه وكيف يمكنك التحكم في بياناتك.",
+      "sections": {
+        "whatWeCollect": {
+          "heading": "ما نجمعه",
+          "body": "عند إنشاء ملف مرشحة، نجمع:",
+          "items": {
+            "contact": "الاسم ورقم الهاتف وعنوان البريد الإلكتروني",
+            "media": "صورة الملف الشخصي وفيديو التعريف",
+            "documents": "مستندات الهوية والتأشيرة",
+            "history": "سجل التوظيف والمراجع",
+            "location": "الموقع (الإمارة والمنطقة)",
+            "details": "المهارات واللغات وتوقعات الراتب والتوفر"
+          }
+        },
+        "whyWeCollect": {
+          "heading": "لماذا نجمعه",
+          "body": "نستخدم هذه المعلومات لبناء ملفك الشخصي والتحقق من هويتك ومطابقتك مع أصحاب العمل ومنع الاحتيال وتحسين المنصة. تُراجع المستندات من قبل فريقنا — لا تُعرض علناً."
+        },
+        "whoCanSee": {
+          "heading": "من يمكنه رؤية معلوماتك",
+          "body": "يرى أصحاب العمل الذين يتصفحون الاستكشاف نسخة مخفية جزئياً من ملفك الشخصي. التفاصيل الكاملة — بما في ذلك الاسم غير المخفي وسجل التوظيف الكامل ومعلومات الاتصال — مرئية فقط لأصحاب العمل الذين فتحوا ملفك الشخصي أو اخترتِ مراسلتهم."
+        },
+        "howLong": {
+          "heading": "مدة الاحتفاظ",
+          "body": "نحتفظ ببيانات ملفك الشخصي طالما حسابك نشط. إذا عطّلتِ حسابك، نحتفظ بسجل محدود لمدة تصل إلى 12 شهراً. بعد حذف الحساب، نزيل البيانات الشخصية خلال 30 يوماً إلا حيث يتطلب قانون UAE احتفاظاً أطول."
+        },
+        "howToDelete": {
+          "heading": "كيفية حذف بياناتك",
+          "body": "يمكنك تحديث أو إزالة معظم المعلومات من ملفك الشخصي في أي وقت. لحذف حسابك بالكامل، أرسلي بريداً إلكترونياً إلى support@housemaid-ae.com من عنوانك المسجل."
+        },
+        "yourRights": {
+          "heading": "حقوقك",
+          "body": "يمكنك طلب الوصول إلى بياناتك الشخصية أو تصحيحها أو حذفها. تواصلي مع support@housemaid-ae.com وسنرد خلال 30 يوماً."
+        },
+        "contact": {
+          "heading": "التواصل",
+          "body": "Housemaid-AE، Dubai، UAE. البريد الإلكتروني: support@housemaid-ae.com"
+        }
+      }
+    },
+    "employerTerms": {
+      "title": "شروط الخدمة",
+      "intro": "تنطبق هذه الشروط على أصحاب العمل الذين يستخدمون Housemaid-AE للعثور على عمال منزليين في UAE. بإنشاء حساب، أنت توافق على القواعد أدناه.",
+      "sections": {
+        "browsingFree": {
+          "heading": "1. التصفح مجاني",
+          "body": "يمكنك تصفح ملفات المرشحات الموثّقة في الاستكشاف دون إنشاء حساب. الأسماء مخفية جزئياً وسجل التوظيف مخفي حتى تفتح ملفاً شخصياً."
+        },
+        "freeMessages": {
+          "heading": "2. الرسائل المجانية",
+          "body": "بعد إنشاء حساب صاحب عمل مجاني، تحصلين على 3 رسائل مجانية مدى الحياة لجميع المرشحات. هذه منحة لمرة واحدة — الرسائل المجانية لا تتجدد شهرياً."
+        },
+        "unlock": {
+          "heading": "3. فتح بـ AED 100",
+          "body": "بمجرد استخدام رسائلك المجانية الثلاث، دفعة AED 100 لمرة واحدة تفتح المراسلة غير المحدودة. دفعة AED 100 منفصلة لمرة واحدة تفتح الملف الشخصي الكامل للمرشحة (سجل التوظيف والمراجع والتفاصيل غير المخفية). هذه ليست اشتراكات ولا تتجدد تلقائياً."
+        },
+        "noRefunds": {
+          "heading": "4. لا استرداد",
+          "body": "مدفوعات الفتح غير قابلة للاسترداد إلا إذا تطلب قانون UAE ذلك. إذا كنت تعتقدين أنه تم خصم مبلغ بالخطأ، تواصلي مع support@housemaid-ae.com خلال 7 أيام."
+        },
+        "responsibilities": {
+          "heading": "5. مسؤولياتك",
+          "body": "بصفتك صاحبة عمل، أنت مسؤولة وحدك عن:",
+          "items": {
+            "labour": "الامتثال لقوانين العمل والهجرة في UAE",
+            "checks": "إجراء مقابلاتك وفحوصات الخلفية الخاصة بك",
+            "contracts": "صياغة عقود العمل والالتزام بها",
+            "respect": "معاملة المرشحات باحترام وكرامة",
+            "illegal": "عدم طلب مدفوعات غير قانونية أو حجز جوازات السفر"
+          }
+        },
+        "messagingRules": {
+          "heading": "6. قواعد المراسلة",
+          "body": "لا ترسلي رسائل مزعجة أو تحرش أو تهديدات أو رسائل تمييزية. قد تؤدي المخالفات إلى تعليق الحساب بشكل دائم دون استرداد."
+        },
+        "noGuarantee": {
+          "heading": "7. لا ضمان للتوظيف",
+          "body": "تسهل Housemaid-AE التعارف فقط. نحن لا نوظف المرشحات ولا نضمن الملاءمة ولا نتوسط في نزاعات التوظيف."
+        },
+        "governingLaw": {
+          "heading": "8. القانون الحاكم",
+          "body": "تخضع هذه الشروط لقوانين الإمارات العربية المتحدة."
+        },
+        "contact": {
+          "heading": "9. التواصل",
+          "body": "أسئلة حول هذه الشروط: support@housemaid-ae.com"
+        }
+      }
+    },
+    "employerPrivacy": {
+      "title": "سياسة الخصوصية",
+      "intro": "توضح سياسة الخصوصية هذه ما نجمعه من أصحاب العمل. نجمع بيانات أقل بكثير من أصحاب العمل مقارنة بالمرشحات.",
+      "sections": {
+        "whatWeCollect": {
+          "heading": "ما نجمعه",
+          "body": "عند إنشاء حساب صاحب عمل، نجمع فقط:",
+          "items": {
+            "name": "اسمك الكامل",
+            "email": "عنوان البريد الإلكتروني",
+            "location": "الموقع (المدينة/الإمارة في UAE)"
+          }
+        },
+        "whatWeDoNotCollect": {
+          "heading": "ما لا نجمعه",
+          "body": "لا نجمع أو نخزن تفاصيل بطاقة الدفع الخاصة بك. تتم جميع المدفوعات بشكل آمن عبر PayTabs، مزود الدفع الخارجي لدينا. نتلقى فقط تأكيد الدفع — وليس رقم بطاقتك."
+        },
+        "howWeUse": {
+          "heading": "كيف نستخدم معلوماتك",
+          "body": "نستخدم اسمك وبريدك الإلكتروني لتشغيل حسابك وإرسال إشعارات الرسائل وتقديم دعم العملاء. يساعدنا موقعك في عرض المرشحات المناسبة بالقرب منك."
+        },
+        "noSelling": {
+          "heading": "لا نبيع بياناتك",
+          "body": "لا نبيع أو نؤجر أو نتاجر بمعلومات أصحاب العمل الشخصية لأطراف ثالثة لأغراض تسويقية."
+        },
+        "retention": {
+          "heading": "الاحتفاظ بالبيانات",
+          "body": "نحتفظ ببيانات حسابك طالما حسابك نشط. إذا حذفتِ حسابك، نزيل البيانات الشخصية خلال 30 يوماً، إلا حيث يتطلب قانون UAE الاحتفاظ."
+        },
+        "deletion": {
+          "heading": "حذف الحساب",
+          "body": "لحذف حساب صاحب العمل، أرسلي بريداً إلكترونياً إلى support@housemaid-ae.com من عنوانك المسجل. يتم معالجة الحذف خلال 30 يوماً."
+        },
+        "contact": {
+          "heading": "التواصل",
+          "body": "Housemaid-AE، Dubai، UAE. البريد الإلكتروني: support@housemaid-ae.com"
+        }
+      }
+    },
+    "lastUpdated": "يونيو 2026"
+  },
+  "help": {
+    "title": "المساعدة والدعم",
+    "stillNeedHelp": "ما زلتِ بحاجة إلى مساعدة؟",
+    "responseTime": "نرد عادةً خلال 24 ساعة.",
+    "candidate": {
+      "createProfile": {
+        "question": "كيف أنشئ ملفاً شخصياً؟",
+        "answer": "سجّلي عبر Google أو الهاتف أو البريد الإلكتروني، ثم أكملي خطوات التسجيل: المعلومات الأساسية والموقع والتأشيرة والخبرة والمهارات والصورة والفيديو والمراجعة. الملف الشخصي المكتمل مع مستندات موثّقة يحصل على مشاهدات أكثر بكثير من أصحاب العمل."
+      },
+      "employersFind": {
+        "question": "كيف يجدني أصحاب العمل؟",
+        "answer": "يتصفح أصحاب العمل المرشحات الموثّقات في الاستكشاف. اسمك مخفي جزئياً حتى يفتح صاحب العمل ملفك الشخصي الكامل. يمكن لأصحاب العمل التصفية حسب نوع الدور والموقع والتوفر. حافظي على نشاط ملفك الشخصي واكتماله للحصول على ترتيب أعلى."
+      },
+      "documents": {
+        "question": "من يمكنه رؤية مستنداتي؟",
+        "answer": "لا تُعرض مستندات الهوية والتأشيرة والمراجع علناً أبداً. فريق التحقق في Housemaid-AE فقط يراجعها. يرى أصحاب العمل شارة موثّق بعد الموافقة — لا يقومون بتنزيل مستنداتك الأصلية إلا إذا اخترتِ مشاركتها في الدردشة."
+      },
+      "pause": {
+        "question": "كيف أوقف ملفي الشخصي؟",
+        "answer": "اذهبي إلى ملفي الشخصي ← الإعدادات وغيّري توفرك إلى غير متاح، أو تواصلي مع الدعم. أثناء الإيقاف، يُخفى ملفك الشخصي من الاستكشاف ولا يمكن لأصحاب العمل إرسال رسائل جديدة. تبقى المحادثات الحالية متاحة."
+      },
+      "delete": {
+        "question": "كيف أحذف حسابي؟",
+        "answer": "أرسلي بريداً إلكترونياً إلى support@housemaid-ae.com من عنوانك المسجل واطلبي حذف الحساب. نزيل ملفك الشخصي والمستندات والرسائل خلال 30 يوماً، إلا حيث يتطلب قانون UAE الاحتفاظ بالسجلات."
+      }
+    },
+    "employer": {
+      "message": {
+        "question": "كيف أراسل مرشحة؟",
+        "answer": "تصفحي المرشحات في الاستكشاف — لا حاجة لحساب. عندما تكونين جاهزة للمراسلة، أنشئي حساب صاحب عمل مجاني. تحصلين على 3 رسائل مجانية مدى الحياة لجميع المرشحات. بعد ذلك، فتح AED 100 لمرة واحدة يمنحك مراسلة غير محدودة."
+      },
+      "unlock": {
+        "question": "كيف يعمل فتح AED 100؟",
+        "answer": "AED 100 هي دفعة لمرة واحدة لكل فتح — وليست اشتراكاً. تفتح المراسلة غير المحدودة مع أي مرشحة، أو الوصول الكامل لسجل التوظيف والمراجع للمرشحة، حسب الإجراء الذي تتخذينه. رسائلك المجانية الثلاث هي منحة مدى الحياة."
+      },
+      "refund": {
+        "question": "هل يمكنني الحصول على استرداد؟",
+        "answer": "مدفوعات الفتح لمرة واحدة وغير قابلة للاسترداد إلا إذا تطلب قانون UAE ذلك. إذا كنت تعتقدين أنه تم خصم مبلغ بالخطأ، أرسلي بريداً إلكترونياً إلى support@housemaid-ae.com خلال 7 أيام مع بريد حسابك ومرجع الدفع."
+      },
+      "find": {
+        "question": "كيف أجد المرشحة المناسبة؟",
+        "answer": "استخدمي فلاتر الاستكشاف للدوام الكامل أو الجزئي أو السكن الداخلي أو الخارجي. احفظي المرشحات التي تعجبك، اقرئي مهاراتهن وخبرتهن، وراسلي من تناسب احتياجات منزلك. الملفات الشخصية الموثّقة مع فيديوهات التعريف هي أقوى مؤشر على الملاءمة."
+      }
+    }
+  },
+  "validation": {
+    "firstNameRequired": "الاسم الأول مطلوب.",
+    "lastNameRequired": "اسم العائلة مطلوب.",
+    "phoneRequired": "رقم الهاتف مطلوب.",
+    "nationalityRequired": "الجنسية مطلوبة.",
+    "genderRequired": "الجنس مطلوب.",
+    "emirateRequired": "الإمارة مطلوبة.",
+    "districtRequired": "المنطقة مطلوبة.",
+    "visaRequired": "حالة التأشيرة مطلوبة.",
+    "experienceRequired": "سنوات الخبرة مطلوبة.",
+    "photoRequired": "صورة الملف الشخصي مطلوبة.",
+    "salaryRequired": "نطاق الراتب مطلوب.",
+    "employmentTypeRequired": "نوع التوظيف مطلوب.",
+    "messageEmpty": "لا يمكن أن تكون الرسالة فارغة."
+  },
+  "time": {
+    "justNow": "الآن",
+    "minutesAgo": "منذ {minutes} د",
+    "hoursAgo": "منذ {hours} س",
+    "yesterday": "أمس",
+    "daysAgo": "منذ {days} أيام",
+    "toBeConfirmed": "في انتظار التأكيد",
+    "resendIn": "إعادة الإرسال خلال {time}",
+    "posted": "نُشرت {posted}",
+    "lastActive": {
+      "today": "اليوم",
+      "yesterday": "أمس",
+      "thisWeek": "هذا الأسبوع",
+      "twoWeeksAgo": "منذ أسبوعين",
+      "threeWeeksAgo": "منذ 3 أسابيع",
+      "thirtyPlusDays": "منذ 30+ يوم"
+    },
+    "initialsFallback": "EM"
+  },
+  "completionFields": {
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "phoneNumber": "رقم الهاتف",
+    "nationality": "الجنسية",
+    "gender": "الجنس",
+    "emirate": "الإمارة",
+    "district": "المنطقة",
+    "visaStatus": "حالة التأشيرة",
+    "availability": "التوفر",
+    "experience": "الخبرة",
+    "skills": "المهارات",
+    "languages": "اللغات",
+    "aboutYou": "نبذة عنك",
+    "profilePhoto": "صورة الملف الشخصي",
+    "salaryRange": "نطاق الراتب",
+    "employmentType": "نوع التوظيف",
+    "videoIntro": "فيديو التعريف",
+    "hints": {
+      "complete": "ملفك الشخصي مكتمل بالكامل.",
+      "videoIntro": "أضيفي فيديو تعريف لتميزي أمام أصحاب العمل.",
+      "single": "أضيفي {field} لتحسين ملفك الشخصي.",
+      "double": "أضيفي {field1} و{field2} لتحسين ملفك الشخصي."
+    },
+    "defaultFirstName": "هناك"
+  },
+  "errors": {
+    "googleOAuth": "فشل تسجيل الدخول عبر Google: لم يتمكن Supabase من التحقق من بيانات اعتماد Google الخاصة بك. تحققي من إعدادات Google Cloud Console وموفر Google في Supabase.",
+    "loadProfile": "تعذّر تحميل ملفك الشخصي. يرجى المحاولة مرة أخرى.",
+    "loadProfileShort": "تعذّر تحميل ملفك الشخصي.",
+    "loadMessages": "تعذّر تحميل الرسائل. يرجى المحاولة مرة أخرى.",
+    "loadInterviews": "تعذّر تحميل المقابلات. يرجى المحاولة مرة أخرى.",
+    "loadJobs": "تعذّر تحميل الوظائف. يرجى المحاولة مرة أخرى.",
+    "loadCandidates": "تعذّر تحميل المرشحات. يرجى المحاولة مرة أخرى.",
+    "sendMessage": "فشل إرسال الرسالة.",
+    "saveProgress": "فشل حفظ تقدمك.",
+    "publishProfile": "فشل نشر ملفك الشخصي.",
+    "uploadPhoto": "فشل رفع صورة الملف الشخصي.",
+    "uploadVideo": "فشل رفع فيديو التعريف.",
+    "pleaseLogInToMessage": "يرجى تسجيل الدخول لإرسال الرسائل.",
+    "chooseImage": "يرجى اختيار صورة JPG أو PNG.",
+    "photoTooLarge": "يجب أن تكون صورة الملف الشخصي 5 ميجابايت أو أقل.",
+    "videoMustBeMp4": "يجب أن يكون فيديو التعريف بصيغة MP4.",
+    "videoTooLarge": "يجب أن يكون فيديو التعريف 30 ميجابايت أو أقل.",
+    "messageEmpty": "لا يمكن أن تكون الرسالة فارغة."
+  }
+}

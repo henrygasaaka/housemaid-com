@@ -92,3 +92,11 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+[dir="rtl"] .phone-shell {
+  direction: rtl;
+}

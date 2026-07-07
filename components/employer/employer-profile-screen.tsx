@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   ChevronRight,
   FileText,
@@ -61,8 +62,11 @@ function ProfileSkeleton() {
 export function EmployerProfileScreen() {
   const router = useRouter();
   const onNavigate = useEmployerNav();
+  const t = useTranslations("employer.profile");
+  const tCommon = useTranslations("common");
+  const tAuth = useTranslations("auth");
   const { user, loading: authLoading, isGuest } = useEmployerAuth();
-  const [displayName, setDisplayName] = useState("Employer");
+  const [displayName, setDisplayName] = useState("");
   const [email, setEmail] = useState("");
   const [freeMessagesUsed, setFreeMessagesUsed] = useState(0);
   const [signingOut, setSigningOut] = useState(false);
@@ -108,7 +112,7 @@ export function EmployerProfileScreen() {
       <div className="flex min-h-full flex-1 flex-col bg-app-bg">
         <header className="border-b border-border bg-white px-[18px] py-3.5">
           <h1 className="font-head m-0 text-[17px] font-semibold text-navy">
-            My Account
+            {t("title")}
           </h1>
         </header>
         <ProfileSkeleton />
@@ -120,7 +124,7 @@ export function EmployerProfileScreen() {
     <div className="flex min-h-full flex-1 flex-col bg-app-bg">
       <header className="border-b border-border bg-white px-[18px] py-3.5">
         <h1 className="font-head m-0 text-[17px] font-semibold text-navy">
-          My Account
+          {t("title")}
         </h1>
       </header>
 
@@ -134,16 +138,16 @@ export function EmployerProfileScreen() {
               {isGuest ? (
                 <>
                   <p className="m-0 text-[15.5px] font-extrabold text-navy">
-                    Guest
+                    {tCommon("guest")}
                   </p>
                   <p className="m-0 mt-1 text-[12px] text-ink-soft">
-                    Log in to save your progress and message candidates.
+                    {t("guestHint")}
                   </p>
                   <Link
                     href="/employer/auth"
                     className="mt-2 inline-block text-[12.5px] font-bold text-blue no-underline"
                   >
-                    Log in with Google
+                    {tAuth("logInWithGoogleProfile")}
                   </Link>
                 </>
               ) : (
@@ -165,7 +169,10 @@ export function EmployerProfileScreen() {
 
         <div className="mb-4 rounded-[14px] border border-border bg-white p-4">
           <p className="m-0 text-[13px] font-bold text-ink">
-            {freeMessagesUsed} of {FREE_MESSAGE_LIMIT} free messages used
+            {tCommon("freeMessagesUsed", {
+              used: freeMessagesUsed,
+              limit: FREE_MESSAGE_LIMIT,
+            })}
           </p>
           <div className="mt-2.5 h-2 overflow-hidden rounded-full bg-border">
             <div
@@ -175,31 +182,31 @@ export function EmployerProfileScreen() {
           </div>
         </div>
 
-        <p className="m-0 mb-1 text-[13px] font-bold text-ink">Settings</p>
+        <p className="m-0 mb-1 text-[13px] font-bold text-ink">{tCommon("settings")}</p>
         <div className="rounded-[14px] border border-border bg-white px-3.5">
           <SettingsLinkRow
             icon={<User size={15} aria-hidden />}
-            label="Edit Profile"
+            label={t("editProfile")}
             href="/employer/discover"
           />
           <SettingsLinkRow
             icon={<Heart size={15} aria-hidden />}
-            label="Saved Candidates"
+            label={t("savedCandidates")}
             href="/employer/saved"
           />
           <SettingsLinkRow
             icon={<FileText size={15} aria-hidden />}
-            label="Terms of Service"
+            label={tCommon("termsOfService")}
             href="/employer/terms"
           />
           <SettingsLinkRow
             icon={<Shield size={15} aria-hidden />}
-            label="Privacy Policy"
+            label={tCommon("privacyPolicy")}
             href="/employer/privacy"
           />
           <SettingsLinkRow
             icon={<HelpCircle size={15} aria-hidden />}
-            label="Help & Support"
+            label={tCommon("helpSupport")}
             href="/employer/support"
           />
 
@@ -214,7 +221,7 @@ export function EmployerProfileScreen() {
                 <LogOut size={15} aria-hidden />
               </span>
               <span className="text-[13px] font-bold text-[#E0245E]">
-                {signingOut ? "Logging out…" : "Log Out"}
+                {signingOut ? tCommon("loggingOut") : tCommon("logOut")}
               </span>
             </button>
           )}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { MessageCircle, Pencil } from "lucide-react";
 import { BottomSheet } from "@/components/ui/bottom-sheet";
 import { PrimaryButton } from "@/components/ui/primary-button";
@@ -56,6 +57,7 @@ export function MessageComposerSheet({
   onSend,
   onDismiss,
 }: MessageComposerSheetProps) {
+  const tCommon = useTranslations("common");
   const [view, setView] = useState<View>("suggestions");
   const [message, setMessage] = useState("");
 
@@ -78,21 +80,21 @@ export function MessageComposerSheet({
     setMessage("");
   }
 
-  const quickMessage = `Hi ${candidateName}, I'm interested in your profile — especially your experience with childcare. Are you available to discuss?`;
-  const simpleGreeting = `Hi ${candidateName}, I saw your profile and I'm interested. Is now a good time to chat?`;
+  const quickMessage = tCommon("quickMessageTemplate", { candidateName });
+  const simpleGreeting = tCommon("simpleGreetingTemplate", { candidateName });
 
   return (
     <BottomSheet open={open} onDismiss={handleDismiss}>
       {view === "suggestions" ? (
         <>
           <p className="mb-4 mt-1 text-[17px] font-extrabold text-navy">
-            Send a message to {candidateName}.
+            {tCommon("sendMessageTo", { candidateName })}
           </p>
 
           <SuggestionCard
             icon={<MessageCircle size={16} className="text-blue" aria-hidden />}
             iconBg="bg-blue-light"
-            label="Quick message"
+            label={tCommon("quickMessage")}
             onClick={() => send(quickMessage)}
           >
             {quickMessage}
@@ -101,7 +103,7 @@ export function MessageComposerSheet({
           <SuggestionCard
             icon={<MessageCircle size={16} className="text-blue" aria-hidden />}
             iconBg="bg-blue-light"
-            label="Simple greeting"
+            label={tCommon("simpleGreeting")}
             onClick={() => send(simpleGreeting)}
           >
             {simpleGreeting}
@@ -112,19 +114,19 @@ export function MessageComposerSheet({
             iconBg="bg-[#EDE9F5]"
             onClick={() => setView("custom")}
           >
-            Write your own message.
+            {tCommon("writeYourOwn")}
           </SuggestionCard>
         </>
       ) : (
         <>
           <p className="mb-4 mt-1 text-[17px] font-extrabold text-navy">
-            Write your own message.
+            {tCommon("writeYourOwn")}
           </p>
 
           <textarea
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            placeholder={`Write a message to ${candidateName}...`}
+            placeholder={tCommon("writeMessageTo", { candidateName })}
             rows={4}
             className="mb-3 w-full resize-none rounded-xl border border-border bg-white px-3.5 py-3 text-[13px] text-ink outline-none placeholder:text-ink-faint focus:border-blue"
           />
@@ -134,7 +136,7 @@ export function MessageComposerSheet({
             disabled={!message.trim()}
             onClick={() => send(message.trim())}
           >
-            Send message
+            {tCommon("sendMessage")}
           </PrimaryButton>
 
           <button
@@ -145,7 +147,7 @@ export function MessageComposerSheet({
             }}
             className="mt-3 w-full cursor-pointer border-none bg-transparent text-center text-[13px] font-semibold text-ink-soft"
           >
-            Back to suggestions
+            {tCommon("backToSuggestions")}
           </button>
         </>
       )}

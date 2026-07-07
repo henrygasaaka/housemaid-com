@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Mail } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { TopBar } from "@/components/ui/top-bar";
 import { ScreenHeading } from "@/components/ui/screen-heading";
 import { TextField } from "@/components/ui/text-field";
@@ -13,6 +14,7 @@ import { createClient } from "@/lib/supabase";
 
 export function EmailLoginScreen() {
   const router = useRouter();
+  const t = useTranslations("auth");
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [sent, setSent] = useState(false);
@@ -48,11 +50,11 @@ export function EmailLoginScreen() {
       <TopBar onBack={() => router.back()} accent="purple" />
       <ScreenHeading
         icon={<Mail size={24} className="text-purple" aria-hidden />}
-        title={sent ? "Check your email" : "Log in with email"}
+        title={sent ? t("emailCheckTitle") : t("emailLoginTitle")}
         subtitle={
           sent
-            ? `We sent a magic link to ${email.trim()}`
-            : "Enter the email you signed up with"
+            ? t("emailSentMagicLink", { email: email.trim() })
+            : t("emailLoginSubtitle")
         }
         accent="purple"
       />
@@ -61,7 +63,7 @@ export function EmailLoginScreen() {
           <>
             <TextField
               icon={<Mail size={15} className="text-ink-faint" aria-hidden />}
-              placeholder="Email address"
+              placeholder={t("emailAddressPlaceholder")}
               value={email}
               onChange={setEmail}
               type="email"
@@ -74,8 +76,7 @@ export function EmailLoginScreen() {
           </>
         ) : (
           <p className="m-0 text-center text-[13px] leading-relaxed text-ink-soft">
-            Tap the link in your email to sign in. You can close this page and
-            return once you&apos;ve confirmed.
+            {t("emailConfirmHint")}
           </p>
         )}
       </div>
@@ -85,10 +86,12 @@ export function EmailLoginScreen() {
             onClick={handleSendMagicLink}
             disabled={!email.trim() || loading}
           >
-            {loading ? "Sending…" : "Send magic link"}
+            {loading ? t("sending") : t("sendMagicLink")}
           </PrimaryButton>
         ) : (
-          <PrimaryButton onClick={() => setSent(false)}>Use a different email</PrimaryButton>
+          <PrimaryButton onClick={() => setSent(false)}>
+            {t("useDifferentEmail")}
+          </PrimaryButton>
         )}
         <PrivacyNote />
       </div>

@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, Heart } from "lucide-react";
 import { DiscoverCandidateCard } from "@/components/employer/discover-candidate-card";
 import { EmployerBottomNav } from "@/components/employer/employer-bottom-nav";
@@ -15,16 +16,15 @@ type SavedCandidatesScreenProps = {
 };
 
 function EmptyState() {
+  const t = useTranslations("employer.saved");
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-blue-light">
         <Heart size={26} className="text-blue" aria-hidden />
       </div>
-      <p className="m-0 text-[15px] font-bold text-navy">
-        No saved candidates yet
-      </p>
+      <p className="m-0 text-[15px] font-bold text-navy">{t("empty")}</p>
       <p className="m-0 mt-2 max-w-[260px] text-[12.5px] leading-relaxed text-ink-soft">
-        Tap the heart icon on any candidate profile to save them here
+        {t("emptyDesc")}
       </p>
     </div>
   );
@@ -34,6 +34,8 @@ export function SavedCandidatesScreen({
   initialSavedIds = [],
 }: SavedCandidatesScreenProps) {
   const onNavigate = useEmployerNav();
+  const t = useTranslations("employer.saved");
+  const tAria = useTranslations("aria");
   const [savedIds, setSavedIds] = useState<Set<string>>(
     () => new Set(initialSavedIds)
   );
@@ -85,12 +87,12 @@ export function SavedCandidatesScreen({
         <Link
           href="/employer/discover"
           className="flex border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </Link>
         <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-          Saved Candidates
+          {t("title")}
         </h1>
       </header>
 

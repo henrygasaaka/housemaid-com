@@ -3,10 +3,12 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { Briefcase, Check, ChevronLeft, MapPin } from "lucide-react";
 import {
   JOB_FILTERS,
   filterJobs,
+  getJobFilterLabel,
   type CandidateJob,
   type JobFilter,
 } from "@/lib/candidate-jobs";
@@ -30,6 +32,10 @@ function JobCard({
   saving: boolean;
   onExpressInterest: () => void;
 }) {
+  const t = useTranslations("common");
+  const tJobs = useTranslations("candidate.jobs");
+  const tTime = useTranslations("time");
+
   return (
     <div className="rounded-[14px] border border-border bg-white p-3.5">
       <p className="m-0 text-[14.5px] font-extrabold text-navy">
@@ -55,7 +61,7 @@ function JobCard({
       </div>
 
       <p className="m-0 mt-2.5 text-[10.5px] text-ink-faint">
-        Posted {job.posted}
+        {tTime("posted", { posted: job.posted })}
       </p>
 
       <button
@@ -70,13 +76,13 @@ function JobCard({
       >
         {interested ? (
           <>
-            Interested
+            {t("interested")}
             <Check size={14} strokeWidth={3} aria-hidden />
           </>
         ) : saving ? (
-          "Saving…"
+          t("saving")
         ) : (
-          "Express Interest"
+          t("expressInterest")
         )}
       </button>
     </div>
@@ -94,23 +100,25 @@ function JobsSkeleton() {
 }
 
 function EmptyState() {
+  const t = useTranslations("candidate.jobs");
   return (
     <div className="flex flex-col items-center px-6 py-12 text-center">
       <div className="mb-3 flex h-14 w-14 items-center justify-center rounded-full bg-purple-light">
         <Briefcase size={26} className="text-purple" aria-hidden />
       </div>
       <p className="m-0 max-w-[260px] text-[13px] leading-relaxed text-ink-soft">
-        No open positions yet. Check back soon — new jobs are added regularly.
+        {t("empty")}
       </p>
     </div>
   );
 }
 
 function FilterEmptyState() {
+  const t = useTranslations("candidate.jobs");
   return (
     <div className="flex flex-col items-center px-6 py-10 text-center">
       <p className="m-0 max-w-[260px] text-[13px] leading-relaxed text-ink-soft">
-        No jobs match this filter. Try another category.
+        {t("filterEmpty")}
       </p>
     </div>
   );
@@ -119,6 +127,11 @@ function FilterEmptyState() {
 export function CandidateJobs() {
   const router = useRouter();
   const onNavigate = useCandidateNav();
+  const t = useTranslations();
+  const tJobs = useTranslations("candidate.jobs");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const tErrors = useTranslations("errors");
   const [jobs, setJobs] = useState<CandidateJob[]>([]);
   const [loading, setLoading] = useState(true);
   const [loadError, setLoadError] = useState<string | null>(null);
@@ -153,9 +166,7 @@ export function CandidateJobs() {
         if (cancelled) return;
         console.error("[jobs] Failed to load:", error);
         setLoadError(
-          error instanceof Error
-            ? error.message
-            : "Could not load jobs. Please try again."
+          error instanceof Error ? error.message : tErrors("loadJobs")
         );
       } finally {
         if (!cancelled) setLoading(false);
@@ -203,17 +214,17 @@ export function CandidateJobs() {
         <Link
           href="/candidate/dashboard"
           className="flex border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </Link>
         <h1 className="font-head m-0 flex-1 text-[17px] font-semibold text-navy">
-          Jobs
+          {tJobs("title")}
         </h1>
       </header>
 
       <div className="px-[18px] pt-3">
-        <p className="m-0 text-[12px] text-ink-soft">Open positions near you</p>
+        <p className="m-0 text-[12px] text-ink-soft">{tJobs("subtitle")}</p>
       </div>
 
       <div className="min-w-0 overflow-hidden pt-2.5">
@@ -231,7 +242,7 @@ export function CandidateJobs() {
                     : "border border-border bg-white text-ink"
                 }`}
               >
-                {filter}
+                {getJobFilterLabel((key) => t(key), filter)}
               </button>
             );
           })}
@@ -249,7 +260,7 @@ export function CandidateJobs() {
               onClick={() => window.location.reload()}
               className="mt-4 cursor-pointer rounded-[11px] border-none bg-purple px-4 py-2.5 text-[13px] font-bold text-white"
             >
-              Try again
+              {tCommon("tryAgain")}
             </button>
           </div>
         ) : !hasJobs ? (

@@ -1,6 +1,11 @@
+import { getTranslations } from "next-intl/server";
 import { HelpSupportScreen } from "@/components/support/help-support-screen";
-import { EMPLOYER_HELP_FAQ } from "@/lib/employer-help";
+import { getEmployerHelpFaq } from "@/lib/i18n-help";
 
-export default function EmployerSupportPage() {
-  return <HelpSupportScreen items={EMPLOYER_HELP_FAQ} emailAccent="blue" />;
+export default async function EmployerSupportPage() {
+  const t = await getTranslations("help");
+
+  return (
+    <HelpSupportScreen items={getEmployerHelpFaq(t)} emailAccent="blue" />
+  );
 }

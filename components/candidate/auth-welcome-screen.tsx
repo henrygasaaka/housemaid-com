@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import {
   ChevronLeft,
   Heart,
@@ -25,6 +26,9 @@ type AuthWelcomeScreenProps = {
 
 export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
   const isLogin = mode === "login";
+  const t = useTranslations("auth");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
   const [googleLoading, setGoogleLoading] = useState(false);
   const [error, setError] = useState<string | null>(authError ?? null);
 
@@ -40,9 +44,7 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
         description.includes("unable to exchange external code") ||
         hashParams.get("error") === "server_error"
       ) {
-        setError(
-          "Google sign-in failed: Supabase could not verify your Google credentials. Check Google Cloud Console and Supabase Google provider settings."
-        );
+        setError(t("googleSignInFailedDetail"));
       }
     }
 
@@ -75,7 +77,7 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
           <Link
             href={isLogin ? "/" : "/candidate/auth"}
             className="flex border-none bg-transparent p-1"
-            aria-label="Go back"
+            aria-label={tAria("goBack")}
           >
             <ChevronLeft size={20} className="text-ink" aria-hidden />
           </Link>
@@ -114,10 +116,10 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
         </div>
 
         <h2 className="m-0 text-center text-[27px] font-extrabold text-navy">
-          {isLogin ? "Welcome Back!" : "Create your account"}
+          {isLogin ? t("welcomeBack") : t("createYourAccount")}
         </h2>
         <p className="mb-[22px] mt-1.5 text-center text-sm text-ink-soft">
-          {isLogin ? "Login to your account" : "Find the right job in minutes"}
+          {isLogin ? t("loginToAccount") : t("findJobMinutes")}
         </p>
 
         {error && (
@@ -134,7 +136,7 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
         >
           <GoogleIcon variant="white" />
           <span className="text-[15px] font-bold text-white">
-            {googleLoading ? "Redirecting…" : "Continue with Google"}
+            {googleLoading ? t("redirectingToGoogle") : t("continueWithGoogle")}
           </span>
         </button>
 
@@ -145,7 +147,7 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
           >
             <Mail size={17} className="text-navy" aria-hidden />
             <span className="text-[15px] font-bold text-navy">
-              Continue with Email
+              {t("continueWithEmail")}
             </span>
           </Link>
         )}
@@ -156,18 +158,18 @@ export function AuthWelcomeScreen({ mode, authError }: AuthWelcomeScreenProps) {
         >
           <Phone size={17} className="text-navy" aria-hidden />
           <span className="text-[15px] font-bold text-navy">
-            Continue with Phone Number
+            {t("continueWithPhone")}
           </span>
         </Link>
 
         <p className="m-0 text-center text-[13px] text-ink-soft">
-          {isLogin ? "Don't have an account?" : "Already have an account?"}
+          {isLogin ? t("dontHaveAccount") : t("alreadyHaveAccount")}
         </p>
         <Link
           href={isLogin ? "/candidate/auth/signup" : "/candidate/auth"}
           className="mt-1 block cursor-pointer text-center text-[14.5px] font-bold text-purple no-underline"
         >
-          {isLogin ? "Create Account" : "Log In"}
+          {isLogin ? tCommon("createAccount") : tCommon("logIn")}
         </Link>
       </div>
 

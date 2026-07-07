@@ -55,8 +55,10 @@ function mapInterviewSection(dbStatus: string): "upcoming" | "past" {
   return dbStatus === "interviewed" ? "past" : "upcoming";
 }
 
-function formatInterviewDate(value: string | null): string {
-  if (!value) return "To be confirmed";
+import type { AppTranslateFn } from "@/lib/i18n-types";
+
+function formatInterviewDate(value: string | null, t?: AppTranslateFn): string {
+  if (!value) return t ? t("time.toBeConfirmed") : "To be confirmed";
   const parsed = new Date(value.includes("T") ? value : `${value}T00:00:00`);
   if (Number.isNaN(parsed.getTime())) return value;
   return parsed.toLocaleDateString("en-US", {
@@ -67,8 +69,8 @@ function formatInterviewDate(value: string | null): string {
   });
 }
 
-function formatInterviewTime(value: string | null): string {
-  if (!value) return "To be confirmed";
+function formatInterviewTime(value: string | null, t?: AppTranslateFn): string {
+  if (!value) return t ? t("time.toBeConfirmed") : "To be confirmed";
 
   const timeMatch = value.match(/^(\d{1,2}):(\d{2})(?::\d{2})?/);
   if (timeMatch) {
@@ -87,16 +89,17 @@ function formatInterviewTime(value: string | null): string {
 }
 
 export function mapInterviewConversationRow(
-  row: InterviewConversationWithEmployer
+  row: InterviewConversationWithEmployer,
+  t?: AppTranslateFn
 ): CandidateInterview {
   const employer = pickEmployer(row.employers);
 
   return {
     id: row.id,
-    employer: employerDisplayName(employer),
+    employer: employerDisplayName(employer, t),
     role: "—",
-    date: formatInterviewDate(row.interview_date),
-    time: formatInterviewTime(row.interview_time),
+    date: formatInterviewDate(row.interview_date, t),
+    time: formatInterviewTime(row.interview_time, t),
     location: "—",
     status: mapInterviewStatus(row.status),
     section: mapInterviewSection(row.status),
@@ -106,7 +109,8 @@ export function mapInterviewConversationRow(
 
 export async function fetchCandidateInterviews(
   supabase: SupabaseClient,
-  candidateId: string
+  candidateId: string,
+  t?: AppTranslateFn
 ): Promise<CandidateInterview[]> {
   const { data, error } = await supabase
     .from("conversations")
@@ -123,7 +127,7 @@ export async function fetchCandidateInterviews(
   const rows = (data ?? []) as InterviewConversationWithEmployer[];
 
   return rows
-    .map(mapInterviewConversationRow)
+    .map((row) => mapInterviewConversationRow(row, t))
     .sort((a, b) => {
       if (a.section !== b.section) {
         return a.section === "upcoming" ? -1 : 1;

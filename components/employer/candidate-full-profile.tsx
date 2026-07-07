@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
 import {
   Briefcase,
   Check,
@@ -107,6 +108,10 @@ function ProfileActionButton({
 
 export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps) {
   const pathname = usePathname();
+  const tCommon = useTranslations("common");
+  const tEmployer = useTranslations("employer.candidateProfile");
+  const tAria = useTranslations("aria");
+  const tErrors = useTranslations("errors");
   const { loading: authLoading, isGuest } = useEmployerAuth();
   const [isSaved, setIsSaved] = useState(false);
   const [playingVideo, setPlayingVideo] = useState(false);
@@ -186,7 +191,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
       } = await supabase.auth.getUser();
 
       if (!authUser) {
-        setMessageError("Please log in to send messages.");
+        setMessageError(tErrors("pleaseLogInToMessage"));
         return;
       }
 
@@ -226,7 +231,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
         return;
       }
       setMessageError(
-        error instanceof Error ? error.message : "Failed to send message."
+        error instanceof Error ? error.message : tErrors("sendMessage")
       );
     } finally {
       setSendingMessage(false);
@@ -313,7 +318,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
           <Link
             href="/employer/discover"
             className="flex rounded-full bg-white/85 p-[7px]"
-            aria-label="Go back"
+            aria-label={tAria("goBack")}
           >
             <ChevronLeft size={18} className="text-ink" aria-hidden />
           </Link>
@@ -323,7 +328,9 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
             className={`flex h-8 w-8 cursor-pointer items-center justify-center rounded-full border-none ${
               isSaved ? "bg-green" : "bg-white/85"
             }`}
-            aria-label={isSaved ? "Unsave candidate" : "Save candidate"}
+            aria-label={
+              isSaved ? tAria("unsaveCandidate") : tAria("saveCandidate")
+            }
           >
             <Heart
               size={15}
@@ -354,7 +361,9 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
           type="button"
           onClick={() => setPlayingVideo((p) => !p)}
           className="absolute left-1/2 top-1/2 flex h-[58px] w-[58px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border-none bg-black/35"
-          aria-label={playingVideo ? "Pause video" : "Play intro video"}
+          aria-label={
+            playingVideo ? tAria("pauseVideo") : tAria("playIntroVideo")
+          }
         >
           {playingVideo ? (
             <Pause size={22} className="fill-white text-white" aria-hidden />
@@ -399,7 +408,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
         </div>
 
         <div className="mb-4 flex min-w-0 flex-wrap gap-2">
-          {(["Identity", "Visa", "References"] as const).map((label) => (
+          {([tCommon("identity"), tCommon("visa"), tCommon("references")] as const).map((label) => (
             <div
               key={label}
               className="flex min-w-0 flex-1 basis-[calc(33.333%-0.375rem)] items-center gap-[5px] rounded-[9px] bg-green-light px-2 py-[7px]"
@@ -432,7 +441,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
         {isUnlocked ? (
           <>
             <p className="mb-2 text-[13px] font-bold text-ink">
-              Employment history
+              {tEmployer("employmentHistory")}
             </p>
             <div className="mb-4">
               {c.employmentHistory.map((job) => (
@@ -471,16 +480,16 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
           <div className="relative mb-4 min-w-0 overflow-hidden">
             <div className="pointer-events-none min-w-0 select-none overflow-hidden blur-[4px]">
               <p className="mb-2 text-[13px] font-bold text-ink">
-                Employment history
+                {tEmployer("employmentHistory")}
               </p>
               <div className="mb-2.5 flex gap-2.5">
                 <div className="h-[30px] w-[30px] shrink-0 rounded-full bg-blue-light" />
                 <div>
                   <p className="m-0 text-[12.5px] font-bold text-ink">
-                    {c.employmentHistory[0]?.role || "Previous role"}
+                    {c.employmentHistory[0]?.role || tCommon("previousRole")}
                   </p>
                   <p className="m-0 mt-px text-[11.5px] text-ink-soft">
-                    {c.employmentHistory[0]?.employer || "Previous employer"} ·
+                    {c.employmentHistory[0]?.employer || tCommon("previousEmployer")} ·
                     ●●●●●●
                   </p>
                   <p className="m-0 mt-px text-[10.5px] text-ink-faint">
@@ -531,7 +540,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
               aria-hidden
             />
           }
-          label={isSaved ? "Saved" : "Save"}
+          label={isSaved ? tCommon("saved") : tCommon("save")}
           filled={isSaved}
           accent="green"
           onClick={handleSave}
@@ -545,7 +554,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
               aria-hidden
             />
           }
-          label="Message"
+          label={tCommon("message")}
           onClick={handleMessage}
         />
         {isUnlocked ? (
@@ -563,7 +572,7 @@ export function CandidateFullProfile({ candidate: c }: CandidateFullProfileProps
         ) : (
           <ProfileActionButton
             icon={<Lock size={13} className="text-white" aria-hidden />}
-            label="View profile"
+            label={tCommon("viewProfile")}
             filled
             accent="blue"
             onClick={handleViewProfile}

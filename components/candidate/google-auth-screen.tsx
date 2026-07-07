@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ChevronLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { getCandidateAuthCallbackUrl } from "@/lib/candidate-auth";
 import { createClient } from "@/lib/supabase";
 
@@ -12,6 +13,8 @@ type GoogleAuthScreenProps = {
 
 export function GoogleAuthScreen({ mode }: GoogleAuthScreenProps) {
   const router = useRouter();
+  const t = useTranslations("auth");
+  const tAria = useTranslations("aria");
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -44,7 +47,7 @@ export function GoogleAuthScreen({ mode }: GoogleAuthScreenProps) {
         type="button"
         onClick={() => router.back()}
         className="absolute left-4 top-4 flex cursor-pointer border-none bg-transparent p-1"
-        aria-label="Go back"
+        aria-label={tAria("goBack")}
       >
         <ChevronLeft size={20} className="text-ink" aria-hidden />
       </button>
@@ -70,13 +73,13 @@ export function GoogleAuthScreen({ mode }: GoogleAuthScreenProps) {
 
       <p className="m-0 text-center text-[15.5px] font-bold text-navy">
         {error
-          ? "Google sign-in failed"
+          ? t("googleSignInFailed")
           : mode === "login"
-            ? "Log in with Google"
-            : "Sign up with Google"}
+            ? t("logInWithGoogle")
+            : t("signUpWithGoogle")}
       </p>
       <p className="mb-[22px] mt-1.5 text-center text-[12.5px] text-ink-soft">
-        {error ?? "Redirecting you to Google…"}
+        {error ?? t("redirectingToGoogle")}
       </p>
 
       {error && (
@@ -85,7 +88,7 @@ export function GoogleAuthScreen({ mode }: GoogleAuthScreenProps) {
           onClick={() => router.push("/candidate/auth")}
           className="cursor-pointer rounded-[13px] border border-border bg-white px-4 py-2.5 text-[13px] font-semibold text-ink"
         >
-          Back to login
+          {t("backToLogin")}
         </button>
       )}
     </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
 import { ChevronLeft } from "lucide-react";
 import type { LegalSection } from "@/lib/legal-types";
 
@@ -18,6 +19,7 @@ export function LegalDocumentScreen({
   sections,
 }: LegalDocumentScreenProps) {
   const router = useRouter();
+  const tAria = useTranslations("aria");
 
   return (
     <div className="flex min-h-full flex-1 flex-col bg-white">
@@ -26,7 +28,7 @@ export function LegalDocumentScreen({
           type="button"
           onClick={() => router.back()}
           className="cursor-pointer border-none bg-transparent p-0.5"
-          aria-label="Go back"
+          aria-label={tAria("goBack")}
         >
           <ChevronLeft size={20} className="text-ink" aria-hidden />
         </button>
@@ -36,9 +38,7 @@ export function LegalDocumentScreen({
       </header>
 
       <div className="flex-1 overflow-y-auto px-5 py-3 pb-8">
-        <p className="m-0 text-[11.5px] text-ink-faint">
-          Last updated: {lastUpdated}
-        </p>
+        <p className="m-0 text-[11.5px] text-ink-faint">{lastUpdated}</p>
         {intro && (
           <p className="mb-4 mt-3 text-[13px] leading-relaxed text-ink-soft">
             {intro}

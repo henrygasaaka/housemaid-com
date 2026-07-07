@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import { ChevronLeft, Shield, User } from "lucide-react";
 import { Logo } from "@/components/logo";
 import { DiscoverCandidateCard } from "@/components/employer/discover-candidate-card";
@@ -9,6 +10,7 @@ import {
   DISCOVER_FILTERS,
   fetchDiscoverCandidates,
   filterDiscoverCandidates,
+  getDiscoverFilterLabel,
 } from "@/lib/discover-candidates-db";
 import type { DiscoverCandidate } from "@/lib/discover-candidates";
 import { useEmployerAuth } from "@/components/employer/use-employer-auth";
@@ -28,20 +30,23 @@ function DiscoverSkeleton() {
 }
 
 function DiscoverEmptyState() {
+  const t = useTranslations("employer.discover");
   return (
     <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
-      <p className="m-0 text-[15px] font-bold text-navy">
-        No candidates available yet
-      </p>
+      <p className="m-0 text-[15px] font-bold text-navy">{t("empty")}</p>
       <p className="m-0 mt-2 max-w-[280px] text-[12.5px] leading-relaxed text-ink-soft">
-        Published candidate profiles will appear here once housemaids complete
-        onboarding and go live.
+        {t("emptyDesc")}
       </p>
     </div>
   );
 }
 
 export function EmployerDiscoverFeed() {
+  const t = useTranslations();
+  const tDiscover = useTranslations("employer.discover");
+  const tCommon = useTranslations("common");
+  const tAria = useTranslations("aria");
+  const tErrors = useTranslations("errors");
   const [savedIds, setSavedIds] = useState<Set<string>>(new Set());
   const [activeFilter, setActiveFilter] = useState(0);
   const [candidates, setCandidates] = useState<DiscoverCandidate[]>([]);
@@ -63,9 +68,7 @@ export function EmployerDiscoverFeed() {
         if (cancelled) return;
         console.error("[discover] Failed to load candidates:", error);
         setLoadError(
-          error instanceof Error
-            ? error.message
-            : "Could not load candidates. Please try again."
+          error instanceof Error ? error.message : tErrors("loadCandidates")
         );
       } finally {
         if (!cancelled) setLoading(false);
@@ -107,7 +110,7 @@ export function EmployerDiscoverFeed() {
           <Link
             href="/"
             className="flex border-none bg-transparent p-1"
-            aria-label="Go back"
+            aria-label={tAria("goBack")}
           >
             <ChevronLeft size={20} className="text-ink" aria-hidden />
           </Link>
@@ -116,17 +119,17 @@ export function EmployerDiscoverFeed() {
         {guestMode && (
           <span className="flex items-center gap-[5px] rounded-[20px] bg-[#FEF3E2] px-2.5 py-[5px] text-[11.5px] font-bold text-[#D97706]">
             <User size={12} aria-hidden />
-            Guest mode
+            {tCommon("guestMode")}
           </span>
         )}
       </div>
 
       <div className="px-[18px] pt-3">
         <h2 className="font-head m-0 text-lg font-semibold text-navy">
-          Discover
+          {tDiscover("title")}
         </h2>
         <p className="m-0 mt-0.5 text-xs text-ink-soft">
-          Browse verified candidates anonymously.
+          {tDiscover("subtitle")}
         </p>
       </div>
 
@@ -143,7 +146,7 @@ export function EmployerDiscoverFeed() {
                   : "border border-border bg-white text-ink"
               }`}
             >
-              {f}
+              {getDiscoverFilterLabel((key) => t(key), f)}
             </button>
           ))}
         </div>
@@ -159,7 +162,7 @@ export function EmployerDiscoverFeed() {
             onClick={() => window.location.reload()}
             className="mt-4 cursor-pointer rounded-[11px] border-none bg-blue px-4 py-2.5 text-[13px] font-bold text-white"
           >
-            Try again
+            {tCommon("tryAgain")}
           </button>
         </div>
       ) : candidates.length === 0 ? (
@@ -167,11 +170,10 @@ export function EmployerDiscoverFeed() {
       ) : visibleCandidates.length === 0 ? (
         <div className="flex flex-1 flex-col items-center justify-center px-8 py-16 text-center">
           <p className="m-0 text-[15px] font-bold text-navy">
-            No matches for this filter
+            {tDiscover("filterEmpty")}
           </p>
           <p className="m-0 mt-2 max-w-[260px] text-[12.5px] leading-relaxed text-ink-soft">
-            Try another filter or check back as more candidates publish their
-            profiles.
+            {tDiscover("filterEmptyDesc")}
           </p>
         </div>
       ) : (
@@ -197,10 +199,10 @@ export function EmployerDiscoverFeed() {
           />
           <div>
             <p className="m-0 text-[12.5px] font-bold text-[#1E3A8A]">
-              100% verified profiles
+              {tCommon("verifiedProfilesBanner")}
             </p>
             <p className="m-0 mt-px text-[11.5px] text-[#1E3A8A]">
-              All candidates are background checked for your safety.
+              {tCommon("verifiedProfilesDesc")}
             </p>
           </div>
         </div>
@@ -215,12 +217,13 @@ export function EmployerDiscoverFeed() {
               />
               <div className="min-w-0">
                 <p className="m-0 text-[12.5px] font-bold text-navy">
-                  Browsing as guest
+                  {tCommon("browsingAsGuest")}
                 </p>
                 <p className="m-0 mt-0.5 text-[11.5px] leading-snug text-ink-soft">
-                  <span className="font-semibold text-purple">log-in</span> or{" "}
-                  <span className="font-semibold text-purple">create</span> a
-                  free account to message candidates.
+                  {tCommon("guestBrowseHint", {
+                    logIn: tCommon("logInLower"),
+                    create: tCommon("createLower"),
+                  })}
                 </p>
               </div>
             </div>
@@ -229,13 +232,13 @@ export function EmployerDiscoverFeed() {
                 href="/employer/auth?next=/employer/discover"
                 className="flex cursor-pointer items-center justify-center rounded-[11px] border-[1.5px] border-purple bg-white px-3 py-2 text-[11.5px] font-bold text-purple no-underline"
               >
-                Log-in
+                {tCommon("logIn")}
               </Link>
               <Link
                 href="/employer/auth?next=/employer/discover"
                 className="flex cursor-pointer items-center justify-center rounded-[11px] border-none bg-purple px-3 py-2 text-[11.5px] font-bold text-white no-underline"
               >
-                Create
+                {tCommon("create")}
               </Link>
             </div>
           </div>

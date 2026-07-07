@@ -7,6 +7,7 @@ import {
   MessageCircle,
   User,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export type EmployerNavItem =
   | "Discover"
@@ -22,32 +23,32 @@ type EmployerBottomNavProps = {
 
 const NAV_ITEMS: {
   id: EmployerNavItem;
-  label: string;
+  labelKey: "discover" | "saved" | "messages" | "interviews" | "profile";
   icon: React.ReactNode;
 }[] = [
   {
     id: "Discover",
-    label: "Discover",
+    labelKey: "discover",
     icon: <Home size={20} strokeWidth={2} aria-hidden />,
   },
   {
     id: "Saved",
-    label: "Saved",
+    labelKey: "saved",
     icon: <Heart size={20} strokeWidth={2} aria-hidden />,
   },
   {
     id: "Messages",
-    label: "Messages",
+    labelKey: "messages",
     icon: <MessageCircle size={20} strokeWidth={2} aria-hidden />,
   },
   {
     id: "Interviews",
-    label: "Interviews",
+    labelKey: "interviews",
     icon: <Calendar size={20} strokeWidth={2} aria-hidden />,
   },
   {
     id: "Profile",
-    label: "Profile",
+    labelKey: "profile",
     icon: <User size={20} strokeWidth={2} aria-hidden />,
   },
 ];
@@ -56,9 +57,11 @@ export function EmployerBottomNav({
   active,
   onNavigate,
 }: EmployerBottomNavProps) {
+  const t = useTranslations("nav.employer");
+
   return (
     <nav className="mt-auto flex shrink-0 justify-around border-t border-border bg-white px-1 pb-4 pt-2.5">
-      {NAV_ITEMS.map(({ id, label, icon }) => {
+      {NAV_ITEMS.map(({ id, labelKey, icon }) => {
         const isActive = id === active;
         return (
           <button
@@ -73,7 +76,7 @@ export function EmployerBottomNav({
             <span
               className={`text-[9.5px] ${isActive ? "font-bold" : "font-medium"}`}
             >
-              {label}
+              {t(labelKey)}
             </span>
           </button>
         );

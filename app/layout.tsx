@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages, getTranslations } from "next-intl/server";
 import { PhoneFrame } from "@/components/ui/phone-frame";
+import { isRtlLocale } from "@/lib/i18n-config";
 import "./globals.css";
 
 const inter = Inter({
@@ -14,30 +17,41 @@ const poppins = Poppins({
   weight: ["500", "600", "700", "800"],
 });
 
-const APP_TITLE = "Housemaid-AE — Trusted housemaids & employers in UAE";
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("meta");
 
-export const metadata: Metadata = {
-  title: APP_TITLE,
-  description:
-    "Connecting trusted housemaids and employers across UAE. Find the right job or hire the perfect match.",
-  openGraph: {
-    title: APP_TITLE,
-  },
-  appleWebApp: {
-    title: "Housemaid-AE",
-  },
-  applicationName: "Housemaid-AE",
-};
+  return {
+    title: t("title"),
+    description: t("description"),
+    openGraph: {
+      title: t("openGraphTitle"),
+    },
+    appleWebApp: {
+      title: t("appleWebAppTitle"),
+    },
+    applicationName: t("applicationName"),
+  };
+}
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+  const dir = isRtlLocale(locale) ? "rtl" : "ltr";
+
   return (
-    <html lang="en" className={`${inter.variable} ${poppins.variable} antialiased`}>
+    <html
+      lang={locale}
+      dir={dir}
+      className={`${inter.variable} ${poppins.variable} antialiased`}
+    >
       <body suppressHydrationWarning>
-        <PhoneFrame>{children}</PhoneFrame>
+        <NextIntlClientProvider messages={messages}>
+          <PhoneFrame>{children}</PhoneFrame>
+        </NextIntlClientProvider>
       </body>
     </html>
   );
